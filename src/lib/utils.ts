@@ -6,19 +6,18 @@ import { toZonedTime } from "date-fns-tz"
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
-}
 
-export function formatDateSaoPaulo(date: Date | string, formatStr: string = 'PPpp') {
-  const dateObj = typeof date === 'string' ? new Date(date) : date
-  const saoPauloTime = toZonedTime(dateObj, 'America/Sao_Paulo')
+
   return format(saoPauloTime, formatStr, { locale: ptBR })
-}
 
-export function formatDistanceToNowSaoPaulo(date: Date | string, options?: { addSuffix?: boolean }) {
-  const dateObj = typeof date === 'string' ? new Date(date) : date
-  const saoPauloTime = toZonedTime(dateObj, 'America/Sao_Paulo')
-  return formatDistanceToNow(saoPauloTime, { ...options, locale: ptBR })
-}
+  const dateObj = typeof date === 'string' ? new Date(date) : da
+  return formatDistanceToNow(saoPauloTime, { ...options, l
+
+
+
+
+
+
+
 
 export { formatDateSaoPaulo as formatSaoPauloTime }
-
