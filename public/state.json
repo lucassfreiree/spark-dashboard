@@ -1,11 +1,11 @@
 {
-  "lastSync": "2026-03-28T17:53:50Z",
+  "lastSync": "2026-03-28T18:34:45Z",
   "controller": {
-    "version": "source-change",
-    "status": "ci-failed",
-    "ciResult": "failure",
-    "promoted": false,
-    "lastSha": "8e460fa8d4d9fbad71e0e2665236ffa631595652"
+    "version": "3.6.9",
+    "status": "promoted",
+    "ciResult": "success",
+    "promoted": true,
+    "lastSha": "5ba9e6cb3741619fc8d1db5b3c80b588445a1e05"
   },
   "agent": {
     "version": "source-change",
@@ -26,7 +26,7 @@
   },
   "copilotMemory": {
     "sessionCount": 3,
-    "lastSession": "Mega prompt absorvido. Gravados em memoria: boot sequence, deploy flow completo (10 fases), 20 regras de ouro, tooling (push_files obrigatorio), erros conhecidos, isolamento, progresso com checkboxes.",
-    "lessonsCount": 25
+    "lastSession": "Full autonomy learning session. Diagnosed copilot-post-deploy-sync.yml failure (git push to protected main = 403). Confirmed claude-live-status.json does not exist (only Claude creates it). Verified all .github agents/skills/hooks structure. Created PR #252 to fix sync workflow. Absorbed complete operational knowledge for future sessions.",
+    "lessonsCount": 34
   }
 }
