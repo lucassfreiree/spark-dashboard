@@ -1,13 +1,22 @@
 import { clsx, type ClassValue } from "clsx"
 import { twMerge } from "tailwind-merge"
-import { toZonedTime } from "date-fns-tz"
-export function cn(...inputs: ClassVal
+import { formatDistanceToNow, format } from "date-fns"
 import { toZonedTime } from "date-fns-tz"
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
-e
+}
 
+export function formatDistanceToNowSaoPaulo(date: Date | string, options?: { addSuffix?: boolean }) {
+  const saoPauloTz = "America/Sao_Paulo"
+  const zonedDate = toZonedTime(date, saoPauloTz)
+  return formatDistanceToNow(zonedDate, options)
+}
+
+export function formatDateSaoPaulo(date: Date | string, formatStr: string = "PPpp") {
+  const saoPauloTz = "America/Sao_Paulo"
+  const zonedDate = toZonedTime(date, saoPauloTz)
+  return format(zonedDate, formatStr)
 }
 
 
