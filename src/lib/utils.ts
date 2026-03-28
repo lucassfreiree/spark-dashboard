@@ -8,10 +8,16 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export function formatDistanceToNowSaoPaulo(date: Date | string, options?: { addSuffix?: boolean }) {
+  const dateObj = typeof date === 'string' ? new Date(date) : date
+  const saoPaulo = 'America/Sao_Paulo'
   const zonedDate = toZonedTime(dateObj, saoPaulo)
+  return formatDistanceToNow(zonedDate, options)
 }
-export function formatSaoPauloTime(date: Date | st
-  const dateObj = typeof date === 'string' ? new
+
+export function formatSaoPauloTime(date: Date | string, format: string = 'PPpp') {
+  const dateObj = typeof date === 'string' ? new Date(date) : date
+  const saoPaulo = 'America/Sao_Paulo'
+  return formatInTimeZone(dateObj, saoPaulo, format)
 }
 
 
