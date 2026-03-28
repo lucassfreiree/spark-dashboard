@@ -1,5 +1,5 @@
 {
-  "lastSync": "2026-03-28T19:31:58Z",
+  "lastSync": "2026-03-28T19:37:19Z",
   "syncSource": "autopilot/spark-sync-state.yml",
   "controller": {
     "version": "3.6.9",
@@ -75,16 +75,23 @@
   "recentWorkflows": [
     {
       "conclusion": null,
-      "created": "2026-03-28T19:31:51Z",
+      "created": "2026-03-28T19:37:12Z",
       "name": "[Infra] Spark Dashboard Sync • sync state to Spark dashboard",
       "status": "in_progress",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23692783051"
+    },
+    {
+      "conclusion": "success",
+      "created": "2026-03-28T19:31:51Z",
+      "name": "[Infra] Spark Dashboard Sync • sync state to Spark dashboard",
+      "status": "completed",
       "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23692688612"
     },
     {
-      "conclusion": null,
+      "conclusion": "success",
       "created": "2026-03-28T19:31:51Z",
       "name": "[Infra] Sync Codex Prompt • push •  ref=main",
-      "status": "in_progress",
+      "status": "completed",
       "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23692688611"
     },
     {
@@ -95,24 +102,24 @@
       "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23692688609"
     },
     {
-      "conclusion": null,
+      "conclusion": "success",
       "created": "2026-03-28T19:31:51Z",
       "name": "[Infra] Sync Copilot Prompt • push ref=main",
-      "status": "in_progress",
+      "status": "completed",
       "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23692688601"
     },
     {
-      "conclusion": null,
+      "conclusion": "success",
       "created": "2026-03-28T19:31:51Z",
       "name": "[Infra] Cleanup: Stale Branches • pull_request • ws=n/a • ref=main",
-      "status": "in_progress",
+      "status": "completed",
       "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23692688548"
     },
     {
-      "conclusion": null,
+      "conclusion": "success",
       "created": "2026-03-28T19:31:51Z",
       "name": "[Core] Post-Merge Monitor • PR #287 • copilot/fix-no-nested-ternary-error",
-      "status": "queued",
+      "status": "completed",
       "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23692688547"
     },
     {
@@ -135,13 +142,6 @@
       "name": "[Agent] Auto PR + Auto-Merge (Codex) • push • ws=n/a • ref=copilot/fix-no-nested-ternary-error",
       "status": "completed",
       "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23692684324"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-03-28T19:30:02Z",
-      "name": "[Core] Auto-Merge Sweeper • sweep open agent PRs",
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23692654360"
     }
   ],
   "openPRs": [
