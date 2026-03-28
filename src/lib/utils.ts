@@ -19,8 +19,3 @@ export function formatSaoPauloTime(date: Date | string, format: string = 'PPpp')
   const saoPaulo = 'America/Sao_Paulo'
   return formatInTimeZone(dateObj, saoPaulo, format)
 }
-
-
-
-
-
