@@ -1,18 +1,18 @@
 import { clsx, type ClassValue } from "clsx"
-import { toZonedTime, formatInTimeZone }
 import { toZonedTime, formatInTimeZone } from "date-fns-tz"
 import { formatDistanceToNow } from "date-fns"
-export function cn(...inputs: ClassVal
+import { twMerge } from "tailwind-merge"
 
-export function formatDistanceToNowSaoPaulo(d
-  const dateObj = typeof date 
- 
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs))
+}
 
+export function formatDistanceToNowSaoPaulo(date: Date | string, options?: { addSuffix?: boolean }) {
+  const dateObj = typeof date === 'string' ? new Date(date) : date
   const saoPaulo = 'America/Sao_Paulo'
-  return formatInTimeZone(dateObj, sao
-
-
-
+  const zonedDate = toZonedTime(dateObj, saoPaulo)
+  return formatDistanceToNow(zonedDate, options)
+}
 
 
 export function formatSaoPauloTime(date: Date | string, formatStr: string = 'dd/MM/yyyy HH:mm:ss') {
