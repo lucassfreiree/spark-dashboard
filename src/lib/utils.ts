@@ -1,6 +1,6 @@
 import { clsx, type ClassValue } from "clsx"
 import { twMerge } from "tailwind-merge"
-import { toZonedTime } from "date-fns-tz"
+import { toZonedTime, formatInTimeZone } from "date-fns-tz"
 import { formatDistanceToNow } from "date-fns"
 import { ptBR } from "date-fns/locale"
 
@@ -18,5 +18,5 @@ export function formatDistanceToNowSaoPaulo(date: Date | string, options?: { add
 export function formatSaoPauloTime(date: Date | string, formatStr: string = 'dd/MM/yyyy HH:mm:ss') {
   const saoPaulo = 'America/Sao_Paulo'
   const dateObj = typeof date === 'string' ? new Date(date) : date
-  return formatTz(dateObj, formatStr, { timeZone: saoPaulo })
+  return formatInTimeZone(dateObj, saoPaulo, formatStr)
 }
