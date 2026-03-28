@@ -1,5 +1,5 @@
 {
-  "lastSync": "2026-03-28T19:10:21Z",
+  "lastSync": "2026-03-28T19:20:05Z",
   "syncSource": "autopilot/spark-sync-state.yml",
   "controller": {
     "version": "3.6.9",
@@ -34,10 +34,10 @@
       "lastAction": "Multi-agent orchestration + Spark integration + auto-merge sweeper"
     },
     "copilot": {
-      "sessionCount": 4,
-      "lastSession": "Test auto-merge sweeper validation. Created branch copilot/copilottest-sweeper, updated session memory, opened non-draft PR targeting main. Goal: confirm sweeper auto-merges agent PRs within ~5 minutes.",
-      "lessonsCount": 34,
-      "lastUpdated": "2026-03-28T18:33:00Z"
+      "sessionCount": 5,
+      "lastSession": "Absorbed: post-deploy monitoring is 100% AUTOMATIC via ci-monitor-loop.yml. Self-merge rule enforced: Copilot MUST call merge_pull_request immediately after create_pull_request without waiting for sweeper or user.",
+      "lessonsCount": 39,
+      "lastUpdated": "2026-03-28T19:18:00Z"
     },
     "codex": {
       "sessionCount": 0,
@@ -75,73 +75,73 @@
   "recentWorkflows": [
     {
       "conclusion": null,
-      "created": "2026-03-28T19:10:16Z",
+      "created": "2026-03-28T19:19:59Z",
       "name": "[Infra] Sync Codex Prompt • push •  ref=main",
-      "status": "queued",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23692305799"
+      "status": "in_progress",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23692476395"
     },
     {
       "conclusion": null,
-      "created": "2026-03-28T19:10:16Z",
+      "created": "2026-03-28T19:19:59Z",
       "name": "[Infra] Sync Copilot Prompt • push ref=main",
       "status": "in_progress",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23692305788"
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23692476392"
     },
     {
       "conclusion": null,
-      "created": "2026-03-28T19:10:16Z",
-      "name": "[Infra] Cleanup: Stale Branches • pull_request • ws=n/a • ref=main",
-      "status": "in_progress",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23692305779"
-    },
-    {
-      "conclusion": null,
-      "created": "2026-03-28T19:10:16Z",
+      "created": "2026-03-28T19:19:59Z",
       "name": "[Infra] Spark Dashboard Sync • sync state to Spark dashboard",
       "status": "in_progress",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23692305772"
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23692476384"
     },
     {
       "conclusion": null,
-      "created": "2026-03-28T19:10:15Z",
-      "name": "[Core] Post-Merge Monitor • PR #274 • copilot/copilottest-sweeper",
-      "status": "in_progress",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23692305769"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-03-28T19:09:46Z",
+      "created": "2026-03-28T19:19:59Z",
       "name": "[Infra] Cleanup: Stale Branches • pull_request • ws=n/a • ref=main",
+      "status": "in_progress",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23692476296"
+    },
+    {
+      "conclusion": null,
+      "created": "2026-03-28T19:19:59Z",
+      "name": "[Core] Post-Merge Monitor • PR #283 • copilot/add-post-deploy-monitoring-automation",
+      "status": "queued",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23692476270"
+    },
+    {
+      "conclusion": "skipped",
+      "created": "2026-03-28T19:19:34Z",
+      "name": "[Core] Autonomous PR Lane • PR #283 • copilot/add-post-deploy-monitoring-automation",
       "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23692297098"
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23692469937"
     },
     {
       "conclusion": "success",
-      "created": "2026-03-28T19:09:46Z",
-      "name": "[Core] Post-Merge Monitor • PR #278 • copilot/update-spark-dashboard-data",
+      "created": "2026-03-28T19:19:34Z",
+      "name": "[Core] Auto-Merge Sweeper • sweep open agent PRs",
       "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23692297089"
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23692469930"
     },
     {
-      "conclusion": "cancelled",
-      "created": "2026-03-28T19:09:46Z",
-      "name": "[Infra] Sync Codex Prompt • push •  ref=main",
+      "conclusion": "skipped",
+      "created": "2026-03-28T19:19:34Z",
+      "name": "[Core] Auto-Merge PR to main • PR #283 • (Copilot) copilot/add-post-deploy-monitoring-automation → main",
       "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23692297088"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-03-28T19:09:46Z",
-      "name": "[Infra] Sync Copilot Prompt • push ref=main",
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23692297086"
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23692469924"
     },
     {
       "conclusion": "success",
-      "created": "2026-03-28T19:09:15Z",
-      "name": "[Core] Post-Merge Monitor • PR #273 • copilot/copilottest-sweeper-copilot",
+      "created": "2026-03-28T19:19:34Z",
+      "name": "[Core] Autonomous Direct Merge • PR #283 • copilot/add-post-deploy-monitoring-automation → main",
       "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23692288519"
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23692469911"
+    },
+    {
+      "conclusion": "success",
+      "created": "2026-03-28T19:19:33Z",
+      "name": "[Agent] Auto PR + Auto-Merge (Codex) • push • ws=n/a • ref=copilot/add-post-deploy-monitoring-automation",
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23692469367"
     }
   ],
   "openPRs": [
@@ -167,8 +167,8 @@
     "state/workspaces/ws-default/audit/source-change-2026-03-26T17-57-24Z.json"
   ],
   "lessonsLearned": {
-    "total": 46,
-    "copilot": 34,
+    "total": 51,
+    "copilot": 39,
     "codex": 12
   },
   "metadata": {
