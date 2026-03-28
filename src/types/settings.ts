@@ -1,16 +1,11 @@
 export interface UserSettings {
-  enableNotifications: bo
   enableNotifications: boolean
   notifyOnFailure: boolean
-  dashboardLayout: 'compac
-  dataRetentionDays: number
+  notifyOnSuccess: boolean
   dashboardLayout: 'compact' | 'comfortable' | 'spacious'
+  dataRetentionDays: number
   theme: 'dark' | 'light' | 'system'
-  enableNotification
-  notifyOnSuccess: fals
-  dashboardLayout: 'comfortab
-  a
- 
+} 
 
 
 
