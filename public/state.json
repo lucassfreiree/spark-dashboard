@@ -1,5 +1,5 @@
 {
-  "lastSync": "2026-03-28T18:56:42Z",
+  "lastSync": "2026-03-28T19:04:03Z",
   "syncSource": "autopilot/spark-sync-state.yml",
   "controller": {
     "version": "3.6.9",
@@ -19,9 +19,9 @@
   },
   "pipeline": {
     "status": "success",
-    "lastRun": 67,
-    "component": "controller",
-    "version": "3.6.9",
+    "lastRun": 68,
+    "component": "agent",
+    "version": "2.3.0",
     "promote": true,
     "workspace": "GETRONICS | ws-default | BBVINET_TOKEN"
   },
@@ -75,83 +75,83 @@
   "recentWorkflows": [
     {
       "conclusion": null,
-      "created": "2026-03-28T18:56:36Z",
-      "name": "[Infra] Spark Dashboard Sync • sync state to Spark dashboard",
+      "created": "2026-03-28T19:03:57Z",
+      "name": "[Corp] Deploy: Apply Source Change • push • ws=n/a • ref=main",
       "status": "in_progress",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23692063045"
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23692196477"
     },
     {
       "conclusion": null,
-      "created": "2026-03-28T18:56:36Z",
-      "name": "[Infra] Cleanup: Stale Branches • pull_request • ws=n/a • ref=main",
-      "status": "in_progress",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23692063043"
-    },
-    {
-      "conclusion": null,
-      "created": "2026-03-28T18:56:36Z",
-      "name": "[Infra] Sync Codex Prompt • push • (Claude) ref=main",
-      "status": "in_progress",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23692063034"
-    },
-    {
-      "conclusion": null,
-      "created": "2026-03-28T18:56:36Z",
+      "created": "2026-03-28T19:03:57Z",
       "name": "[Infra] Sync Copilot Prompt • push ref=main",
       "status": "in_progress",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23692063031"
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23692196469"
     },
     {
       "conclusion": null,
-      "created": "2026-03-28T18:56:36Z",
-      "name": "[Core] Post-Merge Monitor • PR #276 • claude/fix-dashboard-sync",
-      "status": "queued",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23692063016"
-    },
-    {
-      "conclusion": null,
-      "created": "2026-03-28T18:56:30Z",
-      "name": "[Core] Autonomous Direct Merge • PR #276 • claude/fix-dashboard-sync → main",
+      "created": "2026-03-28T19:03:57Z",
+      "name": "[Infra] Sync Codex Prompt • push •  ref=main",
       "status": "in_progress",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23692061631"
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23692196460"
+    },
+    {
+      "conclusion": null,
+      "created": "2026-03-28T19:03:57Z",
+      "name": "[Infra] Spark Dashboard Sync • sync state to Spark dashboard",
+      "status": "in_progress",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23692196455"
+    },
+    {
+      "conclusion": null,
+      "created": "2026-03-28T19:03:57Z",
+      "name": "[Infra] Cleanup: Stale Branches • pull_request • ws=n/a • ref=main",
+      "status": "in_progress",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23692196415"
+    },
+    {
+      "conclusion": null,
+      "created": "2026-03-28T19:03:57Z",
+      "name": "[Core] Post-Merge Monitor • PR #275 • copilot/teste-end-to-end-agente-release",
+      "status": "in_progress",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23692196392"
+    },
+    {
+      "conclusion": null,
+      "created": "2026-03-28T19:03:32Z",
+      "name": "[Core] Autonomous Direct Merge • PR #275 • copilot/teste-end-to-end-agente-release → main",
+      "status": "in_progress",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23692188529"
     },
     {
       "conclusion": "skipped",
-      "created": "2026-03-28T18:56:30Z",
-      "name": "[Core] Auto-Merge PR to main • PR #276 • (Claude) claude/fix-dashboard-sync → main",
+      "created": "2026-03-28T19:03:32Z",
+      "name": "[Core] Autonomous PR Lane • PR #275 • copilot/teste-end-to-end-agente-release",
       "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23692061628"
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23692188519"
     },
     {
       "conclusion": "skipped",
-      "created": "2026-03-28T18:56:30Z",
-      "name": "[Core] Autonomous PR Lane • PR #276 • claude/fix-dashboard-sync",
+      "created": "2026-03-28T19:03:32Z",
+      "name": "[Core] Auto-Merge PR to main • PR #275 • (Copilot) copilot/teste-end-to-end-agente-release → main",
       "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23692061627"
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23692188518"
     },
     {
       "conclusion": "success",
-      "created": "2026-03-28T18:56:22Z",
-      "name": "[Agent] Auto PR + Auto-Merge (Codex) • push • ws=n/a • ref=claude/fix-dashboard-sync",
+      "created": "2026-03-28T19:03:30Z",
+      "name": "[Agent] Auto PR + Auto-Merge (Codex) • push • ws=n/a • ref=copilot/teste-end-to-end-agente-release",
       "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23692059795"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-03-28T18:52:20Z",
-      "name": "[Core] Lock GC • schedule • ws=n/a • ref=main",
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23691988571"
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23692188118"
     }
   ],
   "openPRs": [
     {
       "author": "Copilot",
-      "branch": "copilot/teste-end-to-end-agente-release",
-      "created": "2026-03-28T18:36:24Z",
+      "branch": "copilot/update-spark-dashboard-data",
+      "created": "2026-03-28T18:57:16Z",
       "draft": false,
-      "number": 275,
-      "title": "[copilot] feat: e2e test - agent version bump 2.2.9 → 2.3.0"
+      "number": 278,
+      "title": "[WIP] Update Spark dashboard to consume new state.json format"
     },
     {
       "author": "Copilot",
