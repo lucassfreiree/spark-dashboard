@@ -1,5 +1,5 @@
 {
-  "lastSync": "2026-03-28T14:28:23Z",
+  "lastSync": "2026-03-28T14:59:03Z",
   "controller": {
     "version": "source-change",
     "status": "ci-failed",
@@ -25,8 +25,8 @@
     "task": null
   },
   "copilotMemory": {
-    "sessionCount": 2,
+    "sessionCount": 3,
     "lastSession": "Mega prompt absorvido. Gravados em memoria: boot sequence, deploy flow completo (10 fases), 20 regras de ouro, tooling (push_files obrigatorio), erros conhecidos, isolamento, progresso com checkboxes.",
-    "lessonsCount": 23
+    "lessonsCount": 25
   }
 }
