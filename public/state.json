@@ -1,5 +1,5 @@
 {
-  "lastSync": "2026-03-28T21:14:22Z",
+  "lastSync": "2026-03-28T21:47:36Z",
   "syncSource": "autopilot/spark-sync-state.yml",
   "controller": {
     "version": "3.6.9",
@@ -75,9 +75,37 @@
   "recentWorkflows": [
     {
       "conclusion": null,
-      "created": "2026-03-28T21:14:17Z",
+      "created": "2026-03-28T21:47:28Z",
       "name": "[Infra] Spark Dashboard Sync • sync state to Spark dashboard",
       "status": "in_progress",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23695040331"
+    },
+    {
+      "conclusion": "success",
+      "created": "2026-03-28T21:41:19Z",
+      "name": "[Core] Health Check • schedule • ws=n/a • ref=main",
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23694934420"
+    },
+    {
+      "conclusion": "success",
+      "created": "2026-03-28T21:35:57Z",
+      "name": "[Core] Auto-Merge Sweeper • sweep open agent PRs",
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23694843287"
+    },
+    {
+      "conclusion": "success",
+      "created": "2026-03-28T21:24:00Z",
+      "name": "[Core] Lock GC • schedule • ws=n/a • ref=main",
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23694635432"
+    },
+    {
+      "conclusion": "success",
+      "created": "2026-03-28T21:14:17Z",
+      "name": "[Infra] Spark Dashboard Sync • sync state to Spark dashboard",
+      "status": "completed",
       "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23694468719"
     },
     {
@@ -114,34 +142,6 @@
       "name": "[Infra] Spark Dashboard Sync • sync state to Spark dashboard",
       "status": "completed",
       "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23693918074"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-03-28T20:38:19Z",
-      "name": "[Agent] Auto PR + Auto-Merge (Codex) • push • ws=n/a • ref=claude/fix-claude-error-handling",
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23693849129"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-03-28T20:37:04Z",
-      "name": "Running Claude",
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23693828873"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-03-28T20:33:21Z",
-      "name": "[Core] Auto-Merge Sweeper • sweep open agent PRs",
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23693767356"
-    },
-    {
-      "conclusion": "failure",
-      "created": "2026-03-28T20:30:38Z",
-      "name": "Running Claude",
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23693720457"
     }
   ],
   "openPRs": [],
