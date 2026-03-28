@@ -5,7 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { ClockCounterClockwise } from '@phosphor-icons/react'
-import { formatSaoPauloTime } from '@/lib/utils'
+import { formatDateSaoPaulo } from '@/lib/utils'
 
 interface DeployHistoryProps {
   data: DashboardState

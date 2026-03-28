@@ -1,13 +1,23 @@
 import { clsx, type ClassValue } from "clsx"
 import { formatDistanceToNow, format } from "date-fns"
 import { ptBR } from "date-fns/locale"
+import { toZonedTime } from "date-fns-tz"
+
+export function cn(...inputs: ClassValue[]) {
   return clsx(inputs)
+}
 
-  const dateObj = typeof date === 'string' ? 
-  return formatDistan
+export function formatDistanceToNowSaoPaulo(date: Date | string, options?: { addSuffix?: boolean }) {
+  const dateObj = typeof date === 'string' ? new Date(date) : date
+  const saoPauloTime = toZonedTime(dateObj, 'America/Sao_Paulo')
+  return formatDistanceToNow(saoPauloTime, { ...options, locale: ptBR })
+}
 
-
-  return format(saoPauloTime, formatStr)
+export function formatDateSaoPaulo(date: Date | string, formatStr: string = 'PPpp') {
+  const dateObj = typeof date === 'string' ? new Date(date) : date
+  const saoPauloTime = toZonedTime(dateObj, 'America/Sao_Paulo')
+  return format(saoPauloTime, formatStr, { locale: ptBR })
+}
 
 
 

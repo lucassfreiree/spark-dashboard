@@ -2,7 +2,7 @@ import { DashboardState } from '@/types/dashboard'
 import { StatusBadge } from '@/components/StatusBadge'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { ArrowRight } from '@phosphor-icons/react'
-import { cn, formatSaoPauloTime } from '@/lib/utils'
+import { cn, formatDateSaoPaulo } from '@/lib/utils'
 
 interface PipelineMonitorProps {
   data: DashboardState

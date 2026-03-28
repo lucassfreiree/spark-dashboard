@@ -4,7 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
 import { Separator } from '@/components/ui/separator'
 import { Robot, Lightbulb } from '@phosphor-icons/react'
-import { formatDistanceToNowSaoPaulo, formatSaoPauloTime } from '@/lib/utils'
+import { formatDistanceToNowSaoPaulo, formatDateSaoPaulo } from '@/lib/utils'
 
 interface AgentActivityProps {
   data: DashboardState
