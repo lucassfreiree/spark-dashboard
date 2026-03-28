@@ -4,7 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
 import { Separator } from '@/components/ui/separator'
 import { Robot, Lightbulb } from '@phosphor-icons/react'
-import { formatDistanceToNowSaoPaulo, formatSaoPauloDate } from '@/lib/utils'
+import { formatDistanceToNowSaoPaulo, formatSaoPauloTime } from '@/lib/utils'
 
 interface AgentActivityProps {
   data: DashboardState
@@ -68,10 +68,10 @@ export function AgentActivity({ data }: AgentActivityProps) {
                 <TableRow key={session.id}>
                   <TableCell className="font-mono font-semibold">{session.agent}</TableCell>
                   <TableCell className="font-mono text-sm">
-                    {formatSaoPauloDate(session.startTime, 'dd/MM/yy HH:mm')}
+                    {formatSaoPauloTime(session.startTime, 'dd/MM/yy HH:mm')}
                   </TableCell>
                   <TableCell className="font-mono text-sm">
-                    {session.endTime ? formatSaoPauloDate(session.endTime, 'dd/MM/yy HH:mm') : 'Em andamento'}
+                    {session.endTime ? formatSaoPauloTime(session.endTime, 'dd/MM/yy HH:mm') : 'Em andamento'}
                   </TableCell>
                   <TableCell>
                     <StatusBadge status={session.status} />

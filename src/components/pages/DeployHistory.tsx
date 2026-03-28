@@ -5,7 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { ClockCounterClockwise } from '@phosphor-icons/react'
-import { formatSaoPauloDate } from '@/lib/utils'
+import { formatSaoPauloTime } from '@/lib/utils'
 
 interface DeployHistoryProps {
   data: DashboardState
@@ -83,7 +83,7 @@ export function DeployHistory({ data }: DeployHistoryProps) {
               {filteredDeploys.map((deploy) => (
                 <TableRow key={deploy.id}>
                   <TableCell className="font-mono text-sm">
-                    {formatSaoPauloDate(deploy.date, 'dd/MM/yy HH:mm')}
+                    {formatSaoPauloTime(deploy.date, 'dd/MM/yy HH:mm')}
                   </TableCell>
                   <TableCell className="font-mono">{deploy.component}</TableCell>
                   <TableCell className="font-mono text-sm">{deploy.version}</TableCell>

@@ -1,16 +1,25 @@
 import { clsx, type ClassValue } from "clsx"
 import { twMerge } from "tailwind-merge"
 import { toZonedTime } from 'date-fns-tz'
+import { formatDistanceToNow, format as dateFnsFormat } from 'date-fns'
+import { ptBR } from 'date-fns/locale'
 
+export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
-
-
-  const dateObj = typeof date 
 }
 
-  return dateFnsFormat(spTime, formatStr
+export function formatDistanceToNowSaoPaulo(date: Date | string, options?: { addSuffix?: boolean }) {
+  const dateObj = typeof date === 'string' ? new Date(date) : date
+  const saoPauloTimeZone = 'America/Sao_Paulo'
+  const spTime = toZonedTime(dateObj, saoPauloTimeZone)
+  return formatDistanceToNow(spTime, { ...options, locale: ptBR })
+}
 
-  const dateObj = typeof date === 'string' ? new Date(date)
+export function formatSaoPauloTime(date: Date | string, formatStr: string = 'PPpp') {
+  const dateObj = typeof date === 'string' ? new Date(date) : date
+  const saoPauloTimeZone = 'America/Sao_Paulo'
+  const spTime = toZonedTime(dateObj, saoPauloTimeZone)
+  return dateFnsFormat(spTime, formatStr, { locale: ptBR })
 }
 
 

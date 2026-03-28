@@ -2,7 +2,7 @@ import { DashboardState } from '@/types/dashboard'
 import { StatusBadge } from '@/components/StatusBadge'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { ArrowRight } from '@phosphor-icons/react'
-import { cn, formatSaoPauloDate } from '@/lib/utils'
+import { cn, formatSaoPauloTime } from '@/lib/utils'
 
 interface PipelineMonitorProps {
   data: DashboardState
@@ -56,13 +56,13 @@ export function PipelineMonitor({ data }: PipelineMonitorProps) {
                 {stage.startTime && (
                   <div className="flex justify-between">
                     <span className="text-muted-foreground">Iniciado:</span>
-                    <span className="font-mono">{formatSaoPauloDate(stage.startTime, 'HH:mm:ss')}</span>
+                    <span className="font-mono">{formatSaoPauloTime(stage.startTime, 'HH:mm:ss')}</span>
                   </div>
                 )}
                 {stage.endTime && (
                   <div className="flex justify-between">
                     <span className="text-muted-foreground">Finalizado:</span>
-                    <span className="font-mono">{formatSaoPauloDate(stage.endTime, 'HH:mm:ss')}</span>
+                    <span className="font-mono">{formatSaoPauloTime(stage.endTime, 'HH:mm:ss')}</span>
                   </div>
                 )}
                 {stage.duration && (
