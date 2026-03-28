@@ -56,13 +56,13 @@ export function PipelineMonitor({ data }: PipelineMonitorProps) {
                 {stage.startTime && (
                   <div className="flex justify-between">
                     <span className="text-muted-foreground">Iniciado:</span>
-                    <span className="font-mono">{formatSaoPauloTime(stage.startTime, 'HH:mm:ss')}</span>
+                    <span className="font-mono">{formatDateSaoPaulo(stage.startTime, 'HH:mm:ss')}</span>
                   </div>
                 )}
                 {stage.endTime && (
                   <div className="flex justify-between">
                     <span className="text-muted-foreground">Finalizado:</span>
-                    <span className="font-mono">{formatSaoPauloTime(stage.endTime, 'HH:mm:ss')}</span>
+                    <span className="font-mono">{formatDateSaoPaulo(stage.endTime, 'HH:mm:ss')}</span>
                   </div>
                 )}
                 {stage.duration && (

@@ -83,7 +83,7 @@ export function DeployHistory({ data }: DeployHistoryProps) {
               {filteredDeploys.map((deploy) => (
                 <TableRow key={deploy.id}>
                   <TableCell className="font-mono text-sm">
-                    {formatSaoPauloTime(deploy.date, 'dd/MM/yy HH:mm')}
+                    {formatDateSaoPaulo(deploy.date, 'dd/MM/yy HH:mm')}
                   </TableCell>
                   <TableCell className="font-mono">{deploy.component}</TableCell>
                   <TableCell className="font-mono text-sm">{deploy.version}</TableCell>

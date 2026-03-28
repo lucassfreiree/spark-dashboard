@@ -68,10 +68,10 @@ export function AgentActivity({ data }: AgentActivityProps) {
                 <TableRow key={session.id}>
                   <TableCell className="font-mono font-semibold">{session.agent}</TableCell>
                   <TableCell className="font-mono text-sm">
-                    {formatSaoPauloTime(session.startTime, 'dd/MM/yy HH:mm')}
+                    {formatDateSaoPaulo(session.startTime, 'dd/MM/yy HH:mm')}
                   </TableCell>
                   <TableCell className="font-mono text-sm">
-                    {session.endTime ? formatSaoPauloTime(session.endTime, 'dd/MM/yy HH:mm') : 'Em andamento'}
+                    {session.endTime ? formatDateSaoPaulo(session.endTime, 'dd/MM/yy HH:mm') : 'Em andamento'}
                   </TableCell>
                   <TableCell>
                     <StatusBadge status={session.status} />
