@@ -1,5 +1,5 @@
 {
-  "lastSync": "2026-03-28T21:47:36Z",
+  "lastSync": "2026-03-28T22:14:03Z",
   "syncSource": "autopilot/spark-sync-state.yml",
   "controller": {
     "version": "3.6.9",
@@ -75,9 +75,30 @@
   "recentWorkflows": [
     {
       "conclusion": null,
-      "created": "2026-03-28T21:47:28Z",
+      "created": "2026-03-28T22:13:57Z",
       "name": "[Infra] Spark Dashboard Sync • sync state to Spark dashboard",
       "status": "in_progress",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23695491874"
+    },
+    {
+      "conclusion": "success",
+      "created": "2026-03-28T21:56:24Z",
+      "name": "[Core] Auto-Merge Sweeper • sweep open agent PRs",
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23695191301"
+    },
+    {
+      "conclusion": "success",
+      "created": "2026-03-28T21:51:28Z",
+      "name": "[Core] Lock GC • schedule • ws=n/a • ref=main",
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23695108484"
+    },
+    {
+      "conclusion": "success",
+      "created": "2026-03-28T21:47:28Z",
+      "name": "[Infra] Spark Dashboard Sync • sync state to Spark dashboard",
+      "status": "completed",
       "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23695040331"
     },
     {
@@ -121,27 +142,6 @@
       "name": "[Corp] Drift Correction • schedule • ws=n/a • ref=main",
       "status": "completed",
       "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23694138015"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-03-28T20:54:05Z",
-      "name": "[Core] Lock GC • schedule • ws=n/a • ref=main",
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23694118375"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-03-28T20:47:23Z",
-      "name": "[Core] Health Check • schedule • ws=n/a • ref=main",
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23694005316"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-03-28T20:42:18Z",
-      "name": "[Infra] Spark Dashboard Sync • sync state to Spark dashboard",
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23693918074"
     }
   ],
   "openPRs": [],
