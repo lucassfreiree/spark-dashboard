@@ -1,5 +1,5 @@
 {
-  "lastSync": "2026-03-28T22:14:03Z",
+  "lastSync": "2026-03-28T22:50:50Z",
   "syncSource": "autopilot/spark-sync-state.yml",
   "controller": {
     "version": "3.6.9",
@@ -75,9 +75,37 @@
   "recentWorkflows": [
     {
       "conclusion": null,
-      "created": "2026-03-28T22:13:57Z",
+      "created": "2026-03-28T22:50:05Z",
       "name": "[Infra] Spark Dashboard Sync • sync state to Spark dashboard",
       "status": "in_progress",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23696099555"
+    },
+    {
+      "conclusion": "success",
+      "created": "2026-03-28T22:45:40Z",
+      "name": "[Core] Health Check • schedule • ws=n/a • ref=main",
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23696028591"
+    },
+    {
+      "conclusion": "success",
+      "created": "2026-03-28T22:27:08Z",
+      "name": "[Core] Auto-Merge Sweeper • sweep open agent PRs",
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23695714594"
+    },
+    {
+      "conclusion": "success",
+      "created": "2026-03-28T22:21:39Z",
+      "name": "[Core] Lock GC • schedule • ws=n/a • ref=main",
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23695622246"
+    },
+    {
+      "conclusion": "success",
+      "created": "2026-03-28T22:13:57Z",
+      "name": "[Infra] Spark Dashboard Sync • sync state to Spark dashboard",
+      "status": "completed",
       "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23695491874"
     },
     {
@@ -114,34 +142,6 @@
       "name": "[Core] Auto-Merge Sweeper • sweep open agent PRs",
       "status": "completed",
       "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23694843287"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-03-28T21:24:00Z",
-      "name": "[Core] Lock GC • schedule • ws=n/a • ref=main",
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23694635432"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-03-28T21:14:17Z",
-      "name": "[Infra] Spark Dashboard Sync • sync state to Spark dashboard",
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23694468719"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-03-28T20:59:19Z",
-      "name": "[Core] Auto-Merge Sweeper • sweep open agent PRs",
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23694203689"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-03-28T20:55:17Z",
-      "name": "[Corp] Drift Correction • schedule • ws=n/a • ref=main",
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23694138015"
     }
   ],
   "openPRs": [],
