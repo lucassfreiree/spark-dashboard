@@ -1,32 +1,205 @@
 {
-  "lastSync": "2026-03-28T18:34:45Z",
+  "lastSync": "2026-03-28T18:56:42Z",
+  "syncSource": "autopilot/spark-sync-state.yml",
   "controller": {
     "version": "3.6.9",
     "status": "promoted",
     "ciResult": "success",
     "promoted": true,
-    "lastSha": "5ba9e6cb3741619fc8d1db5b3c80b588445a1e05"
+    "lastSha": "5ba9e6cb3741619fc8d1db5b3c80b588445a1e05",
+    "updatedAt": "2026-03-28T18:01:37Z"
   },
   "agent": {
     "version": "source-change",
     "status": "pending",
     "ciResult": "timeout",
-    "promoted": false
+    "promoted": false,
+    "lastSha": "2fe97cc9fbf0773e61a892bee332c45eb2b1678a",
+    "updatedAt": "2026-03-27T14:28:25Z"
   },
   "pipeline": {
     "status": "success",
     "lastRun": 67,
     "component": "controller",
-    "version": "3.6.9"
+    "version": "3.6.9",
+    "promote": true,
+    "workspace": "GETRONICS | ws-default | BBVINET_TOKEN"
   },
-  "activeAgent": {
-    "name": "idle",
-    "status": "idle",
-    "task": null
+  "agents": {
+    "claude": {
+      "status": "active",
+      "task": "Fix dashboard sync + upgrade Spark dashboard intelligence",
+      "phase": "commit",
+      "lastUpdated": "2026-03-28T18:00:00Z",
+      "lastAction": "Multi-agent orchestration + Spark integration + auto-merge sweeper"
+    },
+    "copilot": {
+      "sessionCount": 3,
+      "lastSession": "Full autonomy learning session. Diagnosed copilot-post-deploy-sync.yml failure (git push to protected main = 403). Confirmed claude-live-status.json does not exist (only Claude creates it). Verified all .github agents/skills/hooks structure. Created PR #252 to fix sync workflow. Absorbed complete operational knowledge for future sessions.",
+      "lessonsCount": 34,
+      "lastUpdated": "2026-03-28T13:36:00Z"
+    },
+    "codex": {
+      "sessionCount": 0,
+      "lastSession": "none",
+      "lessonsCount": 12,
+      "lastUpdated": "2026-03-28T14:00:00Z"
+    }
   },
-  "copilotMemory": {
-    "sessionCount": 3,
-    "lastSession": "Full autonomy learning session. Diagnosed copilot-post-deploy-sync.yml failure (git push to protected main = 403). Confirmed claude-live-status.json does not exist (only Claude creates it). Verified all .github agents/skills/hooks structure. Created PR #252 to fix sync workflow. Absorbed complete operational knowledge for future sessions.",
-    "lessonsCount": 34
+  "workspaces": [
+    {
+      "id": "ws-default",
+      "company": "Getronics",
+      "status": "active",
+      "controllerVersion": "3.6.9",
+      "agentVersion": "source-change",
+      "pipelineStatus": "success"
+    },
+    {
+      "id": "ws-cit",
+      "company": "CIT",
+      "status": "setup",
+      "controllerVersion": null,
+      "agentVersion": null,
+      "pipelineStatus": "not-configured"
+    },
+    {
+      "id": "ws-corp-1",
+      "company": "Empresa 3",
+      "status": "empty",
+      "controllerVersion": null,
+      "agentVersion": null,
+      "pipelineStatus": "not-configured"
+    }
+  ],
+  "recentWorkflows": [
+    {
+      "conclusion": null,
+      "created": "2026-03-28T18:56:36Z",
+      "name": "[Infra] Spark Dashboard Sync • sync state to Spark dashboard",
+      "status": "in_progress",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23692063045"
+    },
+    {
+      "conclusion": null,
+      "created": "2026-03-28T18:56:36Z",
+      "name": "[Infra] Cleanup: Stale Branches • pull_request • ws=n/a • ref=main",
+      "status": "in_progress",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23692063043"
+    },
+    {
+      "conclusion": null,
+      "created": "2026-03-28T18:56:36Z",
+      "name": "[Infra] Sync Codex Prompt • push • (Claude) ref=main",
+      "status": "in_progress",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23692063034"
+    },
+    {
+      "conclusion": null,
+      "created": "2026-03-28T18:56:36Z",
+      "name": "[Infra] Sync Copilot Prompt • push ref=main",
+      "status": "in_progress",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23692063031"
+    },
+    {
+      "conclusion": null,
+      "created": "2026-03-28T18:56:36Z",
+      "name": "[Core] Post-Merge Monitor • PR #276 • claude/fix-dashboard-sync",
+      "status": "queued",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23692063016"
+    },
+    {
+      "conclusion": null,
+      "created": "2026-03-28T18:56:30Z",
+      "name": "[Core] Autonomous Direct Merge • PR #276 • claude/fix-dashboard-sync → main",
+      "status": "in_progress",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23692061631"
+    },
+    {
+      "conclusion": "skipped",
+      "created": "2026-03-28T18:56:30Z",
+      "name": "[Core] Auto-Merge PR to main • PR #276 • (Claude) claude/fix-dashboard-sync → main",
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23692061628"
+    },
+    {
+      "conclusion": "skipped",
+      "created": "2026-03-28T18:56:30Z",
+      "name": "[Core] Autonomous PR Lane • PR #276 • claude/fix-dashboard-sync",
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23692061627"
+    },
+    {
+      "conclusion": "success",
+      "created": "2026-03-28T18:56:22Z",
+      "name": "[Agent] Auto PR + Auto-Merge (Codex) • push • ws=n/a • ref=claude/fix-dashboard-sync",
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23692059795"
+    },
+    {
+      "conclusion": "success",
+      "created": "2026-03-28T18:52:20Z",
+      "name": "[Core] Lock GC • schedule • ws=n/a • ref=main",
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23691988571"
+    }
+  ],
+  "openPRs": [
+    {
+      "author": "Copilot",
+      "branch": "copilot/teste-end-to-end-agente-release",
+      "created": "2026-03-28T18:36:24Z",
+      "draft": false,
+      "number": 275,
+      "title": "[copilot] feat: e2e test - agent version bump 2.2.9 → 2.3.0"
+    },
+    {
+      "author": "Copilot",
+      "branch": "copilot/copilottest-sweeper",
+      "created": "2026-03-28T18:34:40Z",
+      "draft": false,
+      "number": 274,
+      "title": "[copilot] chore: update session memory — sweeper validation test"
+    },
+    {
+      "author": "Copilot",
+      "branch": "copilot/copilottest-sweeper-copilot",
+      "created": "2026-03-28T18:34:36Z",
+      "draft": false,
+      "number": 273,
+      "title": "[copilot] test: Copilot validou o sweeper"
+    },
+    {
+      "author": "lucassfreiree",
+      "branch": "copilot/test-sweeper",
+      "created": "2026-03-28T18:32:52Z",
+      "draft": false,
+      "number": 272,
+      "title": "test: validate auto-merge sweeper (DO NOT merge manually)"
+    }
+  ],
+  "deployHistory": [
+    "state/workspaces/ws-default/audit/source-change-2026-03-28T18-01-45Z.json",
+    "state/workspaces/ws-default/audit/source-change-2026-03-27T15-53-33Z.json",
+    "state/workspaces/ws-default/audit/source-change-2026-03-27T14-28-33Z.json",
+    "state/workspaces/ws-default/audit/source-change-2026-03-26T22-00-51Z.json",
+    "state/workspaces/ws-default/audit/source-change-2026-03-26T19-45-27Z.json",
+    "state/workspaces/ws-default/audit/source-change-2026-03-26T19-32-52Z.json",
+    "state/workspaces/ws-default/audit/source-change-2026-03-26T18-48-38Z.json",
+    "state/workspaces/ws-default/audit/source-change-2026-03-26T18-27-36Z.json",
+    "state/workspaces/ws-default/audit/source-change-2026-03-26T17-57-24Z.json",
+    "state/workspaces/ws-default/audit/source-change-2026-03-26T17-39-11Z.json"
+  ],
+  "lessonsLearned": {
+    "total": 46,
+    "copilot": 34,
+    "codex": 12
+  },
+  "metadata": {
+    "autopilotRepo": "lucassfreiree/autopilot",
+    "sparkRepo": "lucassfreiree/spark-dashboard",
+    "totalAgents": 3,
+    "totalWorkspaces": 3,
+    "syncInterval": "5 minutes"
   }
 }
