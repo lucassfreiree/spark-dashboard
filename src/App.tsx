@@ -5,14 +5,16 @@ import { DeployHistory } from '@/components/pages/DeployHistory'
 import { AgentActivity } from '@/components/pages/AgentActivity'
 import { Workflows } from '@/components/pages/Workflows'
 import { PipelineMonitor } from '@/components/pages/PipelineMonitor'
+import { Analytics } from '@/components/pages/Analytics'
+import { Settings } from '@/components/pages/Settings'
 import { Card } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
-import { ChartBar, ClockCounterClockwise, Robot, GitBranch, Rows, ArrowsClockwise } from '@phosphor-icons/react'
+import { ChartBar, ClockCounterClockwise, Robot, GitBranch, Rows, ArrowsClockwise, ChartLine, Gear } from '@phosphor-icons/react'
 import { cn } from '@/lib/utils'
 import { formatDistanceToNow } from 'date-fns'
 import { Toaster } from '@/components/ui/sonner'
 
-type Page = 'dashboard' | 'deploy-history' | 'agent-activity' | 'workflows' | 'pipeline-monitor'
+type Page = 'dashboard' | 'deploy-history' | 'agent-activity' | 'workflows' | 'pipeline-monitor' | 'analytics' | 'settings'
 
 function App() {
   const [currentPage, setCurrentPage] = useState<Page>('dashboard')
@@ -20,6 +22,7 @@ function App() {
 
   const navItems = [
     { id: 'dashboard' as Page, label: 'Dashboard', icon: ChartBar },
+    { id: 'analytics' as Page, label: 'Analytics', icon: ChartLine },
     { id: 'deploy-history' as Page, label: 'Deploy History', icon: ClockCounterClockwise },
     { id: 'agent-activity' as Page, label: 'Agent Activity', icon: Robot },
     { id: 'workflows' as Page, label: 'Workflows', icon: GitBranch },
@@ -30,6 +33,8 @@ function App() {
     switch (currentPage) {
       case 'dashboard':
         return <DashboardOverview data={data} />
+      case 'analytics':
+        return <Analytics data={data} />
       case 'deploy-history':
         return <DeployHistory data={data} />
       case 'agent-activity':
@@ -38,6 +43,8 @@ function App() {
         return <Workflows data={data} />
       case 'pipeline-monitor':
         return <PipelineMonitor data={data} />
+      case 'settings':
+        return <Settings />
       default:
         return <DashboardOverview data={data} />
     }
@@ -70,6 +77,21 @@ function App() {
               </button>
             )
           })}
+          
+          <div className="pt-4">
+            <button
+              onClick={() => setCurrentPage('settings')}
+              className={cn(
+                "w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-all text-left border-t border-border",
+                currentPage === 'settings'
+                  ? "bg-primary text-primary-foreground font-semibold"
+                  : "text-foreground hover:bg-muted"
+              )}
+            >
+              <Gear className="w-5 h-5" weight={currentPage === 'settings' ? "fill" : "regular"} />
+              <span>Settings</span>
+            </button>
+          </div>
         </nav>
 
         <div className="p-4 border-t border-border">

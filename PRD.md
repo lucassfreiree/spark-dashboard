@@ -1,6 +1,6 @@
 # Planning Guide
 
-A comprehensive CI/CD operations dashboard for monitoring multi-agent deploy systems, providing real-time insights into controller versions, agent activities, pipeline stages, and deployment history.
+A comprehensive CI/CD operations dashboard for monitoring multi-agent deploy systems, providing real-time insights into controller versions, agent activities, pipeline stages, deployment history, analytics, and configurable settings. Enhanced with data visualization, performance metrics, trend analysis, and personalized preferences.
 
 **Experience Qualities**:
 1. **Professional** - Clean, information-dense interface that conveys technical authority and operational control
@@ -13,11 +13,39 @@ This is a multi-view monitoring dashboard with real-time data updates, multiple 
 ## Essential Features
 
 ### Dashboard Overview
-- **Functionality**: Display key system metrics in card format - Controller version, Agent version, last deploy info, pipeline status, trigger run count, active agent
-- **Purpose**: Provide at-a-glance operational awareness of system health and current state
+- **Functionality**: Display key system metrics in card format with charts, trends, and quick stats. Shows Controller version, Agent version, last deploy info, pipeline status, trigger run count, active agent, success rate, and deployment trends over time
+- **Purpose**: Provide at-a-glance operational awareness of system health, performance trends, and current state
 - **Trigger**: Default landing page, accessible from sidebar navigation
-- **Progression**: User lands on dashboard → Scans status cards → Identifies any issues by color coding → Clicks through to detailed views as needed
-- **Success criteria**: All metrics visible without scrolling, color-coded status immediately understood, real-time updates reflect actual system state
+- **Progression**: User lands on dashboard → Scans status cards with trends → Reviews charts and success rates → Identifies any issues by color coding → Clicks through to detailed views as needed
+- **Success criteria**: All metrics visible without scrolling, color-coded status immediately understood, real-time updates reflect actual system state, charts display trends clearly
+
+### Analytics & Reports
+- **Functionality**: Visual charts showing deployment trends, success rates over time, agent performance comparison, average duration by component, and stage-by-stage pipeline metrics
+- **Purpose**: Enable data-driven decision making and identify patterns in deployment behavior
+- **Trigger**: Navigate to Analytics from sidebar or click on chart widgets in dashboard
+- **Progression**: Navigate to page → View deployment trends chart → Compare agent performance → Analyze duration by component → Export report data
+- **Success criteria**: Charts render smoothly, data is accurate and current, export functionality works, filters apply to all visualizations
+
+### Settings & Preferences
+- **Functionality**: Configure refresh interval, notification preferences, dashboard layout, data retention period, and alert thresholds
+- **Purpose**: Personalize dashboard experience and control system behavior
+- **Trigger**: Click Settings icon in sidebar
+- **Progression**: Navigate to settings → Adjust preferences → Save configuration → See changes applied immediately
+- **Success criteria**: Settings persist between sessions, changes apply in real-time, validation prevents invalid configurations
+
+### Export & Reporting
+- **Functionality**: Export deploy history, agent sessions, and pipeline data to CSV/JSON formats with date range selection
+- **Purpose**: Enable external analysis and compliance reporting
+- **Trigger**: Click Export button in relevant pages
+- **Progression**: Click export → Select format and date range → Download file → Use data externally
+- **Success criteria**: Files download successfully, data format is correct, all filtered data is included
+
+### Search & Filtering
+- **Functionality**: Global search across all deploys, agents, and workflows with advanced filter options
+- **Purpose**: Quickly find specific deployments or patterns in historical data
+- **Trigger**: Click search icon or use keyboard shortcut (Ctrl/Cmd + K)
+- **Progression**: Open search → Type query → View filtered results → Click result to navigate → Clear search to reset
+- **Success criteria**: Search is instant, results are relevant, filters combine logically, keyboard navigation works
 
 ### Deploy History
 - **Functionality**: Tabular view of deployment history with sortable columns and filters for date, component, status, and duration
