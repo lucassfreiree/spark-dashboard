@@ -1,5 +1,5 @@
 {
-  "lastSync": "2026-03-28T19:58:13Z",
+  "lastSync": "2026-03-28T20:42:26Z",
   "syncSource": "autopilot/spark-sync-state.yml",
   "controller": {
     "version": "3.6.9",
@@ -75,85 +75,76 @@
   "recentWorkflows": [
     {
       "conclusion": null,
-      "created": "2026-03-28T19:58:07Z",
+      "created": "2026-03-28T20:42:18Z",
       "name": "[Infra] Spark Dashboard Sync • sync state to Spark dashboard",
       "status": "in_progress",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23693146251"
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23693918074"
     },
     {
       "conclusion": "success",
-      "created": "2026-03-28T19:57:41Z",
+      "created": "2026-03-28T20:38:19Z",
+      "name": "[Agent] Auto PR + Auto-Merge (Codex) • push • ws=n/a • ref=claude/fix-claude-error-handling",
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23693849129"
+    },
+    {
+      "conclusion": "success",
+      "created": "2026-03-28T20:37:04Z",
+      "name": "Running Claude",
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23693828873"
+    },
+    {
+      "conclusion": "success",
+      "created": "2026-03-28T20:33:21Z",
       "name": "[Core] Auto-Merge Sweeper • sweep open agent PRs",
       "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23693138650"
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23693767356"
     },
     {
-      "conclusion": "success",
-      "created": "2026-03-28T19:56:10Z",
-      "name": "[Core] Auto-Merge Sweeper • sweep open agent PRs",
+      "conclusion": "failure",
+      "created": "2026-03-28T20:30:38Z",
+      "name": "Running Claude",
       "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23693112841"
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23693720457"
     },
     {
       "conclusion": "success",
-      "created": "2026-03-28T19:56:10Z",
-      "name": "[Core] Autonomous Direct Merge • PR #291 • copilot/autonomia-operacional-implementacao → main",
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23693112839"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-03-28T19:55:45Z",
-      "name": "[Agent] Auto PR + Auto-Merge (Codex) • push • ws=n/a • ref=copilot/autonomia-operacional-implementacao",
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23693106606"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-03-28T19:54:55Z",
-      "name": "[Agent] Auto PR + Auto-Merge (Codex) • push • ws=n/a • ref=copilot/autonomia-operacional-implementacao",
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23693091651"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-03-28T19:50:15Z",
+      "created": "2026-03-28T20:22:23Z",
       "name": "[Core] Lock GC • schedule • ws=n/a • ref=main",
       "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23693010674"
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23693577027"
     },
     {
       "conclusion": "success",
-      "created": "2026-03-28T19:49:28Z",
-      "name": "Running Copilot coding agent",
+      "created": "2026-03-28T20:19:05Z",
+      "name": "[Agent] Auto PR + Auto-Merge (Codex) • push • ws=n/a • ref=claude/automatic-pr-review-and-validation",
       "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23692996497"
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23693518290"
     },
     {
       "conclusion": "success",
-      "created": "2026-03-28T19:48:09Z",
+      "created": "2026-03-28T20:15:46Z",
+      "name": "[Infra] Cleanup: Stale Branches • pull_request • ws=n/a • ref=main",
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23693461250"
+    },
+    {
+      "conclusion": "success",
+      "created": "2026-03-28T20:15:45Z",
+      "name": "[Core] Post-Merge Monitor • PR #292 • claude/auto-review-merge",
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23693461234"
+    },
+    {
+      "conclusion": "success",
+      "created": "2026-03-28T20:15:45Z",
       "name": "[Infra] Sync Copilot Prompt • push ref=main",
       "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23692974344"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-03-28T19:48:09Z",
-      "name": "[Infra] Sync Codex Prompt • push •  ref=main",
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23692974342"
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23693461184"
     }
   ],
-  "openPRs": [
-    {
-      "author": "Copilot",
-      "branch": "copilot/autonomia-operacional-implementacao",
-      "created": "2026-03-28T19:56:07Z",
-      "draft": false,
-      "number": 291,
-      "title": "feat: implement complete agentic artifacts — agents, instructions, skills, templates"
-    }
-  ],
+  "openPRs": [],
   "deployHistory": [
     "state/workspaces/ws-default/audit/source-change-2026-03-28T19-44-29Z.json",
     "state/workspaces/ws-default/audit/source-change-2026-03-28T19-06-17Z.json",
