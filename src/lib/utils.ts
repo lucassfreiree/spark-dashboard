@@ -1,6 +1,6 @@
 import { clsx, type ClassValue } from "clsx"
 import { twMerge } from "tailwind-merge"
-import { toZonedTime, format as formatTz } from "date-fns-tz"
+import { toZonedTime } from "date-fns-tz"
 import { formatDistanceToNow } from "date-fns"
 import { ptBR } from "date-fns/locale"
 
