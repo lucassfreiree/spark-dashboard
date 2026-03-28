@@ -4,7 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
 import { Separator } from '@/components/ui/separator'
 import { Robot, Lightbulb } from '@phosphor-icons/react'
-import { formatDistanceToNow, format } from 'date-fns'
+import { formatDistanceToNowSaoPaulo, formatSaoPauloDate } from '@/lib/utils'
 
 interface AgentActivityProps {
   data: DashboardState
@@ -34,7 +34,7 @@ export function AgentActivity({ data }: AgentActivityProps) {
                   <div className="flex items-center gap-2 mb-1">
                     <span className="font-mono text-sm font-semibold">{event.agent}</span>
                     <span className="text-xs text-muted-foreground">
-                      {formatDistanceToNow(new Date(event.timestamp), { addSuffix: true })}
+                      {formatDistanceToNowSaoPaulo(event.timestamp, { addSuffix: true })}
                     </span>
                     {event.duration && (
                       <span className="text-xs font-mono text-muted-foreground">({event.duration})</span>
@@ -68,10 +68,10 @@ export function AgentActivity({ data }: AgentActivityProps) {
                 <TableRow key={session.id}>
                   <TableCell className="font-mono font-semibold">{session.agent}</TableCell>
                   <TableCell className="font-mono text-sm">
-                    {format(new Date(session.startTime), 'MMM dd, HH:mm')}
+                    {formatSaoPauloDate(session.startTime, 'dd/MM/yy HH:mm')}
                   </TableCell>
                   <TableCell className="font-mono text-sm">
-                    {session.endTime ? format(new Date(session.endTime), 'MMM dd, HH:mm') : 'In progress'}
+                    {session.endTime ? formatSaoPauloDate(session.endTime, 'dd/MM/yy HH:mm') : 'Em andamento'}
                   </TableCell>
                   <TableCell>
                     <StatusBadge status={session.status} />

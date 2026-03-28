@@ -3,7 +3,7 @@ import { MetricCard } from '@/components/MetricCard'
 import { StatusBadge } from '@/components/StatusBadge'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Package, Robot, GitBranch, Pulse, NumberCircleOne, TrendUp, TrendDown } from '@phosphor-icons/react'
-import { formatDistanceToNow } from 'date-fns'
+import { formatDistanceToNowSaoPaulo } from '@/lib/utils'
 import { useMemo } from 'react'
 
 interface DashboardOverviewProps {
@@ -130,7 +130,7 @@ export function DashboardOverview({ data }: DashboardOverviewProps) {
             <div>
               <div className="text-sm text-muted-foreground mb-1">Time</div>
               <div className="text-sm">
-                {formatDistanceToNow(new Date(data.lastDeploy.date), { addSuffix: true })}
+                {formatDistanceToNowSaoPaulo(data.lastDeploy.date, { addSuffix: true })}
               </div>
             </div>
           </div>

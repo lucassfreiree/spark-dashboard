@@ -10,8 +10,7 @@ import { Settings } from '@/components/pages/Settings'
 import { Card } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { ChartBar, ClockCounterClockwise, Robot, GitBranch, Rows, ArrowsClockwise, ChartLine, Gear } from '@phosphor-icons/react'
-import { cn } from '@/lib/utils'
-import { formatDistanceToNow } from 'date-fns'
+import { cn, formatDistanceToNowSaoPaulo } from '@/lib/utils'
 import { Toaster } from '@/components/ui/sonner'
 
 type Page = 'dashboard' | 'deploy-history' | 'agent-activity' | 'workflows' | 'pipeline-monitor' | 'analytics' | 'settings'
@@ -97,7 +96,7 @@ function App() {
         <div className="p-4 border-t border-border">
           <div className="text-xs text-muted-foreground space-y-1">
             <div className="flex items-center justify-between">
-              <span>Last updated:</span>
+              <span>Última atualização:</span>
               <Button
                 size="sm"
                 variant="ghost"
@@ -109,7 +108,7 @@ function App() {
               </Button>
             </div>
             <div className="font-mono text-xs">
-              {formatDistanceToNow(new Date(data.lastUpdated), { addSuffix: true })}
+              {formatDistanceToNowSaoPaulo(data.lastUpdated, { addSuffix: true })}
             </div>
             {error && (
               <div className="text-xs text-warning mt-2 p-2 bg-warning/10 rounded">

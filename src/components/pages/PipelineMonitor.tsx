@@ -2,7 +2,7 @@ import { DashboardState } from '@/types/dashboard'
 import { StatusBadge } from '@/components/StatusBadge'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { ArrowRight } from '@phosphor-icons/react'
-import { cn } from '@/lib/utils'
+import { cn, formatSaoPauloDate } from '@/lib/utils'
 
 interface PipelineMonitorProps {
   data: DashboardState
@@ -55,19 +55,19 @@ export function PipelineMonitor({ data }: PipelineMonitorProps) {
               <div className="space-y-2 text-sm">
                 {stage.startTime && (
                   <div className="flex justify-between">
-                    <span className="text-muted-foreground">Started:</span>
-                    <span className="font-mono">{new Date(stage.startTime).toLocaleTimeString()}</span>
+                    <span className="text-muted-foreground">Iniciado:</span>
+                    <span className="font-mono">{formatSaoPauloDate(stage.startTime, 'HH:mm:ss')}</span>
                   </div>
                 )}
                 {stage.endTime && (
                   <div className="flex justify-between">
-                    <span className="text-muted-foreground">Ended:</span>
-                    <span className="font-mono">{new Date(stage.endTime).toLocaleTimeString()}</span>
+                    <span className="text-muted-foreground">Finalizado:</span>
+                    <span className="font-mono">{formatSaoPauloDate(stage.endTime, 'HH:mm:ss')}</span>
                   </div>
                 )}
                 {stage.duration && (
                   <div className="flex justify-between">
-                    <span className="text-muted-foreground">Duration:</span>
+                    <span className="text-muted-foreground">Duração:</span>
                     <span className="font-mono font-semibold">{stage.duration}</span>
                   </div>
                 )}
