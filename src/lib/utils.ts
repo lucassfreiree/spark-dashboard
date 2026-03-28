@@ -21,10 +21,3 @@ export function formatSaoPauloTime(date: Date | string, formatStr: string = 'PPp
   const spTime = toZonedTime(dateObj, saoPauloTimeZone)
   return dateFnsFormat(spTime, formatStr, { locale: ptBR })
 }
-
-
-
-
-
-
-
