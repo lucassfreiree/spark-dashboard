@@ -19,6 +19,8 @@ export function formatDateSaoPaulo(date: Date | string, formatStr: string = 'PPp
   return format(saoPauloTime, formatStr, { locale: ptBR })
 }
 
+export { formatDateSaoPaulo as formatSaoPauloTime }
+
 
 
 
