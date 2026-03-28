@@ -1,0 +1,32 @@
+{
+  "lastSync": "2026-03-28T14:28:23Z",
+  "controller": {
+    "version": "source-change",
+    "status": "ci-failed",
+    "ciResult": "failure",
+    "promoted": false,
+    "lastSha": "8e460fa8d4d9fbad71e0e2665236ffa631595652"
+  },
+  "agent": {
+    "version": "source-change",
+    "status": "pending",
+    "ciResult": "timeout",
+    "promoted": false
+  },
+  "pipeline": {
+    "status": "success",
+    "lastRun": 66,
+    "component": "controller",
+    "version": "3.6.8"
+  },
+  "activeAgent": {
+    "name": "idle",
+    "status": "idle",
+    "task": null
+  },
+  "copilotMemory": {
+    "sessionCount": 2,
+    "lastSession": "Mega prompt absorvido. Gravados em memoria: boot sequence, deploy flow completo (10 fases), 20 regras de ouro, tooling (push_files obrigatorio), erros conhecidos, isolamento, progresso com checkboxes.",
+    "lessonsCount": 23
+  }
+}
