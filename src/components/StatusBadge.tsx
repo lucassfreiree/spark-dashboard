@@ -1,38 +1,49 @@
 import { Badge } from '@/components/ui/badge'
-import { DeployStatus } from '@/types/dashboard'
 import { CheckCircle, XCircle, Clock, MinusCircle } from '@phosphor-icons/react'
 import { cn } from '@/lib/utils'
 
 interface StatusBadgeProps {
-  status: DeployStatus
+  status: string
   className?: string
 }
 
 export function StatusBadge({ status, className }: StatusBadgeProps) {
-  const configs = {
-    success: {
-      icon: CheckCircle,
-      label: 'Success',
-      className: 'bg-success/20 text-success-foreground border-success/40'
-    },
-    failed: {
-      icon: XCircle,
-      label: 'Failed',
-      className: 'bg-destructive/20 text-destructive-foreground border-destructive/40'
-    },
-    running: {
-      icon: Clock,
-      label: 'Running',
-      className: 'bg-warning/20 text-warning-foreground border-warning/40 animate-pulse-glow'
-    },
-    idle: {
-      icon: MinusCircle,
-      label: 'Idle',
-      className: 'bg-idle/20 text-idle-foreground border-idle/40'
-    }
+  const successConfig = {
+    icon: CheckCircle,
+    label: 'Success',
+    className: 'bg-success/20 text-success-foreground border-success/40'
+  }
+  const failedConfig = {
+    icon: XCircle,
+    label: 'Failed',
+    className: 'bg-destructive/20 text-destructive-foreground border-destructive/40'
+  }
+  const runningConfig = {
+    icon: Clock,
+    label: 'Running',
+    className: 'bg-warning/20 text-warning-foreground border-warning/40 animate-pulse-glow'
+  }
+  const idleConfig = {
+    icon: MinusCircle,
+    label: 'Idle',
+    className: 'bg-idle/20 text-idle-foreground border-idle/40'
   }
 
-  const config = configs[status]
+  const configs: Record<string, typeof successConfig> = {
+    success: successConfig,
+    completed: successConfig,
+    failed: failedConfig,
+    failure: failedConfig,
+    running: runningConfig,
+    in_progress: runningConfig,
+    idle: idleConfig
+  }
+
+  const config = configs[status] ?? {
+    icon: MinusCircle,
+    label: status,
+    className: 'bg-muted/20 text-muted-foreground border-muted/40'
+  }
   const Icon = config.icon
 
   return (
