@@ -41,7 +41,7 @@ export function Analytics({ data }: AnalyticsProps) {
       return acc
     }, {} as Record<string, { total: number; success: number; failed: number }>)
     
-    const agentStats = data.agentActivity.recentSessions.reduce((acc, session) => {
+    const agentStats = (data.agentActivity?.recentSessions || []).reduce((acc, session) => {
       if (!acc[session.agent]) {
         acc[session.agent] = { sessions: 0, deploys: 0, success: 0 }
       }
@@ -154,20 +154,20 @@ export function Analytics({ data }: AnalyticsProps) {
                   <div className="flex items-center justify-between mb-3">
                     <span className="font-mono font-semibold">{agent}</span>
                     <span className="text-sm text-muted-foreground">
-                      {((stat.success / stat.sessions) * 100).toFixed(0)}% success rate
+                      {(((stat as any).success / (stat as any).sessions) * 100).toFixed(0)}% success rate
                     </span>
                   </div>
                   <div className="grid grid-cols-3 gap-3">
                     <div className="bg-muted/50 rounded-lg p-3">
-                      <div className="text-2xl font-bold font-mono">{stat.sessions}</div>
+                      <div className="text-2xl font-bold font-mono">{(stat as any).sessions}</div>
                       <div className="text-xs text-muted-foreground">Sessions</div>
                     </div>
                     <div className="bg-muted/50 rounded-lg p-3">
-                      <div className="text-2xl font-bold font-mono">{stat.deploys}</div>
+                      <div className="text-2xl font-bold font-mono">{(stat as any).deploys}</div>
                       <div className="text-xs text-muted-foreground">Deploys</div>
                     </div>
                     <div className="bg-muted/50 rounded-lg p-3">
-                      <div className="text-2xl font-bold font-mono text-success">{stat.success}</div>
+                      <div className="text-2xl font-bold font-mono text-success">{(stat as any).success}</div>
                       <div className="text-xs text-muted-foreground">Success</div>
                     </div>
                   </div>
@@ -184,7 +184,7 @@ export function Analytics({ data }: AnalyticsProps) {
         </CardHeader>
         <CardContent>
           <div className="space-y-3">
-            {data.pipeline.stages.map(stage => (
+            {(data.pipeline.stages || []).map(stage => (
               <div key={stage.name} className="flex items-center gap-4">
                 <div className="w-32 font-mono text-sm">{stage.name}</div>
                 <div className="flex-1">

@@ -32,19 +32,19 @@ export function DashboardOverview({ data }: DashboardOverviewProps) {
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         <MetricCard
           title="Controller Version"
-          value={data.controllerVersion}
+          value={data.controllerVersion || '?'}
           icon={<Package className="w-5 h-5" />}
         />
         
         <MetricCard
           title="Agent Version"
-          value={data.agentVersion}
+          value={data.agentVersion || '?'}
           icon={<Package className="w-5 h-5" />}
         />
         
         <MetricCard
           title="Last Trigger Run"
-          value={`#${data.lastTriggerRun}`}
+          value={`#${data.lastTriggerRun || 0}`}
           icon={<NumberCircleOne className="w-5 h-5" />}
         />
       </div>
@@ -59,7 +59,7 @@ export function DashboardOverview({ data }: DashboardOverviewProps) {
           </CardHeader>
           <CardContent>
             <div className="space-y-3">
-              <StatusBadge status={data.pipelineStatus} className="text-base px-4 py-2" />
+              <StatusBadge status={data.pipelineStatus || 'idle'} className="text-base px-4 py-2" />
               {data.pipeline.currentStage && (
                 <div className="text-sm text-muted-foreground">
                   Current stage: <span className="font-mono text-foreground">{data.pipeline.currentStage}</span>
@@ -118,22 +118,26 @@ export function DashboardOverview({ data }: DashboardOverviewProps) {
           </CardTitle>
         </CardHeader>
         <CardContent>
-          <div className="grid gap-4 md:grid-cols-3">
-            <div>
-              <div className="text-sm text-muted-foreground mb-1">Component</div>
-              <div className="font-mono text-base">{data.lastDeploy.component}</div>
-            </div>
-            <div>
-              <div className="text-sm text-muted-foreground mb-1">Status</div>
-              <StatusBadge status={data.lastDeploy.status} />
-            </div>
-            <div>
-              <div className="text-sm text-muted-foreground mb-1">Time</div>
-              <div className="text-sm">
-                {formatDistanceToNowSaoPaulo(data.lastDeploy.date, { addSuffix: true })}
+          {data.lastDeploy ? (
+            <div className="grid gap-4 md:grid-cols-3">
+              <div>
+                <div className="text-sm text-muted-foreground mb-1">Component</div>
+                <div className="font-mono text-base">{data.lastDeploy.component}</div>
+              </div>
+              <div>
+                <div className="text-sm text-muted-foreground mb-1">Status</div>
+                <StatusBadge status={data.lastDeploy.status} />
+              </div>
+              <div>
+                <div className="text-sm text-muted-foreground mb-1">Time</div>
+                <div className="text-sm">
+                  {formatDistanceToNowSaoPaulo(data.lastDeploy.date, { addSuffix: true })}
+                </div>
               </div>
             </div>
-          </div>
+          ) : (
+            <div className="text-sm text-muted-foreground">No recent deploys</div>
+          )}
         </CardContent>
       </Card>
 
@@ -166,7 +170,7 @@ export function DashboardOverview({ data }: DashboardOverviewProps) {
           </CardHeader>
           <CardContent>
             <div className="space-y-3">
-              {data.workflows.slice(0, 5).map((workflow) => (
+              {(data.workflows || []).slice(0, 5).map((workflow) => (
                 <div key={workflow.id} className="flex items-center justify-between p-3 rounded-lg bg-muted/30">
                   <div className="flex-1">
                     <div className="font-semibold text-sm">{workflow.name}</div>

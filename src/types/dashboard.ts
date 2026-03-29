@@ -1,5 +1,17 @@
 // Types that match EXACTLY what spark-sync-state.yml produces in state.json v3
 
+export type DeployStatus = 'success' | 'failed' | 'running' | 'idle'
+
+export interface Deploy {
+  id: string
+  date: string
+  component: string
+  version: string
+  status: DeployStatus
+  run: string
+  duration: string
+}
+
 export interface DashboardState {
   lastSync: string
   syncSource: string
@@ -13,7 +25,7 @@ export interface DashboardState {
   workspaces: Workspace[]
   recentWorkflows: WorkflowRun[]
   openPRs: PullRequest[]
-  deployHistory: string[]
+  deployHistory: Deploy[]
   lessonsLearned: LessonsLearned
   versionRules: VersionRules
   executionHistory: ExecutionEntry[]
@@ -21,8 +33,21 @@ export interface DashboardState {
   pipelineStages: PipelineStage[]
   corporateReal: CorporateReal
   metadata: Metadata
-  // Computed locally
   lastUpdated: string
+  controllerVersion?: string
+  agentVersion?: string
+  lastTriggerRun?: number
+  pipelineStatus?: DeployStatus
+  lastDeploy?: Deploy
+  activeAgent?: string
+  workflows?: any[]
+  agentActivity?: {
+    events?: any[]
+    sessions?: any[]
+    timeline?: any[]
+    recentSessions?: any[]
+    lessonsLearned?: any[]
+  }
 }
 
 export interface ComponentState {
@@ -47,6 +72,8 @@ export interface PipelineState {
   changeType?: string
   commitMessage?: string
   changesCount?: number
+  currentStage?: string
+  stages?: any[]
 }
 
 export interface AgentsState {

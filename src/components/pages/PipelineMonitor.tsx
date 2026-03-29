@@ -17,7 +17,7 @@ export function PipelineMonitor({ data }: PipelineMonitorProps) {
         </CardHeader>
         <CardContent>
           <div className="flex flex-col lg:flex-row items-start lg:items-center gap-4 lg:gap-2 overflow-x-auto pb-4">
-            {data.pipeline.stages.map((stage, idx) => (
+            {(data.pipeline.stages || []).map((stage, idx) => (
               <div key={stage.name} className="flex items-center gap-2 w-full lg:w-auto">
                 <div className={cn(
                   "flex-1 lg:flex-initial p-4 rounded-lg border-2 transition-all min-w-[180px]",
@@ -33,7 +33,7 @@ export function PipelineMonitor({ data }: PipelineMonitorProps) {
                     <div className="text-xs font-mono text-muted-foreground">{stage.duration}</div>
                   )}
                 </div>
-                {idx < data.pipeline.stages.length - 1 && (
+                {idx < (data.pipeline.stages || []).length - 1 && (
                   <ArrowRight className="hidden lg:block w-5 h-5 text-muted-foreground flex-shrink-0" />
                 )}
               </div>
@@ -43,7 +43,7 @@ export function PipelineMonitor({ data }: PipelineMonitorProps) {
       </Card>
 
       <div className="grid gap-6 md:grid-cols-2">
-        {data.pipeline.stages.map((stage) => (
+        {(data.pipeline.stages || []).map((stage) => (
           <Card key={stage.name}>
             <CardHeader>
               <div className="flex items-center justify-between">

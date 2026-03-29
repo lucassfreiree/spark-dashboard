@@ -53,11 +53,33 @@ export function useDashboardData() {
       }
 
       const json = await response.json()
-      setData({
+      
+      const processedData: DashboardState = {
         ...EMPTY_STATE,
         ...json,
-        lastUpdated: json.lastSync || new Date().toISOString()
-      })
+        lastUpdated: json.lastSync || new Date().toISOString(),
+        controllerVersion: json.controller?.version || json.versionRules?.currentController || '?',
+        agentVersion: json.agent?.version || json.versionRules?.currentAgent || '?',
+        lastTriggerRun: json.versionRules?.lastTriggerRun || 0,
+        pipelineStatus: json.pipeline?.status as any || 'idle',
+        lastDeploy: json.deployHistory?.[0] || undefined,
+        activeAgent: json.sessionLock?.agentId || 'none',
+        workflows: json.recentWorkflows || [],
+        agentActivity: {
+          events: [],
+          sessions: json.agents?.copilot?.sessions || [],
+          timeline: [],
+          recentSessions: json.agents?.copilot?.sessions || [],
+          lessonsLearned: json.lessonsLearned?.copilotLessons || []
+        }
+      }
+      
+      if (processedData.pipeline) {
+        processedData.pipeline.stages = json.pipelineStages || []
+        processedData.pipeline.currentStage = json.pipeline?.component || undefined
+      }
+      
+      setData(processedData)
     } catch (err) {
       console.warn('Failed to fetch state.json:', err)
       setError('Live data unavailable — showing last known state')

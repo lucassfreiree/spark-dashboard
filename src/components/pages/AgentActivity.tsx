@@ -23,7 +23,7 @@ export function AgentActivity({ data }: AgentActivityProps) {
         <CardContent>
           <div className="relative space-y-4">
             <div className="absolute left-2 top-0 bottom-0 w-0.5 bg-border" />
-            {data.agentActivity.timeline.map((event, idx) => (
+            {(data.agentActivity?.timeline || []).map((event, idx) => (
               <div key={event.id} className="relative flex gap-4 pl-8">
                 <div className={`absolute left-0 w-4 h-4 rounded-full border-2 ${
                   event.agent === 'Claude' ? 'bg-primary border-primary' :
@@ -64,7 +64,7 @@ export function AgentActivity({ data }: AgentActivityProps) {
               </TableRow>
             </TableHeader>
             <TableBody>
-              {data.agentActivity.recentSessions.map((session) => (
+              {(data.agentActivity?.recentSessions || []).map((session) => (
                 <TableRow key={session.id}>
                   <TableCell className="font-mono font-semibold">{session.agent}</TableCell>
                   <TableCell className="font-mono text-sm">
@@ -92,7 +92,7 @@ export function AgentActivity({ data }: AgentActivityProps) {
           </CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
-          {data.agentActivity.lessonsLearned.map((lesson, idx) => (
+          {(data.agentActivity?.lessonsLearned || []).map((lesson, idx) => (
             <div key={lesson.id}>
               {idx > 0 && <Separator className="mb-4" />}
               <div className="space-y-2">

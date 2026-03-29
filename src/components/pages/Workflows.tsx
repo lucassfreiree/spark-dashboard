@@ -30,7 +30,7 @@ export function Workflows({ data }: WorkflowsProps) {
             </TableRow>
           </TableHeader>
           <TableBody>
-            {data.workflows.map((workflow) => (
+            {(data.workflows || []).map((workflow) => (
               <TableRow key={workflow.id}>
                 <TableCell className="font-semibold">{workflow.name}</TableCell>
                 <TableCell>
