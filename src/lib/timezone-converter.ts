@@ -8,11 +8,11 @@ export function convertApiDataToSaoPauloTimezone(data: any): DashboardState {
   }
 
   if (converted.deployHistory) {
+    converted.deployHistory = converted.deployHistory.map((deploy: any) => ({
+      ...deploy,
+      timestamp: new Date(deploy.timestamp).toISOString(),
     }))
-
-    converted.agentActivity.timeline = converted
-      t
-
+  }
 
   if (converted.agentActivity) {
     converted.agentActivity.timeline = converted.agentActivity.timeline.map((event: any) => ({
@@ -34,6 +34,7 @@ export function convertApiDataToSaoPauloTimezone(data: any): DashboardState {
     }))
   }
 
+  return converted
 }
 
 
