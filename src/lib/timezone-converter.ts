@@ -1,14 +1,7 @@
 import { DashboardState } from '@/types/dashboard'
 
-export function convertApiDataToSaoPauloTimezone(data: DashboardState): DashboardState {
-  const converted = JSON.parse(JSON.stringify(data))
-
-  if (converted.lastDeploy) {
-    converted.lastDeploy = {
-      ...converted.lastDeploy,
-      date: new Date(converted.lastDeploy.date).toISOString(),
-    }
-  }
+export function convertApiDataToSaoPauloTimezone(data: any): DashboardState {
+  const converted = { ...data }
 
   if (converted.lastUpdated) {
     converted.lastUpdated = new Date(converted.lastUpdated).toISOString()
