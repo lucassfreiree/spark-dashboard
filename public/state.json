@@ -1,5 +1,5 @@
 {
-  "lastSync": "2026-03-29T09:39:33Z",
+  "lastSync": "2026-03-29T10:05:58Z",
   "syncSource": "autopilot/spark-sync-state.yml",
   "controller": {
     "version": "3.6.9",
@@ -92,7 +92,7 @@
   "health": {
     "schemaVersion": 2,
     "workspaceId": "ws-default",
-    "checkedAt": "2026-03-29T08:55:51Z",
+    "checkedAt": "2026-03-29T09:50:24Z",
     "overall": "degraded",
     "checks": {
       "workspace": {
@@ -102,12 +102,12 @@
       "controllerRelease": {
         "status": "pass",
         "message": "Tag: 3.6.9",
-        "detail": "Age: 14h"
+        "detail": "Age: 15h"
       },
       "agentRelease": {
         "status": "pass",
         "message": "Tag: 2.3.1",
-        "detail": "Age: 13h"
+        "detail": "Age: 14h"
       },
       "stuckRuns": {
         "status": "pass",
@@ -122,7 +122,7 @@
         "message": "? commits ahead"
       }
     },
-    "summary": "degraded at 2026-03-29T08:55:51Z"
+    "summary": "degraded at 2026-03-29T09:50:24Z"
   },
   "ciMonitor": {},
   "workspaces": [
@@ -179,12 +179,52 @@
   "recentWorkflows": [
     {
       "conclusion": null,
+      "created": "2026-03-29T10:05:42Z",
+      "event": "schedule",
+      "head_branch": "main",
+      "name": "[Infra] Spark Dashboard Sync • sync state to Spark dashboard",
+      "run_number": 33,
+      "status": "in_progress",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23706668030"
+    },
+    {
+      "conclusion": "success",
+      "created": "2026-03-29T10:04:19Z",
+      "event": "schedule",
+      "head_branch": "main",
+      "name": "[Core] Lock GC • schedule • ws=n/a • ref=main",
+      "run_number": 110,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23706645358"
+    },
+    {
+      "conclusion": "success",
+      "created": "2026-03-29T09:59:16Z",
+      "event": "schedule",
+      "head_branch": "main",
+      "name": "[Core] Auto-Merge Sweeper • sweep open agent PRs",
+      "run_number": 42,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23706560074"
+    },
+    {
+      "conclusion": "success",
+      "created": "2026-03-29T09:50:18Z",
+      "event": "schedule",
+      "head_branch": "main",
+      "name": "[Core] Health Check • schedule • ws=n/a • ref=main",
+      "run_number": 84,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23706410747"
+    },
+    {
+      "conclusion": "success",
       "created": "2026-03-29T09:39:23Z",
       "event": "schedule",
       "head_branch": "main",
       "name": "[Infra] Spark Dashboard Sync • sync state to Spark dashboard",
       "run_number": 32,
-      "status": "in_progress",
+      "status": "completed",
       "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23706232743"
     },
     {
@@ -336,46 +376,6 @@
       "run_number": 30,
       "status": "completed",
       "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23703803865"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-03-29T06:54:29Z",
-      "event": "schedule",
-      "head_branch": "main",
-      "name": "Ops: Check Active Alerts • schedule • ws=n/a • ref=main",
-      "run_number": 18,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23703592529"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-03-29T06:12:12Z",
-      "event": "schedule",
-      "head_branch": "main",
-      "name": "[Core] Auto-Merge Sweeper • sweep open agent PRs",
-      "run_number": 37,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23702944469"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-03-29T06:02:47Z",
-      "event": "schedule",
-      "head_branch": "main",
-      "name": "[Infra] Spark Dashboard Sync • sync state to Spark dashboard",
-      "run_number": 28,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23702798462"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-03-29T06:01:56Z",
-      "event": "schedule",
-      "head_branch": "main",
-      "name": "[Core] Lock GC • schedule • ws=n/a • ref=main",
-      "run_number": 105,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23702784428"
     }
   ],
   "openPRs": [],
@@ -1024,7 +1024,7 @@
       "drift": false,
       "driftDetail": null
     },
-    "lastChecked": "2026-03-29T09:39:33Z"
+    "lastChecked": "2026-03-29T10:05:58Z"
   },
   "metadata": {
     "autopilotRepo": "lucassfreiree/autopilot",
