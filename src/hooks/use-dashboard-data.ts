@@ -45,44 +45,22 @@ export function useDashboardData() {
       setIsLoading(true)
       setError(null)
 
-      // Try fetching state.json from the same origin (synced by spark-sync-state.yml)
-      const response = await fetch('/state.json?t=' + Date.now())
-
+      // Try with base path first (GitHub Pages), then root
+      let response = await fetch(import.meta.env.BASE_URL + 'state.json?t=' + Date.now())
       if (!response.ok) {
-        throw new Error(`HTTP ${response.status}`)
+        response = await fetch('/state.json?t=' + Date.now())
       }
+      if (!response.ok) throw new Error(`HTTP ${response.status}`)
 
       const json = await response.json()
-      
-      const processedData: DashboardState = {
+      setData({
         ...EMPTY_STATE,
         ...json,
-        lastUpdated: json.lastSync || new Date().toISOString(),
-        controllerVersion: json.controller?.version || json.versionRules?.currentController || '?',
-        agentVersion: json.agent?.version || json.versionRules?.currentAgent || '?',
-        lastTriggerRun: json.versionRules?.lastTriggerRun || 0,
-        pipelineStatus: json.pipeline?.status as any || 'idle',
-        lastDeploy: json.deployHistory?.[0] || undefined,
-        activeAgent: json.sessionLock?.agentId || 'none',
-        workflows: json.recentWorkflows || [],
-        agentActivity: {
-          events: [],
-          sessions: json.agents?.copilot?.sessions || [],
-          timeline: [],
-          recentSessions: json.agents?.copilot?.sessions || [],
-          lessonsLearned: json.lessonsLearned?.copilotLessons || []
-        }
-      }
-      
-      if (processedData.pipeline) {
-        processedData.pipeline.stages = json.pipelineStages || []
-        processedData.pipeline.currentStage = json.pipeline?.component || undefined
-      }
-      
-      setData(processedData)
+        lastUpdated: json.lastSync || new Date().toISOString()
+      })
     } catch (err) {
       console.warn('Failed to fetch state.json:', err)
-      setError('Live data unavailable — showing last known state')
+      setError('Live data unavailable')
       setData(prev => ({ ...prev, lastUpdated: new Date().toISOString() }))
     } finally {
       setIsLoading(false)
