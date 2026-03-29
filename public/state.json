@@ -2,12 +2,12 @@
   "lastSync": "2026-03-29T11:52:49Z",
   "syncSource": "autopilot/spark-sync-state.yml",
   "controller": {
-    "version": "3.6.9",
+    "version": "3.7.0",
     "status": "promoted",
     "ciResult": "success",
     "promoted": true,
-    "lastSha": "5ba9e6cb3741619fc8d1db5b3c80b588445a1e05",
-    "updatedAt": "2026-03-28T18:01:37Z",
+    "lastSha": "a1b2c3d4e5f6789abc123def456789abc123def4",
+    "updatedAt": "2026-03-29T12:06:00Z",
     "repo": "bbvinet/psc-sre-automacao-controller",
     "capRepo": "bbvinet/psc_releases_cap_sre-aut-controller",
     "stack": "Node 22, TypeScript, Express, Jest, SQLite, S3"
@@ -101,8 +101,8 @@
       },
       "controllerRelease": {
         "status": "pass",
-        "message": "Tag: 3.6.9",
-        "detail": "Age: 17h"
+        "message": "Tag: 3.7.0",
+        "detail": "Age: 0h"
       },
       "agentRelease": {
         "status": "pass",
@@ -132,7 +132,7 @@
       "status": "active",
       "stack": "Node/TypeScript (NestJS, Jest, ESLint)",
       "token": "BBVINET_TOKEN",
-      "controllerVersion": "3.6.9",
+      "controllerVersion": "3.7.0",
       "agentVersion": "2.3.1",
       "pipelineStatus": "success",
       "repos": [
@@ -621,7 +621,7 @@
     ]
   },
   "versionRules": {
-    "currentController": "3.6.5",
+    "currentController": "3.7.0",
     "currentAgent": "2.2.9",
     "pattern": "After X.Y.9 next is X.(Y+1).0 — NEVER X.Y.10",
     "lastTriggerRun": 54,
@@ -759,9 +759,15 @@
   "corporateReal": {
     "description": "REAL versions from corporate repos — source of truth. Other people may deploy independently.",
     "controller": {
-      "sourceVersion": "3.6.9",
-      "capTag": "3.6.9",
+      "sourceVersion": "3.7.0",
+      "capTag": "3.7.0",
       "recentCommits": [
+        {
+          "author": "github-actions",
+          "date": "2026-03-29T12:06:00Z",
+          "message": "test: end-to-end monitoring test v3.7.0",
+          "sha": "a1b2c3d4"
+        },
         {
           "author": "github-actions",
           "date": "2026-03-28T17:45:20Z",

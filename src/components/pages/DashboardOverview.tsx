@@ -2,8 +2,9 @@ import { DashboardState } from '@/types/dashboard'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { StatusBadge } from '@/components/StatusBadge'
 import { MetricCard } from '@/components/MetricCard'
-import { Package, Robot, GitBranch, Pulse, Lock, Warning, CheckCircle } from '@phosphor-icons/react'
+import { Package, Robot, GitBranch, Pulse, Lock, Warning, CheckCircle, NumberCircleOne } from '@phosphor-icons/react'
 import { useMemo } from 'react'
+import { formatDistanceToNowSaoPaulo } from '@/lib/timezone'
 
 interface Props {
   data: DashboardState

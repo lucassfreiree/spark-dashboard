@@ -1,6 +1,10 @@
 import { DashboardState } from '@/types/dashboard'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { StatusBadge } from '@/components/StatusBadge'
+import { Robot, Lightbulb } from '@phosphor-icons/react'
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
+import { Separator } from '@/components/ui/separator'
+import { formatDistanceToNowSaoPaulo, formatDateSaoPaulo } from '@/lib/timezone'
 
 interface Props {
   data: DashboardState
@@ -51,10 +55,11 @@ export function AgentActivity({ data }: Props) {
                   <p className="text-sm text-foreground">{event.action}</p>
                 </div>
               </div>
-            )}
+            ))}
             {claude?.lastAction && <div className="text-xs text-muted-foreground mt-2">Last: {claude.lastAction}</div>}
-          </CardContent>
-        </Card>
+          </div>
+        </CardContent>
+      </Card>
 
       <Card>
         <CardHeader>
@@ -114,38 +119,12 @@ export function AgentActivity({ data }: Props) {
                 <p className="text-sm text-muted-foreground">{lesson.description}</p>
               </div>
             </div>
-            {copilot?.lastSession && copilot.lastSession !== 'none' && (
-              <div className="p-2 rounded bg-muted/30 border-l-2 border-purple-500 text-xs mt-2 line-clamp-2">{copilot.lastSession}</div>
-            )}
-          </CardContent>
-        </Card>
-
-        {/* Codex */}
-        <Card>
-          <CardHeader className="pb-2">
-            <CardTitle className="flex items-center justify-between">
-              <span>Codex</span>
-              <span className="text-xs font-mono text-muted-foreground">{codex?.sessionCount || 0} sessions</span>
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="text-xs text-muted-foreground mb-2">Code implementation + CI monitoring</div>
-            <div className="grid grid-cols-2 gap-2 mt-2">
-              <div className="text-center p-2 rounded bg-muted/30">
-                <div className="text-xl font-bold">{codex?.sessionCount || 0}</div>
-                <div className="text-[10px] text-muted-foreground">Sessions</div>
-              </div>
-              <div className="text-center p-2 rounded bg-muted/30">
-                <div className="text-xl font-bold">{codex?.lessonsCount || 0}</div>
-                <div className="text-[10px] text-muted-foreground">Lessons</div>
-              </div>
-            </div>
-            {codex?.lastSession && codex.lastSession !== 'none' && (
-              <div className="p-2 rounded bg-muted/30 border-l-2 border-orange-500 text-xs mt-2 line-clamp-2">{codex.lastSession}</div>
-            )}
-          </CardContent>
-        </Card>
-      </div>
+          ))}
+          {copilot?.lastSession && copilot.lastSession !== 'none' && (
+            <div className="p-2 rounded bg-muted/30 border-l-2 border-purple-500 text-xs mt-2 line-clamp-2">{copilot.lastSession}</div>
+          )}
+        </CardContent>
+      </Card>
 
       {/* Session Timeline */}
       <Card>
