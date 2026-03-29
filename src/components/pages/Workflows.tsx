@@ -3,7 +3,7 @@ import { StatusBadge } from '@/components/StatusBadge'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
 import { GitBranch } from '@phosphor-icons/react'
-import { formatDistanceToNow } from 'date-fns'
+import { formatDistanceToNowSaoPaulo } from '@/lib/utils'
 
 interface WorkflowsProps {
   data: DashboardState
@@ -38,7 +38,7 @@ export function Workflows({ data }: WorkflowsProps) {
                 </TableCell>
                 <TableCell className="font-mono text-sm">{workflow.branch}</TableCell>
                 <TableCell className="text-sm">
-                  {formatDistanceToNow(new Date(workflow.lastRun), { addSuffix: true })}
+                  {formatDistanceToNowSaoPaulo(workflow.lastRun, { addSuffix: true })}
                 </TableCell>
                 <TableCell className="font-mono text-sm">{workflow.duration}</TableCell>
               </TableRow>
