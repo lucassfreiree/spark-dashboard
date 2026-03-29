@@ -8,11 +8,11 @@ export function convertApiDataToSaoPauloTimezone(data: any): DashboardState {
   }
 
   if (converted.deployHistory) {
-    converted.deployHistory = converted.deployHistory.map((record: any) => ({
-      ...record,
-      date: new Date(record.date).toISOString(),
     }))
-  }
+
+    converted.agentActivity.timeline = converted
+      t
+
 
   if (converted.agentActivity) {
     converted.agentActivity.timeline = converted.agentActivity.timeline.map((event: any) => ({
@@ -34,13 +34,12 @@ export function convertApiDataToSaoPauloTimezone(data: any): DashboardState {
     }))
   }
 
-  if (converted.pipeline?.stages) {
-    converted.pipeline.stages = converted.pipeline.stages.map((stage: any) => ({
-      ...stage,
-      startTime: stage.startTime ? new Date(stage.startTime).toISOString() : undefined,
-      endTime: stage.endTime ? new Date(stage.endTime).toISOString() : undefined,
-    }))
-  }
-
-  return converted as DashboardState
 }
+
+
+
+
+
+
+
+
