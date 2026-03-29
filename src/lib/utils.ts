@@ -21,8 +21,3 @@ export function formatDateSaoPaulo(date: Date | number | string, formatStr: stri
   const zonedDate = toZonedTime(dateObj, saoPauloTz)
   return format(zonedDate, formatStr, { locale: ptBR })
 }
-
-
-
-
-
