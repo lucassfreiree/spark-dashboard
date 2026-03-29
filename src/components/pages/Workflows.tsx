@@ -1,15 +1,15 @@
 import { DashboardState } from '@/types/dashboard'
-import { StatusBadge } from '@/components/StatusBadge'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
-import { GitBranch } from '@phosphor-icons/react'
+import { StatusBadge } from '@/components/StatusBadge'
 import { formatDistanceToNowSaoPaulo } from '@/lib/utils'
 
-interface WorkflowsProps {
+interface Props {
   data: DashboardState
 }
 
-export function Workflows({ data }: WorkflowsProps) {
+export function Workflows({ data }: Props) {
+  const workflows = data.recentWorkflows || []
+
   return (
     <Card>
       <CardHeader>

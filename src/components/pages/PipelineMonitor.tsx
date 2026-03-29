@@ -1,19 +1,55 @@
 import { DashboardState } from '@/types/dashboard'
-import { StatusBadge } from '@/components/StatusBadge'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { ArrowRight } from '@phosphor-icons/react'
-import { cn, formatDateSaoPaulo } from '@/lib/utils'
+import { StatusBadge } from '@/components/StatusBadge'
+import { CheckCircle, Circle, Spinner, XCircle } from '@phosphor-icons/react'
 
-interface PipelineMonitorProps {
+interface Props {
   data: DashboardState
 }
 
-export function PipelineMonitor({ data }: PipelineMonitorProps) {
+const DEFAULT_STAGES = [
+  { name: 'Setup', desc: 'Read workspace config' },
+  { name: 'Session Guard', desc: 'Acquire multi-agent lock' },
+  { name: 'Apply & Push', desc: 'Clone, apply patches, push' },
+  { name: 'CI Gate', desc: 'Wait corporate CI (Esteira Build NPM)' },
+  { name: 'Promote', desc: 'Update CAP values.yaml image tag' },
+  { name: 'Save State', desc: 'Record on autopilot-state' },
+  { name: 'Audit', desc: 'Audit trail + release lock' },
+]
+
+function stageStatus(pipelineStatus: string, idx: number, total: number) {
+  if (pipelineStatus === 'idle' || pipelineStatus === 'unknown') return 'pending'
+  if (pipelineStatus === 'success' || pipelineStatus === 'completed') return 'success'
+  if (pipelineStatus === 'failure' || pipelineStatus === 'failed') return idx < total - 1 ? 'success' : 'failed'
+  if (pipelineStatus === 'running' || pipelineStatus === 'in_progress') {
+    if (idx < 3) return 'success'
+    if (idx === 3) return 'running'
+    return 'pending'
+  }
+  return 'pending'
+}
+
+function StageIcon({ status }: { status: string }) {
+  if (status === 'success') return <CheckCircle className="w-5 h-5 text-success" weight="fill" />
+  if (status === 'failed') return <XCircle className="w-5 h-5 text-destructive" weight="fill" />
+  if (status === 'running') return <Spinner className="w-5 h-5 text-warning animate-spin" />
+  return <Circle className="w-5 h-5 text-muted-foreground" />
+}
+
+export function PipelineMonitor({ data }: Props) {
+  const pipeline = data.pipeline
+  const stages = data.pipelineStages?.length ? data.pipelineStages : DEFAULT_STAGES
+  const ps = pipeline?.status || 'idle'
+
   return (
     <div className="space-y-6">
+      {/* Pipeline Info */}
       <Card>
         <CardHeader>
-          <CardTitle>Deploy Pipeline Stages</CardTitle>
+          <CardTitle className="flex items-center justify-between">
+            <span>apply-source-change Pipeline</span>
+            <StatusBadge status={ps} className="text-base" />
+          </CardTitle>
         </CardHeader>
         <CardContent>
           <div className="flex flex-col lg:flex-row items-start lg:items-center gap-4 lg:gap-2 overflow-x-auto pb-4">

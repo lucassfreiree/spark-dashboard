@@ -1,101 +1,91 @@
-import { useState, useMemo } from 'react'
-import { DashboardState, DeployStatus } from '@/types/dashboard'
-import { StatusBadge } from '@/components/StatusBadge'
+import { DashboardState } from '@/types/dashboard'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
-import { ClockCounterClockwise } from '@phosphor-icons/react'
-import { formatDateSaoPaulo } from '@/lib/utils'
 
-interface DeployHistoryProps {
+interface Props {
   data: DashboardState
 }
 
-export function DeployHistory({ data }: DeployHistoryProps) {
-  const [statusFilter, setStatusFilter] = useState<string>('all')
-  const [componentFilter, setComponentFilter] = useState<string>('all')
-
-  const filteredDeploys = useMemo(() => {
-    return data.deployHistory.filter(deploy => {
-      const matchesStatus = statusFilter === 'all' || deploy.status === statusFilter
-      const matchesComponent = componentFilter === 'all' || deploy.component === componentFilter
-      return matchesStatus && matchesComponent
-    })
-  }, [data.deployHistory, statusFilter, componentFilter])
-
-  const uniqueComponents = useMemo(() => {
-    const components = new Set(data.deployHistory.map(d => d.component))
-    return Array.from(components)
-  }, [data.deployHistory])
+export function DeployHistory({ data }: Props) {
+  const history = data.deployHistory || []
+  const corpCtrl = data.corporateReal?.controller
+  const corpAgent = data.corporateReal?.agent
 
   return (
     <div className="space-y-6">
-      <div className="flex flex-col sm:flex-row gap-4">
-        <div className="w-full sm:w-48">
-          <Select value={statusFilter} onValueChange={setStatusFilter}>
-            <SelectTrigger>
-              <SelectValue placeholder="Filter by status" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="all">All Status</SelectItem>
-              <SelectItem value="success">Success</SelectItem>
-              <SelectItem value="failed">Failed</SelectItem>
-              <SelectItem value="running">Running</SelectItem>
-              <SelectItem value="idle">Idle</SelectItem>
-            </SelectContent>
-          </Select>
-        </div>
-        <div className="w-full sm:w-48">
-          <Select value={componentFilter} onValueChange={setComponentFilter}>
-            <SelectTrigger>
-              <SelectValue placeholder="Filter by component" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="all">All Components</SelectItem>
-              {uniqueComponents.map(comp => (
-                <SelectItem key={comp} value={comp}>{comp}</SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
-        </div>
+      {/* Corporate Commits (real activity from repos) */}
+      <div className="grid gap-4 md:grid-cols-2">
+        <Card>
+          <CardHeader><CardTitle>Controller Recent Commits</CardTitle></CardHeader>
+          <CardContent>
+            {(corpCtrl?.recentCommits || []).length === 0 ? (
+              <div className="text-sm text-muted-foreground text-center py-4">No commit data (BBVINET_TOKEN may be unavailable)</div>
+            ) : (
+              <div className="space-y-1">
+                {(corpCtrl?.recentCommits || []).map((cm, i) => (
+                  <div key={i} className="flex items-start gap-2 p-2 rounded bg-muted/30 text-xs">
+                    <code className="text-primary min-w-[60px]">{cm.sha}</code>
+                    <div className="flex-1 truncate" title={cm.message}>{cm.message}</div>
+                    <span className="text-muted-foreground whitespace-nowrap">{cm.author}</span>
+                  </div>
+                ))}
+              </div>
+            )}
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardHeader><CardTitle>Agent Recent Commits</CardTitle></CardHeader>
+          <CardContent>
+            {(corpAgent?.recentCommits || []).length === 0 ? (
+              <div className="text-sm text-muted-foreground text-center py-4">No commit data</div>
+            ) : (
+              <div className="space-y-1">
+                {(corpAgent?.recentCommits || []).map((cm, i) => (
+                  <div key={i} className="flex items-start gap-2 p-2 rounded bg-muted/30 text-xs">
+                    <code className="text-primary min-w-[60px]">{cm.sha}</code>
+                    <div className="flex-1 truncate" title={cm.message}>{cm.message}</div>
+                    <span className="text-muted-foreground whitespace-nowrap">{cm.author}</span>
+                  </div>
+                ))}
+              </div>
+            )}
+          </CardContent>
+        </Card>
       </div>
 
+      {/* Audit Trail */}
       <Card>
-        <CardHeader>
-          <CardTitle className="flex items-center gap-2">
-            <ClockCounterClockwise className="w-5 h-5" />
-            Deploy History ({filteredDeploys.length})
-          </CardTitle>
-        </CardHeader>
+        <CardHeader><CardTitle>Deploy Audit Trail ({history.length})</CardTitle></CardHeader>
         <CardContent>
-          <Table>
-            <TableHeader>
-              <TableRow>
-                <TableHead>Date</TableHead>
-                <TableHead>Component</TableHead>
-                <TableHead>Version</TableHead>
-                <TableHead>Status</TableHead>
-                <TableHead>Run</TableHead>
-                <TableHead>Duration</TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {filteredDeploys.map((deploy) => (
-                <TableRow key={deploy.id}>
-                  <TableCell className="font-mono text-sm">
-                    {formatDateSaoPaulo(deploy.date, 'dd/MM/yy HH:mm')}
-                  </TableCell>
-                  <TableCell className="font-mono">{deploy.component}</TableCell>
-                  <TableCell className="font-mono text-sm">{deploy.version}</TableCell>
-                  <TableCell>
-                    <StatusBadge status={deploy.status} />
-                  </TableCell>
-                  <TableCell className="font-mono">#{deploy.run}</TableCell>
-                  <TableCell className="font-mono text-sm">{deploy.duration}</TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
+          {history.length === 0 ? (
+            <div className="text-sm text-muted-foreground text-center py-4">No deploy history</div>
+          ) : (
+            <div className="overflow-x-auto">
+              <table className="w-full text-sm">
+                <thead>
+                  <tr className="border-b text-muted-foreground">
+                    <th className="text-left py-2 px-3">#</th>
+                    <th className="text-left py-2 px-3">Audit File</th>
+                    <th className="text-left py-2 px-3">Workspace</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {history.map((path, i) => {
+                    const parts = (path || '').split('/')
+                    const ws = parts[2] || '?'
+                    const filename = parts[parts.length - 1] || path
+                    return (
+                      <tr key={i} className="border-b border-border/50 hover:bg-muted/30">
+                        <td className="py-2 px-3 text-muted-foreground">{i + 1}</td>
+                        <td className="py-2 px-3 font-mono text-xs max-w-[300px] truncate" title={path}>{filename}</td>
+                        <td className="py-2 px-3"><span className="px-2 py-0.5 rounded bg-primary/10 text-primary text-xs">{ws}</span></td>
+                      </tr>
+                    )
+                  })}
+                </tbody>
+              </table>
+            </div>
+          )}
         </CardContent>
       </Card>
     </div>

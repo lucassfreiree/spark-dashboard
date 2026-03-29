@@ -7,7 +7,6 @@ import { Workflows } from '@/components/pages/Workflows'
 import { PipelineMonitor } from '@/components/pages/PipelineMonitor'
 import { Analytics } from '@/components/pages/Analytics'
 import { Settings } from '@/components/pages/Settings'
-import { Card } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { ChartBar, ClockCounterClockwise, Robot, GitBranch, Rows, ArrowsClockwise, ChartLine, Gear, Globe } from '@phosphor-icons/react'
 import { cn, formatDistanceToNowSaoPaulo } from '@/lib/utils'
@@ -30,33 +29,29 @@ function App() {
 
   const renderPage = () => {
     switch (currentPage) {
-      case 'dashboard':
-        return <DashboardOverview data={data} />
-      case 'analytics':
-        return <Analytics data={data} />
-      case 'deploy-history':
-        return <DeployHistory data={data} />
-      case 'agent-activity':
-        return <AgentActivity data={data} />
-      case 'workflows':
-        return <Workflows data={data} />
-      case 'pipeline-monitor':
-        return <PipelineMonitor data={data} />
-      case 'settings':
-        return <Settings />
-      default:
-        return <DashboardOverview data={data} />
+      case 'dashboard': return <DashboardOverview data={data} />
+      case 'analytics': return <Analytics data={data} />
+      case 'deploy-history': return <DeployHistory data={data} />
+      case 'agent-activity': return <AgentActivity data={data} />
+      case 'workflows': return <Workflows data={data} />
+      case 'pipeline-monitor': return <PipelineMonitor data={data} />
+      case 'settings': return <Settings />
+      default: return <DashboardOverview data={data} />
     }
   }
+
+  const lastSyncText = data.lastSync
+    ? formatDistanceToNowSaoPaulo(data.lastSync, { addSuffix: true })
+    : 'aguardando sync...'
 
   return (
     <div className="min-h-screen flex bg-background">
       <aside className="w-64 border-r border-border bg-card flex flex-col">
         <div className="p-6 border-b border-border">
-          <h1 className="text-2xl font-bold tracking-tight">Autopilot Dashboard</h1>
-          <p className="text-sm text-muted-foreground mt-1">CI/CD Operations Monitor</p>
+          <h1 className="text-2xl font-bold tracking-tight">Autopilot</h1>
+          <p className="text-sm text-muted-foreground mt-1">Operations Dashboard</p>
         </div>
-        
+
         <nav className="flex-1 p-4 space-y-1">
           {navItems.map((item) => {
             const Icon = item.icon
@@ -76,7 +71,7 @@ function App() {
               </button>
             )
           })}
-          
+
           <div className="pt-4">
             <button
               onClick={() => setCurrentPage('settings')}
@@ -96,38 +91,24 @@ function App() {
         <div className="p-4 border-t border-border">
           <div className="text-xs text-muted-foreground space-y-1">
             <div className="flex items-center justify-between">
-              <span>Última atualização:</span>
-              <Button
-                size="sm"
-                variant="ghost"
-                onClick={() => refetch()}
-                disabled={isLoading}
-                className="h-6 px-2"
-              >
+              <span>Sync:</span>
+              <Button size="sm" variant="ghost" onClick={() => refetch()} disabled={isLoading} className="h-6 px-2">
                 <ArrowsClockwise className={cn("w-4 h-4", isLoading && "animate-spin")} />
               </Button>
             </div>
-            <div className="font-mono text-xs">
-              {formatDistanceToNowSaoPaulo(data.lastUpdated, { addSuffix: true })}
-            </div>
+            <div className="font-mono text-xs">{lastSyncText}</div>
             <div className="flex items-center gap-1 text-[10px] text-primary/70 mt-2">
               <Globe className="w-3 h-3" />
-              <span>São Paulo (GMT-3)</span>
+              <span>Sao Paulo (GMT-3)</span>
             </div>
-            {error && (
-              <div className="text-xs text-warning mt-2 p-2 bg-warning/10 rounded">
-                {error}
-              </div>
-            )}
+            {error && <div className="text-xs text-warning mt-2 p-2 bg-warning/10 rounded">{error}</div>}
           </div>
         </div>
       </aside>
 
       <main className="flex-1 overflow-auto">
         <div className="p-6">
-          <div className="max-w-7xl mx-auto">
-            {renderPage()}
-          </div>
+          <div className="max-w-7xl mx-auto">{renderPage()}</div>
         </div>
       </main>
 
