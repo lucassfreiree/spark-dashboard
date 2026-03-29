@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { DashboardState } from '@/types/dashboard'
 import { mockDashboardData } from '@/lib/mockData'
+import { convertApiDataToSaoPauloTimezone } from '@/lib/timezone-converter'
 
 const REFRESH_INTERVAL = 30000
 
@@ -21,10 +22,11 @@ export function useDashboardData() {
       }
       
       const jsonData = await response.json()
-      setData({
+      const convertedData = convertApiDataToSaoPauloTimezone({
         ...jsonData,
         lastUpdated: new Date().toISOString()
       })
+      setData(convertedData)
     } catch (err) {
       console.error('Error fetching dashboard data:', err)
       setError('Using cached data - live updates unavailable')

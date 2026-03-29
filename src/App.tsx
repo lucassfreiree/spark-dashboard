@@ -9,7 +9,7 @@ import { Analytics } from '@/components/pages/Analytics'
 import { Settings } from '@/components/pages/Settings'
 import { Card } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
-import { ChartBar, ClockCounterClockwise, Robot, GitBranch, Rows, ArrowsClockwise, ChartLine, Gear } from '@phosphor-icons/react'
+import { ChartBar, ClockCounterClockwise, Robot, GitBranch, Rows, ArrowsClockwise, ChartLine, Gear, Globe } from '@phosphor-icons/react'
 import { cn, formatDistanceToNowSaoPaulo } from '@/lib/utils'
 import { Toaster } from '@/components/ui/sonner'
 
@@ -109,6 +109,10 @@ function App() {
             </div>
             <div className="font-mono text-xs">
               {formatDistanceToNowSaoPaulo(data.lastUpdated, { addSuffix: true })}
+            </div>
+            <div className="flex items-center gap-1 text-[10px] text-primary/70 mt-2">
+              <Globe className="w-3 h-3" />
+              <span>São Paulo (GMT-3)</span>
             </div>
             {error && (
               <div className="text-xs text-warning mt-2 p-2 bg-warning/10 rounded">

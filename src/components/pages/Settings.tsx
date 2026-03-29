@@ -5,8 +5,9 @@ import { Input } from '@/components/ui/input'
 import { Switch } from '@/components/ui/switch'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Button } from '@/components/ui/button'
-import { Gear, FloppyDisk, ArrowCounterClockwise } from '@phosphor-icons/react'
+import { Gear, FloppyDisk, ArrowCounterClockwise, Globe } from '@phosphor-icons/react'
 import { toast } from 'sonner'
+import { formatDateSaoPaulo } from '@/lib/utils'
 
 export function Settings() {
   const [refreshInterval, setRefreshInterval] = useState(30)
@@ -124,6 +125,48 @@ export function Settings() {
               disabled={!enableNotifications}
               onCheckedChange={setNotifyOnSuccess}
             />
+          </div>
+        </CardContent>
+      </Card>
+
+      <Card>
+        <CardHeader>
+          <CardTitle className="flex items-center gap-2">
+            <Globe className="w-5 h-5" />
+            Timezone & Localization
+          </CardTitle>
+          <CardDescription>All dates and times displayed in São Paulo timezone</CardDescription>
+        </CardHeader>
+        <CardContent className="space-y-4">
+          <div className="p-4 bg-primary/5 border border-primary/20 rounded-lg">
+            <div className="flex items-start gap-3">
+              <Globe className="w-5 h-5 text-primary mt-0.5" />
+              <div className="space-y-2 flex-1">
+                <div className="font-semibold text-sm">Active Timezone Configuration</div>
+                <div className="text-sm text-muted-foreground">
+                  All API data is automatically converted to <span className="font-mono text-foreground">America/Sao_Paulo</span> timezone upon retrieval.
+                </div>
+                <div className="mt-3 pt-3 border-t border-border space-y-1">
+                  <div className="text-xs text-muted-foreground">Current São Paulo time:</div>
+                  <div className="font-mono text-base font-semibold text-primary">
+                    {formatDateSaoPaulo(new Date(), 'PPpp')}
+                  </div>
+                </div>
+                <div className="mt-2 space-y-1">
+                  <div className="text-xs text-muted-foreground">Sample formats:</div>
+                  <div className="grid grid-cols-2 gap-2 text-xs font-mono">
+                    <div className="bg-muted/50 p-2 rounded">
+                      <span className="text-muted-foreground">Short:</span>{' '}
+                      {formatDateSaoPaulo(new Date(), 'dd/MM/yy HH:mm')}
+                    </div>
+                    <div className="bg-muted/50 p-2 rounded">
+                      <span className="text-muted-foreground">Time:</span>{' '}
+                      {formatDateSaoPaulo(new Date(), 'HH:mm:ss')}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </CardContent>
       </Card>

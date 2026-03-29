@@ -27,11 +27,11 @@ This is a multi-view monitoring dashboard with real-time data updates, multiple 
 - **Success criteria**: Charts render smoothly, data is accurate and current, export functionality works, filters apply to all visualizations
 
 ### Settings & Preferences
-- **Functionality**: Configure refresh interval, notification preferences, dashboard layout, data retention period, and alert thresholds
-- **Purpose**: Personalize dashboard experience and control system behavior
+- **Functionality**: Configure refresh interval, notification preferences, dashboard layout, data retention period, alert thresholds, and view timezone information with real-time São Paulo time display
+- **Purpose**: Personalize dashboard experience, control system behavior, and verify timezone configuration
 - **Trigger**: Click Settings icon in sidebar
-- **Progression**: Navigate to settings → Adjust preferences → Save configuration → See changes applied immediately
-- **Success criteria**: Settings persist between sessions, changes apply in real-time, validation prevents invalid configurations
+- **Progression**: Navigate to settings → View timezone status and current São Paulo time → Adjust preferences → Save configuration → See changes applied immediately
+- **Success criteria**: Settings persist between sessions, changes apply in real-time, validation prevents invalid configurations, timezone section displays current São Paulo time with sample formats
 
 ### Export & Reporting
 - **Functionality**: Export deploy history, agent sessions, and pipeline data to CSV/JSON formats with date range selection
@@ -76,11 +76,18 @@ This is a multi-view monitoring dashboard with real-time data updates, multiple 
 - **Success criteria**: All 7 stages visible, current stage highlighted, failures clearly marked, progression arrows show flow
 
 ### Auto-Refresh System
-- **Functionality**: Automatically fetch updated data from /api/state endpoint every 30 seconds
-- **Purpose**: Keep dashboard current without manual intervention
+- **Functionality**: Automatically fetch updated data from /api/state endpoint every 30 seconds with real-time timezone conversion
+- **Purpose**: Keep dashboard current without manual intervention, displaying all times in São Paulo timezone
 - **Trigger**: Automatic on app load, runs continuously
-- **Progression**: App loads → Initial data fetch → 30s timer starts → Data refreshes → UI updates → Timer resets
-- **Success criteria**: Data refreshes seamlessly without disrupting user interaction, timestamp shows last update
+- **Progression**: App loads → Initial data fetch → Timezone conversion applied → 30s timer starts → Data refreshes → Timezone conversion reapplied → UI updates → Timer resets
+- **Success criteria**: Data refreshes seamlessly without disrupting user interaction, timestamp shows last update, all dates displayed in São Paulo timezone (GMT-3)
+
+### Real-Time Timezone Conversion
+- **Functionality**: Automatically converts all API timestamps to São Paulo timezone (America/Sao_Paulo, GMT-3) as data is fetched, with visual indicators showing timezone status
+- **Purpose**: Ensure all dates and times throughout the dashboard are displayed in the local Brazilian timezone for accurate monitoring
+- **Trigger**: Runs automatically on every API data fetch and refresh
+- **Progression**: API data received → All timestamp fields identified → Converted to São Paulo timezone → Data stored in state → Components display formatted dates → Visual indicator confirms timezone
+- **Success criteria**: All dates throughout app display in São Paulo time, relative times in Portuguese, timezone indicator visible in sidebar, Settings page shows current São Paulo time with sample formats
 
 ## Edge Case Handling
 
@@ -91,6 +98,9 @@ This is a multi-view monitoring dashboard with real-time data updates, multiple 
 - **Concurrent Agent Activity**: Display overlapping agent sessions without visual collision
 - **Filter No Results**: Show clear "no results" message with option to clear filters
 - **Large Datasets**: Implement pagination or virtual scrolling for tables with 100+ rows
+- **Invalid Timestamps**: Gracefully handle malformed date strings from API, show placeholder or skip conversion
+- **Timezone Conversion Errors**: Fall back to raw timestamp display if conversion fails, log error to console
+- **DST Transitions**: Correctly handle daylight saving time changes in São Paulo timezone
 
 ## Design Direction
 
@@ -170,6 +180,7 @@ Animations should reinforce system activity and state changes with subtle, purpo
   - Pipeline Monitor: Pipeline (stages visualization)
   - Refresh: ArrowsClockwise (auto-refresh indicator)
   - Status: CheckCircle (success), XCircle (failed), Clock (running), MinusCircle (idle)
+  - Timezone: Globe (timezone indicator and settings)
 
 - **Spacing**:
   - Page padding: p-6 (24px)
