@@ -1,5 +1,5 @@
 {
-  "lastSync": "2026-04-01T18:46:02Z",
+  "lastSync": "2026-04-01T18:51:21Z",
   "syncSource": "autopilot/spark-sync-state.yml",
   "controller": {
     "version": "3.7.7",
@@ -76,11 +76,16 @@
       ]
     },
     "codex": {
-      "sessionCount": 6,
+      "sessionCount": 7,
       "lastSession": "none",
-      "lessonsCount": 1,
-      "lastUpdated": "2026-04-01T18:45:04Z",
+      "lessonsCount": 2,
+      "lastUpdated": "2026-04-01T18:47:09Z",
       "sessions": [
+        {
+          "date": null,
+          "summary": null,
+          "actions": 0
+        },
         {
           "date": null,
           "summary": null,
@@ -208,12 +213,62 @@
   "recentWorkflows": [
     {
       "conclusion": null,
+      "created": "2026-04-01T18:51:03Z",
+      "event": "push",
+      "head_branch": "main",
+      "name": "[Core] Builds Validation Gate • validate all workflows",
+      "run_number": 115,
+      "status": "in_progress",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23865287220"
+    },
+    {
+      "conclusion": null,
+      "created": "2026-04-01T18:51:03Z",
+      "event": "push",
+      "head_branch": "main",
+      "name": "[Infra] Spark Dashboard Sync • sync state to Spark dashboard",
+      "run_number": 183,
+      "status": "in_progress",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23865287217"
+    },
+    {
+      "conclusion": "success",
+      "created": "2026-04-01T18:49:37Z",
+      "event": "schedule",
+      "head_branch": "main",
+      "name": "Ops: Check Active Alerts • schedule • ws=n/a • ref=main",
+      "run_number": 32,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23865226735"
+    },
+    {
+      "conclusion": "success",
+      "created": "2026-04-01T18:47:12Z",
+      "event": "schedule",
+      "head_branch": "main",
+      "name": "[Core] Workflow Health Monitor • monitor all workflows",
+      "run_number": 45,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23865124346"
+    },
+    {
+      "conclusion": "success",
+      "created": "2026-04-01T18:46:05Z",
+      "event": "workflow_dispatch",
+      "head_branch": "main",
+      "name": "[Infra] Deploy Panel (GitHub Pages) • workflow_dispatch • ws=n/a • ref=main",
+      "run_number": 48,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23865077394"
+    },
+    {
+      "conclusion": "success",
       "created": "2026-04-01T18:45:28Z",
       "event": "push",
       "head_branch": "main",
       "name": "[Infra] Spark Dashboard Sync • sync state to Spark dashboard",
       "run_number": 182,
-      "status": "in_progress",
+      "status": "completed",
       "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23865050489"
     },
     {
@@ -355,56 +410,6 @@
       "run_number": 40,
       "status": "completed",
       "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23864742332"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-04-01T18:36:54Z",
-      "event": "schedule",
-      "head_branch": "main",
-      "name": "[Core] Auto-Merge Sweeper • sweep open agent PRs",
-      "run_number": 278,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23864696347"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-04-01T18:33:48Z",
-      "event": "schedule",
-      "head_branch": "main",
-      "name": "[Core] Deploy Pipeline Monitor • schedule • scheduled",
-      "run_number": 45,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23864567387"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-04-01T18:21:15Z",
-      "event": "pull_request",
-      "head_branch": "codex/fix-dashboard-sync",
-      "name": "[Core] Builds Validation Gate • validate all workflows",
-      "run_number": 112,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23864044207"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-04-01T18:21:15Z",
-      "event": "pull_request",
-      "head_branch": "codex/fix-dashboard-sync",
-      "name": "[Core] PR Auto-Review • PR #441",
-      "run_number": 39,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23864044193"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-04-01T18:21:15Z",
-      "event": "pull_request_target",
-      "head_branch": "codex/fix-dashboard-sync",
-      "name": "[Core] Autonomous Direct Merge • PR #441 • codex/fix-dashboard-sync → main",
-      "run_number": 255,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23864044056"
     }
   ],
   "openPRs": [
@@ -504,9 +509,9 @@
     "state/workspaces/ws-default/audit/source-change-2026-03-27T15-53-33Z.json"
   ],
   "lessonsLearned": {
-    "total": 40,
+    "total": 41,
     "copilot": 39,
-    "codex": 1,
+    "codex": 2,
     "copilotLessons": [
       {
         "lesson": "NUNCA usar validateTrustedUrl dentro de fetch/postJson — quebra testes mock",
@@ -662,6 +667,11 @@
     "codexLessons": [
       {
         "lesson": "autonomous-merge-direct can wait on queued third-party check suites such as Claude or Devin; for low-risk workflow fixes, a fast-forward promotion on the upstream branch can be the safer unblock path.",
+        "fix": null,
+        "source": null
+      },
+      {
+        "lesson": "spark-sync-state must not rely on a local git commit and git push back to main for panel/dashboard/state.json. Use the Contents API on main and dispatch deploy-panel only after that update succeeds.",
         "fix": null,
         "source": null
       }
@@ -1061,7 +1071,7 @@
       "drift": true,
       "driftDetail": "autopilot=source-change real=2.3.3"
     },
-    "lastChecked": "2026-04-01T18:46:02Z"
+    "lastChecked": "2026-04-01T18:51:21Z"
   },
   "corporateActivity": {
     "description": "Real-time activity from corporate repos — branches, PRs, external commits by other devs",
