@@ -1,5 +1,5 @@
 {
-  "lastSync": "2026-04-01T20:36:42Z",
+  "lastSync": "2026-04-01T20:48:30Z",
   "syncSource": "autopilot/spark-sync-state.yml",
   "controller": {
     "version": "3.7.7",
@@ -95,10 +95,10 @@
     }
   },
   "sessionLock": {
-    "agentId": "none",
-    "expiresAt": null,
-    "acquiredAt": null,
-    "operation": null
+    "agentId": "claude-code",
+    "expiresAt": "2026-04-01T21:06:39Z",
+    "acquiredAt": "2026-04-01T20:36:39Z",
+    "operation": "source-change"
   },
   "health": {
     "schemaVersion": 2,
@@ -213,12 +213,42 @@
   "recentWorkflows": [
     {
       "conclusion": null,
+      "created": "2026-04-01T20:48:12Z",
+      "event": "schedule",
+      "head_branch": "main",
+      "name": "[Infra] Spark Dashboard Sync • sync state to Spark dashboard",
+      "run_number": 187,
+      "status": "in_progress",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23870129668"
+    },
+    {
+      "conclusion": "skipped",
+      "created": "2026-04-01T20:40:17Z",
+      "event": "pull_request_review_comment",
+      "head_branch": "claude/deploy-checkmarx-v2",
+      "name": "Claude responding to @claude mention",
+      "run_number": 83,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23869798971"
+    },
+    {
+      "conclusion": "success",
+      "created": "2026-04-01T20:36:46Z",
+      "event": "workflow_dispatch",
+      "head_branch": "main",
+      "name": "[Infra] Deploy Panel (GitHub Pages) • workflow_dispatch • ws=n/a • ref=main",
+      "run_number": 52,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23869648988"
+    },
+    {
+      "conclusion": "skipped",
       "created": "2026-04-01T20:36:32Z",
       "event": "issue_comment",
       "head_branch": "main",
       "name": "Claude responding to @claude mention",
       "run_number": 82,
-      "status": "queued",
+      "status": "completed",
       "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23869640538"
     },
     {
@@ -232,13 +262,13 @@
       "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23869638296"
     },
     {
-      "conclusion": null,
+      "conclusion": "success",
       "created": "2026-04-01T20:36:27Z",
       "event": "push",
       "head_branch": "main",
       "name": "[Infra] Spark Dashboard Sync • sync state to Spark dashboard",
       "run_number": 186,
-      "status": "in_progress",
+      "status": "completed",
       "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23869637069"
     },
     {
@@ -252,23 +282,23 @@
       "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23869637043"
     },
     {
-      "conclusion": null,
+      "conclusion": "success",
       "created": "2026-04-01T20:36:27Z",
       "event": "pull_request",
       "head_branch": "claude/deploy-checkmarx-v2",
       "name": "[Infra] Cleanup: Stale Branches • pull_request • ws=n/a • ref=main",
       "run_number": 364,
-      "status": "in_progress",
+      "status": "completed",
       "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23869636889"
     },
     {
-      "conclusion": null,
+      "conclusion": "success",
       "created": "2026-04-01T20:36:27Z",
       "event": "pull_request_target",
       "head_branch": "claude/deploy-checkmarx-v2",
       "name": "[Core] Post-Merge Monitor • PR #443 • claude/deploy-checkmarx-v2",
       "run_number": 191,
-      "status": "queued",
+      "status": "completed",
       "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23869636862"
     },
     {
@@ -282,13 +312,13 @@
       "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23869634047"
     },
     {
-      "conclusion": null,
+      "conclusion": "success",
       "created": "2026-04-01T20:36:22Z",
       "event": "pull_request_target",
       "head_branch": "claude/deploy-checkmarx-v2",
       "name": "[Core] Auto-Merge Sweeper • sweep open agent PRs",
       "run_number": 282,
-      "status": "in_progress",
+      "status": "completed",
       "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23869633981"
     },
     {
@@ -302,13 +332,13 @@
       "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23869633962"
     },
     {
-      "conclusion": null,
+      "conclusion": "failure",
       "created": "2026-04-01T20:36:22Z",
       "event": "pull_request",
       "head_branch": "claude/deploy-checkmarx-v2",
       "name": "[Core] Compliance Gate • auto",
       "run_number": 30,
-      "status": "in_progress",
+      "status": "completed",
       "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23869633924"
     },
     {
@@ -380,36 +410,6 @@
       "run_number": 57,
       "status": "completed",
       "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23868403889"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-04-01T20:06:18Z",
-      "event": "schedule",
-      "head_branch": "main",
-      "name": "[Infra] Spark Dashboard Sync • sync state to Spark dashboard",
-      "run_number": 185,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23868392264"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-04-01T19:52:36Z",
-      "event": "schedule",
-      "head_branch": "main",
-      "name": "[Core] Workflow Health Monitor • monitor all workflows",
-      "run_number": 46,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23867817655"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-04-01T19:48:13Z",
-      "event": "schedule",
-      "head_branch": "main",
-      "name": "[Core] Deploy Pipeline Monitor • schedule • scheduled",
-      "run_number": 47,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23867637631"
     }
   ],
   "openPRs": [
@@ -806,9 +806,15 @@
   "corporateReal": {
     "description": "REAL versions from corporate repos — source of truth. Other people may deploy independently.",
     "controller": {
-      "sourceVersion": "3.7.7",
+      "sourceVersion": "3.7.8",
       "capTag": "3.7.7",
       "recentCommits": [
+        {
+          "author": "github-actions",
+          "date": "2026-04-01T20:36:50Z",
+          "message": "fix(security): Checkmarx XSS/SSRF/DoS — encodeURIComponent on output, ALLOWED_AG",
+          "sha": "0e8dc891"
+        },
         {
           "author": "github-actions",
           "date": "2026-04-01T13:35:53Z",
@@ -832,15 +838,40 @@
           "date": "2026-03-31T17:24:54Z",
           "message": "fix(security): bound pickPreferredSnapshot loop to prevent Checkmarx Server_DoS_",
           "sha": "7c29355b"
-        },
-        {
-          "author": "github-actions",
-          "date": "2026-03-30T19:26:24Z",
-          "message": "fix(security): harden XSS sanitization, SSRF validation and DoS loop bounds",
-          "sha": "4df95ad9"
         }
       ],
       "builds": [
+        {
+          "checks": [
+            {
+              "conclusion": "success",
+              "name": "CI / sincronizacao",
+              "status": "completed"
+            },
+            {
+              "conclusion": null,
+              "name": "CI / xRay",
+              "status": "in_progress"
+            },
+            {
+              "conclusion": "success",
+              "name": "CI / sonarQube",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "CI / checkmarx",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "CI / workflow-npm",
+              "status": "completed"
+            }
+          ],
+          "sha": "0e8dc891",
+          "total": 6
+        },
         {
           "checks": [
             {
@@ -902,41 +933,10 @@
           ],
           "sha": "635bbc08",
           "total": 8
-        },
-        {
-          "checks": [
-            {
-              "conclusion": "success",
-              "name": "CD (desenvolvimento) / autoDeploy",
-              "status": "completed"
-            },
-            {
-              "conclusion": "success",
-              "name": "CI / Análise Motor Liberação",
-              "status": "completed"
-            },
-            {
-              "conclusion": "success",
-              "name": "CI / sonarQube",
-              "status": "completed"
-            },
-            {
-              "conclusion": "success",
-              "name": "CI / xRay",
-              "status": "completed"
-            },
-            {
-              "conclusion": "success",
-              "name": "CI / sincronizacao",
-              "status": "completed"
-            }
-          ],
-          "sha": "308f5335",
-          "total": 8
         }
       ],
-      "drift": false,
-      "driftDetail": null
+      "drift": true,
+      "driftDetail": "autopilot=3.7.7 real=3.7.8"
     },
     "agent": {
       "sourceVersion": "2.3.3",
@@ -1071,7 +1071,7 @@
       "drift": true,
       "driftDetail": "autopilot=source-change real=2.3.3"
     },
-    "lastChecked": "2026-04-01T20:36:42Z"
+    "lastChecked": "2026-04-01T20:48:30Z"
   },
   "corporateActivity": {
     "description": "Real-time activity from corporate repos — branches, PRs, external commits by other devs",
@@ -1135,7 +1135,7 @@
         {
           "name": "main",
           "protected": true,
-          "sha": "5683c88c"
+          "sha": "0e8dc891"
         }
       ],
       "branchCount": 12,
