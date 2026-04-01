@@ -1,5 +1,5 @@
 {
-  "lastSync": "2026-04-01T18:45:43Z",
+  "lastSync": "2026-04-01T18:46:02Z",
   "syncSource": "autopilot/spark-sync-state.yml",
   "controller": {
     "version": "3.7.7",
@@ -76,11 +76,17 @@
       ]
     },
     "codex": {
-      "sessionCount": 5,
+      "sessionCount": 6,
       "lastSession": "none",
-      "lessonsCount": 0,
-      "lastUpdated": "2026-03-29T12:50:00Z",
-      "sessions": []
+      "lessonsCount": 1,
+      "lastUpdated": "2026-04-01T18:45:04Z",
+      "sessions": [
+        {
+          "date": null,
+          "summary": null,
+          "actions": 0
+        }
+      ]
     }
   },
   "sessionLock": {
@@ -92,7 +98,7 @@
   "health": {
     "schemaVersion": 2,
     "workspaceId": "ws-default",
-    "checkedAt": "2026-04-01T18:01:50Z",
+    "checkedAt": "2026-04-01T18:45:34Z",
     "overall": "degraded",
     "checks": {
       "workspace": {
@@ -107,7 +113,7 @@
       "agentRelease": {
         "status": "pass",
         "message": "Tag: source-change",
-        "detail": "Age: 49h"
+        "detail": "Age: 50h"
       },
       "stuckRuns": {
         "status": "pass",
@@ -122,7 +128,7 @@
         "message": "? commits ahead"
       }
     },
-    "summary": "degraded at 2026-04-01T18:01:50Z"
+    "summary": "degraded at 2026-04-01T18:45:34Z"
   },
   "ciMonitor": {
     "workspaceId": "ws-default",
@@ -207,27 +213,27 @@
       "head_branch": "main",
       "name": "[Infra] Spark Dashboard Sync • sync state to Spark dashboard",
       "run_number": 182,
-      "status": "pending",
+      "status": "in_progress",
       "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23865050489"
     },
     {
-      "conclusion": null,
+      "conclusion": "success",
       "created": "2026-04-01T18:45:23Z",
       "event": "workflow_dispatch",
       "head_branch": "main",
       "name": "[Core] Health Check • workflow_dispatch • ws=n/a • ref=main",
       "run_number": 145,
-      "status": "in_progress",
+      "status": "completed",
       "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23865047404"
     },
     {
-      "conclusion": null,
+      "conclusion": "success",
       "created": "2026-04-01T18:45:22Z",
       "event": "workflow_dispatch",
       "head_branch": "main",
       "name": "[Infra] Spark Dashboard Sync • sync state to Spark dashboard",
       "run_number": 181,
-      "status": "in_progress",
+      "status": "completed",
       "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23865046717"
     },
     {
@@ -498,9 +504,9 @@
     "state/workspaces/ws-default/audit/source-change-2026-03-27T15-53-33Z.json"
   ],
   "lessonsLearned": {
-    "total": 39,
+    "total": 40,
     "copilot": 39,
-    "codex": 0,
+    "codex": 1,
     "copilotLessons": [
       {
         "lesson": "NUNCA usar validateTrustedUrl dentro de fetch/postJson — quebra testes mock",
@@ -653,7 +659,13 @@
         "source": "issue-absorb-auto-monitor-2026-03-28"
       }
     ],
-    "codexLessons": []
+    "codexLessons": [
+      {
+        "lesson": "autonomous-merge-direct can wait on queued third-party check suites such as Claude or Devin; for low-risk workflow fixes, a fast-forward promotion on the upstream branch can be the safer unblock path.",
+        "fix": null,
+        "source": null
+      }
+    ]
   },
   "versionRules": {
     "currentController": "3.7.7",
@@ -1049,7 +1061,7 @@
       "drift": true,
       "driftDetail": "autopilot=source-change real=2.3.3"
     },
-    "lastChecked": "2026-04-01T18:45:43Z"
+    "lastChecked": "2026-04-01T18:46:02Z"
   },
   "corporateActivity": {
     "description": "Real-time activity from corporate repos — branches, PRs, external commits by other devs",
