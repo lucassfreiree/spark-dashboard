@@ -1,13 +1,13 @@
 {
-  "lastSync": "2026-04-02T11:45:00Z",
+  "lastSync": "2026-04-02T11:50:45Z",
   "syncSource": "autopilot/spark-sync-state.yml",
   "controller": {
     "version": "3.7.8",
-    "status": "promoted",
-    "ciResult": "success",
-    "promoted": true,
-    "lastSha": "0e8dc8910ac48005f7f1397d09757282ff67e1c1",
-    "updatedAt": "2026-04-01T20:50:52Z",
+    "status": "ci-failed",
+    "ciResult": "failure",
+    "promoted": false,
+    "lastSha": "ab85e1c5efcf30a9c7f4af12c6e0214b76c9a2fe",
+    "updatedAt": "2026-04-02T11:48:58Z",
     "repo": "bbvinet/psc-sre-automacao-controller",
     "capRepo": "bbvinet/psc_releases_cap_sre-aut-controller",
     "stack": "Node 22, TypeScript, Express, Jest, SQLite, S3"
@@ -96,9 +96,9 @@
   },
   "sessionLock": {
     "agentId": "none",
-    "expiresAt": null,
-    "acquiredAt": null,
-    "operation": null
+    "expiresAt": "2026-04-02T11:49:03Z",
+    "acquiredAt": "2026-04-02T11:49:03Z",
+    "operation": "none"
   },
   "health": {
     "schemaVersion": 2,
@@ -213,22 +213,52 @@
   "recentWorkflows": [
     {
       "conclusion": null,
+      "created": "2026-04-02T11:50:33Z",
+      "event": "schedule",
+      "head_branch": "main",
+      "name": "[Infra] Spark Dashboard Sync • sync state to Spark dashboard",
+      "run_number": 203,
+      "status": "in_progress",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23898973148"
+    },
+    {
+      "conclusion": null,
+      "created": "2026-04-02T11:49:10Z",
+      "event": "workflow_dispatch",
+      "head_branch": "main",
+      "name": "[Core] CI Monitor Loop • workflow_dispatch • manual • ref=main",
+      "run_number": 14,
+      "status": "in_progress",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23898924939"
+    },
+    {
+      "conclusion": "success",
+      "created": "2026-04-02T11:45:03Z",
+      "event": "workflow_dispatch",
+      "head_branch": "main",
+      "name": "[Infra] Deploy Panel (GitHub Pages) • workflow_dispatch • ws=n/a • ref=main",
+      "run_number": 68,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23898779259"
+    },
+    {
+      "conclusion": "failure",
       "created": "2026-04-02T11:44:47Z",
       "event": "push",
       "head_branch": "main",
       "name": "[Corp] Deploy: Apply Source Change • push • ws=n/a • ref=main",
       "run_number": 87,
-      "status": "in_progress",
+      "status": "completed",
       "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23898769352"
     },
     {
-      "conclusion": null,
+      "conclusion": "success",
       "created": "2026-04-02T11:44:47Z",
       "event": "push",
       "head_branch": "main",
       "name": "[Infra] Spark Dashboard Sync • sync state to Spark dashboard",
       "run_number": 202,
-      "status": "in_progress",
+      "status": "completed",
       "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23898769329"
     },
     {
@@ -380,36 +410,6 @@
       "run_number": 200,
       "status": "completed",
       "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23896059124"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-04-02T09:59:48Z",
-      "event": "schedule",
-      "head_branch": "main",
-      "name": "[Core] Workflow Health Monitor • monitor all workflows",
-      "run_number": 55,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23894983426"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-04-02T09:59:20Z",
-      "event": "schedule",
-      "head_branch": "main",
-      "name": "[Core] Intelligent Orchestrator • brain — observe, decide, act, learn",
-      "run_number": 67,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23894965414"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-04-02T09:57:00Z",
-      "event": "schedule",
-      "head_branch": "main",
-      "name": "[Core] Deploy Pipeline Monitor • schedule • scheduled",
-      "run_number": 59,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23894877925"
     }
   ],
   "openPRs": [
@@ -487,6 +487,7 @@
     }
   ],
   "deployHistory": [
+    "state/workspaces/ws-default/audit/source-change-2026-04-02T11-49-04Z.json",
     "state/workspaces/ws-default/audit/source-change-2026-04-01T20-50-59Z.json",
     "state/workspaces/ws-default/audit/source-change-2026-04-01T13-52-52Z.json",
     "state/workspaces/ws-default/audit/source-change-2026-04-01T12-01-38Z.json",
@@ -505,8 +506,7 @@
     "state/workspaces/ws-default/audit/source-change-2026-03-29T14-00-40Z.json",
     "state/workspaces/ws-default/audit/source-change-2026-03-29T13-47-16Z.json",
     "state/workspaces/ws-default/audit/source-change-2026-03-28T19-44-29Z.json",
-    "state/workspaces/ws-default/audit/source-change-2026-03-28T19-06-17Z.json",
-    "state/workspaces/ws-default/audit/source-change-2026-03-28T18-01-45Z.json"
+    "state/workspaces/ws-default/audit/source-change-2026-03-28T19-06-17Z.json"
   ],
   "lessonsLearned": {
     "total": 41,
@@ -811,9 +811,15 @@
   "corporateReal": {
     "description": "REAL versions from corporate repos — source of truth. Other people may deploy independently.",
     "controller": {
-      "sourceVersion": "3.7.8",
+      "sourceVersion": "3.7.9",
       "capTag": "3.7.8",
       "recentCommits": [
+        {
+          "author": "github-actions",
+          "date": "2026-04-02T11:45:08Z",
+          "message": "refactor(controller): padroniza rotas cronjob para /agent/cronjob/* + version 3.",
+          "sha": "ab85e1c5"
+        },
         {
           "author": "github-actions",
           "date": "2026-04-01T20:36:50Z",
@@ -837,15 +843,40 @@
           "date": "2026-03-31T21:33:05Z",
           "message": "chore(release): bump controller version to 3.7.5",
           "sha": "308f5335"
-        },
-        {
-          "author": "github-actions",
-          "date": "2026-03-31T17:24:54Z",
-          "message": "fix(security): bound pickPreferredSnapshot loop to prevent Checkmarx Server_DoS_",
-          "sha": "7c29355b"
         }
       ],
       "builds": [
+        {
+          "checks": [
+            {
+              "conclusion": "skipped",
+              "name": "CD (desenvolvimento)",
+              "status": "completed"
+            },
+            {
+              "conclusion": "skipped",
+              "name": "CI / Análise Motor Liberação",
+              "status": "completed"
+            },
+            {
+              "conclusion": "skipped",
+              "name": "CI / sonarQube",
+              "status": "completed"
+            },
+            {
+              "conclusion": "skipped",
+              "name": "CI / xRay",
+              "status": "completed"
+            },
+            {
+              "conclusion": "skipped",
+              "name": "CI / checkmarx",
+              "status": "completed"
+            }
+          ],
+          "sha": "ab85e1c5",
+          "total": 8
+        },
         {
           "checks": [
             {
@@ -907,41 +938,10 @@
           ],
           "sha": "5683c88c",
           "total": 8
-        },
-        {
-          "checks": [
-            {
-              "conclusion": "success",
-              "name": "CD (desenvolvimento) / autoDeploy",
-              "status": "completed"
-            },
-            {
-              "conclusion": "success",
-              "name": "CI / Análise Motor Liberação",
-              "status": "completed"
-            },
-            {
-              "conclusion": "success",
-              "name": "CI / sincronizacao",
-              "status": "completed"
-            },
-            {
-              "conclusion": "success",
-              "name": "CI / sonarQube",
-              "status": "completed"
-            },
-            {
-              "conclusion": "success",
-              "name": "CI / checkmarx",
-              "status": "completed"
-            }
-          ],
-          "sha": "635bbc08",
-          "total": 8
         }
       ],
-      "drift": false,
-      "driftDetail": null
+      "drift": true,
+      "driftDetail": "autopilot=source-change real=3.7.9"
     },
     "agent": {
       "sourceVersion": "2.3.3",
@@ -1076,7 +1076,7 @@
       "drift": true,
       "driftDetail": "autopilot=source-change real=2.3.3"
     },
-    "lastChecked": "2026-04-02T11:45:00Z"
+    "lastChecked": "2026-04-02T11:50:45Z"
   },
   "corporateActivity": {
     "description": "Real-time activity from corporate repos — branches, PRs, external commits by other devs",
@@ -1140,7 +1140,7 @@
         {
           "name": "main",
           "protected": true,
-          "sha": "0e8dc891"
+          "sha": "ab85e1c5"
         }
       ],
       "branchCount": 12,
