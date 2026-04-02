@@ -1,13 +1,13 @@
 {
-  "lastSync": "2026-04-02T16:13:52Z",
+  "lastSync": "2026-04-02T16:34:29Z",
   "syncSource": "autopilot/spark-sync-state.yml",
   "controller": {
-    "version": "3.7.4",
-    "status": "ci-failed-preexisting",
-    "ciResult": "failure",
-    "promoted": false,
-    "lastSha": "79e068479d068852d40c7e3b898a690cd721c289",
-    "updatedAt": "2026-04-02T16:05:45Z",
+    "version": "3.8.0",
+    "status": "promoted",
+    "ciResult": "success",
+    "promoted": true,
+    "lastSha": "7046c28b0eb470910ca371f3f840dd885c14b2ac",
+    "updatedAt": "2026-04-02T16:30:52Z",
     "repo": "bbvinet/psc-sre-automacao-controller",
     "capRepo": "bbvinet/psc_releases_cap_sre-aut-controller",
     "stack": "Node 22, TypeScript, Express, Jest, SQLite, S3"
@@ -106,8 +106,8 @@
   },
   "sessionLock": {
     "agentId": "none",
-    "expiresAt": "2026-04-02T16:05:53Z",
-    "acquiredAt": "2026-04-02T16:05:53Z",
+    "expiresAt": "2026-04-02T16:31:00Z",
+    "acquiredAt": "2026-04-02T16:31:00Z",
     "operation": "none"
   },
   "health": {
@@ -148,12 +148,12 @@
   "ciMonitor": {
     "workspaceId": "ws-default",
     "component": "controller",
-    "commitSha": "79e068479d068852d40c7e3b898a690cd721c289",
+    "commitSha": "7046c28b0eb470910ca371f3f840dd885c14b2ac",
     "version": "",
-    "monitoredAt": "2026-04-02T16:06:15Z",
-    "ciOutcome": "failure",
-    "monitorRunId": "23909869114",
-    "failedRunUrl": "https://github.com/bbvinet/psc-sre-automacao-controller/actions/runs/23909686687"
+    "monitoredAt": "2026-04-02T16:31:16Z",
+    "ciOutcome": "success",
+    "monitorRunId": "23910920062",
+    "failedRunUrl": ""
   },
   "pipelineStatus": {
     "updatedAt": "2026-04-02T16:13:16Z",
@@ -198,7 +198,7 @@
       "status": "active",
       "stack": "Node/TypeScript (NestJS, Jest, ESLint)",
       "token": "BBVINET_TOKEN",
-      "controllerVersion": "3.7.4",
+      "controllerVersion": "3.8.0",
       "agentVersion": "2.3.3",
       "pipelineStatus": "success",
       "repos": [
@@ -223,22 +223,72 @@
   "recentWorkflows": [
     {
       "conclusion": null,
+      "created": "2026-04-02T16:34:08Z",
+      "event": "schedule",
+      "head_branch": "main",
+      "name": "[Infra] Spark Dashboard Sync • sync state to Spark dashboard",
+      "run_number": 221,
+      "status": "in_progress",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23911041820"
+    },
+    {
+      "conclusion": "failure",
+      "created": "2026-04-02T16:31:10Z",
+      "event": "workflow_dispatch",
+      "head_branch": "main",
+      "name": "[Core] CI Monitor Loop • workflow_dispatch • manual • ref=main",
+      "run_number": 22,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23910920062"
+    },
+    {
+      "conclusion": "success",
+      "created": "2026-04-02T16:30:08Z",
+      "event": "schedule",
+      "head_branch": "main",
+      "name": "[Core] Intelligent Orchestrator • brain — observe, decide, act, learn",
+      "run_number": 73,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23910875521"
+    },
+    {
+      "conclusion": "success",
+      "created": "2026-04-02T16:13:58Z",
+      "event": "workflow_dispatch",
+      "head_branch": "main",
+      "name": "[Infra] Deploy Panel (GitHub Pages) • workflow_dispatch • ws=n/a • ref=main",
+      "run_number": 86,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23910192039"
+    },
+    {
+      "conclusion": "success",
+      "created": "2026-04-02T16:13:51Z",
+      "event": "schedule",
+      "head_branch": "main",
+      "name": "[Core] Auto-Merge Sweeper • sweep open agent PRs",
+      "run_number": 317,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23910187129"
+    },
+    {
+      "conclusion": "success",
       "created": "2026-04-02T16:13:34Z",
       "event": "push",
       "head_branch": "main",
       "name": "[Corp] Deploy: Apply Source Change • push • ws=n/a • ref=main",
       "run_number": 100,
-      "status": "in_progress",
+      "status": "completed",
       "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23910175513"
     },
     {
-      "conclusion": null,
+      "conclusion": "success",
       "created": "2026-04-02T16:13:34Z",
       "event": "push",
       "head_branch": "main",
       "name": "[Infra] Spark Dashboard Sync • sync state to Spark dashboard",
       "run_number": 220,
-      "status": "in_progress",
+      "status": "completed",
       "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23910175509"
     },
     {
@@ -370,56 +420,6 @@
       "run_number": 99,
       "status": "completed",
       "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23909594623"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-04-02T15:54:48Z",
-      "event": "schedule",
-      "head_branch": "main",
-      "name": "[Core] Lock GC • schedule • ws=n/a • ref=main",
-      "run_number": 205,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23909378300"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-04-02T15:54:15Z",
-      "event": "push",
-      "head_branch": "main",
-      "name": "[Corp] Fetch: Source Files • push • ws=n/a • ref=main",
-      "run_number": 29,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23909355153"
-    },
-    {
-      "conclusion": "skipped",
-      "created": "2026-04-02T15:35:13Z",
-      "event": "issues",
-      "head_branch": "main",
-      "name": "[Core] Security Intake Dispatch • Issue #470",
-      "run_number": 13,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23908525596"
-    },
-    {
-      "conclusion": "skipped",
-      "created": "2026-04-02T15:35:13Z",
-      "event": "issues",
-      "head_branch": "main",
-      "name": "[Core] Auto-Dispatch Task • Issue #470",
-      "run_number": 87,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23908525582"
-    },
-    {
-      "conclusion": "skipped",
-      "created": "2026-04-02T15:35:13Z",
-      "event": "issues",
-      "head_branch": "main",
-      "name": "Claude responding to @claude mention",
-      "run_number": 133,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23908525568"
     }
   ],
   "openPRs": [
@@ -497,6 +497,7 @@
     }
   ],
   "deployHistory": [
+    "state/workspaces/ws-default/audit/source-change-2026-04-02T16-31-01Z.json",
     "state/workspaces/ws-default/audit/source-change-2026-04-02T16-05-53Z.json",
     "state/workspaces/ws-default/audit/source-change-2026-04-02T15-33-13Z.json",
     "state/workspaces/ws-default/audit/source-change-2026-04-02T14-54-01Z.json",
@@ -515,8 +516,7 @@
     "state/workspaces/ws-default/audit/source-change-2026-04-01T12-01-38Z.json",
     "state/workspaces/ws-default/audit/source-change-2026-03-31T21-47-28Z.json",
     "state/workspaces/ws-default/audit/source-change-2026-03-31T17-39-41Z.json",
-    "state/workspaces/ws-default/audit/source-change-2026-03-30T19-40-15Z.json",
-    "state/workspaces/ws-default/audit/source-change-2026-03-30T19-03-30Z.json"
+    "state/workspaces/ws-default/audit/source-change-2026-03-30T19-40-15Z.json"
   ],
   "lessonsLearned": {
     "total": 45,
@@ -842,8 +842,14 @@
     "description": "REAL versions from corporate repos — source of truth. Other people may deploy independently.",
     "controller": {
       "sourceVersion": "3.8.0",
-      "capTag": "3.7.4",
+      "capTag": "3.8.0",
       "recentCommits": [
+        {
+          "author": "github-actions",
+          "date": "2026-04-02T16:15:34Z",
+          "message": "fix(controller): align unit test statusEndpoint with /api/ prefix (v3.8.0)",
+          "sha": "7046c28b"
+        },
         {
           "author": "github-actions",
           "date": "2026-04-02T16:01:49Z",
@@ -867,15 +873,40 @@
           "date": "2026-04-02T13:55:24Z",
           "message": "fix(controller): restore valid tsconfig deprecation guard (v3.8.0)",
           "sha": "efe4f2b0"
-        },
-        {
-          "author": "github-actions",
-          "date": "2026-04-02T13:22:40Z",
-          "message": "fix(controller): remove ignoreDeprecations + types node from tsconfig (v3.7.9)",
-          "sha": "3d6557c3"
         }
       ],
       "builds": [
+        {
+          "checks": [
+            {
+              "conclusion": "success",
+              "name": "CD (desenvolvimento) / autoDeploy",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "CI / Análise Motor Liberação",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "CI / xRay",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "CI / sonarQube",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "CI / sincronizacao",
+              "status": "completed"
+            }
+          ],
+          "sha": "7046c28b",
+          "total": 8
+        },
         {
           "checks": [
             {
@@ -937,41 +968,10 @@
           ],
           "sha": "5112d180",
           "total": 8
-        },
-        {
-          "checks": [
-            {
-              "conclusion": "skipped",
-              "name": "CD (desenvolvimento)",
-              "status": "completed"
-            },
-            {
-              "conclusion": "skipped",
-              "name": "CI / Análise Motor Liberação",
-              "status": "completed"
-            },
-            {
-              "conclusion": "skipped",
-              "name": "CI / sonarQube",
-              "status": "completed"
-            },
-            {
-              "conclusion": "skipped",
-              "name": "CI / xRay",
-              "status": "completed"
-            },
-            {
-              "conclusion": "skipped",
-              "name": "CI / checkmarx",
-              "status": "completed"
-            }
-          ],
-          "sha": "3a9ca75e",
-          "total": 8
         }
       ],
-      "drift": true,
-      "driftDetail": "autopilot=source-change real=3.8.0"
+      "drift": false,
+      "driftDetail": null
     },
     "agent": {
       "sourceVersion": "2.3.3",
@@ -1106,7 +1106,7 @@
       "drift": true,
       "driftDetail": "autopilot=source-change real=2.3.3"
     },
-    "lastChecked": "2026-04-02T16:13:52Z"
+    "lastChecked": "2026-04-02T16:34:29Z"
   },
   "corporateActivity": {
     "description": "Real-time activity from corporate repos — branches, PRs, external commits by other devs",
@@ -1170,7 +1170,7 @@
         {
           "name": "main",
           "protected": true,
-          "sha": "79e06847"
+          "sha": "7046c28b"
         }
       ],
       "branchCount": 12,
