@@ -1,5 +1,5 @@
 {
-  "lastSync": "2026-04-02T15:34:42Z",
+  "lastSync": "2026-04-02T16:00:00Z",
   "syncSource": "autopilot/spark-sync-state.yml",
   "controller": {
     "version": "3.8.0",
@@ -25,14 +25,14 @@
   },
   "pipeline": {
     "status": "success",
-    "lastRun": 98,
+    "lastRun": 99,
     "component": "controller",
     "version": "3.8.0",
     "promote": true,
     "workspace": "GETRONICS | ws-default | BBVINET_TOKEN",
     "changeType": "multi-file",
-    "commitMessage": "fix(controller): replace tsconfig — remove types restriction and ignoreDeprecations (v3.8.0)",
-    "changesCount": 1
+    "commitMessage": "fix(controller): fix cronjob callback routes — /agent/ to /api/ prefix + register routes in agentsRouter (v3.8.0)",
+    "changesCount": 3
   },
   "agents": {
     "claude": {
@@ -223,12 +223,92 @@
   "recentWorkflows": [
     {
       "conclusion": null,
+      "created": "2026-04-02T15:59:47Z",
+      "event": "push",
+      "head_branch": "main",
+      "name": "[Infra] Spark Dashboard Sync • sync state to Spark dashboard",
+      "run_number": 219,
+      "status": "in_progress",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23909594643"
+    },
+    {
+      "conclusion": null,
+      "created": "2026-04-02T15:59:47Z",
+      "event": "push",
+      "head_branch": "main",
+      "name": "[Corp] Deploy: Apply Source Change • push • ws=n/a • ref=main",
+      "run_number": 99,
+      "status": "in_progress",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23909594623"
+    },
+    {
+      "conclusion": "success",
+      "created": "2026-04-02T15:54:48Z",
+      "event": "schedule",
+      "head_branch": "main",
+      "name": "[Core] Lock GC • schedule • ws=n/a • ref=main",
+      "run_number": 205,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23909378300"
+    },
+    {
+      "conclusion": "success",
+      "created": "2026-04-02T15:54:15Z",
+      "event": "push",
+      "head_branch": "main",
+      "name": "[Corp] Fetch: Source Files • push • ws=n/a • ref=main",
+      "run_number": 29,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23909355153"
+    },
+    {
+      "conclusion": "skipped",
+      "created": "2026-04-02T15:35:13Z",
+      "event": "issues",
+      "head_branch": "main",
+      "name": "[Core] Security Intake Dispatch • Issue #470",
+      "run_number": 13,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23908525596"
+    },
+    {
+      "conclusion": "skipped",
+      "created": "2026-04-02T15:35:13Z",
+      "event": "issues",
+      "head_branch": "main",
+      "name": "[Core] Auto-Dispatch Task • Issue #470",
+      "run_number": 87,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23908525582"
+    },
+    {
+      "conclusion": "skipped",
+      "created": "2026-04-02T15:35:13Z",
+      "event": "issues",
+      "head_branch": "main",
+      "name": "Claude responding to @claude mention",
+      "run_number": 133,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23908525568"
+    },
+    {
+      "conclusion": "success",
+      "created": "2026-04-02T15:34:48Z",
+      "event": "workflow_dispatch",
+      "head_branch": "main",
+      "name": "[Infra] Deploy Panel (GitHub Pages) • workflow_dispatch • ws=n/a • ref=main",
+      "run_number": 84,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23908507603"
+    },
+    {
+      "conclusion": "success",
       "created": "2026-04-02T15:34:22Z",
       "event": "schedule",
       "head_branch": "main",
       "name": "[Infra] Spark Dashboard Sync • sync state to Spark dashboard",
       "run_number": 218,
-      "status": "in_progress",
+      "status": "completed",
       "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23908488781"
     },
     {
@@ -262,23 +342,23 @@
       "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23908454465"
     },
     {
-      "conclusion": null,
+      "conclusion": "success",
       "created": "2026-04-02T15:33:29Z",
       "event": "workflow_dispatch",
       "head_branch": "main",
       "name": "[Corp] Fix: CI Lint Errors • workflow_dispatch • ws=ws-default • ref=main",
       "run_number": 19,
-      "status": "in_progress",
+      "status": "completed",
       "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23908450274"
     },
     {
-      "conclusion": null,
+      "conclusion": "success",
       "created": "2026-04-02T15:33:28Z",
       "event": "workflow_dispatch",
       "head_branch": "main",
       "name": "[Corp] CI: Diagnose Error Logs • workflow_dispatch • ws=ws-default • ref=main",
       "run_number": 40,
-      "status": "in_progress",
+      "status": "completed",
       "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23908449414"
     },
     {
@@ -340,86 +420,6 @@
       "run_number": 98,
       "status": "completed",
       "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23908155492"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-04-02T15:15:20Z",
-      "event": "schedule",
-      "head_branch": "main",
-      "name": "[Core] Intelligent Orchestrator • brain — observe, decide, act, learn",
-      "run_number": 72,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23907640992"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-04-02T15:14:49Z",
-      "event": "schedule",
-      "head_branch": "main",
-      "name": "[Core] Auto-Merge Sweeper • sweep open agent PRs",
-      "run_number": 316,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23907616545"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-04-02T15:13:29Z",
-      "event": "schedule",
-      "head_branch": "main",
-      "name": "[Core] Deploy Pipeline Monitor • schedule • scheduled",
-      "run_number": 64,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23907558561"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-04-02T15:13:06Z",
-      "event": "schedule",
-      "head_branch": "main",
-      "name": "[Core] Health Check • schedule • ws=n/a • ref=main",
-      "run_number": 161,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23907541778"
-    },
-    {
-      "conclusion": "skipped",
-      "created": "2026-04-02T14:56:04Z",
-      "event": "issues",
-      "head_branch": "main",
-      "name": "[Core] Security Intake Dispatch • Issue #468",
-      "run_number": 11,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23906773767"
-    },
-    {
-      "conclusion": "skipped",
-      "created": "2026-04-02T14:56:04Z",
-      "event": "issues",
-      "head_branch": "main",
-      "name": "Claude responding to @claude mention",
-      "run_number": 131,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23906773753"
-    },
-    {
-      "conclusion": "skipped",
-      "created": "2026-04-02T14:56:04Z",
-      "event": "issues",
-      "head_branch": "main",
-      "name": "[Core] Auto-Dispatch Task • Issue #468",
-      "run_number": 85,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23906773747"
-    },
-    {
-      "conclusion": "skipped",
-      "created": "2026-04-02T14:54:23Z",
-      "event": "issues",
-      "head_branch": "main",
-      "name": "Claude responding to @claude mention",
-      "run_number": 130,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23906697260"
     }
   ],
   "openPRs": [
@@ -1106,7 +1106,7 @@
       "drift": true,
       "driftDetail": "autopilot=source-change real=2.3.3"
     },
-    "lastChecked": "2026-04-02T15:34:42Z"
+    "lastChecked": "2026-04-02T16:00:00Z"
   },
   "corporateActivity": {
     "description": "Real-time activity from corporate repos — branches, PRs, external commits by other devs",
