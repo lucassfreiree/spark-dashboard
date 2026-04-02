@@ -1,13 +1,13 @@
 {
-  "lastSync": "2026-04-02T13:22:29Z",
+  "lastSync": "2026-04-02T13:55:14Z",
   "syncSource": "autopilot/spark-sync-state.yml",
   "controller": {
     "version": "3.7.9",
     "status": "ci-failed-preexisting",
     "ciResult": "failure",
     "promoted": false,
-    "lastSha": "39236c40914c6d773ad9a96b8f6c92987917eb10",
-    "updatedAt": "2026-04-02T12:33:09Z",
+    "lastSha": "3d6557c3d2283942f0840a9e7a24df2307a9a9ed",
+    "updatedAt": "2026-04-02T13:26:51Z",
     "repo": "bbvinet/psc-sre-automacao-controller",
     "capRepo": "bbvinet/psc_releases_cap_sre-aut-controller",
     "stack": "Node 22, TypeScript, Express, Jest, SQLite, S3"
@@ -25,14 +25,14 @@
   },
   "pipeline": {
     "status": "success",
-    "lastRun": 91,
+    "lastRun": 92,
     "component": "controller",
-    "version": "3.7.9",
+    "version": "3.8.0",
     "promote": true,
     "workspace": "GETRONICS | ws-default | BBVINET_TOKEN",
     "changeType": "multi-file",
-    "commitMessage": "fix(controller): remove ignoreDeprecations + types node from tsconfig (v3.7.9)",
-    "changesCount": 2
+    "commitMessage": "fix(controller): restore valid tsconfig deprecation guard (v3.8.0)",
+    "changesCount": 4
   },
   "agents": {
     "claude": {
@@ -96,14 +96,14 @@
   },
   "sessionLock": {
     "agentId": "none",
-    "expiresAt": "2026-04-02T12:45:54Z",
-    "acquiredAt": "2026-04-02T12:45:54Z",
+    "expiresAt": "2026-04-02T13:26:58Z",
+    "acquiredAt": "2026-04-02T13:26:58Z",
     "operation": "none"
   },
   "health": {
     "schemaVersion": 2,
     "workspaceId": "ws-default",
-    "checkedAt": "2026-04-02T12:48:17Z",
+    "checkedAt": "2026-04-02T13:52:52Z",
     "overall": "degraded",
     "checks": {
       "workspace": {
@@ -118,7 +118,7 @@
       "agentRelease": {
         "status": "pass",
         "message": "Tag: source-change",
-        "detail": "Age: 68h"
+        "detail": "Age: 69h"
       },
       "stuckRuns": {
         "status": "pass",
@@ -133,17 +133,17 @@
         "message": "? commits ahead"
       }
     },
-    "summary": "degraded at 2026-04-02T12:48:17Z"
+    "summary": "degraded at 2026-04-02T13:52:52Z"
   },
   "ciMonitor": {
     "workspaceId": "ws-default",
     "component": "controller",
-    "commitSha": "39236c40914c6d773ad9a96b8f6c92987917eb10",
+    "commitSha": "3d6557c3d2283942f0840a9e7a24df2307a9a9ed",
     "version": "",
-    "monitoredAt": "2026-04-02T12:35:42Z",
+    "monitoredAt": "2026-04-02T13:27:17Z",
     "ciOutcome": "failure",
-    "monitorRunId": "23900561676",
-    "failedRunUrl": "https://github.com/bbvinet/psc-sre-automacao-controller/actions/runs/23900373513"
+    "monitorRunId": "23902740958",
+    "failedRunUrl": "https://github.com/bbvinet/psc-sre-automacao-controller/actions/runs/23902557096"
   },
   "pipelineStatus": {
     "updatedAt": "2026-04-02T12:39:19Z",
@@ -212,204 +212,204 @@
   ],
   "recentWorkflows": [
     {
-      "conclusion": "skipped",
-      "created": "2026-04-02T13:22:20Z",
-      "event": "issue_comment",
-      "head_branch": "main",
-      "name": "Claude responding to @claude mention",
-      "run_number": 94,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23902538867"
-    },
-    {
       "conclusion": null,
-      "created": "2026-04-02T13:22:17Z",
+      "created": "2026-04-02T13:54:58Z",
       "event": "push",
       "head_branch": "main",
       "name": "[Corp] Deploy: Apply Source Change • push • ws=n/a • ref=main",
-      "run_number": 91,
+      "run_number": 92,
       "status": "in_progress",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23902536587"
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23903973104"
     },
     {
       "conclusion": null,
-      "created": "2026-04-02T13:22:17Z",
+      "created": "2026-04-02T13:54:58Z",
       "event": "push",
       "head_branch": "main",
       "name": "[Infra] Spark Dashboard Sync • sync state to Spark dashboard",
-      "run_number": 208,
+      "run_number": 209,
       "status": "in_progress",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23902536585"
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23903973103"
     },
     {
       "conclusion": null,
-      "created": "2026-04-02T13:22:17Z",
+      "created": "2026-04-02T13:54:58Z",
       "event": "pull_request",
-      "head_branch": "claude/fix-cronjob-callback-route-6qr6E",
+      "head_branch": "codex/fix-controller-3-8-0-tsconfig",
       "name": "[Infra] Cleanup: Stale Branches • pull_request • ws=n/a • ref=main",
-      "run_number": 368,
-      "status": "in_progress",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23902536433"
+      "run_number": 369,
+      "status": "queued",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23903973054"
     },
     {
       "conclusion": null,
-      "created": "2026-04-02T13:22:16Z",
+      "created": "2026-04-02T13:54:58Z",
       "event": "pull_request_target",
-      "head_branch": "claude/fix-cronjob-callback-route-6qr6E",
-      "name": "[Core] Post-Merge Monitor • PR #451 • claude/fix-cronjob-callback-route-6qr6E",
-      "run_number": 194,
-      "status": "in_progress",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23902536351"
+      "head_branch": "codex/fix-controller-3-8-0-tsconfig",
+      "name": "[Core] Post-Merge Monitor • PR #453 • codex/fix-controller-3-8-0-tsconfig",
+      "run_number": 195,
+      "status": "queued",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23903973043"
     },
     {
-      "conclusion": null,
-      "created": "2026-04-02T13:22:13Z",
+      "conclusion": "skipped",
+      "created": "2026-04-02T13:54:51Z",
+      "event": "issue_comment",
+      "head_branch": "main",
+      "name": "Claude responding to @claude mention",
+      "run_number": 99,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23903967153"
+    },
+    {
+      "conclusion": "skipped",
+      "created": "2026-04-02T13:54:46Z",
+      "event": "issue_comment",
+      "head_branch": "main",
+      "name": "Claude responding to @claude mention",
+      "run_number": 98,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23903963772"
+    },
+    {
+      "conclusion": "success",
+      "created": "2026-04-02T13:54:41Z",
       "event": "pull_request",
-      "head_branch": "claude/fix-cronjob-callback-route-6qr6E",
-      "name": "[Core] PR Auto-Review • PR #451",
-      "run_number": 44,
-      "status": "in_progress",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23902534008"
+      "head_branch": "codex/fix-controller-3-8-0-tsconfig",
+      "name": "[Core] PR Auto-Review • PR #453",
+      "run_number": 45,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23903959636"
     },
     {
-      "conclusion": null,
-      "created": "2026-04-02T13:22:13Z",
-      "event": "pull_request",
-      "head_branch": "claude/fix-cronjob-callback-route-6qr6E",
-      "name": "[Core] Compliance Gate • auto",
-      "run_number": 32,
-      "status": "in_progress",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23902533997"
-    },
-    {
-      "conclusion": null,
-      "created": "2026-04-02T13:22:13Z",
+      "conclusion": "success",
+      "created": "2026-04-02T13:54:41Z",
       "event": "pull_request_target",
-      "head_branch": "claude/fix-cronjob-callback-route-6qr6E",
-      "name": "[Core] Autonomous Direct Merge • PR #451 • claude/fix-cronjob-callback-route-6qr6E → main",
-      "run_number": 260,
-      "status": "in_progress",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23902533917"
-    },
-    {
-      "conclusion": null,
-      "created": "2026-04-02T13:22:13Z",
-      "event": "pull_request_target",
-      "head_branch": "claude/fix-cronjob-callback-route-6qr6E",
+      "head_branch": "codex/fix-controller-3-8-0-tsconfig",
       "name": "[Core] Auto-Merge Sweeper • sweep open agent PRs",
-      "run_number": 299,
-      "status": "in_progress",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23902533883"
+      "run_number": 300,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23903959631"
     },
     {
       "conclusion": null,
-      "created": "2026-04-02T13:19:48Z",
+      "created": "2026-04-02T13:54:41Z",
+      "event": "pull_request",
+      "head_branch": "codex/fix-controller-3-8-0-tsconfig",
+      "name": "[Core] Compliance Gate • auto",
+      "run_number": 33,
+      "status": "in_progress",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23903959625"
+    },
+    {
+      "conclusion": null,
+      "created": "2026-04-02T13:54:41Z",
+      "event": "pull_request_target",
+      "head_branch": "codex/fix-controller-3-8-0-tsconfig",
+      "name": "[Core] Autonomous Direct Merge • PR #453 • codex/fix-controller-3-8-0-tsconfig → main",
+      "run_number": 261,
+      "status": "in_progress",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23903959595"
+    },
+    {
+      "conclusion": "success",
+      "created": "2026-04-02T13:52:44Z",
       "event": "schedule",
       "head_branch": "main",
-      "name": "[Core] Backup: State Snapshot • schedule • ws=n/a • ref=main",
-      "run_number": 48,
-      "status": "in_progress",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23902434536"
+      "name": "[Core] Health Check • schedule • ws=n/a • ref=main",
+      "run_number": 160,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23903873083"
     },
     {
       "conclusion": "skipped",
-      "created": "2026-04-02T13:18:07Z",
-      "event": "issue_comment",
+      "created": "2026-04-02T13:27:20Z",
+      "event": "issues",
       "head_branch": "main",
-      "name": "Claude responding to @claude mention",
-      "run_number": 93,
+      "name": "[Core] Auto-Dispatch Task • Issue #452",
+      "run_number": 81,
       "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23902365506"
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23902750264"
     },
     {
       "conclusion": "skipped",
-      "created": "2026-04-02T13:18:02Z",
-      "event": "issue_comment",
+      "created": "2026-04-02T13:27:19Z",
+      "event": "issues",
       "head_branch": "main",
       "name": "Claude responding to @claude mention",
-      "run_number": 92,
+      "run_number": 97,
       "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23902362557"
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23902750216"
     },
     {
-      "conclusion": "success",
-      "created": "2026-04-02T13:17:58Z",
-      "event": "pull_request_target",
-      "head_branch": "claude/fix-cronjob-callback-route-6qr6E",
-      "name": "[Core] Post-Merge Monitor • PR #450 • claude/fix-cronjob-callback-route-6qr6E",
-      "run_number": 193,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23902359520"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-04-02T13:17:58Z",
-      "event": "pull_request",
-      "head_branch": "claude/fix-cronjob-callback-route-6qr6E",
-      "name": "[Infra] Cleanup: Stale Branches • pull_request • ws=n/a • ref=main",
-      "run_number": 367,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23902359486"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-04-02T13:17:58Z",
-      "event": "push",
+      "conclusion": "skipped",
+      "created": "2026-04-02T13:27:19Z",
+      "event": "issues",
       "head_branch": "main",
-      "name": "[Corp] CI: Diagnose Error Logs • push • ws=n/a • ref=main",
-      "run_number": 34,
+      "name": "[Core] Security Intake Dispatch • Issue #452",
+      "run_number": 7,
       "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23902359268"
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23902750166"
+    },
+    {
+      "conclusion": "failure",
+      "created": "2026-04-02T13:27:16Z",
+      "event": "workflow_dispatch",
+      "head_branch": "main",
+      "name": "[Corp] Fix: CI Lint Errors • workflow_dispatch • ws=ws-default • ref=main",
+      "run_number": 15,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23902747355"
     },
     {
       "conclusion": "success",
-      "created": "2026-04-02T13:17:57Z",
-      "event": "pull_request",
-      "head_branch": "claude/fix-cronjob-callback-route-6qr6E",
-      "name": "[Core] PR Auto-Review • PR #450",
-      "run_number": 43,
+      "created": "2026-04-02T13:27:15Z",
+      "event": "workflow_dispatch",
+      "head_branch": "main",
+      "name": "[Corp] CI: Diagnose Error Logs • workflow_dispatch • ws=ws-default • ref=main",
+      "run_number": 35,
       "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23902358847"
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23902746488"
     },
     {
       "conclusion": "success",
-      "created": "2026-04-02T13:17:57Z",
-      "event": "pull_request_target",
-      "head_branch": "claude/fix-cronjob-callback-route-6qr6E",
-      "name": "[Core] Auto-Merge Sweeper • sweep open agent PRs",
-      "run_number": 298,
+      "created": "2026-04-02T13:27:07Z",
+      "event": "workflow_dispatch",
+      "head_branch": "main",
+      "name": "[Core] CI Monitor Loop • workflow_dispatch • manual • ref=main",
+      "run_number": 17,
       "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23902358786"
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23902740958"
     },
     {
-      "conclusion": null,
-      "created": "2026-04-02T13:17:57Z",
-      "event": "pull_request_target",
+      "conclusion": "skipped",
+      "created": "2026-04-02T13:25:40Z",
+      "event": "pull_request_review_comment",
       "head_branch": "claude/fix-cronjob-callback-route-6qr6E",
-      "name": "[Core] Autonomous Direct Merge • PR #450 • claude/fix-cronjob-callback-route-6qr6E → main",
-      "run_number": 259,
-      "status": "in_progress",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23902358756"
+      "name": "Claude responding to @claude mention",
+      "run_number": 96,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23902678511"
     },
     {
       "conclusion": "success",
-      "created": "2026-04-02T12:54:40Z",
+      "created": "2026-04-02T13:22:33Z",
       "event": "workflow_dispatch",
       "head_branch": "main",
       "name": "[Infra] Deploy Panel (GitHub Pages) • workflow_dispatch • ws=n/a • ref=main",
-      "run_number": 73,
+      "run_number": 74,
       "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23901403508"
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23902548628"
     },
     {
-      "conclusion": "success",
-      "created": "2026-04-02T12:54:24Z",
-      "event": "schedule",
+      "conclusion": "skipped",
+      "created": "2026-04-02T13:22:25Z",
+      "event": "issue_comment",
       "head_branch": "main",
-      "name": "[Infra] Spark Dashboard Sync • sync state to Spark dashboard",
-      "run_number": 207,
+      "name": "Claude responding to @claude mention",
+      "run_number": 95,
       "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23901393359"
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23902542094"
     }
   ],
   "openPRs": [
@@ -487,6 +487,7 @@
     }
   ],
   "deployHistory": [
+    "state/workspaces/ws-default/audit/source-change-2026-04-02T13-26-58Z.json",
     "state/workspaces/ws-default/audit/source-change-2026-04-02T12-45-55Z.json",
     "state/workspaces/ws-default/audit/source-change-2026-04-02T12-33-20Z.json",
     "state/workspaces/ws-default/audit/source-change-2026-04-02T12-06-06Z.json",
@@ -505,8 +506,7 @@
     "state/workspaces/ws-default/audit/source-change-2026-03-30T14-45-16Z.json",
     "state/workspaces/ws-default/audit/source-change-2026-03-30T14-33-49Z.json",
     "state/workspaces/ws-default/audit/source-change-2026-03-30T13-30-52Z.json",
-    "state/workspaces/ws-default/audit/source-change-2026-03-30T13-10-52Z.json",
-    "state/workspaces/ws-default/audit/source-change-2026-03-29T14-00-40Z.json"
+    "state/workspaces/ws-default/audit/source-change-2026-03-30T13-10-52Z.json"
   ],
   "lessonsLearned": {
     "total": 41,
@@ -816,6 +816,12 @@
       "recentCommits": [
         {
           "author": "github-actions",
+          "date": "2026-04-02T13:22:40Z",
+          "message": "fix(controller): remove ignoreDeprecations + types node from tsconfig (v3.7.9)",
+          "sha": "3d6557c3"
+        },
+        {
+          "author": "github-actions",
           "date": "2026-04-02T12:28:37Z",
           "message": "fix(controller): tsconfig types node TS2591 + rotas cronjob /agent/* (v3.7.9)",
           "sha": "39236c40"
@@ -837,15 +843,40 @@
           "date": "2026-04-01T20:36:50Z",
           "message": "fix(security): Checkmarx XSS/SSRF/DoS — encodeURIComponent on output, ALLOWED_AG",
           "sha": "0e8dc891"
-        },
-        {
-          "author": "github-actions",
-          "date": "2026-04-01T13:35:53Z",
-          "message": "fix(security): address Checkmarx vulnerabilities — XSS sanitize output, SSRF blo",
-          "sha": "5683c88c"
         }
       ],
       "builds": [
+        {
+          "checks": [
+            {
+              "conclusion": "skipped",
+              "name": "CD (desenvolvimento)",
+              "status": "completed"
+            },
+            {
+              "conclusion": "skipped",
+              "name": "CI / Análise Motor Liberação",
+              "status": "completed"
+            },
+            {
+              "conclusion": "skipped",
+              "name": "CI / sonarQube",
+              "status": "completed"
+            },
+            {
+              "conclusion": "skipped",
+              "name": "CI / xRay",
+              "status": "completed"
+            },
+            {
+              "conclusion": "skipped",
+              "name": "CI / checkmarx",
+              "status": "completed"
+            }
+          ],
+          "sha": "3d6557c3",
+          "total": 8
+        },
         {
           "checks": [
             {
@@ -906,37 +937,6 @@
             }
           ],
           "sha": "d90e0158",
-          "total": 8
-        },
-        {
-          "checks": [
-            {
-              "conclusion": "skipped",
-              "name": "CD (desenvolvimento)",
-              "status": "completed"
-            },
-            {
-              "conclusion": "skipped",
-              "name": "CI / Análise Motor Liberação",
-              "status": "completed"
-            },
-            {
-              "conclusion": "skipped",
-              "name": "CI / sonarQube",
-              "status": "completed"
-            },
-            {
-              "conclusion": "skipped",
-              "name": "CI / xRay",
-              "status": "completed"
-            },
-            {
-              "conclusion": "skipped",
-              "name": "CI / checkmarx",
-              "status": "completed"
-            }
-          ],
-          "sha": "ab85e1c5",
           "total": 8
         }
       ],
@@ -1076,7 +1076,7 @@
       "drift": true,
       "driftDetail": "autopilot=source-change real=2.3.3"
     },
-    "lastChecked": "2026-04-02T13:22:29Z"
+    "lastChecked": "2026-04-02T13:55:14Z"
   },
   "corporateActivity": {
     "description": "Real-time activity from corporate repos — branches, PRs, external commits by other devs",
@@ -1140,7 +1140,7 @@
         {
           "name": "main",
           "protected": true,
-          "sha": "39236c40"
+          "sha": "3d6557c3"
         }
       ],
       "branchCount": 12,
