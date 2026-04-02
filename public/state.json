@@ -1,5 +1,5 @@
 {
-  "lastSync": "2026-04-02T14:22:38Z",
+  "lastSync": "2026-04-02T14:26:50Z",
   "syncSource": "autopilot/spark-sync-state.yml",
   "controller": {
     "version": "3.8.0",
@@ -25,13 +25,13 @@
   },
   "pipeline": {
     "status": "success",
-    "lastRun": 93,
+    "lastRun": 94,
     "component": "controller",
     "version": "3.8.0",
     "promote": true,
     "workspace": "GETRONICS | ws-default | BBVINET_TOKEN",
     "changeType": "multi-file",
-    "commitMessage": "fix(controller): remove types restriction from tsconfig — restore jest type discovery (v3.8.0)",
+    "commitMessage": "fix(controller): patch live 3.8.0 tsconfig types restriction",
     "changesCount": 1
   },
   "agents": {
@@ -78,9 +78,14 @@
     "codex": {
       "sessionCount": 8,
       "lastSession": "none",
-      "lessonsCount": 5,
-      "lastUpdated": "2026-04-02T14:21:00Z",
+      "lessonsCount": 6,
+      "lastUpdated": "2026-04-02T14:24:00Z",
       "sessions": [
+        {
+          "date": null,
+          "summary": null,
+          "actions": 0
+        },
         {
           "date": null,
           "summary": null,
@@ -218,12 +223,192 @@
   "recentWorkflows": [
     {
       "conclusion": null,
+      "created": "2026-04-02T14:26:27Z",
+      "event": "push",
+      "head_branch": "main",
+      "name": "[Infra] Spark Dashboard Sync • sync state to Spark dashboard",
+      "run_number": 213,
+      "status": "in_progress",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23905397717"
+    },
+    {
+      "conclusion": null,
+      "created": "2026-04-02T14:26:27Z",
+      "event": "push",
+      "head_branch": "main",
+      "name": "[Corp] Deploy: Apply Source Change • push • ws=n/a • ref=main",
+      "run_number": 94,
+      "status": "queued",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23905397683"
+    },
+    {
+      "conclusion": "skipped",
+      "created": "2026-04-02T14:25:04Z",
+      "event": "issue_comment",
+      "head_branch": "main",
+      "name": "Claude responding to @claude mention",
+      "run_number": 113,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23905334811"
+    },
+    {
+      "conclusion": "success",
+      "created": "2026-04-02T14:25:02Z",
+      "event": "pull_request_target",
+      "head_branch": "codex/fix-controller-3-8-1-tsconfig-memory",
+      "name": "[Core] Post-Merge Monitor • PR #460 • codex/fix-controller-3-8-1-tsconfig-memory",
+      "run_number": 201,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23905333462"
+    },
+    {
+      "conclusion": "success",
+      "created": "2026-04-02T14:25:00Z",
+      "event": "push",
+      "head_branch": "main",
+      "name": "[Core] Builds Validation Gate • validate all workflows",
+      "run_number": 117,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23905331211"
+    },
+    {
+      "conclusion": "success",
+      "created": "2026-04-02T14:25:00Z",
+      "event": "pull_request",
+      "head_branch": "claude/fix-cronjob-callback-route-6qr6E",
+      "name": "[Infra] Cleanup: Stale Branches • pull_request • ws=n/a • ref=main",
+      "run_number": 373,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23905331202"
+    },
+    {
+      "conclusion": "success",
+      "created": "2026-04-02T14:25:00Z",
+      "event": "pull_request_target",
+      "head_branch": "claude/fix-cronjob-callback-route-6qr6E",
+      "name": "[Core] Post-Merge Monitor • PR #461 • claude/fix-cronjob-callback-route-6qr6E",
+      "run_number": 200,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23905331110"
+    },
+    {
+      "conclusion": "skipped",
+      "created": "2026-04-02T14:24:57Z",
+      "event": "issue_comment",
+      "head_branch": "main",
+      "name": "Claude responding to @claude mention",
+      "run_number": 112,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23905328943"
+    },
+    {
+      "conclusion": "success",
+      "created": "2026-04-02T14:24:50Z",
+      "event": "pull_request",
+      "head_branch": "claude/fix-cronjob-callback-route-6qr6E",
+      "name": "[Core] PR Auto-Review • PR #461",
+      "run_number": 49,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23905323985"
+    },
+    {
+      "conclusion": "success",
+      "created": "2026-04-02T14:24:50Z",
+      "event": "pull_request",
+      "head_branch": "claude/fix-cronjob-callback-route-6qr6E",
+      "name": "[Core] Builds Validation Gate • validate all workflows",
+      "run_number": 116,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23905323962"
+    },
+    {
+      "conclusion": null,
+      "created": "2026-04-02T14:24:50Z",
+      "event": "pull_request_target",
+      "head_branch": "claude/fix-cronjob-callback-route-6qr6E",
+      "name": "[Core] Autonomous Direct Merge • PR #461 • claude/fix-cronjob-callback-route-6qr6E → main",
+      "run_number": 269,
+      "status": "in_progress",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23905323804"
+    },
+    {
+      "conclusion": "success",
+      "created": "2026-04-02T14:24:50Z",
+      "event": "pull_request_target",
+      "head_branch": "claude/fix-cronjob-callback-route-6qr6E",
+      "name": "[Core] Auto-Merge Sweeper • sweep open agent PRs",
+      "run_number": 309,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23905323706"
+    },
+    {
+      "conclusion": "success",
+      "created": "2026-04-02T14:24:46Z",
+      "event": "pull_request_target",
+      "head_branch": "codex/fix-controller-3-8-1-tsconfig-20260402",
+      "name": "[Core] Post-Merge Monitor • PR #459 • codex/fix-controller-3-8-1-tsconfig-20260402",
+      "run_number": 199,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23905320303"
+    },
+    {
+      "conclusion": null,
+      "created": "2026-04-02T14:24:28Z",
+      "event": "pull_request_target",
+      "head_branch": "codex/fix-controller-3-8-1-tsconfig-memory",
+      "name": "[Core] Autonomous Direct Merge • PR #460 • codex/fix-controller-3-8-1-tsconfig-memory → main",
+      "run_number": 268,
+      "status": "in_progress",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23905306572"
+    },
+    {
+      "conclusion": "success",
+      "created": "2026-04-02T14:24:28Z",
+      "event": "pull_request_target",
+      "head_branch": "codex/fix-controller-3-8-1-tsconfig-memory",
+      "name": "[Core] Auto-Merge Sweeper • sweep open agent PRs",
+      "run_number": 308,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23905306557"
+    },
+    {
+      "conclusion": null,
+      "created": "2026-04-02T14:24:27Z",
+      "event": "pull_request_target",
+      "head_branch": "codex/fix-controller-3-8-1-tsconfig-20260402",
+      "name": "[Core] Autonomous Direct Merge • PR #459 • codex/fix-controller-3-8-1-tsconfig-20260402 → main",
+      "run_number": 267,
+      "status": "in_progress",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23905306034"
+    },
+    {
+      "conclusion": "success",
+      "created": "2026-04-02T14:24:27Z",
+      "event": "pull_request_target",
+      "head_branch": "codex/fix-controller-3-8-1-tsconfig-20260402",
+      "name": "[Core] Auto-Merge Sweeper • sweep open agent PRs",
+      "run_number": 307,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23905306004"
+    },
+    {
+      "conclusion": "success",
+      "created": "2026-04-02T14:22:42Z",
+      "event": "workflow_dispatch",
+      "head_branch": "main",
+      "name": "[Infra] Deploy Panel (GitHub Pages) • workflow_dispatch • ws=n/a • ref=main",
+      "run_number": 78,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23905225291"
+    },
+    {
+      "conclusion": "success",
       "created": "2026-04-02T14:22:23Z",
       "event": "schedule",
       "head_branch": "main",
       "name": "[Infra] Spark Dashboard Sync • sync state to Spark dashboard",
       "run_number": 212,
-      "status": "in_progress",
+      "status": "completed",
       "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23905210786"
     },
     {
@@ -235,205 +420,9 @@
       "run_number": 77,
       "status": "completed",
       "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23905177995"
-    },
-    {
-      "conclusion": null,
-      "created": "2026-04-02T14:21:20Z",
-      "event": "push",
-      "head_branch": "main",
-      "name": "[Corp] CI: Diagnose Error Logs • push • ws=n/a • ref=main",
-      "run_number": 38,
-      "status": "in_progress",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23905162875"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-04-02T14:21:20Z",
-      "event": "push",
-      "head_branch": "main",
-      "name": "[Infra] Spark Dashboard Sync • sync state to Spark dashboard",
-      "run_number": 211,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23905162871"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-04-02T14:21:20Z",
-      "event": "push",
-      "head_branch": "main",
-      "name": "[Corp] Fetch: Source Files • push • ws=n/a • ref=main",
-      "run_number": 28,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23905162828"
-    },
-    {
-      "conclusion": "skipped",
-      "created": "2026-04-02T14:20:21Z",
-      "event": "pull_request_review_comment",
-      "head_branch": "claude/fix-cronjob-callback-route-6qr6E",
-      "name": "Claude responding to @claude mention",
-      "run_number": 111,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23905118311"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-04-02T14:17:15Z",
-      "event": "schedule",
-      "head_branch": "main",
-      "name": "[Core] Workflow Health Monitor • monitor all workflows",
-      "run_number": 59,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23904979444"
-    },
-    {
-      "conclusion": "skipped",
-      "created": "2026-04-02T14:17:06Z",
-      "event": "issue_comment",
-      "head_branch": "main",
-      "name": "Claude responding to @claude mention",
-      "run_number": 110,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23904972691"
-    },
-    {
-      "conclusion": null,
-      "created": "2026-04-02T14:16:59Z",
-      "event": "pull_request_target",
-      "head_branch": "codex/fix-controller-3-8-1-tsconfig-memory",
-      "name": "[Core] Autonomous Direct Merge • PR #460 • codex/fix-controller-3-8-1-tsconfig-memory → main",
-      "run_number": 266,
-      "status": "in_progress",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23904966476"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-04-02T14:16:59Z",
-      "event": "pull_request_target",
-      "head_branch": "codex/fix-controller-3-8-1-tsconfig-memory",
-      "name": "[Core] Auto-Merge Sweeper • sweep open agent PRs",
-      "run_number": 306,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23904966452"
-    },
-    {
-      "conclusion": "skipped",
-      "created": "2026-04-02T14:14:57Z",
-      "event": "issue_comment",
-      "head_branch": "main",
-      "name": "Claude responding to @claude mention",
-      "run_number": 109,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23904873576"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-04-02T14:14:52Z",
-      "event": "pull_request_target",
-      "head_branch": "codex/fix-controller-3-8-1-tsconfig-20260402",
-      "name": "[Core] Auto-Merge Sweeper • sweep open agent PRs",
-      "run_number": 305,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23904870202"
-    },
-    {
-      "conclusion": null,
-      "created": "2026-04-02T14:14:52Z",
-      "event": "pull_request_target",
-      "head_branch": "codex/fix-controller-3-8-1-tsconfig-20260402",
-      "name": "[Core] Autonomous Direct Merge • PR #459 • codex/fix-controller-3-8-1-tsconfig-20260402 → main",
-      "run_number": 265,
-      "status": "in_progress",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23904870187"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-04-02T14:14:49Z",
-      "event": "workflow_dispatch",
-      "head_branch": "main",
-      "name": "[Infra] Deploy Panel (GitHub Pages) • workflow_dispatch • ws=n/a • ref=main",
-      "run_number": 76,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23904867752"
-    },
-    {
-      "conclusion": "skipped",
-      "created": "2026-04-02T14:14:34Z",
-      "event": "issue_comment",
-      "head_branch": "main",
-      "name": "Claude responding to @claude mention",
-      "run_number": 108,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23904856474"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-04-02T14:14:28Z",
-      "event": "push",
-      "head_branch": "main",
-      "name": "[Infra] Spark Dashboard Sync • sync state to Spark dashboard",
-      "run_number": 210,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23904852238"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-04-02T14:14:28Z",
-      "event": "push",
-      "head_branch": "main",
-      "name": "[Corp] Deploy: Apply Source Change • push • ws=n/a • ref=main",
-      "run_number": 93,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23904852164"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-04-02T14:14:27Z",
-      "event": "pull_request",
-      "head_branch": "claude/fix-cronjob-callback-route-6qr6E",
-      "name": "[Infra] Cleanup: Stale Branches • pull_request • ws=n/a • ref=main",
-      "run_number": 372,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23904851228"
-    },
-    {
-      "conclusion": "skipped",
-      "created": "2026-04-02T14:14:27Z",
-      "event": "issue_comment",
-      "head_branch": "main",
-      "name": "Claude responding to @claude mention",
-      "run_number": 107,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23904851188"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-04-02T14:14:27Z",
-      "event": "pull_request_target",
-      "head_branch": "claude/fix-cronjob-callback-route-6qr6E",
-      "name": "[Core] Post-Merge Monitor • PR #458 • claude/fix-cronjob-callback-route-6qr6E",
-      "run_number": 198,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23904851166"
     }
   ],
   "openPRs": [
-    {
-      "author": "lucassfreiree",
-      "branch": "codex/fix-controller-3-8-1-tsconfig-memory",
-      "created": "2026-04-02T14:16:54Z",
-      "draft": false,
-      "number": 460,
-      "title": "fix(controller): repair 3.8.1 tsconfig follow-up and persist memory"
-    },
-    {
-      "author": "lucassfreiree",
-      "branch": "codex/fix-controller-3-8-1-tsconfig-20260402",
-      "created": "2026-04-02T14:14:48Z",
-      "draft": false,
-      "number": 459,
-      "title": "fix(controller): remove explicit node types and restore valid tsconfig deprecation guard (v3.8.1)"
-    },
     {
       "author": "lucassfreiree3-maker",
       "branch": "codex/fix-dashboard-sync",
@@ -497,6 +486,14 @@
       "draft": false,
       "number": 412,
       "title": "ci(deps): bump google-github-actions/auth from 2 to 3"
+    },
+    {
+      "author": "dependabot[bot]",
+      "branch": "dependabot/github_actions/actions/setup-python-6",
+      "created": "2026-03-31T12:49:02Z",
+      "draft": false,
+      "number": 410,
+      "title": "ci(deps): bump actions/setup-python from 5 to 6"
     }
   ],
   "deployHistory": [
@@ -522,9 +519,9 @@
     "state/workspaces/ws-default/audit/source-change-2026-03-30T14-33-49Z.json"
   ],
   "lessonsLearned": {
-    "total": 44,
+    "total": 45,
     "copilot": 39,
-    "codex": 5,
+    "codex": 6,
     "copilotLessons": [
       {
         "lesson": "NUNCA usar validateTrustedUrl dentro de fetch/postJson — quebra testes mock",
@@ -700,6 +697,11 @@
       },
       {
         "lesson": "If apply-source-change finishes with Setup and Apply success but skips CI Gate, Save State, and CI Monitor, do not trust release-state alone; immediately verify via fetch-files and a fresh ci-diagnose on the latest corporate head.",
+        "fix": null,
+        "source": null
+      },
+      {
+        "lesson": "When a source-change run is a no-op, the fastest proof is the fetched corporate file itself; if it still shows the old prefix, fix the trigger search string before waiting on stale diagnosis output.",
         "fix": null,
         "source": null
       }
@@ -1104,7 +1106,7 @@
       "drift": true,
       "driftDetail": "autopilot=source-change real=2.3.3"
     },
-    "lastChecked": "2026-04-02T14:22:38Z"
+    "lastChecked": "2026-04-02T14:26:50Z"
   },
   "corporateActivity": {
     "description": "Real-time activity from corporate repos — branches, PRs, external commits by other devs",
