@@ -1,5 +1,5 @@
 {
-  "lastSync": "2026-04-02T22:01:51Z",
+  "lastSync": "2026-04-02T22:52:07Z",
   "syncSource": "autopilot/spark-sync-state.yml",
   "controller": {
     "version": "3.8.2",
@@ -113,7 +113,7 @@
   "health": {
     "schemaVersion": 2,
     "workspaceId": "ws-default",
-    "checkedAt": "2026-04-02T21:50:46Z",
+    "checkedAt": "2026-04-02T22:48:09Z",
     "overall": "degraded",
     "checks": {
       "workspace": {
@@ -123,12 +123,12 @@
       "controllerRelease": {
         "status": "pass",
         "message": "Tag: 3.8.2",
-        "detail": "Age: 4h"
+        "detail": "Age: 5h"
       },
       "agentRelease": {
         "status": "pass",
         "message": "Tag: source-change",
-        "detail": "Age: 77h"
+        "detail": "Age: 78h"
       },
       "stuckRuns": {
         "status": "pass",
@@ -143,7 +143,7 @@
         "message": "? commits ahead"
       }
     },
-    "summary": "degraded at 2026-04-02T21:50:46Z"
+    "summary": "degraded at 2026-04-02T22:48:09Z"
   },
   "ciMonitor": {
     "workspaceId": "ws-default",
@@ -156,10 +156,10 @@
     "failedRunUrl": ""
   },
   "pipelineStatus": {
-    "updatedAt": "2026-04-02T21:34:03Z",
+    "updatedAt": "2026-04-02T22:20:42Z",
     "workspaceId": "ws-default",
     "overallHealth": "ok",
-    "monitorRunId": "23923063609",
+    "monitorRunId": "23924703274",
     "triggerEvent": "schedule",
     "autoDispatched": "",
     "components": {
@@ -174,7 +174,7 @@
         "stage": "idle",
         "health": "ok",
         "actionTaken": "none",
-        "deployAge": "4611min"
+        "deployAge": "4657min"
       },
       "controller": {
         "version": "3.8.2",
@@ -187,7 +187,7 @@
         "stage": "idle",
         "health": "ok",
         "actionTaken": "none",
-        "deployAge": "233min"
+        "deployAge": "279min"
       }
     }
   },
@@ -223,12 +223,102 @@
   "recentWorkflows": [
     {
       "conclusion": null,
+      "created": "2026-04-02T22:51:53Z",
+      "event": "schedule",
+      "head_branch": "main",
+      "name": "[Infra] Spark Dashboard Sync • sync state to Spark dashboard",
+      "run_number": 232,
+      "status": "in_progress",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23925678461"
+    },
+    {
+      "conclusion": "success",
+      "created": "2026-04-02T22:50:29Z",
+      "event": "schedule",
+      "head_branch": "main",
+      "name": "[Core] Lock GC • schedule • ws=n/a • ref=main",
+      "run_number": 214,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23925637706"
+    },
+    {
+      "conclusion": "success",
+      "created": "2026-04-02T22:48:01Z",
+      "event": "schedule",
+      "head_branch": "main",
+      "name": "[Core] Health Check • schedule • ws=n/a • ref=main",
+      "run_number": 168,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23925565063"
+    },
+    {
+      "conclusion": "success",
+      "created": "2026-04-02T22:29:29Z",
+      "event": "workflow_dispatch",
+      "head_branch": "main",
+      "name": "[Core] Workflow Auto-Repair • auto-fix failing workflows",
+      "run_number": 35,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23924991665"
+    },
+    {
+      "conclusion": "success",
+      "created": "2026-04-02T22:29:11Z",
+      "event": "schedule",
+      "head_branch": "main",
+      "name": "[Core] Workflow Health Monitor • monitor all workflows",
+      "run_number": 68,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23924982745"
+    },
+    {
+      "conclusion": "success",
+      "created": "2026-04-02T22:29:05Z",
+      "event": "schedule",
+      "head_branch": "main",
+      "name": "[Core] Smart PR Manager • sweep open PRs",
+      "run_number": 351,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23924979713"
+    },
+    {
+      "conclusion": "failure",
+      "created": "2026-04-02T22:28:54Z",
+      "event": "schedule",
+      "head_branch": "main",
+      "name": "[Core] Intelligent Orchestrator • brain — observe, decide, act, learn",
+      "run_number": 80,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23924973585"
+    },
+    {
+      "conclusion": "success",
+      "created": "2026-04-02T22:20:35Z",
+      "event": "schedule",
+      "head_branch": "main",
+      "name": "[Core] Deploy Pipeline Monitor • schedule • scheduled",
+      "run_number": 73,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23924703274"
+    },
+    {
+      "conclusion": "success",
+      "created": "2026-04-02T22:05:50Z",
+      "event": "schedule",
+      "head_branch": "main",
+      "name": "[Core] Lock GC • schedule • ws=n/a • ref=main",
+      "run_number": 213,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23924193221"
+    },
+    {
+      "conclusion": "success",
       "created": "2026-04-02T22:01:38Z",
       "event": "schedule",
       "head_branch": "main",
       "name": "[Infra] Spark Dashboard Sync • sync state to Spark dashboard",
       "run_number": 231,
-      "status": "in_progress",
+      "status": "completed",
       "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23924043638"
     },
     {
@@ -330,96 +420,6 @@
       "run_number": 78,
       "status": "completed",
       "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23923424649"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-04-02T21:44:11Z",
-      "event": "pull_request",
-      "head_branch": "claude/fix-cronjob-callback-route-6qr6E",
-      "name": "[Core] Builds Validation Gate • validate all workflows",
-      "run_number": 158,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23923424602"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-04-02T21:44:11Z",
-      "event": "pull_request_target",
-      "head_branch": "claude/fix-cronjob-callback-route-6qr6E",
-      "name": "[Core] Smart PR Manager • sweep open PRs",
-      "run_number": 349,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23923424553"
-    },
-    {
-      "conclusion": "failure",
-      "created": "2026-04-02T21:44:11Z",
-      "event": "pull_request_target",
-      "head_branch": "claude/fix-cronjob-callback-route-6qr6E",
-      "name": "[Core] Autonomous Direct Merge • PR #508 • claude/fix-cronjob-callback-route-6qr6E → main",
-      "run_number": 302,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23923424528"
-    },
-    {
-      "conclusion": "skipped",
-      "created": "2026-04-02T21:43:54Z",
-      "event": "pull_request_review_comment",
-      "head_branch": "claude/fix-cronjob-callback-route-6qr6E",
-      "name": "Claude responding to @claude mention",
-      "run_number": 248,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23923415372"
-    },
-    {
-      "conclusion": "skipped",
-      "created": "2026-04-02T21:43:54Z",
-      "event": "pull_request_review_comment",
-      "head_branch": "claude/fix-cronjob-callback-route-6qr6E",
-      "name": "Claude responding to @claude mention",
-      "run_number": 247,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23923415370"
-    },
-    {
-      "conclusion": "skipped",
-      "created": "2026-04-02T21:38:07Z",
-      "event": "issue_comment",
-      "head_branch": "main",
-      "name": "Claude responding to @claude mention",
-      "run_number": 246,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23923213504"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-04-02T21:38:02Z",
-      "event": "push",
-      "head_branch": "main",
-      "name": "[Core] Builds Validation Gate • validate all workflows",
-      "run_number": 157,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23923210717"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-04-02T21:38:02Z",
-      "event": "pull_request",
-      "head_branch": "claude/fix-cronjob-callback-route-6qr6E",
-      "name": "[Infra] Cleanup: Stale Branches • pull_request • ws=n/a • ref=main",
-      "run_number": 407,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23923210703"
-    },
-    {
-      "conclusion": "failure",
-      "created": "2026-04-02T21:38:02Z",
-      "event": "pull_request_target",
-      "head_branch": "claude/fix-cronjob-callback-route-6qr6E",
-      "name": "[Core] Post-Merge Monitor • PR #507 • claude/fix-cronjob-callback-route-6qr6E",
-      "run_number": 241,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23923210673"
     }
   ],
   "openPRs": [],
@@ -1043,7 +1043,7 @@
       "drift": true,
       "driftDetail": "autopilot=source-change real=2.3.3"
     },
-    "lastChecked": "2026-04-02T22:01:51Z"
+    "lastChecked": "2026-04-02T22:52:07Z"
   },
   "corporateActivity": {
     "description": "Real-time activity from corporate repos — branches, PRs, external commits by other devs",
