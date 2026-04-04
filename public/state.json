@@ -1,5 +1,5 @@
 {
-  "lastSync": "2026-04-04T20:39:14Z",
+  "lastSync": "2026-04-04T21:05:00Z",
   "syncSource": "autopilot/spark-sync-state.yml",
   "controller": {
     "version": "3.8.2",
@@ -113,7 +113,7 @@
   "health": {
     "schemaVersion": 2,
     "workspaceId": "ws-default",
-    "checkedAt": "2026-04-04T19:41:36Z",
+    "checkedAt": "2026-04-04T20:48:08Z",
     "overall": "degraded",
     "checks": {
       "workspace": {
@@ -123,12 +123,12 @@
       "controllerRelease": {
         "status": "pass",
         "message": "Tag: 3.8.2",
-        "detail": "Age: 50h"
+        "detail": "Age: 51h"
       },
       "agentRelease": {
         "status": "pass",
         "message": "Tag: source-change",
-        "detail": "Age: 122h"
+        "detail": "Age: 124h"
       },
       "stuckRuns": {
         "status": "pass",
@@ -143,7 +143,7 @@
         "message": "? commits ahead"
       }
     },
-    "summary": "degraded at 2026-04-04T19:41:36Z"
+    "summary": "degraded at 2026-04-04T20:48:08Z"
   },
   "ciMonitor": {
     "workspaceId": "ws-default",
@@ -223,12 +223,72 @@
   "recentWorkflows": [
     {
       "conclusion": null,
+      "created": "2026-04-04T21:04:43Z",
+      "event": "schedule",
+      "head_branch": "main",
+      "name": "[Infra] Spark Dashboard Sync • sync state to Spark dashboard",
+      "run_number": 287,
+      "status": "in_progress",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23987557416"
+    },
+    {
+      "conclusion": "success",
+      "created": "2026-04-04T20:58:04Z",
+      "event": "schedule",
+      "head_branch": "main",
+      "name": "[Core] Smart PR Manager • sweep open PRs",
+      "run_number": 422,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23987444241"
+    },
+    {
+      "conclusion": "success",
+      "created": "2026-04-04T20:56:20Z",
+      "event": "schedule",
+      "head_branch": "main",
+      "name": "[Corp] Drift Correction • schedule • ws=n/a • ref=main",
+      "run_number": 73,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23987416847"
+    },
+    {
+      "conclusion": "success",
+      "created": "2026-04-04T20:55:09Z",
+      "event": "schedule",
+      "head_branch": "main",
+      "name": "[Core] Lock GC • schedule • ws=n/a • ref=main",
+      "run_number": 267,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23987398671"
+    },
+    {
+      "conclusion": "success",
+      "created": "2026-04-04T20:48:00Z",
+      "event": "schedule",
+      "head_branch": "main",
+      "name": "[Core] Health Check • schedule • ws=n/a • ref=main",
+      "run_number": 210,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23987281903"
+    },
+    {
+      "conclusion": "success",
+      "created": "2026-04-04T20:40:29Z",
+      "event": "schedule",
+      "head_branch": "main",
+      "name": "[Core] Workflow Health Monitor • monitor all workflows",
+      "run_number": 100,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23987158994"
+    },
+    {
+      "conclusion": "success",
       "created": "2026-04-04T20:38:56Z",
       "event": "schedule",
       "head_branch": "main",
       "name": "[Infra] Spark Dashboard Sync • sync state to Spark dashboard",
       "run_number": 286,
-      "status": "in_progress",
+      "status": "completed",
       "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23987133792"
     },
     {
@@ -360,66 +420,6 @@
       "run_number": 426,
       "status": "completed",
       "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23986684510"
-    },
-    {
-      "conclusion": "failure",
-      "created": "2026-04-04T20:11:32Z",
-      "event": "pull_request_target",
-      "head_branch": "claude/autopilot-versioning-agents-Uw6g2",
-      "name": "[Core] Post-Merge Monitor • PR #527 • claude/autopilot-versioning-agents-Uw6g2",
-      "run_number": 258,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23986684456"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-04-04T20:11:32Z",
-      "event": "push",
-      "head_branch": "main",
-      "name": "[Release] Autopilot Product",
-      "run_number": 15,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23986684341"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-04-04T20:11:32Z",
-      "event": "push",
-      "head_branch": "main",
-      "name": "Feature Validation Sweep",
-      "run_number": 8,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23986684335"
-    },
-    {
-      "conclusion": "skipped",
-      "created": "2026-04-04T20:11:32Z",
-      "event": "issue_comment",
-      "head_branch": "main",
-      "name": "Claude responding to @claude mention",
-      "run_number": 312,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23986684334"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-04-04T20:11:32Z",
-      "event": "push",
-      "head_branch": "main",
-      "name": "Auto-Fix on Push",
-      "run_number": 3,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23986684328"
-    },
-    {
-      "conclusion": "failure",
-      "created": "2026-04-04T20:11:32Z",
-      "event": "push",
-      "head_branch": "main",
-      "name": "Security Scorecard",
-      "run_number": 2,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23986684319"
     }
   ],
   "openPRs": [],
@@ -1033,7 +1033,7 @@
       "drift": true,
       "driftDetail": "autopilot=source-change real=2.3.3"
     },
-    "lastChecked": "2026-04-04T20:39:14Z"
+    "lastChecked": "2026-04-04T21:05:00Z"
   },
   "corporateActivity": {
     "description": "Real-time activity from corporate repos — branches, PRs, external commits by other devs",
