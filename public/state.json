@@ -1,5 +1,5 @@
 {
-  "lastSync": "2026-04-04T02:39:22Z",
+  "lastSync": "2026-04-04T04:31:41Z",
   "syncSource": "autopilot/spark-sync-state.yml",
   "controller": {
     "version": "3.8.2",
@@ -113,7 +113,7 @@
   "health": {
     "schemaVersion": 2,
     "workspaceId": "ws-default",
-    "checkedAt": "2026-04-04T01:14:55Z",
+    "checkedAt": "2026-04-04T03:12:31Z",
     "overall": "degraded",
     "checks": {
       "workspace": {
@@ -123,12 +123,12 @@
       "controllerRelease": {
         "status": "pass",
         "message": "Tag: 3.8.2",
-        "detail": "Age: 31h"
+        "detail": "Age: 33h"
       },
       "agentRelease": {
         "status": "pass",
         "message": "Tag: source-change",
-        "detail": "Age: 104h"
+        "detail": "Age: 106h"
       },
       "stuckRuns": {
         "status": "pass",
@@ -143,7 +143,7 @@
         "message": "? commits ahead"
       }
     },
-    "summary": "degraded at 2026-04-04T01:14:55Z"
+    "summary": "degraded at 2026-04-04T03:12:31Z"
   },
   "ciMonitor": {
     "workspaceId": "ws-default",
@@ -223,12 +223,92 @@
   "recentWorkflows": [
     {
       "conclusion": null,
+      "created": "2026-04-04T04:31:26Z",
+      "event": "schedule",
+      "head_branch": "main",
+      "name": "[Infra] Spark Dashboard Sync • sync state to Spark dashboard",
+      "run_number": 265,
+      "status": "in_progress",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23971365134"
+    },
+    {
+      "conclusion": "success",
+      "created": "2026-04-04T04:22:21Z",
+      "event": "schedule",
+      "head_branch": "main",
+      "name": "[Core] Smart PR Manager • sweep open PRs",
+      "run_number": 384,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23971215665"
+    },
+    {
+      "conclusion": "failure",
+      "created": "2026-04-04T04:05:20Z",
+      "event": "schedule",
+      "head_branch": "main",
+      "name": "[Core] Intelligent Orchestrator • brain — observe, decide, act, learn",
+      "run_number": 111,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23970941371"
+    },
+    {
+      "conclusion": "success",
+      "created": "2026-04-04T04:00:06Z",
+      "event": "schedule",
+      "head_branch": "main",
+      "name": "[Core] Lock GC • schedule • ws=n/a • ref=main",
+      "run_number": 243,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23970857110"
+    },
+    {
+      "conclusion": "success",
+      "created": "2026-04-04T03:20:25Z",
+      "event": "schedule",
+      "head_branch": "main",
+      "name": "[Corp] Drift Correction • schedule • ws=n/a • ref=main",
+      "run_number": 68,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23970248102"
+    },
+    {
+      "conclusion": "success",
+      "created": "2026-04-04T03:12:24Z",
+      "event": "schedule",
+      "head_branch": "main",
+      "name": "[Core] Health Check • schedule • ws=n/a • ref=main",
+      "run_number": 193,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23970125462"
+    },
+    {
+      "conclusion": "success",
+      "created": "2026-04-04T02:45:05Z",
+      "event": "workflow_dispatch",
+      "head_branch": "main",
+      "name": "[Core] Workflow Auto-Repair • auto-fix failing workflows",
+      "run_number": 57,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23969675577"
+    },
+    {
+      "conclusion": "success",
+      "created": "2026-04-04T02:44:49Z",
+      "event": "schedule",
+      "head_branch": "main",
+      "name": "[Core] Workflow Health Monitor • monitor all workflows",
+      "run_number": 91,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23969671560"
+    },
+    {
+      "conclusion": "success",
       "created": "2026-04-04T02:39:11Z",
       "event": "schedule",
       "head_branch": "main",
       "name": "[Infra] Spark Dashboard Sync • sync state to Spark dashboard",
       "run_number": 264,
-      "status": "in_progress",
+      "status": "completed",
       "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23969582589"
     },
     {
@@ -242,13 +322,13 @@
       "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23969532975"
     },
     {
-      "conclusion": null,
+      "conclusion": "success",
       "created": "2026-04-04T02:27:27Z",
       "event": "schedule",
       "head_branch": "main",
       "name": "[Core] Backup: State Snapshot • schedule • ws=n/a • ref=main",
       "run_number": 54,
-      "status": "in_progress",
+      "status": "completed",
       "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23969397575"
     },
     {
@@ -340,86 +420,6 @@
       "run_number": 108,
       "status": "completed",
       "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23969262819"
-    },
-    {
-      "conclusion": "cancelled",
-      "created": "2026-04-04T02:19:08Z",
-      "event": "issues",
-      "head_branch": "main",
-      "name": "[Core] Security Intake Dispatch • Issue #512",
-      "run_number": 34,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23969262812"
-    },
-    {
-      "conclusion": "skipped",
-      "created": "2026-04-04T02:19:08Z",
-      "event": "issues",
-      "head_branch": "main",
-      "name": "Claude responding to @claude mention",
-      "run_number": 261,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23969262811"
-    },
-    {
-      "conclusion": "cancelled",
-      "created": "2026-04-04T02:19:08Z",
-      "event": "issues",
-      "head_branch": "main",
-      "name": "[Core] Security Intake Dispatch • Issue #512",
-      "run_number": 33,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23969262810"
-    },
-    {
-      "conclusion": "skipped",
-      "created": "2026-04-04T02:19:08Z",
-      "event": "issues",
-      "head_branch": "main",
-      "name": "[Core] Auto-Dispatch Task • Issue #512",
-      "run_number": 107,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23969262809"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-04-04T02:18:11Z",
-      "event": "push",
-      "head_branch": "main",
-      "name": "[Release] Autopilot Product",
-      "run_number": 3,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23969247492"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-04-04T02:18:11Z",
-      "event": "push",
-      "head_branch": "main",
-      "name": "[Corp] Check: Repo Access • push • ws=n/a • ref=main",
-      "run_number": 6,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23969247483"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-04-04T02:18:11Z",
-      "event": "push",
-      "head_branch": "main",
-      "name": "[Core] Security Vulnerability Scanner • controller vlatest",
-      "run_number": 6,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23969247478"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-04-04T02:18:11Z",
-      "event": "push",
-      "head_branch": "main",
-      "name": "[Core] Builds Validation Gate • validate all workflows",
-      "run_number": 167,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23969247476"
     }
   ],
   "openPRs": [],
@@ -1033,7 +1033,7 @@
       "drift": true,
       "driftDetail": "autopilot=source-change real=2.3.3"
     },
-    "lastChecked": "2026-04-04T02:39:22Z"
+    "lastChecked": "2026-04-04T04:31:41Z"
   },
   "corporateActivity": {
     "description": "Real-time activity from corporate repos — branches, PRs, external commits by other devs",
