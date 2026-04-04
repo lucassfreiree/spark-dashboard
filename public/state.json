@@ -1,5 +1,5 @@
 {
-  "lastSync": "2026-04-04T21:47:29Z",
+  "lastSync": "2026-04-04T22:36:16Z",
   "syncSource": "autopilot/spark-sync-state.yml",
   "controller": {
     "version": "3.8.2",
@@ -156,10 +156,10 @@
     "failedRunUrl": ""
   },
   "pipelineStatus": {
-    "updatedAt": "2026-04-04T21:36:52Z",
+    "updatedAt": "2026-04-04T22:35:09Z",
     "workspaceId": "ws-default",
     "overallHealth": "ok",
-    "monitorRunId": "23988091705",
+    "monitorRunId": "23989030528",
     "triggerEvent": "schedule",
     "autoDispatched": "",
     "components": {
@@ -174,7 +174,7 @@
         "stage": "idle",
         "health": "ok",
         "actionTaken": "none",
-        "deployAge": "7494min"
+        "deployAge": "7552min"
       },
       "controller": {
         "version": "3.8.2",
@@ -187,7 +187,7 @@
         "stage": "idle",
         "health": "ok",
         "actionTaken": "none",
-        "deployAge": "3115min"
+        "deployAge": "3174min"
       }
     }
   },
@@ -223,203 +223,203 @@
   "recentWorkflows": [
     {
       "conclusion": null,
-      "created": "2026-04-04T21:47:15Z",
+      "created": "2026-04-04T22:36:05Z",
       "event": "schedule",
       "head_branch": "main",
       "name": "[Infra] Spark Dashboard Sync • sync state to Spark dashboard",
-      "run_number": 288,
+      "run_number": 289,
       "status": "in_progress",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23988263620"
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23989047132"
+    },
+    {
+      "conclusion": "success",
+      "created": "2026-04-04T22:35:23Z",
+      "event": "check_run",
+      "head_branch": "main",
+      "name": "[Core] CI Self-Heal • check_run • Vercel Preview Comments",
+      "run_number": 53,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23989035374"
+    },
+    {
+      "conclusion": "success",
+      "created": "2026-04-04T22:35:14Z",
+      "event": "check_run",
+      "head_branch": "main",
+      "name": "[Core] CI Self-Heal • check_run • Vercel Preview Comments",
+      "run_number": 52,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23989033769"
+    },
+    {
+      "conclusion": "success",
+      "created": "2026-04-04T22:35:03Z",
+      "event": "schedule",
+      "head_branch": "main",
+      "name": "[Core] Deploy Pipeline Monitor • schedule • scheduled",
+      "run_number": 120,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23989030528"
     },
     {
       "conclusion": "skipped",
-      "created": "2026-04-04T21:44:50Z",
-      "event": "issue_comment",
-      "head_branch": "main",
-      "name": "Claude responding to @claude mention",
-      "run_number": 336,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23988224917"
-    },
-    {
-      "conclusion": "skipped",
-      "created": "2026-04-04T21:44:48Z",
-      "event": "issue_comment",
-      "head_branch": "main",
-      "name": "Claude responding to @claude mention",
-      "run_number": 335,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23988224480"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-04-04T21:44:45Z",
-      "event": "push",
-      "head_branch": "main",
-      "name": "Feature Validation Sweep",
-      "run_number": 13,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23988223640"
-    },
-    {
-      "conclusion": "failure",
-      "created": "2026-04-04T21:44:45Z",
-      "event": "push",
-      "head_branch": "main",
-      "name": "Security Scorecard",
-      "run_number": 8,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23988223634"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-04-04T21:44:45Z",
-      "event": "push",
-      "head_branch": "main",
-      "name": "Auto-Fix on Push",
-      "run_number": 8,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23988223632"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-04-04T21:44:45Z",
-      "event": "push",
-      "head_branch": "main",
-      "name": "[Infra] Deploy Panel (GitHub Pages) • push • ws=n/a • ref=main",
-      "run_number": 101,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23988223629"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-04-04T21:44:44Z",
-      "event": "pull_request",
-      "head_branch": "claude/autopilot-versioning-agents-Uw6g2",
-      "name": "[Infra] Cleanup: Stale Branches • pull_request • ws=n/a • ref=main",
-      "run_number": 431,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23988223563"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-04-04T21:44:44Z",
-      "event": "pull_request_target",
-      "head_branch": "claude/autopilot-versioning-agents-Uw6g2",
-      "name": "[Core] Post-Merge Monitor • PR #533 • claude/autopilot-versioning-agents-Uw6g2",
-      "run_number": 263,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23988223522"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-04-04T21:44:41Z",
-      "event": "pull_request_target",
-      "head_branch": "claude/autopilot-versioning-agents-Uw6g2",
-      "name": "[Core] Smart PR Manager • sweep open PRs",
-      "run_number": 429,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23988222684"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-04-04T21:44:41Z",
-      "event": "pull_request",
-      "head_branch": "claude/autopilot-versioning-agents-Uw6g2",
-      "name": "[Core] PR Auto-Review • PR #533",
-      "run_number": 103,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23988222683"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-04-04T21:44:41Z",
-      "event": "pull_request",
-      "head_branch": "claude/autopilot-versioning-agents-Uw6g2",
-      "name": "[Agent] Quality Gate",
-      "run_number": 25,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23988222674"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-04-04T21:44:41Z",
-      "event": "pull_request_target",
-      "head_branch": "claude/autopilot-versioning-agents-Uw6g2",
-      "name": "PR Auto-Label",
-      "run_number": 8,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23988222673"
-    },
-    {
-      "conclusion": null,
-      "created": "2026-04-04T21:44:41Z",
-      "event": "pull_request_target",
-      "head_branch": "claude/autopilot-versioning-agents-Uw6g2",
-      "name": "[Core] Autonomous Direct Merge • PR #533 • claude/autopilot-versioning-agents-Uw6g2 → main",
-      "run_number": 328,
-      "status": "in_progress",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23988222672"
-    },
-    {
-      "conclusion": "skipped",
-      "created": "2026-04-04T21:43:26Z",
+      "created": "2026-04-04T22:33:27Z",
       "event": "pull_request_review_comment",
       "head_branch": "claude/autopilot-versioning-agents-Uw6g2",
       "name": "Claude responding to @claude mention",
-      "run_number": 334,
+      "run_number": 358,
       "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23988201937"
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23989004947"
     },
     {
       "conclusion": "success",
-      "created": "2026-04-04T21:43:26Z",
+      "created": "2026-04-04T22:21:58Z",
       "event": "schedule",
       "head_branch": "main",
-      "name": "[Core] Health Check • schedule • ws=n/a • ref=main",
-      "run_number": 211,
+      "name": "[Core] Lock GC • schedule • ws=n/a • ref=main",
+      "run_number": 270,
       "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23988201888"
-    },
-    {
-      "conclusion": "skipped",
-      "created": "2026-04-04T21:38:52Z",
-      "event": "issue_comment",
-      "head_branch": "main",
-      "name": "Claude responding to @claude mention",
-      "run_number": 333,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23988122636"
-    },
-    {
-      "conclusion": "skipped",
-      "created": "2026-04-04T21:38:48Z",
-      "event": "issue_comment",
-      "head_branch": "main",
-      "name": "Claude responding to @claude mention",
-      "run_number": 332,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23988121711"
-    },
-    {
-      "conclusion": "failure",
-      "created": "2026-04-04T21:38:45Z",
-      "event": "push",
-      "head_branch": "main",
-      "name": "Security Scorecard",
-      "run_number": 7,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23988121112"
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23988821546"
     },
     {
       "conclusion": "success",
-      "created": "2026-04-04T21:38:45Z",
+      "created": "2026-04-04T22:21:36Z",
+      "event": "check_run",
+      "head_branch": "main",
+      "name": "[Core] CI Self-Heal • check_run • Vercel Preview Comments",
+      "run_number": 51,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23988814676"
+    },
+    {
+      "conclusion": "success",
+      "created": "2026-04-04T22:21:34Z",
+      "event": "check_run",
+      "head_branch": "main",
+      "name": "[Core] CI Self-Heal • check_run • Vercel Preview Comments",
+      "run_number": 50,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23988814245"
+    },
+    {
+      "conclusion": "success",
+      "created": "2026-04-04T22:21:21Z",
+      "event": "check_run",
+      "head_branch": "main",
+      "name": "[Core] CI Self-Heal • check_run • Vercel Preview Comments",
+      "run_number": 49,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23988810273"
+    },
+    {
+      "conclusion": "success",
+      "created": "2026-04-04T22:20:30Z",
+      "event": "check_run",
+      "head_branch": "main",
+      "name": "[Core] CI Self-Heal • check_run • Vercel Preview Comments",
+      "run_number": 48,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23988798104"
+    },
+    {
+      "conclusion": "success",
+      "created": "2026-04-04T22:20:29Z",
+      "event": "check_run",
+      "head_branch": "main",
+      "name": "[Core] CI Self-Heal • check_run • Vercel Preview Comments",
+      "run_number": 47,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23988797789"
+    },
+    {
+      "conclusion": "success",
+      "created": "2026-04-04T22:20:29Z",
+      "event": "check_run",
+      "head_branch": "main",
+      "name": "[Core] CI Self-Heal • check_run • Vercel Preview Comments",
+      "run_number": 46,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23988797748"
+    },
+    {
+      "conclusion": "skipped",
+      "created": "2026-04-04T22:20:16Z",
+      "event": "issue_comment",
+      "head_branch": "main",
+      "name": "Claude responding to @claude mention",
+      "run_number": 357,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23988793609"
+    },
+    {
+      "conclusion": "success",
+      "created": "2026-04-04T22:20:14Z",
+      "event": "check_run",
+      "head_branch": "main",
+      "name": "[Core] CI Self-Heal • check_run • Vercel Preview Comments",
+      "run_number": 45,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23988792918"
+    },
+    {
+      "conclusion": "success",
+      "created": "2026-04-04T22:20:10Z",
+      "event": "push",
+      "head_branch": "main",
+      "name": "[Infra] Deploy Panel (GitHub Pages) • push • ws=n/a • ref=main",
+      "run_number": 106,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23988791561"
+    },
+    {
+      "conclusion": "success",
+      "created": "2026-04-04T22:20:10Z",
       "event": "push",
       "head_branch": "main",
       "name": "Feature Validation Sweep",
-      "run_number": 12,
+      "run_number": 19,
       "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23988121110"
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23988791559"
+    },
+    {
+      "conclusion": "success",
+      "created": "2026-04-04T22:20:10Z",
+      "event": "push",
+      "head_branch": "main",
+      "name": "[Release] Autopilot Product",
+      "run_number": 20,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23988791558"
+    },
+    {
+      "conclusion": "failure",
+      "created": "2026-04-04T22:20:10Z",
+      "event": "push",
+      "head_branch": "main",
+      "name": "Security Scorecard",
+      "run_number": 14,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23988791557"
+    },
+    {
+      "conclusion": "success",
+      "created": "2026-04-04T22:20:10Z",
+      "event": "push",
+      "head_branch": "main",
+      "name": "Auto-Fix on Push",
+      "run_number": 14,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23988791554"
+    },
+    {
+      "conclusion": "success",
+      "created": "2026-04-04T22:20:09Z",
+      "event": "pull_request",
+      "head_branch": "claude/autopilot-versioning-agents-Uw6g2",
+      "name": "[Infra] Cleanup: Stale Branches • pull_request • ws=n/a • ref=main",
+      "run_number": 437,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23988791404"
     }
   ],
   "openPRs": [],
@@ -1033,7 +1033,7 @@
       "drift": true,
       "driftDetail": "autopilot=source-change real=2.3.3"
     },
-    "lastChecked": "2026-04-04T21:47:29Z"
+    "lastChecked": "2026-04-04T22:36:16Z"
   },
   "corporateActivity": {
     "description": "Real-time activity from corporate repos — branches, PRs, external commits by other devs",
