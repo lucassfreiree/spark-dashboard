@@ -1,5 +1,5 @@
 {
-  "lastSync": "2026-04-04T15:37:38Z",
+  "lastSync": "2026-04-04T16:02:43Z",
   "syncSource": "autopilot/spark-sync-state.yml",
   "controller": {
     "version": "3.8.2",
@@ -113,7 +113,7 @@
   "health": {
     "schemaVersion": 2,
     "workspaceId": "ws-default",
-    "checkedAt": "2026-04-04T14:48:28Z",
+    "checkedAt": "2026-04-04T15:45:25Z",
     "overall": "degraded",
     "checks": {
       "workspace": {
@@ -123,12 +123,12 @@
       "controllerRelease": {
         "status": "pass",
         "message": "Tag: 3.8.2",
-        "detail": "Age: 45h"
+        "detail": "Age: 46h"
       },
       "agentRelease": {
         "status": "pass",
         "message": "Tag: source-change",
-        "detail": "Age: 118h"
+        "detail": "Age: 119h"
       },
       "stuckRuns": {
         "status": "pass",
@@ -143,7 +143,7 @@
         "message": "? commits ahead"
       }
     },
-    "summary": "degraded at 2026-04-04T14:48:28Z"
+    "summary": "degraded at 2026-04-04T15:45:25Z"
   },
   "ciMonitor": {
     "workspaceId": "ws-default",
@@ -156,10 +156,10 @@
     "failedRunUrl": ""
   },
   "pipelineStatus": {
-    "updatedAt": "2026-04-04T15:00:07Z",
+    "updatedAt": "2026-04-04T15:55:38Z",
     "workspaceId": "ws-default",
     "overallHealth": "ok",
-    "monitorRunId": "23981376323",
+    "monitorRunId": "23982334705",
     "triggerEvent": "schedule",
     "autoDispatched": "",
     "components": {
@@ -174,7 +174,7 @@
         "stage": "idle",
         "health": "ok",
         "actionTaken": "none",
-        "deployAge": "7097min"
+        "deployAge": "7152min"
       },
       "controller": {
         "version": "3.8.2",
@@ -187,7 +187,7 @@
         "stage": "idle",
         "health": "ok",
         "actionTaken": "none",
-        "deployAge": "2719min"
+        "deployAge": "2774min"
       }
     }
   },
@@ -223,12 +223,62 @@
   "recentWorkflows": [
     {
       "conclusion": null,
+      "created": "2026-04-04T16:02:29Z",
+      "event": "schedule",
+      "head_branch": "main",
+      "name": "[Infra] Spark Dashboard Sync • sync state to Spark dashboard",
+      "run_number": 280,
+      "status": "in_progress",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23982452840"
+    },
+    {
+      "conclusion": "success",
+      "created": "2026-04-04T16:00:55Z",
+      "event": "schedule",
+      "head_branch": "main",
+      "name": "[Core] Lock GC • schedule • ws=n/a • ref=main",
+      "run_number": 259,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23982424860"
+    },
+    {
+      "conclusion": "success",
+      "created": "2026-04-04T15:56:48Z",
+      "event": "schedule",
+      "head_branch": "main",
+      "name": "[Core] Smart PR Manager • sweep open PRs",
+      "run_number": 405,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23982355185"
+    },
+    {
+      "conclusion": "success",
+      "created": "2026-04-04T15:55:31Z",
+      "event": "schedule",
+      "head_branch": "main",
+      "name": "[Core] Deploy Pipeline Monitor • schedule • scheduled",
+      "run_number": 113,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23982334705"
+    },
+    {
+      "conclusion": "success",
+      "created": "2026-04-04T15:45:16Z",
+      "event": "schedule",
+      "head_branch": "main",
+      "name": "[Core] Health Check • schedule • ws=n/a • ref=main",
+      "run_number": 204,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23982159036"
+    },
+    {
+      "conclusion": "success",
       "created": "2026-04-04T15:37:28Z",
       "event": "schedule",
       "head_branch": "main",
       "name": "[Infra] Spark Dashboard Sync • sync state to Spark dashboard",
       "run_number": 279,
-      "status": "in_progress",
+      "status": "completed",
       "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23982022690"
     },
     {
@@ -370,56 +420,6 @@
       "run_number": 40,
       "status": "completed",
       "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23981214188"
-    },
-    {
-      "conclusion": "cancelled",
-      "created": "2026-04-04T14:50:11Z",
-      "event": "issues",
-      "head_branch": "main",
-      "name": "[Core] Auto-Dispatch Task • Issue #517",
-      "run_number": 114,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23981214148"
-    },
-    {
-      "conclusion": "skipped",
-      "created": "2026-04-04T14:50:11Z",
-      "event": "issues",
-      "head_branch": "main",
-      "name": "[Core] Security Intake Dispatch • Issue #517",
-      "run_number": 39,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23981214122"
-    },
-    {
-      "conclusion": "skipped",
-      "created": "2026-04-04T14:50:10Z",
-      "event": "issues",
-      "head_branch": "main",
-      "name": "[Core] Security Intake Dispatch • Issue #517",
-      "run_number": 38,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23981213934"
-    },
-    {
-      "conclusion": "skipped",
-      "created": "2026-04-04T14:50:10Z",
-      "event": "issues",
-      "head_branch": "main",
-      "name": "[Core] Auto-Dispatch Task • Issue #517",
-      "run_number": 113,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23981213922"
-    },
-    {
-      "conclusion": "skipped",
-      "created": "2026-04-04T14:50:10Z",
-      "event": "issues",
-      "head_branch": "main",
-      "name": "[Core] Auto-Dispatch Task • Issue #517",
-      "run_number": 112,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23981213919"
     }
   ],
   "openPRs": [],
@@ -1028,7 +1028,7 @@
       "drift": true,
       "driftDetail": "autopilot=source-change real=2.3.3"
     },
-    "lastChecked": "2026-04-04T15:37:38Z"
+    "lastChecked": "2026-04-04T16:02:43Z"
   },
   "corporateActivity": {
     "description": "Real-time activity from corporate repos — branches, PRs, external commits by other devs",
