@@ -1,0 +1,112 @@
+{
+  "schemaVersion": 1,
+  "description": "Checkmarx SAST finding patterns mapped to compliance gate rules and fix patterns. Used by compliance-gate.yml and security-vuln-scanner.yml to prevent recurring vulnerabilities.",
+  "lastUpdated": "2026-03-31T23:00:00Z",
+  "patterns": [
+    {
+      "id": "Reflected_XSS",
+      "checkmarxQueryName": "Reflected_XSS_All_Clients",
+      "severity": "high",
+      "complianceRule": "security-xss",
+      "description": "User input from req.body/req.query/req.params flows to res.json() without sanitization",
+      "dataFlow": "req.body → variable → res.json(variable)",
+      "affectedFiles": [
+        "src/controllers/oas-sre-controller.controller.ts",
+        "src/controllers/oas-execute.controller.ts",
+        "src/controllers/execute.controller.ts"
+      ],
+      "fixPattern": "Import and apply sanitizeForOutput() to any user-derived data before including in response. For error objects, use sanitizeForOutput(msg) instead of raw error.message.",
+      "codeExample": {
+        "vulnerable": "res.json({ error: error.message })",
+        "fixed": "res.json({ error: sanitizeForOutput(error.message) })"
+      },
+      "preventionCheck": "Every .ts file that reads req.body/query/params AND calls res.json/send MUST import sanitizeForOutput from util/security"
+    },
+    {
+      "id": "SSRF",
+      "checkmarxQueryName": "Server_Side_Request_Forgery",
+      "severity": "high",
+      "complianceRule": "security-ssrf",
+      "description": "User input from req.body influences the target URL of a server-side HTTP request",
+      "dataFlow": "req.body → body.cluster/namespace → resolveTrustedRegisteredAgentExecuteUrl() → fetch(url)",
+      "affectedFiles": [
+        "src/controllers/oas-sre-controller.controller.ts",
+        "src/controllers/oas-execute.controller.ts",
+        "src/controllers/execute.controller.ts"
+      ],
+      "fixPattern": "Always validate URLs with validateTrustedUrl() before fetch(). Use resolveTrustedRegisteredAgentExecuteUrl() to build URLs from a trusted registry (never concatenate user input into URLs). Parse input with parseSafeIdentifier() to strip injection chars.",
+      "codeExample": {
+        "vulnerable": "const url = body.agentUrl; const resp = await fetch(url, ...)",
+        "fixed": "const url = resolveTrustedRegisteredAgentExecuteUrl({ cluster }); if (!validateTrustedUrl(url)) return; const resp = await fetch(url, ...)"
+      },
+      "preventionCheck": "Every file using fetch()/postJson()/callAgent() MUST have validateTrustedUrl(). Every file resolving URLs from user input MUST use resolveTrustedRegisteredAgentExecuteUrl()."
+    },
+    {
+      "id": "Server_DoS_by_Loop",
+      "checkmarxQueryName": "Server_DoS_by_Loop",
+      "severity": "high",
+      "complianceRule": "security-dos-loop",
+      "description": "A loop's iteration count is influenced by user input, potentially causing denial of service",
+      "dataFlow": "req.query/req.params → execId → getExecutionSnapshot(execId) → snapshot.entries → loop/iteration",
+      "affectedFiles": [
+        "src/controllers/agents-execute-logs.controller.ts",
+        "src/controllers/cronjob-result.controller.ts"
+      ],
+      "fixPattern": "Add explicit Math.min(array.length, MAX_CONSTANT) to ALL for-loop bounds. For array responses, use .slice(0, MAX_ENTRIES) before iteration. Define MAX_* constants at module scope.",
+      "codeExample": {
+        "vulnerable": "for (let i = 0; i < scores.length; i++) { ... }",
+        "fixed": "const MAX_SCORE_FIELDS = 4; for (let i = 0; i < Math.min(scores.length, MAX_SCORE_FIELDS); i++) { ... }"
+      },
+      "preventionCheck": "ANY for-loop with .length in the bound MUST use Math.min(x, MAX_CONSTANT). Arrays returned in responses MUST use .slice(0, MAX_ENTRIES). Compliance gate Rule 12 enforces this.",
+      "indirectFlows": [
+        "req.query.uuid → getAgentExecutionLogs → getExecutionSnapshot → pickPreferredSnapshot → for-loop on currentScore.length",
+        "req.params.execId → getCronjobStatus → getExecutionSnapshot → snapshot.entries iteration",
+        "req.body → callAgent/postJson → response entries → iteration"
+      ]
+    },
+    {
+      "id": "Information_Exposure",
+      "checkmarxQueryName": "Information_Exposure_Through_an_Error_Message",
+      "severity": "medium",
+      "complianceRule": "security-error-leak",
+      "description": "Internal error details (stack traces, error messages) exposed in HTTP responses",
+      "fixPattern": "Always wrap error.message with sanitizeForOutput(msg) which strips dangerous chars and limits to 256 chars",
+      "preventionCheck": "Compliance gate Rule 10 warns when error responses contain unsanitized message/detail fields"
+    }
+  ],
+  "securityImports": {
+    "description": "Required security utility imports for controller files",
+    "sanitizeForOutput": {
+      "from": "../util/security",
+      "usage": "Sanitize any user-derived data before including in HTTP response",
+      "requiredWhen": "File reads req.body/query/params AND writes res.json/send"
+    },
+    "validateTrustedUrl": {
+      "from": "../util/trusted-agent",
+      "usage": "Validate URL against trusted domain pattern before fetch()",
+      "requiredWhen": "File uses fetch()/postJson()/callAgent()"
+    },
+    "parseSafeIdentifier": {
+      "from": "../util/security",
+      "usage": "Parse and sanitize identifier strings (cluster, namespace, etc.)",
+      "requiredWhen": "File uses user input to resolve URLs or build identifiers"
+    },
+    "safeString": {
+      "from": "../util/security",
+      "usage": "Trim and limit string input from request",
+      "requiredWhen": "File reads string values from req.query/params"
+    },
+    "resolveTrustedRegisteredAgentExecuteUrl": {
+      "from": "../util/trusted-agent",
+      "usage": "Resolve agent URL from trusted registry (never build URLs from user input)",
+      "requiredWhen": "File needs to call an agent endpoint"
+    }
+  },
+  "complianceGateRules": {
+    "rule10_xss": "File with req input + res output MUST have sanitizeForOutput",
+    "rule11_ssrf": "File with fetch/postJson/callAgent MUST have validateTrustedUrl. File resolving URLs MUST validate.",
+    "rule12_dos": "for-loop with .length MUST use Math.min. Arrays from DB/external MUST .slice(0, MAX). forEach/map on req-derived arrays MUST have .slice bound.",
+    "rule13_secrets": "No hardcoded secrets in patches",
+    "rule14_order": "No use-before-define"
+  }
+}

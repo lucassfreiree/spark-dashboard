@@ -1,0 +1,153 @@
+{
+  "schemaVersion": 1,
+  "description": "Controller <-> Agent interface contract. Defines the API surface between the two corporate repos.",
+  "lastUpdated": "2026-04-02T20:00:00Z",
+  "jwt": {
+    "controllerToAgent": {
+      "issuer": "psc-sre-automacao-controller",
+      "audience": "psc-sre-automacao-agent",
+      "algorithm": "HS256",
+      "expiresIn": "numeric seconds via parseExpiresIn() — NEVER string",
+      "claims": {
+        "scope": { "type": "string", "note": "SINGULAR — never 'scopes'" },
+        "typ": { "type": "string", "values": ["agent-execute", "agent-callback"] },
+        "sub": { "type": "string", "note": "execId or agentId" },
+        "iss": { "type": "string", "value": "psc-sre-automacao-controller" },
+        "aud": { "type": "string", "value": "psc-sre-automacao-agent" }
+      },
+      "secretEnvVar": "JWT_SECRET",
+      "generatorFunction": "generateOutboundAgentJwt(execId)"
+    },
+    "agentToController": {
+      "issuer": "psc-sre-automacao-agent",
+      "audience": "psc-sre-automacao-controller",
+      "algorithm": "HS256",
+      "maxTtlSeconds": 300,
+      "claims": {
+        "typ": { "type": "string", "value": "agent-callback" },
+        "scope": { "type": "string", "note": "SINGULAR — never 'scopes'" }
+      }
+    }
+  },
+  "routes": {
+    "controllerEndpoints": {
+      "/api/cronjob/result": {
+        "method": "POST",
+        "auth": "agent-callback-jwt",
+        "calledBy": "agent",
+        "middleware": ["jwt-callback"],
+        "description": "Agent sends cronjob execution results"
+      },
+      "/api/cronjob/status/:execId": {
+        "method": "GET",
+        "auth": "agent-callback-jwt",
+        "calledBy": "agent",
+        "middleware": ["jwt-callback"]
+      },
+      "/api/agents/execute": {
+        "method": "POST",
+        "auth": "oas-origin-auth",
+        "calledBy": "oaas-playbook",
+        "middleware": ["oas-origin-auth"],
+        "description": "OaaS dispatches execution to controller"
+      },
+      "/api/agents/execute/logs/:uuid": {
+        "method": "GET",
+        "auth": "jwt",
+        "middleware": ["jwt"]
+      }
+    },
+    "agentEndpoints": {
+      "/execute": {
+        "method": "POST",
+        "auth": "controller-jwt",
+        "calledBy": "controller",
+        "description": "Controller dispatches job to agent"
+      }
+    }
+  },
+  "interfaceSurface": {
+    "controller": [
+      "src/middleware/jwt.ts",
+      "src/middleware/jwt-callback.ts",
+      "src/routes/agentsRouter.ts",
+      "src/controllers/execute.controller.ts",
+      "src/controllers/oas-sre-controller.controller.ts",
+      "src/controllers/oas-execute.controller.ts",
+      "src/controllers/cronjob-result.controller.ts",
+      "src/controllers/agents-execute-logs.controller.ts",
+      "src/util/trusted-agent.ts",
+      "src/util/security.ts"
+    ],
+    "agent": [
+      "src/routes/apis.ts",
+      "src/controllers/execute.ts",
+      "src/middleware/auth.ts",
+      "src/util/jwt.ts"
+    ]
+  },
+  "securityRequirements": {
+    "requiredImports": {
+      "sanitizeForOutput": {
+        "from": "../util/security",
+        "requiredWhen": "file reads req.body/query/params AND writes res.json/send"
+      },
+      "validateTrustedUrl": {
+        "from": "../util/trusted-agent",
+        "requiredWhen": "file uses fetch()/postJson()/callAgent()"
+      },
+      "parseSafeIdentifier": {
+        "from": "../util/security",
+        "requiredWhen": "file uses user input in URLs or identifiers"
+      }
+    },
+    "loopBounds": "ALL for-loops with .length MUST use Math.min(x, MAX_*)",
+    "errorResponses": "ALL error.message MUST be wrapped with sanitizeForOutput()"
+  },
+  "testCoupling": {
+    "errorMessageFiles": {
+      "description": "Changing error messages requires updating ALL these files",
+      "controller": [
+        "src/middleware/jwt.ts",
+        "src/middleware/jwt-callback.ts",
+        "test/jwt.middleware.test.ts",
+        "test/jwt-callback.middleware.test.ts",
+        "test/agentsRouter.test.ts",
+        "test/oas-sre-controller.route.test.ts"
+      ],
+      "agent": [
+        "src/middleware/auth.ts",
+        "test/auth.middleware.test.ts"
+      ]
+    },
+    "routeChanges": {
+      "description": "Changing route paths requires updating the calling side",
+      "controllerRoutes": "agentsRouter.ts changes → verify agent calls match",
+      "agentRoutes": "apis.ts changes → verify controller calls match"
+    }
+  },
+  "knownBreakingChanges": [
+    {
+      "date": "2026-03-30",
+      "description": "Controller forwarding OaaS JWT to agent instead of generating own JWT",
+      "fix": "generateOutboundAgentJwt(execId) — controller generates dedicated JWT for agent",
+      "affectedFiles": ["execute.controller.ts", "jwt.ts"],
+      "version": "3.8.2"
+    },
+    {
+      "date": "2026-03-30",
+      "description": "jwt.sign() expiresIn expects numeric seconds, not string '5m'",
+      "fix": "parseExpiresIn() converts string to number",
+      "affectedFiles": ["jwt.ts"],
+      "version": "3.8.2"
+    }
+  ],
+  "validationRules": {
+    "scope_singular": "grep -E 'scopes' — MUST be 'scope' (singular)",
+    "expiresIn_numeric": "grep -E 'expiresIn.*[\"'\\'']\\.+[mhs]' — MUST be numeric via parseExpiresIn",
+    "no_for_of": "grep -E 'for\\s*\\(' with 'of' — ESLint blocks for...of",
+    "sanitize_output": "grep -E 'res\\.json|res\\.send' without sanitizeForOutput import — XSS risk",
+    "validate_url": "grep -E 'fetch\\(|postJson\\(|callAgent\\(' without validateTrustedUrl — SSRF risk",
+    "loop_bounds": "grep -E 'for.*\\.length' without Math.min — DoS risk"
+  }
+}

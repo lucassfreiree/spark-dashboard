@@ -1,0 +1,103 @@
+{
+  "version": "1.0.0",
+  "product": "autopilot-backup",
+  "description": "Backup system for autopilot CI/CD control plane - operates without GitHub Actions",
+  "autopilotRepo": {
+    "owner": "lucassfreiree",
+    "repo": "autopilot"
+  },
+  "stateBranch": "autopilot-state",
+  "backupBranch": "autopilot-backups",
+  "dashboardRepo": {
+    "owner": "lucassfreiree",
+    "repo": "spark-dashboard"
+  },
+  "workspaces": {
+    "ws-default": {
+      "displayName": "Getronics - BB",
+      "company": "getronics",
+      "client": "Banco do Brasil",
+      "controllerRepo": "bbvinet/psc-sre-automacao-controller",
+      "agentRepo": "bbvinet/psc-sre-automacao-agent",
+      "capRepo": "bbvinet/psc_releases_cap_sre-aut-agent",
+      "capPath": "releases/openshift/hml/deploy/values.yaml",
+      "ciWorkflow": "Esteira de Build NPM",
+      "imagePattern": "docker.binarios.intranet.bb.com.br/bb/psc/psc-sre-automacao-{component}",
+      "tokenSecret": "BBVINET_TOKEN",
+      "branches": {
+        "main": "main"
+      }
+    },
+    "ws-cit": {
+      "displayName": "CIT",
+      "company": "cit",
+      "client": "CIT",
+      "stack": ["terraform", "kubernetes", "cloud"],
+      "tokenSecret": "CIT_TOKEN",
+      "status": "setup-in-progress"
+    },
+    "ws-corp-1": {
+      "displayName": "Corporate Workspace 1",
+      "status": "empty"
+    },
+    "ws-socnew": {
+      "displayName": "SocNew / Matheus",
+      "status": "third-party"
+    }
+  },
+  "sessionGuard": {
+    "defaultTTL": 30,
+    "maxTTL": 120,
+    "protectedOperations": [
+      "push-to-corporate-repo",
+      "modify-state-branch",
+      "promote-to-cap",
+      "seed-workspace",
+      "backup-restore",
+      "freeze-unfreeze"
+    ],
+    "unprotectedOperations": [
+      "read-workspace-config",
+      "run-health-check",
+      "read-audit-metrics",
+      "view-panel"
+    ]
+  },
+  "gitIdentity": {
+    "name": "github-actions",
+    "email": "github-actions@github.com"
+  },
+  "versioningRules": {
+    "scheme": "semver",
+    "patchMax": 9,
+    "tagFormat": "{version}-{shortSha}",
+    "bumpRules": {
+      "patch": "Bug fixes, small improvements",
+      "minor": "New features, new workflows",
+      "major": "Breaking changes to contracts or state schema"
+    }
+  },
+  "ciConfig": {
+    "ws-default": {
+      "workflowName": "Esteira de Build NPM",
+      "expectedDuration": "14min",
+      "failureDuration": "4min",
+      "knownIssues": [
+        "ESLint: no-nested-ternary",
+        "ESLint: object-shorthand",
+        "Jest: Mock setup issues",
+        "TypeScript: Type errors"
+      ]
+    }
+  },
+  "dashboard": {
+    "stateFile": "public/state.json",
+    "refreshInterval": 30,
+    "timezone": "America/Sao_Paulo"
+  },
+  "manualGates": [
+    "release-freeze",
+    "corporate-release-approval",
+    "destructive-rollback"
+  ]
+}

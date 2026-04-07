@@ -1,0 +1,128 @@
+{
+  "schemaVersion": 1,
+  "contractId": "github-first-governance",
+  "description": "Every agent decision, finding, improvement, and fix MUST be registered on GitHub as durable artifacts (Issues, PRs, workflows, docs). The system must function autonomously even without AI assistance.",
+  "lastUpdated": "2026-04-04T19:00:00Z",
+  "vision": {
+    "goal": "Build self-sustaining automation that works without AI. AI improves the system, but the system runs on its own.",
+    "principle": "If it's only in an AI conversation, it doesn't exist. If it's on GitHub, it's permanent.",
+    "maturityLevels": [
+      {
+        "level": 1,
+        "name": "AI-Dependent",
+        "description": "AI does everything, workflows are basic triggers",
+        "status": "passed"
+      },
+      {
+        "level": 2,
+        "name": "AI-Assisted",
+        "description": "Workflows handle routine tasks, AI handles exceptions and improvements",
+        "status": "current"
+      },
+      {
+        "level": 3,
+        "name": "AI-Supervised",
+        "description": "Workflows handle most tasks including self-healing, AI reviews and optimizes",
+        "status": "target"
+      },
+      {
+        "level": 4,
+        "name": "AI-Optional",
+        "description": "System fully autonomous. AI enhances but is not required for daily operations",
+        "status": "future"
+      }
+    ]
+  },
+  "registrationRules": {
+    "findings": {
+      "where": "GitHub Issue",
+      "labels": ["finding", "agent:{agent-name}"],
+      "template": "## Finding\n{description}\n\n## Impact\n{impact}\n\n## Recommended Fix\n{fix}\n\n## Agent\n{agent-name}\n\n## Severity\n{P0|P1|P2|P3}",
+      "rule": "Every problem detected by any agent MUST become a GitHub Issue with severity and recommended fix"
+    },
+    "improvements": {
+      "where": "GitHub Issue → PR → Merge",
+      "labels": ["improvement", "agent:{agent-name}"],
+      "rule": "Every improvement MUST follow Issue → Branch → PR → Quality Gate → Merge pipeline"
+    },
+    "fixes": {
+      "where": "GitHub PR linked to Issue",
+      "labels": ["fix", "agent:{agent-name}"],
+      "rule": "Every fix MUST reference the Issue it resolves. Auto-close Issue on merge."
+    },
+    "decisions": {
+      "where": "GitHub Issue (type: decision)",
+      "labels": ["decision", "architecture"],
+      "rule": "Architecture and strategic decisions MUST be recorded as Issues with rationale and alternatives considered"
+    },
+    "patterns": {
+      "where": "contracts/resilience-patterns.json + GitHub Issue",
+      "rule": "Every new failure pattern MUST be added to resilience-patterns.json AND documented in an Issue for traceability"
+    },
+    "monitoring": {
+      "where": "GitHub Actions workflow",
+      "rule": "Every monitoring check MUST be a GitHub Actions workflow (not just an AI prompt). Workflows run on schedule even without AI."
+    },
+    "knowledge": {
+      "where": "Markdown files in repo OR workflow comments",
+      "rule": "Operational knowledge MUST be codified in repo files, not just session memory. Session memory is supplementary, not primary."
+    }
+  },
+  "workflowAutonomyGoals": {
+    "description": "Each workflow category should progressively become self-sufficient",
+    "categories": {
+      "monitoring": {
+        "current": "Workflows detect issues, create Issues, AI fixes",
+        "target": "Workflows detect issues, auto-fix via workflow, create Issue as record",
+        "workflows": ["workflow-health-monitor.yml", "workflow-auto-repair.yml", "intelligent-orchestrator.yml", "workflow-sentinel.yml", "emergency-watchdog.yml"]
+      },
+      "cicd": {
+        "current": "CI failures detected, AI diagnoses and fixes",
+        "target": "CI failures auto-diagnosed by workflow, auto-fixed by workflow, AI reviews result",
+        "workflows": ["ci-self-heal.yml", "ci-monitor-loop.yml", "fix-corporate-ci.yml", "ci-diagnose.yml"]
+      },
+      "security": {
+        "current": "Security scan finds issues, AI evaluates and fixes",
+        "target": "Security scan auto-classifies, auto-fixes low/medium, creates Issues for high/critical",
+        "workflows": ["security-vuln-scanner.yml", "pr-auto-review.yml", "compliance-gate.yml"]
+      },
+      "releases": {
+        "current": "AI prepares release, workflows execute",
+        "target": "Workflows detect version-worthy changes, auto-bump, auto-release, AI reviews",
+        "workflows": ["release-autopilot-product.yml", "agent-quality-gate.yml", "autonomous-merge-direct.yml"]
+      },
+      "dashboard": {
+        "current": "AI updates dashboard, workflows sync",
+        "target": "Workflows auto-detect stale data, auto-refresh, auto-validate accuracy",
+        "workflows": ["spark-sync-state.yml", "dashboard-auto-improve.yml", "deploy-panel.yml"]
+      },
+      "recovery": {
+        "current": "Resilience patterns matched by AI, fallback chains executed",
+        "target": "Workflows match patterns automatically, execute fallback chains, AI learns new patterns",
+        "workflows": ["autonomy-improver.yml", "ci-self-heal.yml", "workflow-auto-repair.yml"]
+      }
+    }
+  },
+  "issueLabels": {
+    "required": [
+      "finding", "improvement", "fix", "decision", "pattern",
+      "P0-critical", "P1-high", "P2-medium", "P3-low",
+      "agent:director", "agent:team-lead", "agent:architect", "agent:devops",
+      "agent:quality", "agent:security", "agent:dashboard", "agent:infra-ops",
+      "agent:ci-debugger", "agent:deploy", "agent:pr-reviewer", "agent:workspace-ops",
+      "auto-fixable", "needs-review", "needs-claude",
+      "workflow-improvement", "monitoring-gap", "security-finding"
+    ]
+  },
+  "auditTrail": {
+    "rule": "Every state change MUST have: who (agent), what (action), when (timestamp), why (Issue link), result (success/failure)",
+    "storage": "autopilot-state branch: state/audit/",
+    "retention": "permanent"
+  },
+  "progressTracking": {
+    "metric": "autonomy-rate",
+    "definition": "Percentage of operations completed without AI intervention",
+    "target": "95% by end of Q2 2026",
+    "tracked_by": "autonomy-improver.yml → state/autonomy-tracker.json"
+  }
+}

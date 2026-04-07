@@ -1,0 +1,10 @@
+{
+  "operation": "release-controller",
+  "workspace_id": "ws-default",
+  "component": "agent",
+  "params": {},
+  "run": 1,
+  "createdAt": "",
+  "status": "pending",
+  "description": "Trigger template for release-controller operation"
+}

@@ -1,0 +1,75 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Interface Contract",
+  "description": "Schema for Controller <-> Agent interface contract",
+  "type": "object",
+  "required": ["schemaVersion", "jwt", "routes", "interfaceSurface", "securityRequirements"],
+  "properties": {
+    "schemaVersion": { "type": "integer", "minimum": 1 },
+    "description": { "type": "string" },
+    "lastUpdated": { "type": "string", "format": "date-time" },
+    "jwt": {
+      "type": "object",
+      "required": ["controllerToAgent", "agentToController"],
+      "properties": {
+        "controllerToAgent": {
+          "type": "object",
+          "required": ["issuer", "claims"],
+          "properties": {
+            "issuer": { "type": "string" },
+            "audience": { "type": "string" },
+            "algorithm": { "type": "string" },
+            "expiresIn": { "type": "string" },
+            "claims": { "type": "object" },
+            "secretEnvVar": { "type": "string" },
+            "generatorFunction": { "type": "string" }
+          }
+        },
+        "agentToController": {
+          "type": "object",
+          "required": ["issuer", "claims"],
+          "properties": {
+            "issuer": { "type": "string" },
+            "audience": { "type": "string" },
+            "algorithm": { "type": "string" },
+            "maxTtlSeconds": { "type": "integer" },
+            "claims": { "type": "object" }
+          }
+        }
+      }
+    },
+    "routes": {
+      "type": "object",
+      "required": ["controllerEndpoints", "agentEndpoints"],
+      "properties": {
+        "controllerEndpoints": { "type": "object" },
+        "agentEndpoints": { "type": "object" }
+      }
+    },
+    "interfaceSurface": {
+      "type": "object",
+      "required": ["controller", "agent"],
+      "properties": {
+        "controller": { "type": "array", "items": { "type": "string" } },
+        "agent": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "securityRequirements": { "type": "object" },
+    "testCoupling": { "type": "object" },
+    "knownBreakingChanges": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["date", "description", "fix"],
+        "properties": {
+          "date": { "type": "string" },
+          "description": { "type": "string" },
+          "fix": { "type": "string" },
+          "affectedFiles": { "type": "array", "items": { "type": "string" } },
+          "version": { "type": "string" }
+        }
+      }
+    },
+    "validationRules": { "type": "object" }
+  }
+}

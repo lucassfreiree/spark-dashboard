@@ -1,0 +1,147 @@
+{
+  "schemaVersion": 1,
+  "description": "Universal agent registry. ANY AI can be registered here to operate the autopilot. Claude Code is primary. Others are pluggable backups.",
+  "lastUpdated": "2026-03-29T13:00:00Z",
+
+  "primaryAgent": "claude-code",
+
+  "agents": {
+    "claude-code": {
+      "name": "Claude Code",
+      "status": "active",
+      "role": "primary",
+      "branchPrefix": "claude/",
+      "capabilities": ["architecture", "code-review", "workflow-authoring", "release-orchestration", "deploy-execution", "ci-monitoring", "memory-management"],
+      "tools": "CLI + filesystem + MCP GitHub",
+      "memoryFile": "contracts/claude-session-memory.json",
+      "liveStatusFile": "contracts/claude-live-status.json",
+      "instructionsFile": "CLAUDE.md",
+      "canPushToMain": false,
+      "requiresPR": true,
+      "autoMerge": true,
+      "notes": "Primary agent. Has full filesystem access. Operates via CLI."
+    },
+    "devin": {
+      "name": "Devin",
+      "status": "active",
+      "role": "specialist",
+      "branchPrefix": "devin/",
+      "capabilities": [
+        "deploy-execution",
+        "ci-monitoring",
+        "release-orchestration",
+        "code-implementation",
+        "code-review",
+        "infrastructure-as-code",
+        "kubernetes-operations",
+        "cloud-diagnostics",
+        "observability",
+        "pipeline-troubleshooting",
+        "terraform-operations",
+        "monitoring-setup",
+        "incident-response",
+        "security-analysis",
+        "workflow-authoring",
+        "memory-management"
+      ],
+      "tools": "VM + browser + shell + GitHub API + MCP",
+      "memoryFile": "contracts/devin-session-memory.json",
+      "liveStatusFile": null,
+      "instructionsFile": null,
+      "canPushToMain": false,
+      "requiresPR": true,
+      "autoMerge": true,
+      "notes": "Autonomous DevOps/SRE/Cloud specialist. Full VM with browser, shell, and persistent environment. Can monitor workflows, diagnose CI, operate triggers, and manage infrastructure."
+    }
+  },
+
+  "availableSlots": {
+    "backup": {
+      "description": "Backup agent that takes over if primary is unavailable",
+      "currentAgent": null,
+      "requiredCapabilities": ["deploy-execution", "ci-monitoring", "memory-management"],
+      "activationTrigger": "Primary agent idle for >30 min with pending tasks",
+      "howToRegister": "See contracts/agent-onboarding.md"
+    },
+    "specialist": {
+      "description": "Specialist agent for specific tasks (code implementation, refactoring)",
+      "currentAgent": null,
+      "requiredCapabilities": ["code-implementation"],
+      "activationTrigger": "Manual assignment via issue or trigger file",
+      "howToRegister": "See contracts/agent-onboarding.md"
+    },
+    "monitor": {
+      "description": "Monitor agent that watches pipelines and alerts",
+      "currentAgent": null,
+      "requiredCapabilities": ["ci-monitoring"],
+      "activationTrigger": "Always active (scheduled)",
+      "howToRegister": "See contracts/agent-onboarding.md"
+    }
+  },
+
+  "agentTemplate": {
+    "_comment": "Copy this template to register a new agent in the 'agents' object above",
+    "name": "Agent Name",
+    "status": "inactive",
+    "role": "backup|specialist|monitor",
+    "branchPrefix": "agent-name/",
+    "capabilities": [],
+    "tools": "Description of tools available",
+    "memoryFile": "contracts/<agent>-session-memory.json",
+    "liveStatusFile": null,
+    "instructionsFile": null,
+    "canPushToMain": false,
+    "requiresPR": true,
+    "autoMerge": true,
+    "notes": ""
+  },
+
+  "branchPrefixes": ["claude/", "devin/"],
+  "allKnownPrefixes": ["claude/", "copilot/", "codex/", "agent/", "devin/"],
+
+  "rules": {
+    "registration": "Add agent to 'agents' object + add branchPrefix to 'branchPrefixes' array",
+    "isolation": "Each agent has exclusive memory files. NEVER cross-modify.",
+    "locking": "Check session-lock.json before state-changing operations. If locked by another agent, create handoff.",
+    "commits": "Agent commits in autopilot repo should identify the agent. Corporate repo commits should NOT.",
+    "mainBranch": "Direct push to main is BLOCKED. All changes via branch + PR + squash merge.",
+    "autoMerge": "auto-merge-sweeper.yml and autonomous-merge-direct.yml handle agent PRs automatically."
+  },
+
+  "legacyAgents": {
+    "_comment": "These agents were previously hardcoded. Their files remain for historical reference but the system no longer depends on them.",
+    "copilot": {
+      "status": "legacy",
+      "files": [
+        "contracts/copilot-agent-contract.json",
+        "contracts/copilot-session-memory.json",
+        "contracts/copilot-mega-prompt.md",
+        "contracts/copilot-super-prompt.md",
+        "contracts/copilot-isolation-rules.md",
+        ".github/copilot-instructions.md"
+      ],
+      "workflows": [
+        "copilot-post-deploy-sync.yml",
+        "copilot-task-dispatch.yml",
+        "copilot-setup-steps.yml",
+        "sync-copilot-prompt.yml"
+      ],
+      "note": "Can be re-activated by adding to 'agents' with status:active"
+    },
+    "codex": {
+      "status": "legacy",
+      "files": [
+        "contracts/codex-agent-contract.json",
+        "contracts/codex-session-memory.json"
+      ],
+      "workflows": [
+        "codex-apply.yml",
+        "codex-deploy.yml",
+        "codex-autonomous-pr.yml",
+        "auto-pr-codex.yml",
+        "sync-codex-prompt.yml"
+      ],
+      "note": "Can be re-activated by adding to 'agents' with status:active"
+    }
+  }
+}

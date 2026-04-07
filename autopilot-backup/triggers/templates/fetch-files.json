@@ -1,0 +1,10 @@
+{
+  "operation": "fetch-files",
+  "workspace_id": "ws-default",
+  "component": "agent",
+  "params": {},
+  "run": 1,
+  "createdAt": "",
+  "status": "pending",
+  "description": "Trigger template for fetch-files operation"
+}

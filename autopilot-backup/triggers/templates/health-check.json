@@ -1,0 +1,10 @@
+{
+  "operation": "health-check",
+  "workspace_id": "ws-default",
+  "component": "agent",
+  "params": {},
+  "run": 1,
+  "createdAt": "",
+  "status": "pending",
+  "description": "Trigger template for health-check operation"
+}

@@ -1,0 +1,154 @@
+{
+  "schemaVersion": 1,
+  "description": "Rules engine for automatic token optimization. Applied by token-auto-optimize workflow and SessionStart hook.",
+  "lastOptimized": "2026-04-04T07:07:00Z",
+  "optimizationTargets": {
+    "sessionMemoryMaxChars": 50000,
+    "sessionMemoryWarningChars": 40000,
+    "executionHistoryMaxSessions": 5,
+    "successfulRunsMax": 5,
+    "knownFailuresMax": 7,
+    "lessonMaxChars": 200,
+    "stepsExecutedMaxPerSession": 5,
+    "mistakesMadeMaxPerSession": 3,
+    "archiveAfterDays": 14,
+    "stateJsonMaxKB": 60,
+    "hookInjectionMode": "compact"
+  },
+  "compactionRules": [
+    {
+      "id": "archive-old-sessions",
+      "target": "executionHistory.sessions",
+      "action": "archive_and_trim",
+      "keepRecent": 5,
+      "archiveTo": "contracts/archive/execution-history-archive.json",
+      "description": "Move sessions older than 14 days to archive file. Keep only 5 most recent in active memory.",
+      "estimatedSaving": "15-20% of memory size"
+    },
+    {
+      "id": "trim-successful-runs",
+      "target": "workflowMonitoring.successfulRuns",
+      "action": "keep_recent",
+      "keepRecent": 5,
+      "description": "Keep only last 5 successful runs. Older ones are in audit trail.",
+      "estimatedSaving": "2-3%"
+    },
+    {
+      "id": "compact-steps-executed",
+      "target": "executionHistory.sessions[].stepsExecuted",
+      "action": "truncate_array",
+      "maxItems": 5,
+      "description": "Keep only 5 most important steps per session. Full history in archive.",
+      "estimatedSaving": "5-10%"
+    },
+    {
+      "id": "deduplicate-known-failures",
+      "target": "workflowMonitoring.knownFailures",
+      "action": "deduplicate_by_field",
+      "field": "step",
+      "keepLatest": true,
+      "description": "Remove duplicate failure entries (same step), keep most recent fix.",
+      "estimatedSaving": "1-2%"
+    },
+    {
+      "id": "trim-lesson-descriptions",
+      "target": "executionHistory.sessions[].mistakesMade[].fix",
+      "action": "truncate_string",
+      "maxChars": 200,
+      "description": "Trim long fix descriptions to 200 chars.",
+      "estimatedSaving": "1-2%"
+    },
+    {
+      "id": "remove-static-reference-docs",
+      "target": "root",
+      "action": "externalize",
+      "fieldsToExternalize": [
+        "deployFlowGuide",
+        "implementationAndMonitoringProtocol",
+        "deployCompliancePipeline"
+      ],
+      "externalizeToFile": "contracts/archive/static-reference.json",
+      "replaceWith": "See contracts/archive/static-reference.json and CLAUDE.md",
+      "description": "Static reference docs (9%+4%+2%=15%) don't change between sessions. Move to external file, reference in CLAUDE.md.",
+      "estimatedSaving": "15-18% of memory size"
+    },
+    {
+      "id": "compact-onboarding-guide",
+      "target": "multiCompanyModel.companies.cit.onboardingGuide",
+      "action": "externalize",
+      "externalizeToFile": "contracts/archive/cit-onboarding.json",
+      "replaceWith": "See contracts/archive/cit-onboarding.json",
+      "description": "CIT onboarding guide is 8KB+ of static config. Externalize.",
+      "estimatedSaving": "8-10%"
+    }
+  ],
+  "hookOptimization": {
+    "description": "Instead of injecting full memory at SessionStart, inject only essential sections.",
+    "essentialSections": [
+      "currentState",
+      "versioningRules",
+      "deployFlow",
+      "gitPatterns",
+      "contextSeparation.goldenRules",
+      "multiCompanyModel.goldenRules",
+      "ciPatterns",
+      "commonPatterns",
+      "optimizations"
+    ],
+    "onDemandSections": [
+      "executionHistory",
+      "authArchitecture",
+      "historia868216",
+      "historia930217",
+      "capValuesYaml",
+      "swaggerRules",
+      "corporateCIMonitoring",
+      "workflowMonitoring"
+    ],
+    "estimatedReduction": "40-50% less tokens at session start"
+  },
+  "syncOptimization": {
+    "skipIfUnchanged": true,
+    "description": "spark-sync-state should skip push if state.json content hash unchanged",
+    "hashField": "_contentHash",
+    "estimatedSaving": "50-70% fewer sync API calls"
+  },
+  "metrics": {
+    "lastMemorySize": 112585,
+    "lastCompactedSize": 109227,
+    "totalSavedChars": 58188,
+    "totalOptimizations": 4,
+    "history": [
+      {
+        "date": "2026-04-04T07:07:00Z",
+        "before": 112585,
+        "after": 109227,
+        "saved": 3358,
+        "changes": 1
+      },
+      {
+        "date": "2026-04-03T07:16:17Z",
+        "before": 119246,
+        "after": 112125,
+        "saved": 7121,
+        "changes": 1
+      },
+      {
+        "date": "2026-03-31T07:22:55Z",
+        "before": 87863,
+        "after": 84991,
+        "saved": 2872,
+        "changes": 1
+      },
+      {
+        "date": "2026-03-29T20:00:00Z",
+        "before": 112405,
+        "after": 67568,
+        "saved": 44837,
+        "pct": 40,
+        "changes": 6,
+        "source": "manual-first-run"
+      }
+    ]
+  }
+}

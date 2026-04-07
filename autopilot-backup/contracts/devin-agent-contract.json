@@ -1,0 +1,126 @@
+{
+  "schemaVersion": 3,
+  "contractId": "devin-agent-contract",
+  "extends": "shared-agent-contract",
+  "agent": "devin",
+  "agentIdentifier": "devin",
+  "capabilities": [
+    "deploy-execution",
+    "ci-monitoring",
+    "release-orchestration",
+    "code-implementation",
+    "code-review",
+    "infrastructure-as-code",
+    "kubernetes-operations",
+    "cloud-diagnostics",
+    "observability",
+    "pipeline-troubleshooting",
+    "terraform-operations",
+    "monitoring-setup",
+    "incident-response",
+    "security-analysis",
+    "workflow-authoring",
+    "memory-management"
+  ],
+  "tools": {
+    "primary": "devin-vm",
+    "github": "git CLI + GitHub API",
+    "browser": "chrome",
+    "shell": "bash",
+    "editor": "filesystem"
+  },
+  "specializations": {
+    "devops": {
+      "description": "Full DevOps lifecycle management",
+      "skills": ["CI/CD pipeline design", "build optimization", "artifact management", "release automation"]
+    },
+    "sre": {
+      "description": "Site Reliability Engineering",
+      "skills": ["incident response", "SLO/SLA management", "capacity planning", "chaos engineering", "postmortem analysis"]
+    },
+    "cloud": {
+      "description": "Multi-cloud operations",
+      "skills": ["AWS", "Azure", "GCP", "cost optimization", "IAM", "networking", "storage"]
+    },
+    "observability": {
+      "description": "Full-stack observability",
+      "skills": ["Datadog", "Grafana", "Prometheus", "log analysis", "tracing", "alerting", "dashboard creation"]
+    },
+    "kubernetes": {
+      "description": "Kubernetes operations",
+      "skills": ["cluster management", "helm charts", "ArgoCD", "resource optimization", "troubleshooting", "RBAC"]
+    },
+    "iac": {
+      "description": "Infrastructure as Code",
+      "skills": ["Terraform", "Terragrunt", "Ansible", "CloudFormation", "Pulumi"]
+    }
+  },
+  "instructions": {
+    "workspaceIdentification": "FIRST STEP of every operation: identify which workspace (company) the user is talking about from conversation context. Use contextClues in shared-agent-contract.json. If ambiguous, ASK before proceeding. NEVER assume any workspace as default.",
+    "stateAccess": "Use gh CLI or GitHub API to read/write state on autopilot-state branch",
+    "lockProtocol": "Acquire lock via state file creation, check for existing lock first. Always release in finally/cleanup stage.",
+    "sessionGuard": "Before any state-changing operation, acquire session lock. If another agent holds the lock, ABORT - never force override.",
+    "releaseProtocol": "Read workspace.json for repo config, never hardcode repos or paths. Use apply-source-change.yml for code modifications.",
+    "handoffProtocol": "Create handoff JSON in workspace handoffs/ dir, set toAgent field. Accept handoffs from Claude or other agents.",
+    "auditProtocol": "Append audit entry after every state-mutating operation. Include operation, timestamp, runId, component, and result.",
+    "errorHandling": "Always validate API responses. Use jq with fallbacks. Log errors before continuing.",
+    "sourceCodeChanges": "Use apply-source-change.yml pipeline. Content must be base64-encoded between jobs. Always fix pre-existing lint errors before pushing.",
+    "monitoring": "After triggering any workflow, monitor all stages until completion. Report progress and final status.",
+    "autonomousOperation": "Can independently execute deploy cycles, monitor CI, diagnose failures, and trigger fixes without human intervention."
+  },
+  "triggerFiles": {
+    "description": "Workflows can be triggered by modifying trigger/*.json files",
+    "pattern": "Bump the 'run' field to trigger the associated workflow",
+    "files": {
+      "trigger/source-change.json": "apply-source-change.yml",
+      "trigger/full-test.json": "test-full-flow.yml",
+      "trigger/e2e-test.json": "test-corporate-flow.yml",
+      "trigger/agent-sync.json": "agent-sync.yml",
+      "trigger/ci-diagnose.json": "ci-diagnose.yml",
+      "trigger/ci-status.json": "ci-status-check.yml",
+      "trigger/promote-cap.json": "promote-cap.yml",
+      "trigger/fetch-files.json": "fetch-files.yml",
+      "trigger/fix-ci.json": "fix-corporate-ci.yml"
+    }
+  },
+  "sessionMemory": {
+    "file": "contracts/devin-session-memory.json",
+    "protocol": "MUST read at session start, MUST update at session end",
+    "purpose": "Cumulative memory of decisions, patterns, lessons learned across sessions"
+  },
+  "contextFiles": [
+    "contracts/shared-agent-contract.json",
+    "contracts/devin-session-memory.json",
+    "contracts/agent-registry.json",
+    "contracts/agent-onboarding.md",
+    "schemas/*.schema.json"
+  ],
+  "operationalRunbooks": {
+    "deploy": [
+      "1. Read trigger/source-change.json for current run and version",
+      "2. Prepare patches in patches/ if code changes needed",
+      "3. Update trigger with new version, changes array, bump run",
+      "4. Update references/controller-cap/values.yaml with new tag",
+      "5. Create branch devin/<timestamp>-<description>",
+      "6. Commit all changes, push, create PR",
+      "7. Wait for auto-merge or manual merge",
+      "8. Monitor apply-source-change.yml (7 stages)",
+      "9. Monitor corporate CI (Esteira de Build NPM)",
+      "10. Verify CAP promotion and state update"
+    ],
+    "ciDiagnose": [
+      "1. Read current CI status via ci-status-check workflow",
+      "2. If failed, trigger ci-diagnose.yml to fetch logs",
+      "3. Analyze logs for known error patterns",
+      "4. Apply fix via fix-corporate-ci.yml or new source-change",
+      "5. Monitor until green"
+    ],
+    "healthCheck": [
+      "1. Run health-check.yml for workspace",
+      "2. Check drift-correction.yml results",
+      "3. Verify state branch consistency",
+      "4. Check lock status (no stale locks)",
+      "5. Verify dashboard data freshness"
+    ]
+  }
+}

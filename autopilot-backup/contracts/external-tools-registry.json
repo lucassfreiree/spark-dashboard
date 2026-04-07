@@ -1,0 +1,231 @@
+{
+  "schemaVersion": 1,
+  "contractId": "external-tools-registry",
+  "description": "Registry of FREE external tools and platforms agents should consider for implementations. Zero additional cost mandate.",
+  "lastUpdated": "2026-04-04T20:00:00Z",
+  "costRule": "ABSOLUTE: Only use tools with $0 cost. If a tool requires payment, subscription, or credits beyond free tier — DO NOT USE. Always verify free tier limits before recommending.",
+  "costBenefitGate": {
+    "description": "MANDATORY analysis before implementing ANY new tool, integration, or feature",
+    "steps": [
+      "1. COMPLEXITY: How hard to set up and maintain? (Low <1h / Medium 1-4h / High >4h)",
+      "2. COST: Is it $0 now AND forever? (Free / Free-with-limits / Paid=REJECT)",
+      "3. VALUE: What problem does it solve? How often does it help? (Daily/Weekly/Rare)",
+      "4. ALTERNATIVES: Can existing tools do this? (GitHub Actions, jq, bash, existing workflows)",
+      "5. VERDICT: Only implement if value > complexity AND cost = $0"
+    ],
+    "decisionMatrix": {
+      "highValue_lowComplexity": "IMPLEMENT — clear win",
+      "highValue_highComplexity": "EVALUATE — is there a simpler alternative?",
+      "lowValue_lowComplexity": "MAYBE — only if trivial to add",
+      "lowValue_highComplexity": "REJECT — not worth the effort",
+      "anyCost_aboveZero": "REJECT — find free alternative or skip"
+    },
+    "rule": "If the answer to step 4 is YES (existing tools can do it), ALWAYS use existing tools instead of adding new ones. Simplicity beats features."
+  },
+  "tools": {
+    "ai_assistants": {
+      "description": "AI platforms available for research, code generation, analysis — all free tier",
+      "items": [
+        {
+          "name": "Claude Web (claude.ai)",
+          "url": "https://claude.ai",
+          "free": true,
+          "bestFor": ["Long document analysis", "Architecture design discussions", "Code review", "Complex reasoning", "Research and brainstorming"],
+          "limits": "Free tier: limited messages/day. Pro plan already active.",
+          "integration": "Manual — copy context, get analysis, apply here",
+          "when": "Complex architecture decisions, long document analysis, brainstorming approaches before implementing"
+        },
+        {
+          "name": "Claude Code (CLI)",
+          "url": "https://claude.ai/code",
+          "free": true,
+          "bestFor": ["Direct code implementation", "Multi-file editing", "Git operations", "CI/CD debugging", "Autonomous agent work"],
+          "limits": "Included in current plan",
+          "integration": "Primary tool — this is where agents operate",
+          "when": "All implementation work, deploys, fixes, monitoring"
+        },
+        {
+          "name": "ChatGPT Free (chat.openai.com)",
+          "url": "https://chat.openai.com",
+          "free": true,
+          "bestFor": ["Second opinion on designs", "Quick code snippets", "Regex generation", "Shell command help"],
+          "limits": "Free tier: GPT-4o-mini, limited GPT-4o",
+          "integration": "Manual — use for second opinion when stuck",
+          "when": "When Claude is unavailable or need a different perspective"
+        },
+        {
+          "name": "GitHub Copilot (in IDE)",
+          "url": "https://github.com/features/copilot",
+          "free": true,
+          "bestFor": ["Code autocompletion", "Inline suggestions", "Quick function generation"],
+          "limits": "Free tier for public repos + Copilot Free",
+          "integration": "IDE-native — works in VS Code/JetBrains",
+          "when": "During manual coding in IDE for autocomplete and suggestions"
+        },
+        {
+          "name": "Google Gemini (gemini.google.com)",
+          "url": "https://gemini.google.com",
+          "free": true,
+          "bestFor": ["Web search + AI analysis", "Current docs lookup", "Multi-modal analysis (screenshots)"],
+          "limits": "Free tier: Gemini 1.5 Flash",
+          "integration": "Manual — good for searching current documentation",
+          "when": "Need up-to-date info on tools/APIs, analyze screenshots of CI failures"
+        }
+      ]
+    },
+    "code_quality": {
+      "description": "Free code analysis and quality tools",
+      "items": [
+        {
+          "name": "GitHub Actions",
+          "free": true,
+          "bestFor": ["CI/CD automation", "Scheduled tasks", "Workflow orchestration"],
+          "limits": "2000 min/month free for private repos, unlimited for public",
+          "integration": "Native — .github/workflows/",
+          "when": "All automation, monitoring, and scheduled tasks"
+        },
+        {
+          "name": "GitHub Code Scanning (CodeQL)",
+          "free": true,
+          "bestFor": ["SAST security scanning", "Vulnerability detection", "Code quality"],
+          "limits": "Free for public repos",
+          "integration": "GitHub-native — enable in Security tab",
+          "when": "Deep security analysis beyond our custom scans"
+        },
+        {
+          "name": "GitHub Dependabot",
+          "free": true,
+          "bestFor": ["Dependency vulnerability alerts", "Auto-update PRs"],
+          "limits": "Unlimited, free",
+          "integration": "GitHub-native — enable in Settings",
+          "when": "Keep dependencies updated and secure"
+        },
+        {
+          "name": "Snyk (Free Tier)",
+          "url": "https://snyk.io",
+          "free": true,
+          "bestFor": ["Container scanning", "IaC scanning", "Open source vulnerability detection"],
+          "limits": "200 tests/month free",
+          "integration": "CLI or GitHub App",
+          "when": "Scanning Docker images, Terraform configs, npm packages for vulnerabilities"
+        }
+      ]
+    },
+    "documentation": {
+      "description": "Free documentation and knowledge management",
+      "items": [
+        {
+          "name": "GitHub Pages",
+          "free": true,
+          "bestFor": ["Dashboard hosting", "Documentation sites", "Status pages"],
+          "limits": "1GB storage, 100GB bandwidth/month",
+          "integration": "Native — panel/ directory, deploy-panel.yml",
+          "when": "Dashboard, docs, any static web content"
+        },
+        {
+          "name": "GitHub Wiki",
+          "free": true,
+          "bestFor": ["Long-form documentation", "Runbooks", "Architecture decisions"],
+          "limits": "Unlimited",
+          "integration": "Native — repo wiki tab",
+          "when": "Detailed operational docs that don't belong in repo files"
+        },
+        {
+          "name": "GitHub Issues + Projects",
+          "free": true,
+          "bestFor": ["Task tracking", "Sprint planning", "Bug tracking", "Decision records"],
+          "limits": "Unlimited",
+          "integration": "Native — our primary work tracking system",
+          "when": "ALL findings, improvements, decisions (GitHub-First governance)"
+        }
+      ]
+    },
+    "monitoring_observability": {
+      "description": "Free monitoring and observability platforms",
+      "items": [
+        {
+          "name": "GitHub Actions Workflow Logs",
+          "free": true,
+          "bestFor": ["Workflow execution monitoring", "Failure analysis", "Audit trail"],
+          "integration": "Native",
+          "when": "Always — primary monitoring source"
+        },
+        {
+          "name": "UptimeRobot (Free Tier)",
+          "url": "https://uptimerobot.com",
+          "free": true,
+          "bestFor": ["Endpoint monitoring", "Uptime tracking", "Downtime alerts"],
+          "limits": "50 monitors, 5-min intervals",
+          "integration": "External — webhook to GitHub Actions",
+          "when": "Monitor dashboard (GitHub Pages) uptime and corporate endpoints"
+        },
+        {
+          "name": "Grafana Cloud (Free Tier)",
+          "url": "https://grafana.com/products/cloud/",
+          "free": true,
+          "bestFor": ["Metrics dashboards", "Log aggregation", "Alerting"],
+          "limits": "10K metrics, 50GB logs, 50GB traces",
+          "integration": "API — send metrics from workflows",
+          "when": "When we need visual dashboards beyond GitHub Pages"
+        }
+      ]
+    },
+    "community_intelligence": {
+      "description": "Free knowledge sources agents should check for new patterns and best practices",
+      "items": [
+        {
+          "name": "anthropics/skills (GitHub)",
+          "url": "https://github.com/anthropics/skills",
+          "free": true,
+          "bestFor": ["Official Claude skill patterns", "Agent best practices"],
+          "integration": "sync-community-resources.yml (weekly)",
+          "when": "Learning new agent patterns and capabilities"
+        },
+        {
+          "name": "awesome-claude-code (GitHub)",
+          "url": "https://github.com/hesreallyhim/awesome-claude-code",
+          "free": true,
+          "bestFor": ["Community hooks", "CLAUDE.md patterns", "Slash commands"],
+          "integration": "sync-community-resources.yml (weekly)",
+          "when": "Discovering new automation patterns"
+        },
+        {
+          "name": "GitHub Advisory Database",
+          "url": "https://github.com/advisories",
+          "free": true,
+          "bestFor": ["CVE lookup", "Security advisories", "Vulnerability intel"],
+          "integration": "security-vuln-scanner.yml",
+          "when": "Evaluating security findings"
+        },
+        {
+          "name": "Stack Overflow / GitHub Discussions",
+          "free": true,
+          "bestFor": ["Troubleshooting specific errors", "Community solutions"],
+          "integration": "Manual — search when stuck on specific error",
+          "when": "Debugging unfamiliar errors or tool-specific issues"
+        }
+      ]
+    }
+  },
+  "agentGuidelines": {
+    "beforeImplementing": [
+      "Check if a FREE external tool already solves this problem",
+      "Check if GitHub-native features can handle it (Actions, Pages, Issues, Wiki, CodeQL, Dependabot)",
+      "Check community intelligence sources for existing patterns",
+      "If using Claude Web for research, summarize findings and codify in repo (GitHub-First)"
+    ],
+    "costVerification": [
+      "ALWAYS verify the tool is free before recommending",
+      "If free tier has limits, document the limits clearly",
+      "If approaching free tier limits, find alternative before hitting paywall",
+      "NEVER recommend tools that require credit card for free tier"
+    ],
+    "integrationPriority": [
+      "1. GitHub-native (Actions, Pages, Issues, CodeQL, Dependabot) — already integrated, zero setup",
+      "2. CLI tools in workflows (jq, python, curl) — zero cost, runs in Actions",
+      "3. Free-tier SaaS with GitHub integration (Snyk, UptimeRobot) — easy setup",
+      "4. Manual AI assistants (Claude Web, ChatGPT, Gemini) — for research and second opinions",
+      "5. Self-hosted open-source (n8n, Grafana) — if infrastructure available"
+    ]
+  }
+}

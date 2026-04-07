@@ -1,0 +1,129 @@
+{
+  "schemaVersion": 1,
+  "description": "Workspace context identification rules for autonomous agents. Ensures correct company/client mapping and prevents cross-contamination between contexts.",
+  "lastUpdated": "2026-04-04",
+  "contextModel": {
+    "explanation": "Each workspace represents a consultancy engagement: the COMPANY is where the owner works, the CLIENT is the end-customer receiving the service. Agents must never confuse these layers.",
+    "layers": ["company", "client", "workspace", "stack", "repos"]
+  },
+  "workspaces": {
+    "ws-default": {
+      "company": "Getronics",
+      "companyType": "consultancy",
+      "client": "Banco do Brasil",
+      "clientShortName": "BB",
+      "serviceType": "Application Development & SRE",
+      "workspace_id": "ws-default",
+      "status": "active",
+      "startDate": "2025-01-01",
+      "dataClassification": "confidential",
+      "token": "BBVINET_TOKEN",
+      "stack": {
+        "primary": "Node/TypeScript",
+        "frameworks": ["NestJS", "Express", "Jest"],
+        "tools": ["ESLint", "Swagger", "npm"],
+        "infra": ["K8s (OpenShift HML)", "Docker Registry (intranet)"]
+      },
+      "identificationKeywords": [
+        "getronics", "banco do brasil", "bb", "bbvinet", "controller", "agent",
+        "nestjs", "psc-sre", "automacao", "esteira", "build npm", "openshift",
+        "oaas", "jwt", "cap", "hml"
+      ],
+      "colorTheme": {
+        "primary": "#3fb950",
+        "label": "green",
+        "icon": "bank"
+      }
+    },
+    "ws-cit": {
+      "company": "CIT",
+      "companyType": "consultancy",
+      "client": "Itau Unibanco",
+      "clientShortName": "Itau",
+      "serviceType": "DevOps Engineering & Cloud Infrastructure",
+      "workspace_id": "ws-cit",
+      "status": "onboarding",
+      "startDate": "2026-04-06",
+      "dataClassification": "internal",
+      "token": "CIT_TOKEN",
+      "stack": {
+        "primary": "DevOps/IaC",
+        "frameworks": ["Terraform", "Helm", "ArgoCD", "Ansible"],
+        "tools": ["Docker", "Kubernetes", "CI/CD pipelines"],
+        "infra": ["AWS", "Azure", "GCP (multi-cloud)"]
+      },
+      "identificationKeywords": [
+        "cit", "itau", "itaú", "unibanco", "devops", "terraform", "helm",
+        "argocd", "ansible", "k8s", "kubernetes", "docker", "cloud",
+        "aws", "azure", "gcp", "iac", "infrastructure", "monitoring",
+        "datadog", "grafana", "prometheus"
+      ],
+      "colorTheme": {
+        "primary": "#f97316",
+        "label": "orange",
+        "icon": "cloud"
+      }
+    },
+    "ws-socnew": {
+      "status": "locked",
+      "owner": "third-party",
+      "policy": "DO NOT OPERATE without explicit written authorization from lucassfreiree"
+    },
+    "ws-corp-1": {
+      "status": "locked",
+      "owner": "third-party",
+      "policy": "DO NOT OPERATE without explicit written authorization from lucassfreiree"
+    }
+  },
+  "identificationProtocol": {
+    "description": "Step-by-step protocol agents MUST follow to identify workspace context",
+    "steps": [
+      "1. Scan user message for company/client keywords",
+      "2. Match keywords against workspace identificationKeywords arrays",
+      "3. If match found → set workspace context",
+      "4. If 'socnew' or 'corp-1' → STOP, request authorization",
+      "5. If ambiguous (keywords from multiple workspaces) → ASK user",
+      "6. If no keywords found → ASK user which workspace",
+      "7. Once identified → load workspace config from state/workspaces/<ws_id>/workspace.json",
+      "8. Apply workspace-specific rules (token, repos, stack, data classification)"
+    ],
+    "neverAssume": "No workspace is default. Even ws-default requires explicit identification."
+  },
+  "corporateEnvironmentRules": {
+    "description": "CRITICAL: Rules for all content that touches corporate environments (commits, PRs, descriptions, issues, documentation)",
+    "rules": [
+      "NEVER mention AI, artificial intelligence, Claude, GPT, LLM, or any AI tool in corporate-facing content",
+      "NEVER include AI references in: commit messages, PR titles, PR descriptions, issue titles, branch names, code comments pushed to corporate repos",
+      "Commits to corporate repos (bbvinet/*, CIT repos) must appear as regular developer work",
+      "Autopilot internal references (CLAUDE.md, session memory, agent contracts) are OK — they stay in the autopilot repo",
+      "This rule applies to ALL workspaces (ws-default, ws-cit) equally"
+    ],
+    "examples": {
+      "bad": ["feat: Claude AI auto-fix for lint errors", "fix: AI-generated patch for auth", "chore: automated by Claude Code"],
+      "good": ["feat: fix lint errors in auth module", "fix: correct JWT validation logic", "chore: update dependencies"]
+    }
+  },
+  "crossContaminationRules": [
+    "NEVER reference Banco do Brasil data/repos/infra in CIT context",
+    "NEVER reference Itau data/repos/infra in Getronics context",
+    "NEVER use BBVINET_TOKEN for CIT operations",
+    "NEVER use CIT_TOKEN for Getronics operations",
+    "NEVER create patches that contain identifiers from the wrong workspace",
+    "NEVER mix CI/CD pipeline status between workspaces",
+    "NEVER share session state between workspaces without explicit cross-reference",
+    "NEVER mention AI/Claude/GPT/LLM in any corporate-facing content (commits, PRs, issues)",
+    "Dashboard MUST show workspace indicator on every page",
+    "Commits MUST include workspace_id in commit message when workspace-specific",
+    "Issues MUST be labeled with workspace_id"
+  ],
+  "dashboardRules": {
+    "colorCoding": {
+      "ws-default": "green (Getronics/BB)",
+      "ws-cit": "orange (CIT/Itau)",
+      "ws-socnew": "red (locked)",
+      "ws-corp-1": "red (locked)"
+    },
+    "contextIndicator": "Dashboard header MUST show active workspace with company + client name",
+    "workCenterFiltering": "Tasks, alerts, and pipeline data MUST be filtered by workspace"
+  }
+}

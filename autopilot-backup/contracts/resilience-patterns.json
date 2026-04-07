@@ -1,0 +1,438 @@
+{
+  "schemaVersion": 1,
+  "lastUpdated": "2026-04-02T21:00:00Z",
+  "description": "Maps known failure patterns to automatic workarounds. Used by autonomy-improver and ci-self-heal to auto-recover without human intervention.",
+  "patterns": [
+    {
+      "id": "api-credit-low",
+      "trigger": "Credit balance is too low",
+      "category": "billing",
+      "severity": "high",
+      "affectedWorkflows": [
+        "claude-assistant.yml"
+      ],
+      "workaround": {
+        "type": "fallback-model",
+        "strategy": "Switch to cheaper model (Haiku) + direct API fallback via curl",
+        "implementation": "claude_args: --model claude-haiku-4-5-20251001 --max-turns 3, then curl fallback",
+        "costReduction": "18x cheaper ($0.80/1M vs $15/1M)"
+      },
+      "autoFix": true,
+      "status": "implemented"
+    },
+    {
+      "id": "api-rate-limit",
+      "trigger": "rate_limit|429|Too Many Requests",
+      "category": "api",
+      "severity": "medium",
+      "affectedWorkflows": [
+        "claude-assistant.yml",
+        "ci-failure-analysis.yml"
+      ],
+      "workaround": {
+        "type": "retry-with-backoff",
+        "strategy": "Exponential backoff: 2s, 4s, 8s, 16s. Max 4 retries.",
+        "implementation": "for i in 1 2 3 4; do curl ... && break; sleep $((2**i)); done"
+      },
+      "autoFix": true,
+      "status": "ready"
+    },
+    {
+      "id": "token-expired",
+      "trigger": "401|403|Bad credentials|token expired",
+      "category": "auth",
+      "severity": "critical",
+      "affectedWorkflows": [
+        "apply-source-change.yml",
+        "fix-corporate-ci.yml",
+        "promote-cap.yml"
+      ],
+      "workaround": {
+        "type": "escalate",
+        "strategy": "Cannot auto-fix expired tokens. Create @claude issue with instructions to check Settings > Secrets.",
+        "implementation": "gh api repos/.../issues POST with needs-claude label"
+      },
+      "autoFix": false,
+      "status": "implemented"
+    },
+    {
+      "id": "ci-lint-failure",
+      "trigger": "eslint|problems.*errors|Lint error",
+      "category": "ci",
+      "severity": "medium",
+      "affectedWorkflows": [
+        "apply-source-change.yml"
+      ],
+      "workaround": {
+        "type": "auto-fix-and-retry",
+        "strategy": "Run eslint --fix, commit, re-trigger CI",
+        "implementation": "fix-corporate-ci.yml auto-dispatched by ci-monitor-loop"
+      },
+      "autoFix": true,
+      "status": "implemented"
+    },
+    {
+      "id": "ci-test-failure",
+      "trigger": "Test Suites:.*failed|FAIL |jest.*failed",
+      "category": "ci",
+      "severity": "high",
+      "affectedWorkflows": [
+        "apply-source-change.yml"
+      ],
+      "workaround": {
+        "type": "diagnose-and-escalate",
+        "strategy": "Download logs, analyze error pattern, match against errorRecovery, create fix patch or escalate",
+        "implementation": "ci-diagnose.yml + ci-failure-analysis.yml pipeline"
+      },
+      "autoFix": false,
+      "status": "implemented"
+    },
+    {
+      "id": "ci-typescript-error",
+      "trigger": "error TS[0-9]|tsc.*error|Cannot find module",
+      "category": "ci",
+      "severity": "high",
+      "affectedWorkflows": [
+        "apply-source-change.yml"
+      ],
+      "workaround": {
+        "type": "diagnose-and-fix",
+        "strategy": "Parse TS error codes, add missing imports/types, fix type mismatches",
+        "implementation": "ci-self-heal.yml pattern matching"
+      },
+      "autoFix": true,
+      "status": "implemented"
+    },
+    {
+      "id": "network-timeout",
+      "trigger": "ETIMEDOUT|ECONNREFUSED|ECONNRESET|socket hang up",
+      "category": "network",
+      "severity": "medium",
+      "affectedWorkflows": [
+        "*"
+      ],
+      "workaround": {
+        "type": "retry-with-backoff",
+        "strategy": "Retry up to 4x with exponential backoff. If persistent, check DNS/proxy.",
+        "implementation": "Built into git push/fetch retry logic"
+      },
+      "autoFix": true,
+      "status": "implemented"
+    },
+    {
+      "id": "disk-space",
+      "trigger": "ENOSPC|No space left|disk quota",
+      "category": "infrastructure",
+      "severity": "high",
+      "affectedWorkflows": [
+        "apply-source-change.yml",
+        "compliance-gate.yml"
+      ],
+      "workaround": {
+        "type": "cleanup-and-retry",
+        "strategy": "Clean npm cache, remove node_modules, reduce artifact retention",
+        "implementation": "Add cleanup step before npm ci"
+      },
+      "autoFix": true,
+      "status": "ready"
+    },
+    {
+      "id": "duplicate-tag",
+      "trigger": "tag.*already exists|duplicate tag|409.*tag",
+      "category": "deploy",
+      "severity": "high",
+      "affectedWorkflows": [
+        "apply-source-change.yml"
+      ],
+      "workaround": {
+        "type": "version-bump",
+        "strategy": "Increment patch version and retry. Follow X.Y.9 → X.(Y+1).0 rule.",
+        "implementation": "Read current tag from CAP, bump version, update 4 version files"
+      },
+      "autoFix": true,
+      "status": "implemented"
+    },
+    {
+      "id": "merge-conflict",
+      "trigger": "CONFLICT|merge conflict|cannot merge",
+      "category": "git",
+      "severity": "medium",
+      "affectedWorkflows": [
+        "auto-merge-sweeper.yml",
+        "autonomous-merge-direct.yml"
+      ],
+      "workaround": {
+        "type": "rebase-and-retry",
+        "strategy": "Fetch latest main, rebase branch, force-push, retry merge",
+        "implementation": "git fetch + rebase + push in auto-merge workflows"
+      },
+      "autoFix": true,
+      "status": "ready"
+    },
+    {
+      "id": "workflow-disabled",
+      "trigger": "is not active|is disabled|workflow.*disabled",
+      "category": "infrastructure",
+      "severity": "high",
+      "affectedWorkflows": [
+        "*"
+      ],
+      "workaround": {
+        "type": "re-enable",
+        "strategy": "workflow-auto-repair.yml re-enables disabled workflows automatically",
+        "implementation": "gh api .../actions/workflows/{id}/enable"
+      },
+      "autoFix": true,
+      "status": "implemented"
+    },
+    {
+      "id": "stuck-run",
+      "trigger": "stuck|running > 60min|queued > 30min",
+      "category": "infrastructure",
+      "severity": "high",
+      "affectedWorkflows": [
+        "*"
+      ],
+      "workaround": {
+        "type": "cancel-and-retry",
+        "strategy": "Cancel stuck run, wait 30s, re-trigger",
+        "implementation": "workflow-auto-repair.yml detects and cancels stuck runs"
+      },
+      "autoFix": true,
+      "status": "implemented"
+    },
+    {
+      "id": "action-not-found",
+      "trigger": "Unable to resolve action|action does not exist",
+      "category": "dependency",
+      "severity": "critical",
+      "affectedWorkflows": [
+        "*"
+      ],
+      "workaround": {
+        "type": "pin-or-replace",
+        "strategy": "Pin action to specific SHA or replace with alternative. Check GitHub Marketplace for alternatives.",
+        "implementation": "Manual review needed — escalate to @claude"
+      },
+      "autoFix": false,
+      "status": "ready"
+    },
+    {
+      "id": "heredoc-exit-127",
+      "trigger": "exit code 127|command not found.*cat.*EOF|heredoc",
+      "category": "ci",
+      "severity": "high",
+      "affectedWorkflows": [
+        "apply-source-change.yml",
+        "compliance-gate.yml"
+      ],
+      "workaround": {
+        "type": "rewrite-pattern",
+        "strategy": "Replace $(cat <<EOF) heredoc with direct string variable. GHA run blocks interpret heredoc differently.",
+        "implementation": "Use BODY variable assignment instead of inline heredoc in workflow run steps"
+      },
+      "autoFix": true,
+      "status": "ready"
+    },
+    {
+      "id": "gha-json-injection",
+      "trigger": "bad substitution|unexpected.*EOF|JSON.*parse.*error.*workflow",
+      "category": "ci",
+      "severity": "high",
+      "affectedWorkflows": [
+        "*"
+      ],
+      "workaround": {
+        "type": "escape-pattern",
+        "strategy": "Never pass raw JSON through ${{ }} expressions. Use base64 encoding or temp files.",
+        "implementation": "base64 -w0 for inter-step data, jq for JSON construction"
+      },
+      "autoFix": false,
+      "status": "ready"
+    },
+    {
+      "id": "eslint-no-for-of",
+      "trigger": "no-restricted-syntax.*for.*of|iterators/generators require|for\\.\\.\\.of",
+      "category": "ci",
+      "severity": "medium",
+      "affectedWorkflows": [
+        "apply-source-change.yml"
+      ],
+      "workaround": {
+        "type": "auto-fix-and-retry",
+        "strategy": "Replace for...of with .forEach/.map/.filter/.reduce. Pre-commit-validate.sh catches this.",
+        "implementation": "sed -i to convert for(const x of arr) to arr.forEach(x => {})"
+      },
+      "autoFix": true,
+      "status": "implemented"
+    },
+    {
+      "id": "ts-type-mismatch",
+      "trigger": "error TS2769|error TS2345|Type.*not assignable|Argument.*not assignable",
+      "category": "ci",
+      "severity": "high",
+      "affectedWorkflows": [
+        "apply-source-change.yml"
+      ],
+      "workaround": {
+        "type": "diagnose-and-fix",
+        "strategy": "Parse TS error: identify source file + line + expected vs actual type. Fix type assertion or add proper typing.",
+        "implementation": "ci-diagnose.yml parses TS errors, fix-corporate-ci applies type fixes"
+      },
+      "autoFix": false,
+      "status": "ready"
+    },
+    {
+      "id": "search-replace-newlines",
+      "trigger": "sed.*newline|search.*replace.*\\\\n|unterminated.*s command",
+      "category": "deploy",
+      "severity": "high",
+      "affectedWorkflows": [
+        "apply-source-change.yml"
+      ],
+      "workaround": {
+        "type": "use-replace-file",
+        "strategy": "Never use search-replace for multi-line content. Use replace-file action with full file in patches/.",
+        "implementation": "Change trigger action from search-replace to replace-file with content_ref"
+      },
+      "autoFix": true,
+      "status": "implemented"
+    },
+    {
+      "id": "corporate-runner-offline",
+      "trigger": "stuck.*runner|queued.*30.*min|no.*runner.*available|runner.*offline",
+      "category": "infrastructure",
+      "severity": "critical",
+      "affectedWorkflows": [
+        "apply-source-change.yml"
+      ],
+      "workaround": {
+        "type": "wait-and-escalate",
+        "strategy": "Wait 30 min via deploy-pipeline-monitor. If still stuck, escalate with full context.",
+        "implementation": "deploy-pipeline-monitor.yml detects stuck runs, dispatches ci-monitor-loop"
+      },
+      "autoFix": false,
+      "status": "implemented"
+    },
+    {
+      "id": "test-assertion-mismatch",
+      "trigger": "Expected.*Received|toBe.*received|toEqual.*received|AssertionError",
+      "category": "ci",
+      "severity": "high",
+      "affectedWorkflows": [
+        "apply-source-change.yml"
+      ],
+      "workaround": {
+        "type": "diagnose-and-escalate",
+        "strategy": "Parse test output: identify test file + assertion + expected vs received. Often caused by error message changes in source that break snapshot tests.",
+        "implementation": "ci-failure-analysis.yml categorizes as test-failure, escalates to @claude"
+      },
+      "autoFix": false,
+      "status": "implemented"
+    }
+  ],
+  "fallbackChain": {
+    "description": "When a primary approach fails, try fallbacks in order",
+    "chains": {
+      "api-call": [
+        {
+          "step": 1,
+          "method": "claude-code-action with Haiku",
+          "cost": "low"
+        },
+        {
+          "step": 2,
+          "method": "Direct curl to Anthropic API with Haiku",
+          "cost": "minimal"
+        },
+        {
+          "step": 3,
+          "method": "Post error comment with context",
+          "cost": "free"
+        }
+      ],
+      "ci-failure": [
+        {
+          "step": 1,
+          "method": "ci-self-heal (auto-fix lint/types)",
+          "cost": "free"
+        },
+        {
+          "step": 2,
+          "method": "fix-corporate-ci (eslint --fix)",
+          "cost": "free"
+        },
+        {
+          "step": 3,
+          "method": "ci-diagnose + ci-failure-analysis",
+          "cost": "free"
+        },
+        {
+          "step": 4,
+          "method": "Escalate to @claude with full context",
+          "cost": "free"
+        }
+      ],
+      "deploy-failure": [
+        {
+          "step": 1,
+          "method": "Retry with same config",
+          "cost": "free"
+        },
+        {
+          "step": 2,
+          "method": "Version bump + retry",
+          "cost": "free"
+        },
+        {
+          "step": 3,
+          "method": "ci-monitor-loop re-check",
+          "cost": "free"
+        },
+        {
+          "step": 4,
+          "method": "Escalate to @claude",
+          "cost": "free"
+        }
+      ],
+      "network-failure": [
+        {
+          "step": 1,
+          "method": "Retry with 2s backoff",
+          "cost": "free"
+        },
+        {
+          "step": 2,
+          "method": "Retry with 4s backoff",
+          "cost": "free"
+        },
+        {
+          "step": 3,
+          "method": "Retry with 8s backoff",
+          "cost": "free"
+        },
+        {
+          "step": 4,
+          "method": "Retry with 16s backoff",
+          "cost": "free"
+        },
+        {
+          "step": 5,
+          "method": "Escalate — persistent network issue",
+          "cost": "free"
+        }
+      ]
+    }
+  },
+  "autoDiscovery": {
+    "description": "When an unknown failure is encountered, the system should automatically research alternatives",
+    "steps": [
+      "1. Match error message against known patterns in this file",
+      "2. If no match: search contracts/claude-session-memory.json errorRecovery",
+      "3. If no match: create @claude issue with full error context",
+      "4. @claude analyzes, implements fix, and adds new pattern to this file",
+      "5. Pattern is now auto-fixable for future occurrences"
+    ],
+    "learningLoop": "autonomy-improver.yml reads this file + tracker → matches failures → applies workarounds → updates patterns"
+  }
+}

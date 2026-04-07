@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "description": "Compliance rules for autopilot-backup system",
+  "nonNegotiableRules": [
+    {
+      "id": "COMP-001",
+      "rule": "NEVER mix workspaces - strict isolation by workspace_id",
+      "severity": "critical",
+      "enforcement": "pre-operation-check"
+    },
+    {
+      "id": "COMP-002",
+      "rule": "NEVER push directly to corporate repos outside of defined workflows",
+      "severity": "critical",
+      "enforcement": "workflow-only"
+    },
+    {
+      "id": "COMP-003",
+      "rule": "ALWAYS check session lock before state-changing operations",
+      "severity": "critical",
+      "enforcement": "session-guard"
+    },
+    {
+      "id": "COMP-004",
+      "rule": "ALWAYS use workspace_id - never assume defaults",
+      "severity": "critical",
+      "enforcement": "workspace-resolver"
+    },
+    {
+      "id": "COMP-005",
+      "rule": "State branch is source of truth, not agent memory",
+      "severity": "high",
+      "enforcement": "state-manager"
+    },
+    {
+      "id": "COMP-006",
+      "rule": "NEVER store corporate secrets in autopilot or backup repos",
+      "severity": "critical",
+      "enforcement": "pre-commit-scan"
+    },
+    {
+      "id": "COMP-007",
+      "rule": "ALWAYS validate inputs - no regex YAML editing",
+      "severity": "high",
+      "enforcement": "schema-validator"
+    },
+    {
+      "id": "COMP-008",
+      "rule": "ALWAYS acquire/release locks properly in try/finally",
+      "severity": "high",
+      "enforcement": "session-guard"
+    },
+    {
+      "id": "COMP-009",
+      "rule": "ALWAYS write audit entries after state mutations",
+      "severity": "high",
+      "enforcement": "audit-writer"
+    },
+    {
+      "id": "COMP-010",
+      "rule": "NEVER use regex to edit YAML - use structured tooling (jq/yq)",
+      "severity": "medium",
+      "enforcement": "code-review"
+    }
+  ],
+  "workspaceIsolation": {
+    "mandatoryFirstStep": "Identify workspace from context before ANY operation",
+    "ifAmbiguous": "ASK the user - never guess",
+    "contextClues": [
+      "Company name mentioned",
+      "Repository names referenced",
+      "Technology stack context",
+      "Previous conversation context"
+    ]
+  },
+  "auditRequirements": {
+    "mandatoryFor": [
+      "release-state-change",
+      "cap-promotion",
+      "corporate-repo-push",
+      "lock-acquire-release",
+      "workspace-seed",
+      "state-backup-restore",
+      "freeze-unfreeze"
+    ],
+    "format": "JSON with timestamp, operation, agent, status, details",
+    "retention": "indefinite"
+  }
+}

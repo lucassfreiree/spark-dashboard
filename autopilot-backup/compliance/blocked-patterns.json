@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "description": "Security patterns that must be blocked or mitigated",
+  "patterns": [
+    {
+      "id": "SEC-001",
+      "name": "Reflected_XSS",
+      "description": "User input reflected in output without sanitization",
+      "mitigation": "sanitizeForOutput() required on all user-provided values",
+      "severity": "critical"
+    },
+    {
+      "id": "SEC-002",
+      "name": "SSRF",
+      "description": "Server-side request forgery via untrusted URLs",
+      "mitigation": "parseSafeIdentifier() required - only allow known repo patterns",
+      "severity": "critical"
+    },
+    {
+      "id": "SEC-003",
+      "name": "Command_Injection",
+      "description": "Shell command injection via untrusted input",
+      "mitigation": "Always quote variables, use arrays for commands, validate input format",
+      "severity": "critical"
+    },
+    {
+      "id": "SEC-004",
+      "name": "DoS_Loop",
+      "description": "Unbounded loops that could exhaust resources",
+      "mitigation": "MAX_RESULTS limits on all list/search operations",
+      "severity": "high"
+    },
+    {
+      "id": "SEC-005",
+      "name": "Secret_Exposure",
+      "description": "Secrets leaked in logs, commits, or state files",
+      "mitigation": "Never log tokens, mask in output, scan before commit",
+      "severity": "critical"
+    },
+    {
+      "id": "SEC-006",
+      "name": "State_Tampering",
+      "description": "Unauthorized modification of state branch",
+      "mitigation": "Session lock required, audit trail mandatory",
+      "severity": "high"
+    }
+  ],
+  "blockedFilePatterns": [
+    "*.env",
+    "*.pem",
+    "*.key",
+    "*credentials*",
+    "*secret*",
+    "kubeconfig*"
+  ],
+  "blockedContentPatterns": [
+    "AKIA[0-9A-Z]{16}",
+    "ghp_[a-zA-Z0-9]{36}",
+    "sk-[a-zA-Z0-9]{48}",
+    "-----BEGIN (RSA |EC )?PRIVATE KEY-----"
+  ]
+}
