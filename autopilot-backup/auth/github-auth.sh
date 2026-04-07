@@ -261,17 +261,144 @@ cmd_revoke() {
   echo "Note: To fully revoke, go to GitHub Settings > Applications > Authorized OAuth Apps"
 }
 
+# ── PAT Commands ──
+
+cmd_setup_pat() {
+  echo -e "${BLUE}=== PAT Setup Guide ===${NC}"
+  echo ""
+  echo "PAT (Personal Access Token) is the ONLY method that works for bbvinet/* repos."
+  echo "OAuth Device Flow does NOT work due to org restrictions."
+  echo ""
+  echo -e "${YELLOW}Step 1: Generate a PAT on GitHub${NC}"
+  echo "  1. Go to: https://github.com/settings/tokens"
+  echo "  2. Click 'Generate new token (classic)'"
+  echo "  3. Select scopes: repo, workflow, admin:org (read)"
+  echo "  4. Set expiration as needed"
+  echo "  5. Copy the token (ghp_...)"
+  echo ""
+  echo -e "${YELLOW}Step 2: Configure the token${NC}"
+  echo "  Option A (env var):  export BBVINET_TOKEN=\"ghp_your_token_here\""
+  echo "  Option B (file):     echo \"ghp_your_token_here\" > ~/.autopilot-token && chmod 600 ~/.autopilot-token"
+  echo ""
+  echo -e "${YELLOW}Step 3: Validate${NC}"
+  echo "  Run: $0 validate-pat"
+  echo ""
+
+  # Interactive setup
+  echo -n "Do you want to enter your PAT now? (y/n): "
+  read -r answer
+  if [[ "$answer" == "y" || "$answer" == "Y" ]]; then
+    echo -n "Enter PAT: "
+    read -rs pat_input
+    echo ""
+    if [[ -n "$pat_input" ]]; then
+      _save_token "$pat_input"
+      echo ""
+      echo "Validating..."
+      BBVINET_TOKEN="$pat_input" cmd_validate_pat
+    fi
+  fi
+}
+
+cmd_validate_pat() {
+  local token="${BBVINET_TOKEN:-$(_load_token)}"
+  if [[ -z "$token" ]]; then
+    echo -e "${RED}No token found.${NC}"
+    echo "Run: $0 setup-pat"
+    exit 1
+  fi
+
+  echo -e "${BLUE}=== PAT Validation ===${NC}"
+  echo ""
+
+  # 1. Check identity
+  local user_info
+  user_info=$(curl -s -H "Authorization: token $token" "https://api.github.com/user" 2>/dev/null)
+  local login
+  login=$(echo "$user_info" | jq -r '.login // "INVALID"' 2>/dev/null || echo "INVALID")
+
+  if [[ "$login" == "INVALID" || "$login" == "null" ]]; then
+    echo -e "  ${RED}✗${NC} Token is invalid or expired"
+    exit 1
+  fi
+  echo -e "  ${GREEN}✓${NC} Identity: ${login} ($(echo "$user_info" | jq -r '.name // ""'))"
+
+  # 2. Check scopes
+  local scopes
+  scopes=$(curl -sI -H "Authorization: token $token" "https://api.github.com/user" 2>/dev/null | \
+    grep -i "x-oauth-scopes" | cut -d: -f2- | tr -d ' \r')
+  echo -e "  ${GREEN}✓${NC} Scopes: ${scopes:-none}"
+
+  # 3. Check rate limit
+  local remaining limit
+  remaining=$(curl -s -H "Authorization: token $token" "https://api.github.com/rate_limit" 2>/dev/null | \
+    jq -r '.resources.core.remaining // "?"')
+  limit=$(curl -s -H "Authorization: token $token" "https://api.github.com/rate_limit" 2>/dev/null | \
+    jq -r '.resources.core.limit // "?"')
+  echo -e "  ${GREEN}✓${NC} Rate limit: ${remaining}/${limit}"
+
+  # 4. Check corporate repo access
+  echo ""
+  echo -e "${BLUE}--- Corporate Repo Access ---${NC}"
+  local repos=(
+    "bbvinet/psc-sre-automacao-agent"
+    "bbvinet/psc-sre-automacao-controller"
+    "bbvinet/psc_releases_cap_sre-aut-agent"
+    "bbvinet/psc_releases_cap_sre-aut-controller"
+  )
+
+  local all_ok=true
+  for repo in "${repos[@]}"; do
+    local http_code
+    http_code=$(curl -s -o /dev/null -w "%{http_code}" \
+      -H "Authorization: token $token" "https://api.github.com/repos/$repo" 2>/dev/null)
+    if [[ "$http_code" == "200" ]]; then
+      local push_perm
+      push_perm=$(curl -s -H "Authorization: token $token" "https://api.github.com/repos/$repo" 2>/dev/null | \
+        jq -r '.permissions.push // false')
+      echo -e "  ${GREEN}✓${NC} ${repo} (push: ${push_perm})"
+    else
+      echo -e "  ${RED}✗${NC} ${repo} (HTTP ${http_code})"
+      all_ok=false
+    fi
+  done
+
+  echo ""
+  if [[ "$all_ok" == "true" ]]; then
+    echo -e "${GREEN}PAT is fully operational for all corporate repos.${NC}"
+  else
+    echo -e "${YELLOW}Some repos not accessible. Check PAT scopes and org membership.${NC}"
+  fi
+}
+
 # ── Main ──
 
 CMD="${1:-status}"
 case "$CMD" in
-  login)   cmd_login ;;
-  status)  cmd_status ;;
-  test)    cmd_test ;;
-  refresh) cmd_refresh ;;
-  revoke)  cmd_revoke ;;
+  login)         cmd_login ;;
+  status)        cmd_status ;;
+  test)          cmd_test ;;
+  refresh)       cmd_refresh ;;
+  revoke)        cmd_revoke ;;
+  setup-pat)     cmd_setup_pat ;;
+  validate-pat)  cmd_validate_pat ;;
+  help|--help|-h)
+    echo "github-auth.sh — Authentication for Corporate Repos"
+    echo ""
+    echo "PAT (recommended):"
+    echo "  $0 setup-pat       — Interactive PAT setup guide"
+    echo "  $0 validate-pat    — Validate PAT access to repos"
+    echo ""
+    echo "OAuth (limited — does NOT work for bbvinet repos):"
+    echo "  $0 login           — OAuth Device Flow login"
+    echo ""
+    echo "General:"
+    echo "  $0 status          — Check current token"
+    echo "  $0 test            — Test repo access"
+    echo "  $0 revoke          — Remove saved token"
+    ;;
   *)
-    echo "Usage: $0 {login|status|test|refresh|revoke}"
+    echo "Usage: $0 {setup-pat|validate-pat|login|status|test|revoke|help}"
     exit 1
     ;;
 esac

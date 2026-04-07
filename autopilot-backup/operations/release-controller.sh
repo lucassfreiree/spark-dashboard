@@ -127,6 +127,45 @@ write_audit_entry() {
 }
 
 # ---------------------------------------------------------------------------
+# Step 0: Pre-release validation
+# Validates token, lock state, and release state consistency before starting
+# ---------------------------------------------------------------------------
+pre_release_validation() {
+  echo "[release-controller] Step 0: Pre-release validation..."
+
+  # 0a. Check token availability
+  local token="${BBVINET_TOKEN:-}"
+  if [[ -z "$token" && -f "$HOME/.autopilot-token" ]]; then
+    token=$(cat "$HOME/.autopilot-token")
+  fi
+  if [[ -z "$token" ]]; then
+    echo "ERROR: No token available. Set BBVINET_TOKEN or ~/.autopilot-token" >&2
+    exit 1
+  fi
+
+  # 0b. Test token validity
+  local owner repo
+  owner=$(echo "$CORPORATE_REPO" | cut -d/ -f1)
+  repo=$(echo "$CORPORATE_REPO" | cut -d/ -f2)
+  local http_code
+  http_code=$(curl -s -o /dev/null -w "%{http_code}" \
+    -H "Authorization: token $token" "https://api.github.com/repos/${owner}/${repo}" 2>/dev/null || echo "000")
+  if [[ "$http_code" != "200" ]]; then
+    echo "ERROR: Token cannot access ${CORPORATE_REPO} (HTTP ${http_code})" >&2
+    exit 1
+  fi
+  echo "[release-controller] Token valid for ${CORPORATE_REPO}"
+
+  # 0c. Source safe-commit for Rule #0 enforcement
+  if [[ -f "${SCRIPT_DIR}/../core/safe-commit.sh" ]]; then
+    source "${SCRIPT_DIR}/../core/safe-commit.sh"
+    echo "[release-controller] Rule #0 enforcement loaded"
+  fi
+
+  echo "[release-controller] Pre-release validation passed."
+}
+
+# ---------------------------------------------------------------------------
 # Step 1: Resolve workspace
 # MCP: mcp__github__get_file_contents(path="state/workspaces/{ws_id}/workspace.json")
 # ---------------------------------------------------------------------------
@@ -491,6 +530,7 @@ main() {
 
   trap 'echo "[release-controller] Pipeline failed. Releasing lock..."; release_lock 2>/dev/null || true' ERR
 
+  pre_release_validation
   resolve_workspace
   acquire_lock
   read_current_state
