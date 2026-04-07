@@ -21,97 +21,48 @@ export function AgentActivity({ data }: Props) {
 
   return (
     <div className="space-y-6">
-      <Card>
-        <CardHeader>
-          <CardTitle className="flex items-center gap-2">
-            <Robot className="w-5 h-5" />
-            Agent Timeline
-          </CardTitle>
-        </CardHeader>
-        <CardContent>
-          <div className="relative space-y-4">
-            <div className="absolute left-2 top-0 bottom-0 w-0.5 bg-border" />
-            {(data.agentActivity?.timeline || []).map((event, idx) => (
-              <div key={event.id} className="relative flex gap-4 pl-8">
-                <div className={`absolute left-0 w-4 h-4 rounded-full border-2 ${
-                  event.agent === 'Claude' ? 'bg-primary border-primary' :
-                  event.agent === 'Copilot' ? 'bg-accent border-accent' :
-                  'bg-muted border-muted'
-                }`} />
-                <div className="flex-1 pb-4">
-                  <div className="flex items-center gap-2 mb-1">
-                    <span className="font-mono text-sm font-semibold">{event.agent}</span>
-                    <span className="text-xs text-muted-foreground">
-                      {formatDistanceToNowSaoPaulo(event.timestamp, { addSuffix: true })}
-                    </span>
-                    {event.duration && (
-                      <span className="text-xs font-mono text-muted-foreground">({event.duration})</span>
-                    )}
-                  </div>
-                  <p className="text-sm text-foreground">{event.action}</p>
-                </div>
+      {/* Agent Status Cards */}
+      <div className="grid gap-4 md:grid-cols-3">
+        {/* Claude */}
+        <Card>
+          <CardHeader className="pb-2">
+            <CardTitle className="flex items-center justify-between">
+              <span>Claude</span>
+              <StatusBadge status={claude?.status || 'idle'} />
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="text-xs text-muted-foreground mb-2">Primary agent — architecture, deploys, CI fixes</div>
+            {claude?.task && (
+              <div className="p-2 rounded bg-muted/30 border-l-2 border-primary text-xs">
+                <div className="font-medium">{claude.task}</div>
+                {claude.phase && <div className="text-muted-foreground mt-1">Phase: {claude.phase}</div>}
               </div>
             )}
-            {claude?.lastAction && <div className="text-xs text-muted-foreground mt-2">Last: {claude.lastAction}</div>}
+            {claude?.lastAction && (
+              <div className="text-xs text-muted-foreground mt-2">Last: {claude.lastAction}</div>
+            )}
           </CardContent>
         </Card>
 
-      <Card>
-        <CardHeader>
-          <CardTitle>Recent Sessions</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <Table>
-            <TableHeader>
-              <TableRow>
-                <TableHead>Agent</TableHead>
-                <TableHead>Start Time</TableHead>
-                <TableHead>End Time</TableHead>
-                <TableHead>Status</TableHead>
-                <TableHead>Deploys</TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {(data.agentActivity?.recentSessions || []).map((session) => (
-                <TableRow key={session.id}>
-                  <TableCell className="font-mono font-semibold">{session.agent}</TableCell>
-                  <TableCell className="font-mono text-sm">
-                    {formatDateSaoPaulo(session.startTime, 'dd/MM/yy HH:mm')}
-                  </TableCell>
-                  <TableCell className="font-mono text-sm">
-                    {session.endTime ? formatDateSaoPaulo(session.endTime, 'dd/MM/yy HH:mm') : 'Em andamento'}
-                  </TableCell>
-                  <TableCell>
-                    <StatusBadge status={session.status} />
-                  </TableCell>
-                  <TableCell className="font-mono">{session.deploysCount}</TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </CardContent>
-      </Card>
-
-      <Card>
-        <CardHeader>
-          <CardTitle className="flex items-center gap-2">
-            <Lightbulb className="w-5 h-5" />
-            Lessons Learned
-          </CardTitle>
-        </CardHeader>
-        <CardContent className="space-y-4">
-          {(data.agentActivity?.lessonsLearned || []).map((lesson, idx) => (
-            <div key={lesson.id}>
-              {idx > 0 && <Separator className="mb-4" />}
-              <div className="space-y-2">
-                <div className="flex items-center justify-between">
-                  <h4 className="font-semibold">{lesson.title}</h4>
-                  <div className="flex items-center gap-2">
-                    <span className="text-xs font-mono text-muted-foreground">{lesson.agent}</span>
-                    <span className="text-xs text-muted-foreground">{lesson.date}</span>
-                  </div>
-                </div>
-                <p className="text-sm text-muted-foreground">{lesson.description}</p>
+        {/* Copilot */}
+        <Card>
+          <CardHeader className="pb-2">
+            <CardTitle className="flex items-center justify-between">
+              <span>Copilot</span>
+              <span className="text-xs font-mono text-muted-foreground">{copilot?.sessionCount || 0} sessions</span>
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="text-xs text-muted-foreground mb-2">Backup agent — code completion, inline assist</div>
+            <div className="grid grid-cols-2 gap-2 mt-2">
+              <div className="text-center p-2 rounded bg-muted/30">
+                <div className="text-xl font-bold">{copilot?.sessionCount || 0}</div>
+                <div className="text-[10px] text-muted-foreground">Sessions</div>
+              </div>
+              <div className="text-center p-2 rounded bg-muted/30">
+                <div className="text-xl font-bold">{copilot?.lessonsCount || 0}</div>
+                <div className="text-[10px] text-muted-foreground">Lessons</div>
               </div>
             </div>
             {copilot?.lastSession && copilot.lastSession !== 'none' && (

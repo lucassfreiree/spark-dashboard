@@ -3,7 +3,6 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Label } from '@/components/ui/label'
 import { Input } from '@/components/ui/input'
 import { Switch } from '@/components/ui/switch'
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Button } from '@/components/ui/button'
 import { Gear, FloppyDisk, ArrowCounterClockwise, Globe } from '@phosphor-icons/react'
 import { toast } from 'sonner'
@@ -135,7 +134,7 @@ export function Settings() {
             <Globe className="w-5 h-5" />
             Timezone & Localization
           </CardTitle>
-          <CardDescription>All dates and times displayed in São Paulo timezone</CardDescription>
+          <CardDescription>All dates and times displayed in Sao Paulo timezone</CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
           <div className="p-4 bg-primary/5 border border-primary/20 rounded-lg">
@@ -147,7 +146,7 @@ export function Settings() {
                   All API data is automatically converted to <span className="font-mono text-foreground">America/Sao_Paulo</span> timezone upon retrieval.
                 </div>
                 <div className="mt-3 pt-3 border-t border-border space-y-1">
-                  <div className="text-xs text-muted-foreground">Current São Paulo time:</div>
+                  <div className="text-xs text-muted-foreground">Current Sao Paulo time:</div>
                   <div className="font-mono text-base font-semibold text-primary">
                     {formatDateSaoPaulo(new Date(), 'PPpp')}
                   </div>
@@ -179,19 +178,16 @@ export function Settings() {
         <CardContent className="space-y-4">
           <div className="space-y-2">
             <Label htmlFor="dashboard-layout">Dashboard Layout</Label>
-            <Select
+            <select
+              id="dashboard-layout"
               value={dashboardLayout}
-              onValueChange={setDashboardLayout}
+              onChange={(e) => setDashboardLayout(e.target.value)}
+              className="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-xs transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50"
             >
-              <SelectTrigger id="dashboard-layout">
-                <SelectValue />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="compact">Compact</SelectItem>
-                <SelectItem value="comfortable">Comfortable</SelectItem>
-                <SelectItem value="spacious">Spacious</SelectItem>
-              </SelectContent>
-            </Select>
+              <option value="compact">Compact</option>
+              <option value="comfortable">Comfortable</option>
+              <option value="spacious">Spacious</option>
+            </select>
           </div>
         </CardContent>
       </Card>

@@ -2,7 +2,7 @@ import { DashboardState } from '@/types/dashboard'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { StatusBadge } from '@/components/StatusBadge'
 import { MetricCard } from '@/components/MetricCard'
-import { Package, Robot, GitBranch, Pulse, Lock, Warning, CheckCircle } from '@phosphor-icons/react'
+import { Package, Robot, GitBranch, Pulse, Lock, CheckCircle } from '@phosphor-icons/react'
 import { useMemo } from 'react'
 
 interface Props {
@@ -38,51 +38,40 @@ function computeHealth(data: DashboardState) {
 
 export function DashboardOverview({ data }: Props) {
   const health = useMemo(() => computeHealth(data), [data])
-  const healthColor = health.score >= 80 ? 'text-success' : health.score >= 50 ? 'text-warning' : 'text-destructive'
   const claude = data.agents?.claude
   const lock = data.sessionLock
-  const corp = data.corporateReal
 
   return (
     <div className="space-y-6">
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         <MetricCard
           title="Controller Version"
-          value={data.controllerVersion || '?'}
+          value={data.controller?.version || '?'}
           icon={<Package className="w-5 h-5" />}
         />
-        
         <MetricCard
           title="Agent Version"
-          value={data.agentVersion || '?'}
+          value={data.agent?.version || '?'}
           icon={<Package className="w-5 h-5" />}
         />
-        
         <MetricCard
           title="Last Trigger Run"
-          value={`#${data.lastTriggerRun || 0}`}
-          icon={<NumberCircleOne className="w-5 h-5" />}
+          value={`#${data.pipeline?.lastRun || 0}`}
+          icon={<GitBranch className="w-5 h-5" />}
         />
       </div>
 
       <div className="grid gap-6 md:grid-cols-3">
-        {/* Pipeline */}
         <Card>
           <CardHeader><CardTitle className="flex items-center gap-2"><Pulse className="w-5 h-5" />Pipeline</CardTitle></CardHeader>
           <CardContent>
             <div className="space-y-3">
-              <StatusBadge status={data.pipelineStatus || 'idle'} className="text-base px-4 py-2" />
-              {data.pipeline.currentStage && (
-                <div className="text-sm text-muted-foreground">
-                  Current stage: <span className="font-mono text-foreground">{data.pipeline.currentStage}</span>
-                </div>
-              )}
+              <StatusBadge status={data.pipeline?.status || 'idle'} className="text-base px-4 py-2" />
+              {data.pipeline?.commitMessage && <div className="text-xs text-muted-foreground mt-1 truncate">{data.pipeline.commitMessage}</div>}
             </div>
-            {data.pipeline?.commitMessage && <div className="text-xs text-muted-foreground mt-1 truncate">{data.pipeline.commitMessage}</div>}
           </CardContent>
         </Card>
 
-        {/* Active Agent */}
         <Card>
           <CardHeader><CardTitle className="flex items-center gap-2"><Robot className="w-5 h-5" />Active Agent</CardTitle></CardHeader>
           <CardContent>
@@ -101,7 +90,6 @@ export function DashboardOverview({ data }: Props) {
           </CardContent>
         </Card>
 
-        {/* Session Lock */}
         <Card>
           <CardHeader><CardTitle className="flex items-center gap-2"><Lock className="w-5 h-5" />Session Lock</CardTitle></CardHeader>
           <CardContent>
@@ -120,76 +108,38 @@ export function DashboardOverview({ data }: Props) {
         </Card>
       </div>
 
-      <Card>
-        <CardHeader>
-          <CardTitle className="flex items-center gap-2">
-            <GitBranch className="w-5 h-5" />
-            Last Deploy
-          </CardTitle>
-        </CardHeader>
-        <CardContent>
-          {data.lastDeploy ? (
-            <div className="grid gap-4 md:grid-cols-3">
-              <div>
-                <div className="text-sm text-muted-foreground mb-1">Component</div>
-                <div className="font-mono text-base">{data.lastDeploy.component}</div>
-              </div>
-              <div>
-                <div className="text-sm text-muted-foreground mb-1">Status</div>
-                <StatusBadge status={data.lastDeploy.status} />
-              </div>
-              <div>
-                <div className="text-sm text-muted-foreground mb-1">Time</div>
-                <div className="text-sm">
-                  {formatDistanceToNowSaoPaulo(data.lastDeploy.date, { addSuffix: true })}
-                </div>
-              </div>
-            </div>
-          ) : (
-            <div className="text-sm text-muted-foreground">No recent deploys</div>
-          )}
-        </CardContent>
-      </Card>
-
       <div className="grid gap-6 md:grid-cols-2">
         <Card>
-          <CardHeader>
-            <CardTitle>Recent Deploys</CardTitle>
-          </CardHeader>
+          <CardHeader><CardTitle>Recent Deploys</CardTitle></CardHeader>
           <CardContent>
-            <div className="space-y-3">
-              {data.deployHistory.slice(0, 5).map((deploy) => (
-                <div key={deploy.id} className="flex items-center justify-between p-3 rounded-lg bg-muted/30">
-                  <div className="flex-1">
-                    <div className="font-mono text-sm font-semibold">{deploy.component}</div>
-                    <div className="text-xs text-muted-foreground">{deploy.version}</div>
+            <div className="space-y-2">
+              {(data.deployHistory || []).slice(0, 5).map((path, i) => {
+                const parts = path.split('/')
+                const filename = parts[parts.length - 1] || path
+                return (
+                  <div key={i} className="flex items-center justify-between p-2 rounded-lg bg-muted/30">
+                    <span className="font-mono text-xs truncate flex-1" title={path}>{filename}</span>
                   </div>
-                  <div className="flex items-center gap-3">
-                    <span className="font-mono text-xs text-muted-foreground">{deploy.duration}</span>
-                    <StatusBadge status={deploy.status} />
-                  </div>
-                </div>
-              ))}
+                )
+              })}
+              {(data.deployHistory || []).length === 0 && (
+                <div className="text-sm text-muted-foreground text-center py-4">No deploy history</div>
+              )}
             </div>
           </CardContent>
         </Card>
 
         <Card>
-          <CardHeader>
-            <CardTitle>Active Workflows</CardTitle>
-          </CardHeader>
+          <CardHeader><CardTitle>Recent Workflows</CardTitle></CardHeader>
           <CardContent>
-            <div className="space-y-3">
-              {(data.workflows || []).slice(0, 5).map((workflow) => (
-                <div key={workflow.id} className="flex items-center justify-between p-3 rounded-lg bg-muted/30">
-                  <div className="flex-1">
-                    <div className="font-semibold text-sm">{workflow.name}</div>
-                    <div className="text-xs text-muted-foreground font-mono">{workflow.branch}</div>
+            <div className="space-y-2">
+              {(data.recentWorkflows || []).slice(0, 5).map((wf, i) => (
+                <div key={i} className="flex items-center justify-between p-2 rounded-lg bg-muted/30">
+                  <div className="flex-1 truncate">
+                    <div className="font-semibold text-xs truncate">{wf.name}</div>
+                    <div className="text-xs text-muted-foreground font-mono">{wf.head_branch}</div>
                   </div>
-                  <div className="flex items-center gap-3">
-                    <span className="font-mono text-xs text-muted-foreground">{workflow.duration}</span>
-                    <StatusBadge status={workflow.status} />
-                  </div>
+                  <StatusBadge status={wf.conclusion || wf.status} />
                 </div>
               ))}
             </div>
