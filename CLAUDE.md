@@ -306,6 +306,71 @@ curl -s -H "Authorization: token $BBVINET_TOKEN" \
 # usar mcp__github__create_or_update_file diretamente
 ```
 
+#### Metodo 4: GitHub API Direta (curl com token — VALIDADO 2026-04-07)
+```bash
+# Token: BBVINET_TOKEN (user C1342799_BBrasil, org bbvinet)
+# Permissoes: pull, push, triage nos 4 repos corporativos
+# Rate limit: 5000 req/h
+# Scopes: repo, workflow, admin:org, etc.
+
+export T="$BBVINET_TOKEN"
+
+# Ler arquivo
+curl -s -H "Authorization: token $T" \
+  "https://api.github.com/repos/bbvinet/psc-sre-automacao-agent/contents/package.json" | \
+  jq -r '.content' | base64 -d
+
+# Criar/Atualizar arquivo
+CONTENT=$(echo "conteudo" | base64 -w0)
+SHA_ATUAL=$(curl -s -H "Authorization: token $T" \
+  "https://api.github.com/repos/{repo}/contents/{path}" | jq -r '.sha')
+curl -s -X PUT -H "Authorization: token $T" \
+  "https://api.github.com/repos/{repo}/contents/{path}" \
+  -d '{"message":"msg","content":"'$CONTENT'","sha":"'$SHA_ATUAL'","committer":{"name":"github-actions","email":"github-actions@github.com"}}'
+
+# Deletar arquivo
+curl -s -X DELETE -H "Authorization: token $T" \
+  "https://api.github.com/repos/{repo}/contents/{path}" \
+  -d '{"message":"msg","sha":"'$SHA'","committer":{"name":"github-actions","email":"github-actions@github.com"}}'
+
+# Listar workflow runs
+curl -s -H "Authorization: token $T" \
+  "https://api.github.com/repos/{repo}/actions/runs?per_page=5" | \
+  jq '[.workflow_runs[] | {id, name, status, conclusion}]'
+
+# CI check runs
+curl -s -H "Authorization: token $T" \
+  "https://api.github.com/repos/{repo}/commits/{sha}/check-runs" | \
+  jq '[.check_runs[] | {name, status, conclusion}]'
+
+# Listar commits
+curl -s -H "Authorization: token $T" \
+  "https://api.github.com/repos/{repo}/commits?per_page=5" | \
+  jq '[.[] | {sha: .sha[0:7], message: .commit.message[0:80]}]'
+
+# Listar branches
+curl -s -H "Authorization: token $T" \
+  "https://api.github.com/repos/{repo}/branches" | jq '[.[] | .name]'
+```
+
+### Operacoes validadas via API (2026-04-07)
+
+| Operacao | Endpoint | Metodo | Testado |
+|----------|----------|--------|---------|
+| Auth identity | `/user` | GET | ✓ |
+| Org info | `/orgs/bbvinet` | GET | ✓ |
+| List repos | `/orgs/bbvinet/repos` | GET | ✓ |
+| Read file | `/repos/{r}/contents/{p}` | GET | ✓ |
+| Create file | `/repos/{r}/contents/{p}` | PUT | ✓ |
+| Update file | `/repos/{r}/contents/{p}` | PUT + sha | ✓ |
+| Delete file | `/repos/{r}/contents/{p}` | DELETE + sha | ✓ |
+| List branches | `/repos/{r}/branches` | GET | ✓ |
+| List commits | `/repos/{r}/commits` | GET | ✓ |
+| CI check runs | `/repos/{r}/commits/{s}/check-runs` | GET | ✓ |
+| Workflow runs | `/repos/{r}/actions/runs` | GET | ✓ |
+| Git clone+push | `git clone https://x-access-token:$T@github.com/{r}` | git | ✓ |
+| Rate limit | `/rate_limit` | GET | ✓ (5000/h) |
+
 ### CI Corporativa — Checks Conhecidos
 
 | Check | Componente | Tempo Medio |
