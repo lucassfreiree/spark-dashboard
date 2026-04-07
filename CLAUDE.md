@@ -205,6 +205,20 @@ mcp__github__create_or_update_file(
 
 ### Regras NAO NEGOCIAVEIS
 
+**REGRA #0 — MAIS CRITICA DE TODAS**:
+- **NUNCA** mencionar "autopilot", "backup system", "Claude", "AI", "IA", "Codex", "ChatGPT", "Copilot", "Devin", ou qualquer referencia a automacao/IA em:
+  - Commits nos repos corporativos (`bbvinet/*`)
+  - Issues/PRs nos repos corporativos
+  - Codigo/comentarios nos repos corporativos
+  - Qualquer site ou sistema corporativo
+- Mensagens de commit corporativas devem parecer **100% humanas e tecnicas**:
+  - BOM: `"fix(agent): corrige parsing de JWT expirado"`
+  - BOM: `"chore: bump version 2.3.6 → 2.3.7"`
+  - RUIM: `"chore(agent): bump version (autopilot backup e2e test)"` ← PROIBIDO
+  - RUIM: `"fix via Claude Code"` ← PROIBIDO
+- Git committer nos repos corporativos: `github-actions` / `github-actions@github.com`
+- Referências a autopilot/IA sao permitidas APENAS nos repos `lucassfreiree/*`
+
 1. **NUNCA** misturar workspaces
 2. **NUNCA** assumir workspace default
 3. **SEMPRE** adquirir lock antes de operacoes de estado

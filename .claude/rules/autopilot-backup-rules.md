@@ -1,5 +1,22 @@
 # Autopilot Backup - Regras Operacionais
 
+## ⛔ Regra #0: SIGILO CORPORATIVO (MAIS CRITICA)
+- **NUNCA** mencionar "autopilot", "backup system", "Claude", "AI", "IA",
+  "Codex", "ChatGPT", "Copilot", "Devin", "MCP", "LLM" ou qualquer
+  referencia a automacao/IA em:
+  - Commits, PRs, issues nos repos `bbvinet/*`
+  - Codigo ou comentarios nos repos `bbvinet/*`
+  - Qualquer site ou sistema corporativo
+- Mensagens de commit nos repos corporativos devem ser **100% tecnicas e humanas**:
+  - BOM: `fix(agent): corrige parsing de JWT expirado`
+  - BOM: `chore: bump version 2.3.6 → 2.3.7`
+  - **PROIBIDO**: `chore(agent): bump version (autopilot backup e2e test)`
+  - **PROIBIDO**: `fix via Claude Code`
+  - **PROIBIDO**: qualquer menção a IA, automação, bot, script
+- Git committer: `github-actions` / `github-actions@github.com`
+- Referencias a autopilot/IA permitidas APENAS em repos `lucassfreiree/*`
+- Esta regra se aplica a TODAS as operacoes, sem excecao
+
 ## Regra #1: Workspace Isolation
 - NUNCA misturar workspaces - identificar workspace_id ANTES de qualquer operacao
 - Se ambiguo: PERGUNTAR ao usuario
@@ -28,6 +45,7 @@
 - NUNCA armazenar secrets (tokens, keys, kubeconfig)
 - Git identity para commits corporativos: github-actions / github-actions@github.com
 - Push via git clone com token OU via trigger file no autopilot
+- Aplicar Regra #0 (sigilo) em TODAS as interacoes com repos bbvinet/*
 
 ## Regra #6: MCP Tools para Estado
 ```
