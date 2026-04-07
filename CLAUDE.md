@@ -90,10 +90,46 @@ autopilot-backup/
 
 ### Estado atual (ws-default, 2026-04-07)
 
-- **Agent**: SHA `9a48212`, tag `source-change`, status `ci-passed`
-- **Controller**: tag `3.8.2`
-- **Health**: `degraded` (1 lock ativo, drift warning)
-- **Token**: `BBVINET_TOKEN` para repos corporativos
+- **Agent**: versao `2.3.6`, SHA `2a14d57`, status `promoted`, CI 8/8 passed
+- **Controller**: versao `3.8.3`, SHA `c5ace1e`, status `promoted`, CI 7/7 passed
+- **Agent CAP**: `docker.binarios.intranet.bb.com.br/bb/psc/psc-sre-automacao-agent:2.3.6`
+- **Controller CAP**: `docker.binarios.intranet.bb.com.br/bb/psc/psc-sre-automacao-controller:3.8.3`
+- **Token**: `BBVINET_TOKEN` (PAT do user `C1342799_BBrasil`, org `bbvinet`)
+
+### Autenticacao nos repos corporativos
+
+#### Metodo principal: PAT (Personal Access Token)
+- User: `C1342799_BBrasil` (Joao Lucas Lima Freire)
+- Org: `bbvinet` (Banco do Brasil - VINET)
+- Permissoes: `pull`, `push`, `triage` nos 4 repos corporativos
+- Scopes: `repo`, `workflow`, `admin:org`, etc.
+- Rate limit: 5000 req/h
+- Variavel: `BBVINET_TOKEN` ou `~/.autopilot-token`
+
+#### Formas de fornecer o token:
+1. **Variavel de ambiente**: `export BBVINET_TOKEN="ghp_xxx..."` antes de iniciar sessao
+2. **Arquivo**: `echo "ghp_xxx..." > ~/.autopilot-token && chmod 600 ~/.autopilot-token`
+3. **Colar na sessao**: usuario fornece token diretamente quando solicitado
+
+#### OAuth Device Flow — NAO funciona para repos bbvinet
+- Script: `autopilot-backup/auth/github-auth.sh login`
+- **LIMITACAO**: Org bbvinet restringe OAuth Apps nao aprovados pelo admin
+- OAuth autentica o usuario mas retorna scopes vazios para repos privados da org
+- PAT e o unico metodo que funciona para acessar repos bbvinet/*
+
+#### Hierarquia de fallback do token:
+```
+1. $BBVINET_TOKEN (env var)
+2. ~/.autopilot-token (arquivo)
+3. $GITHUB_TOKEN (env var)
+4. Solicitar ao usuario
+```
+
+#### Script de teste de autenticacao:
+```bash
+bash autopilot-backup/auth/github-auth.sh status  # Verifica token
+bash autopilot-backup/auth/github-auth.sh test     # Testa acesso aos 4 repos
+```
 
 ### Fluxo de Release (ws-default)
 
@@ -180,13 +216,14 @@ mcp__github__create_or_update_file(
 9. **SEMPRE** validar JSON antes de escrever no state
 10. **SEMPRE** liberar lock em bloco finally
 
-### CI Corporativo (ws-default)
+### CI Corporativo (ws-default) — Validado 2026-04-07
 
-- Workflow: "Esteira de Build NPM"
-- Sucesso: ~14 min
-- Falha: ~4 min
-- Erros conhecidos: ESLint (no-nested-ternary, object-shorthand), Jest mocks
-- Politica: Proceder com deploy se falhas sao conhecidas
+- Workflow: "Esteira de Build NPM" (unico workflow ativo nos repos corporativos)
+- Tempo total: ~10-15 min (todos os checks)
+- Checks do Agent (8): valida-workflow, workflow-npm, sonarQube, checkmarx, xRay, sincronizacao, Analise Motor Liberacao, CD/autoDeploy
+- Checks do Controller (7): valida-workflow, workflow-npm, sonarQube, checkmarx, xRay, sincronizacao, Analise Motor Liberacao
+- Nota: Agent tem CD/autoDeploy automatico, controller nao
+- Politica: Proceder com deploy se falhas sao pre-existentes
 
 ### Agentes registrados
 
@@ -397,6 +434,24 @@ curl -s -H "Authorization: token $TOKEN" \
        success: [.check_runs[] | select(.conclusion=="success")] | length,
        failed: [.check_runs[] | select(.conclusion=="failure")] | length}'
 ```
+
+### Limitacoes conhecidas (2026-04-07)
+
+| Recurso | Status | Workaround |
+|---------|--------|------------|
+| GitHub Actions (`lucassfreiree/autopilot`) | Nao dispara | Usar backup system (git clone + API) |
+| OAuth Device Flow (repos bbvinet) | Sem scopes | Usar PAT diretamente |
+| GitHub Support portal | Sem acesso | Contatar support@github.com por email |
+| MCP tools (repos bbvinet) | Fora do escopo | Usar curl + PAT ou git clone |
+
+### Notas importantes para proximas sessoes
+
+1. **PAT e obrigatorio** para acessar repos corporativos - OAuth nao funciona
+2. **git config commit.gpgsign false** e necessario ao commitar em repos clonados neste ambiente
+3. **GitHub Actions podem nao disparar** - sempre ter o fluxo manual via backup system como alternativa
+4. **swagger.json tem versao desatualizada** nos repos corporativos - incluir no bump
+5. O workflow `apply-source-change.yml` no autopilot e ativado por push em `trigger/source-change.json` — funciona quando Actions estiver disponivel
+6. **Ultimo release validado**: Agent 2.3.6, Controller 3.8.3 (2026-04-07)
 
 ### Promocao CAP via API
 
