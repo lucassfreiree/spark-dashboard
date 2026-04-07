@@ -1,0 +1,57 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm:*)",
+      "Bash(npx:*)",
+      "Bash(git:*)",
+      "Bash(jq:*)",
+      "Bash(ls:*)",
+      "Bash(cat:*)",
+      "Bash(mkdir:*)",
+      "Read",
+      "Edit",
+      "Write",
+      "Glob",
+      "Grep",
+      "Agent"
+    ]
+  },
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "STATE=$(cat public/state.json 2>/dev/null | jq -c '{lastSync,controllerVersion:.controller.version,agentVersion:.agent.version,pipelineStatus:.pipeline.status}' 2>/dev/null || echo '{}'); TYPES_OK=$(npx tsc --noEmit 2>&1 | tail -5 || echo 'tsc not available'); echo '{\"hookSpecificOutput\":{\"hookEventName\":\"SessionStart\",\"dashboardState\":\"'\"$STATE\"'\",\"typeCheck\":\"'\"$TYPES_OK\"'\"}}'",
+            "timeout": 30,
+            "statusMessage": "Loading dashboard state + type check..."
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "CMD=$(echo \"$CLAUDE_TOOL_INPUT\" | jq -r '.command // \"\"' 2>/dev/null || echo \"\"); if echo \"$CMD\" | grep -qE '(mockData|mock[Dd]ata|MOCK_|fakeDat)'; then echo '{\"decision\":\"block\",\"reason\":\"BLOCKED: Mock/fake data is forbidden in production dashboard. Only real state.json data allowed.\"}'; else echo '{\"decision\":\"approve\"}'; fi",
+            "timeout": 3,
+            "statusMessage": "No-mock-data check..."
+          }
+        ]
+      },
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "FILE=$(echo \"$CLAUDE_TOOL_INPUT\" | jq -r '.file_path // \"\"' 2>/dev/null || echo \"\"); if echo \"$FILE\" | grep -qE 'state\\.json$'; then echo '{\"systemMessage\":\"WARNING: Editing state.json directly. This file is auto-synced from autopilot repo. Local changes will be overwritten on next sync.\"}'; fi; echo '{\"decision\":\"approve\"}'",
+            "timeout": 3,
+            "statusMessage": "State.json protection check..."
+          }
+        ]
+      }
+    ]
+  }
+}
