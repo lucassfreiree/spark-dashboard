@@ -25,7 +25,7 @@ export interface DashboardState {
   workspaces: Workspace[]
   recentWorkflows: WorkflowRun[]
   openPRs: PullRequest[]
-  deployHistory: Deploy[]
+  deployHistory: string[]
   lessonsLearned: LessonsLearned
   versionRules: VersionRules
   executionHistory: ExecutionEntry[]

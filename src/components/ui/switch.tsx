@@ -1,30 +1,35 @@
-"use client"
-
-import { ComponentProps } from "react"
-import * as SwitchPrimitive from "@radix-ui/react-switch"
-
 import { cn } from "@/lib/utils"
 
-function Switch({
-  className,
-  ...props
-}: ComponentProps<typeof SwitchPrimitive.Root>) {
+interface SwitchProps {
+  checked?: boolean
+  onCheckedChange?: (checked: boolean) => void
+  disabled?: boolean
+  className?: string
+  id?: string
+}
+
+function Switch({ checked, onCheckedChange, disabled, className, id }: SwitchProps) {
   return (
-    <SwitchPrimitive.Root
-      data-slot="switch"
+    <button
+      id={id}
+      role="switch"
+      type="button"
+      aria-checked={checked}
+      disabled={disabled}
+      onClick={() => onCheckedChange?.(!checked)}
       className={cn(
-        "peer data-[state=checked]:bg-primary data-[state=unchecked]:bg-input focus-visible:border-ring focus-visible:ring-ring/50 dark:data-[state=unchecked]:bg-input/80 inline-flex h-[1.15rem] w-8 shrink-0 items-center rounded-full border border-transparent shadow-xs transition-all outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50",
+        "inline-flex h-5 w-9 shrink-0 items-center rounded-full border border-transparent shadow-xs transition-all outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50",
+        checked ? "bg-primary" : "bg-input",
         className
       )}
-      {...props}
     >
-      <SwitchPrimitive.Thumb
-        data-slot="switch-thumb"
+      <span
         className={cn(
-          "bg-background dark:data-[state=unchecked]:bg-foreground dark:data-[state=checked]:bg-primary-foreground pointer-events-none block size-4 rounded-full ring-0 transition-transform data-[state=checked]:translate-x-[calc(100%-2px)] data-[state=unchecked]:translate-x-0"
+          "pointer-events-none block size-4 rounded-full bg-background shadow-sm ring-0 transition-transform",
+          checked ? "translate-x-4" : "translate-x-0"
         )}
       />
-    </SwitchPrimitive.Root>
+    </button>
   )
 }
 
