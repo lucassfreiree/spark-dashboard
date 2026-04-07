@@ -222,3 +222,131 @@ TTL: 30 min default, 120 min max
 - config.json: JSON valido, 4 workspaces, repos corretos
 - session-guard.sh: is-expired com datas passadas/futuras OK
 - MCP real: workspace.json, agent-release-state, health.json lidos com sucesso
+
+### Release E2E Real Validado (2026-04-07)
+
+**Primeiro release completo executado 100% via backup system, sem GitHub Actions.**
+
+#### O que foi feito:
+1. Clone dos repos corporativos via `git clone` com `BBVINET_TOKEN`
+2. Version bump em 3 arquivos (package.json, package-lock.json, swagger.json)
+3. Push para `main` dos repos corporativos
+4. Monitoramento de CI corporativa via GitHub API (`/commits/{sha}/check-runs`)
+5. Promocao CAP: atualizacao de `values.yaml` nos repos de deploy via API
+6. Atualizacao do release state no branch `autopilot-state`
+7. Escrita de audit entry
+
+#### Resultado:
+| Componente | Versao | CI Checks | CAP |
+|-----------|--------|-----------|-----|
+| Agent | 2.3.5 → 2.3.6 | 8/8 passed | `agent:2.3.6` |
+| Controller | 3.8.2 → 3.8.3 | 7/7 passed | `controller:3.8.3` |
+
+#### Repos tocados:
+- `bbvinet/psc-sre-automacao-agent` — version bump push
+- `bbvinet/psc-sre-automacao-controller` — version bump push
+- `bbvinet/psc_releases_cap_sre-aut-agent` — image tag atualizada
+- `bbvinet/psc_releases_cap_sre-aut-controller` — image tag atualizada
+- `lucassfreiree/autopilot` (autopilot-state) — release state + audit
+
+#### Arquivos que precisam de bump em cada release:
+- `package.json` (versao principal)
+- `package-lock.json` (versao no topo)
+- `src/swagger/swagger.json` (campo `info.version`)
+
+### Como executar um release via backup system
+
+#### Pre-requisitos:
+- Token com acesso aos repos corporativos (ex: `BBVINET_TOKEN`)
+- Acesso MCP ao `lucassfreiree/autopilot` para state/audit
+
+#### Metodo 1: Git Clone + Push (token disponivel)
+```bash
+# 1. Exportar token
+export BBVINET_TOKEN="ghp_xxx..."
+
+# 2. Clonar repo
+git clone "https://x-access-token:${BBVINET_TOKEN}@github.com/bbvinet/psc-sre-automacao-agent.git" /tmp/corp-agent
+
+# 3. Configurar git identity
+cd /tmp/corp-agent
+git config commit.gpgsign false
+git config user.name "github-actions"
+git config user.email "github-actions@github.com"
+
+# 4. Bump version (usar version-bump.sh ou sed)
+sed -i 's/"version": "X.Y.Z"/"version": "X.Y.W"/g' package.json package-lock.json
+sed -i 's/"version": "OLD"/"version": "X.Y.W"/' src/swagger/swagger.json
+
+# 5. Commit e push
+git add -A && git commit -m "chore(agent): bump version X.Y.Z → X.Y.W"
+git push "https://x-access-token:${BBVINET_TOKEN}@github.com/bbvinet/psc-sre-automacao-agent.git" main
+
+# 6. Monitorar CI
+curl -s -H "Authorization: token $BBVINET_TOKEN" \
+  "https://api.github.com/repos/bbvinet/psc-sre-automacao-agent/commits/{SHA}/check-runs" | \
+  jq '[.check_runs[] | {name, status, conclusion}]'
+
+# 7. Promover CAP (atualizar values.yaml)
+# Ler values.yaml atual, substituir tag, push via API
+
+# 8. Atualizar state via MCP
+# mcp__github__create_or_update_file no autopilot-state
+```
+
+#### Metodo 2: Trigger File (GitHub Actions disponivel)
+```
+# Push trigger/source-change.json no branch main do autopilot
+# O workflow apply-source-change.yml faz tudo automaticamente
+```
+
+#### Metodo 3: MCP Direto (repos no escopo MCP)
+```
+# Se os repos bbvinet/* estiverem no escopo MCP da sessao,
+# usar mcp__github__create_or_update_file diretamente
+```
+
+### CI Corporativa — Checks Conhecidos
+
+| Check | Componente | Tempo Medio |
+|-------|-----------|-------------|
+| `CI / valida-workflow` | Ambos | ~30s |
+| `CI / workflow-npm` (Esteira de Build NPM) | Ambos | ~5-8min |
+| `CI / sonarQube` | Ambos | ~3min |
+| `CI / checkmarx` | Ambos | ~2min |
+| `CI / xRay` | Ambos | ~5min |
+| `CI / sincronizacao` | Ambos | ~1min |
+| `CI / Análise Motor Liberação` | Ambos | ~2min |
+| `CD (desenvolvimento) / autoDeploy` | Agent | ~3min |
+
+**Tempo total**: ~10-15min do push ate todos os checks completarem
+
+### Monitoramento de CI via API
+
+```bash
+# Verificar status de todos os checks de um commit
+curl -s -H "Authorization: token $TOKEN" \
+  "https://api.github.com/repos/{owner}/{repo}/commits/{sha}/check-runs" | \
+  jq '{total: .total_count,
+       completed: [.check_runs[] | select(.status=="completed")] | length,
+       success: [.check_runs[] | select(.conclusion=="success")] | length,
+       failed: [.check_runs[] | select(.conclusion=="failure")] | length}'
+```
+
+### Promocao CAP via API
+
+```bash
+# 1. Ler values.yaml atual
+CONTENT=$(curl -s -H "Authorization: token $TOKEN" \
+  "https://api.github.com/repos/{cap_repo}/contents/{path}" | jq -r '.content' | base64 -d)
+SHA=$(curl -s -H "Authorization: token $TOKEN" \
+  "https://api.github.com/repos/{cap_repo}/contents/{path}" | jq -r '.sha')
+
+# 2. Substituir tag da imagem
+UPDATED=$(echo "$CONTENT" | sed 's|psc-sre-automacao-{component}:OLD|psc-sre-automacao-{component}:NEW|g')
+
+# 3. Push atualizado
+curl -s -X PUT -H "Authorization: token $TOKEN" \
+  "https://api.github.com/repos/{cap_repo}/contents/{path}" \
+  -d '{"message":"chore(release): {component} → {version}","content":"'$(echo "$UPDATED" | base64 -w0)'","sha":"'$SHA'","branch":"main"}'
+```
