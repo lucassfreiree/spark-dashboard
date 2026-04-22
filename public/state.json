@@ -1,8 +1,8 @@
 {
-  "lastSync": "2026-04-08T11:40:00Z",
-  "syncSource": "claude/autonomous-sweep-20260408",
+  "lastSync": "2026-04-22T18:35:40Z",
+  "syncSource": "autopilot/spark-sync-state.yml",
   "controller": {
-    "version": "3.8.3",
+    "version": "3.9.2",
     "status": "promoted",
     "ciResult": "success",
     "promoted": true,
@@ -13,7 +13,7 @@
     "stack": "Node 22, TypeScript, Express, Jest, SQLite, S3"
   },
   "agent": {
-    "version": "2.3.6",
+    "version": "2.6.1",
     "status": "promoted",
     "ciResult": "success",
     "promoted": true,
@@ -25,22 +25,22 @@
   },
   "pipeline": {
     "status": "success",
-    "lastRun": 104,
-    "component": "both",
-    "version": "controller-3.8.3/agent-2.3.6",
+    "lastRun": 105,
+    "component": "controller",
+    "version": "3.6.8",
     "promote": true,
     "workspace": "GETRONICS | ws-default | BBVINET_TOKEN",
-    "changeType": "backup-system-direct-push",
-    "commitMessage": "chore: bump versions controller 3.8.2->3.8.3, agent 2.3.5->2.3.6 (autopilot backup e2e test)",
-    "changesCount": 2
+    "changeType": "multi-file",
+    "commitMessage": "fix(controller): accept OAS functions and copy_resources contract (3.6.8)",
+    "changesCount": 6
   },
   "agents": {
     "claude": {
       "status": "active",
-      "task": "Autonomous sweep — fix stale state, version drift, health status",
+      "task": "Autonomous sweep — fix stale state, version drift, health degraded",
       "phase": "executing",
       "lastUpdated": "2026-04-08T11:40:00Z",
-      "lastAction": "autonomous-sweep-fix-drift"
+      "lastAction": "autonomous-sweep-fix-drift-and-health"
     },
     "copilot": {
       "sessionCount": 5,
@@ -106,15 +106,15 @@
   },
   "sessionLock": {
     "agentId": "none",
-    "expiresAt": null,
-    "acquiredAt": null,
-    "operation": null
+    "expiresAt": "2026-04-07T20:05:00Z",
+    "acquiredAt": "2026-04-07T19:35:00Z",
+    "operation": "e2e-validation-test"
   },
   "health": {
     "schemaVersion": 2,
     "workspaceId": "ws-default",
-    "checkedAt": "2026-04-08T11:40:00Z",
-    "overall": "healthy",
+    "checkedAt": "2026-04-05T03:34:50Z",
+    "overall": "degraded",
     "checks": {
       "workspace": {
         "status": "pass",
@@ -122,28 +122,28 @@
       },
       "controllerRelease": {
         "status": "pass",
-        "message": "Tag: 3.8.3",
-        "detail": "Age: 16h"
+        "message": "Tag: 3.8.2",
+        "detail": "Age: 57h"
       },
       "agentRelease": {
         "status": "pass",
-        "message": "Tag: 2.3.6",
-        "detail": "Age: 16h"
+        "message": "Tag: source-change",
+        "detail": "Age: 130h"
       },
       "stuckRuns": {
         "status": "pass",
         "message": "None"
       },
       "locks": {
-        "status": "pass",
-        "message": "0 active locks (gc cleared)"
+        "status": "warn",
+        "message": "1 active locks"
       },
       "drift": {
-        "status": "pass",
-        "message": "0 commits ahead (backup deploy synced)"
+        "status": "warn",
+        "message": "? commits ahead"
       }
     },
-    "summary": "healthy at 2026-04-08T11:40:00Z"
+    "summary": "degraded at 2026-04-05T03:34:50Z"
   },
   "ciMonitor": {
     "workspaceId": "ws-default",
@@ -156,38 +156,38 @@
     "failedRunUrl": ""
   },
   "pipelineStatus": {
-    "updatedAt": "2026-04-08T11:40:00Z",
+    "updatedAt": "2026-04-05T02:53:59Z",
     "workspaceId": "ws-default",
     "overallHealth": "ok",
-    "monitorRunId": "backup-system-direct-push",
-    "triggerEvent": "autonomous-sweep",
+    "monitorRunId": "23992893666",
+    "triggerEvent": "schedule",
     "autoDispatched": "",
     "components": {
       "agent": {
-        "version": "2.3.6",
-        "deployedAt": "2026-04-07T20:05:00Z",
-        "deployRunId": "backup-system-direct-push",
+        "version": "source-change",
+        "deployedAt": "2026-03-30T16:42:43Z",
+        "deployRunId": "23755765756",
         "ciGateResult": "success",
         "gateDecision": "pass",
         "ciMonitorResult": "success",
-        "ciMonitorAt": "2026-04-07T20:05:00Z",
+        "ciMonitorAt": "2026-03-30T16:43:07Z",
         "stage": "idle",
         "health": "ok",
         "actionTaken": "none",
-        "deployAge": "935min"
+        "deployAge": "7811min"
       },
       "controller": {
-        "version": "3.8.3",
-        "deployedAt": "2026-04-07T20:05:00Z",
-        "deployRunId": "backup-system-direct-push",
+        "version": "3.8.2",
+        "deployedAt": "2026-04-02T17:40:58Z",
+        "deployRunId": "23913111241",
         "ciGateResult": "success",
         "gateDecision": "pass",
         "ciMonitorResult": "success",
-        "ciMonitorAt": "2026-04-07T20:05:00Z",
+        "ciMonitorAt": "2026-04-02T17:41:23Z",
         "stage": "idle",
         "health": "ok",
         "actionTaken": "none",
-        "deployAge": "935min"
+        "deployAge": "3433min"
       }
     }
   },
@@ -198,8 +198,8 @@
       "status": "active",
       "stack": "Node/TypeScript (NestJS, Jest, ESLint)",
       "token": "BBVINET_TOKEN",
-      "controllerVersion": "3.8.3",
-      "agentVersion": "2.3.6",
+      "controllerVersion": "3.9.2",
+      "agentVersion": "2.6.1",
       "pipelineStatus": "success",
       "repos": [
         "psc-sre-automacao-controller",
@@ -222,204 +222,204 @@
   ],
   "recentWorkflows": [
     {
+      "conclusion": "skipped",
+      "created": "2026-04-22T18:35:24Z",
+      "event": "issue_comment",
+      "head_branch": "main",
+      "name": "Claude responding to @claude mention",
+      "run_number": 365,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24795838362"
+    },
+    {
       "conclusion": null,
-      "created": "2026-04-05T02:56:55Z",
-      "event": "schedule",
+      "created": "2026-04-22T18:35:22Z",
+      "event": "push",
+      "head_branch": "main",
+      "name": "[Corp] Deploy: Apply Source Change • push • ws=n/a • ref=main",
+      "run_number": 104,
+      "status": "in_progress",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24795836400"
+    },
+    {
+      "conclusion": null,
+      "created": "2026-04-22T18:35:22Z",
+      "event": "push",
+      "head_branch": "main",
+      "name": "Auto-Fix on Push",
+      "run_number": 16,
+      "status": "in_progress",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24795836387"
+    },
+    {
+      "conclusion": "failure",
+      "created": "2026-04-22T18:35:22Z",
+      "event": "push",
+      "head_branch": "main",
+      "name": "Security Scorecard",
+      "run_number": 16,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24795836375"
+    },
+    {
+      "conclusion": null,
+      "created": "2026-04-22T18:35:22Z",
+      "event": "push",
       "head_branch": "main",
       "name": "[Infra] Spark Dashboard Sync • sync state to Spark dashboard",
-      "run_number": 293,
+      "run_number": 294,
       "status": "in_progress",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23992935911"
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24795836373"
+    },
+    {
+      "conclusion": null,
+      "created": "2026-04-22T18:35:22Z",
+      "event": "push",
+      "head_branch": "main",
+      "name": "Feature Validation Sweep",
+      "run_number": 21,
+      "status": "in_progress",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24795836365"
     },
     {
       "conclusion": "success",
-      "created": "2026-04-05T02:53:53Z",
-      "event": "schedule",
-      "head_branch": "main",
-      "name": "[Core] Deploy Pipeline Monitor • schedule • scheduled",
-      "run_number": 122,
+      "created": "2026-04-22T18:35:21Z",
+      "event": "pull_request",
+      "head_branch": "codex/deploy-controller-oas-v3.6.8",
+      "name": "[Infra] Cleanup: Stale Branches • pull_request • ws=n/a • ref=main",
+      "run_number": 438,
       "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23992893666"
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24795836152"
+    },
+    {
+      "conclusion": null,
+      "created": "2026-04-22T18:35:21Z",
+      "event": "pull_request_target",
+      "head_branch": "codex/deploy-controller-oas-v3.6.8",
+      "name": "[Core] Post-Merge Monitor • PR #549 • codex/deploy-controller-oas-v3.6.8",
+      "run_number": 270,
+      "status": "queued",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24795836128"
     },
     {
       "conclusion": "success",
-      "created": "2026-04-05T02:47:50Z",
-      "event": "schedule",
-      "head_branch": "main",
+      "created": "2026-04-22T18:35:13Z",
+      "event": "pull_request_target",
+      "head_branch": "codex/deploy-controller-oas-v3.6.8",
       "name": "[Core] Smart PR Manager • sweep open PRs",
-      "run_number": 443,
+      "run_number": 444,
       "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23992810416"
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24795828476"
+    },
+    {
+      "conclusion": null,
+      "created": "2026-04-22T18:35:13Z",
+      "event": "pull_request",
+      "head_branch": "codex/deploy-controller-oas-v3.6.8",
+      "name": "[Agent] Quality Gate",
+      "run_number": 31,
+      "status": "queued",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24795828448"
+    },
+    {
+      "conclusion": null,
+      "created": "2026-04-22T18:35:13Z",
+      "event": "pull_request_target",
+      "head_branch": "codex/deploy-controller-oas-v3.6.8",
+      "name": "[Core] Autonomous Direct Merge • PR #549 • codex/deploy-controller-oas-v3.6.8 → main",
+      "run_number": 338,
+      "status": "in_progress",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24795828440"
     },
     {
       "conclusion": "success",
-      "created": "2026-04-05T02:45:35Z",
-      "event": "check_run",
-      "head_branch": "main",
-      "name": "[Core] CI Self-Heal • check_run • Vercel Preview Comments",
-      "run_number": 211,
+      "created": "2026-04-22T18:35:13Z",
+      "event": "pull_request",
+      "head_branch": "codex/deploy-controller-oas-v3.6.8",
+      "name": "[Core] PR Auto-Review • PR #549",
+      "run_number": 110,
       "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23992778552"
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24795828402"
     },
     {
       "conclusion": "success",
-      "created": "2026-04-05T02:45:33Z",
-      "event": "check_run",
-      "head_branch": "main",
-      "name": "[Core] CI Self-Heal • check_run • Vercel Preview Comments",
-      "run_number": 210,
+      "created": "2026-04-22T18:35:13Z",
+      "event": "pull_request_target",
+      "head_branch": "codex/deploy-controller-oas-v3.6.8",
+      "name": "PR Auto-Label",
+      "run_number": 18,
       "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23992778237"
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24795828401"
+    },
+    {
+      "conclusion": null,
+      "created": "2026-04-22T18:35:13Z",
+      "event": "pull_request",
+      "head_branch": "codex/deploy-controller-oas-v3.6.8",
+      "name": "[Core] Compliance Gate • auto",
+      "run_number": 42,
+      "status": "in_progress",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24795828374"
     },
     {
       "conclusion": "success",
-      "created": "2026-04-05T02:45:33Z",
-      "event": "check_run",
+      "created": "2026-04-22T18:24:39Z",
+      "event": "workflow_dispatch",
       "head_branch": "main",
-      "name": "[Core] CI Self-Heal • check_run • Vercel Preview Comments",
-      "run_number": 209,
+      "name": "[Corp] Fetch: Source Files • workflow_dispatch • ws=ws-default • ref=main",
+      "run_number": 31,
       "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23992778165"
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24795338165"
     },
     {
       "conclusion": "success",
-      "created": "2026-04-05T02:45:33Z",
-      "event": "check_run",
+      "created": "2026-04-22T18:24:19Z",
+      "event": "workflow_dispatch",
       "head_branch": "main",
-      "name": "[Core] CI Self-Heal • check_run • Vercel Preview Comments",
-      "run_number": 208,
+      "name": "[Corp] Check: Repo Access • workflow_dispatch • ws=n/a • ref=main",
+      "run_number": 8,
       "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23992778089"
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24795323371"
     },
     {
-      "conclusion": "success",
-      "created": "2026-04-05T02:45:33Z",
-      "event": "check_run",
+      "conclusion": "failure",
+      "created": "2026-04-22T18:12:48Z",
+      "event": "workflow_dispatch",
       "head_branch": "main",
-      "name": "[Core] CI Self-Heal • check_run • Vercel Preview Comments",
-      "run_number": 207,
+      "name": "[Corp] Check: Repo Access • workflow_dispatch • ws=n/a • ref=main",
+      "run_number": 7,
       "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23992778075"
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24794793143"
     },
     {
-      "conclusion": "success",
-      "created": "2026-04-05T02:45:32Z",
-      "event": "check_run",
+      "conclusion": "failure",
+      "created": "2026-04-22T18:12:12Z",
+      "event": "workflow_dispatch",
       "head_branch": "main",
-      "name": "[Core] CI Self-Heal • check_run • Vercel Preview Comments",
-      "run_number": 206,
+      "name": "[Corp] Fetch: Source Files • workflow_dispatch • ws=ws-default • ref=main",
+      "run_number": 30,
       "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23992778056"
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24794766080"
     },
     {
-      "conclusion": "success",
-      "created": "2026-04-05T02:45:32Z",
-      "event": "check_run",
+      "conclusion": "skipped",
+      "created": "2026-04-21T12:08:42Z",
+      "event": "issue_comment",
       "head_branch": "main",
-      "name": "[Core] CI Self-Heal • check_run • Vercel Preview Comments",
-      "run_number": 205,
+      "name": "Claude responding to @claude mention",
+      "run_number": 364,
       "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23992778053"
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24721511817"
     },
     {
-      "conclusion": "success",
-      "created": "2026-04-05T02:45:32Z",
-      "event": "check_run",
+      "conclusion": "skipped",
+      "created": "2026-04-21T12:08:23Z",
+      "event": "issue_comment",
       "head_branch": "main",
-      "name": "[Core] CI Self-Heal • check_run • Vercel Preview Comments",
-      "run_number": 204,
+      "name": "Claude responding to @claude mention",
+      "run_number": 363,
       "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23992778017"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-04-05T02:45:32Z",
-      "event": "check_run",
-      "head_branch": "main",
-      "name": "[Core] CI Self-Heal • check_run • Vercel Preview Comments",
-      "run_number": 203,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23992778008"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-04-05T02:45:32Z",
-      "event": "check_run",
-      "head_branch": "main",
-      "name": "[Core] CI Self-Heal • check_run • Vercel Preview Comments",
-      "run_number": 202,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23992777987"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-04-05T02:45:32Z",
-      "event": "check_run",
-      "head_branch": "main",
-      "name": "[Core] CI Self-Heal • check_run • Vercel Preview Comments",
-      "run_number": 201,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23992777975"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-04-05T02:45:32Z",
-      "event": "check_run",
-      "head_branch": "main",
-      "name": "[Core] CI Self-Heal • check_run • Vercel Preview Comments",
-      "run_number": 200,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23992777948"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-04-05T02:45:32Z",
-      "event": "check_run",
-      "head_branch": "main",
-      "name": "[Core] CI Self-Heal • check_run • Vercel Preview Comments",
-      "run_number": 199,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23992777927"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-04-05T02:45:32Z",
-      "event": "check_run",
-      "head_branch": "main",
-      "name": "[Core] CI Self-Heal • check_run • Vercel Preview Comments",
-      "run_number": 198,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23992777922"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-04-05T02:45:32Z",
-      "event": "check_run",
-      "head_branch": "main",
-      "name": "[Core] CI Self-Heal • check_run • Vercel Preview Comments",
-      "run_number": 197,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23992777921"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-04-05T02:45:32Z",
-      "event": "check_run",
-      "head_branch": "main",
-      "name": "[Core] CI Self-Heal • check_run • Vercel Preview Comments",
-      "run_number": 196,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23992777905"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-04-05T02:45:32Z",
-      "event": "check_run",
-      "head_branch": "main",
-      "name": "[Core] CI Self-Heal • check_run • Vercel Preview Comments",
-      "run_number": 195,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/23992777888"
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24721498306"
     }
   ],
   "openPRs": [],
@@ -635,11 +635,11 @@
     ]
   },
   "versionRules": {
-    "currentController": "3.8.2",
+    "currentController": "3.8.3",
     "currentAgent": "2.3.3",
     "pattern": "After X.Y.9 next is X.(Y+1).0 — NEVER X.Y.10",
-    "lastTriggerRun": 103,
-    "lastSuccessfulRun": 103
+    "lastTriggerRun": 104,
+    "lastSuccessfulRun": 104
   },
   "executionHistory": [
     {
@@ -671,6 +671,26 @@
       "id": null,
       "date": "2026-04-04",
       "summary": "Autonomous control plane audit - full 6-phase inspection (session 2)"
+    },
+    {
+      "id": null,
+      "date": "2026-04-05",
+      "summary": "Autonomous control plane patrol — full 6-phase inspection (session 3)"
+    },
+    {
+      "id": null,
+      "date": "2026-04-07",
+      "summary": "Full 6-phase autonomous ops patrol. Findings: (1) No active CI failures — TS5103 error in logs is pre-v3.8.2, controller promoted at v3.8.2, agent ci-passed at v2.3.3. (2) CI monitors stale — last ran April 2 (5 days). (3) Dashboard state.json stale — lastSync April 5 (2 days). (4) All 86 workflows healthy per workflow-health-report. (5) Workspace health degraded for ws-default and ws-cit due to phantom locks and drift warnings. (6) All 83 active workflows mapped in CLAUDE.md, only trigger/test-marker.txt unmapped. (7) No pending deploys — patches are historical references from prior releases. (8) Session memory updated with patrol findings."
+    },
+    {
+      "id": null,
+      "date": "2026-04-08",
+      "summary": "Full autonomous sweep. Fixed: (1) Dashboard state.json stale 3 days — updated controller 3.8.2->3.8.3, agent 2.3.3->2.3.6 from autopilot-state. (2) Health degraded false-positive — lock already released by GC, cleared lock/drift warnings for all 4 workspaces. (3) Live status stale — updated controller 3.7.3->3.8.3, agent 2.3.3->2.3.6. (4) Session memory versions updated. (5) Spark-dashboard state.json synced. (6) No CI failures detected. (7) No pending deploys requiring action. All pipelines green."
+    },
+    {
+      "id": null,
+      "date": "2026-04-09",
+      "summary": "Autonomous ops monitoring: verified CI health (both green), fixed CLAUDE.md version refs (3.8.2->3.8.3, 2.3.3->2.3.6), fixed session memory versioningRules (3.8.2->3.8.3). Dashboard already synced by PR #545. No active failures."
     }
   ],
   "knownErrors": [
@@ -768,41 +788,72 @@
   "corporateReal": {
     "description": "REAL versions from corporate repos — source of truth. Other people may deploy independently.",
     "controller": {
-      "sourceVersion": "3.8.2",
-      "capTag": "3.8.2",
+      "sourceVersion": "3.9.2",
+      "capTag": "3.9.2",
       "recentCommits": [
         {
-          "author": "github-actions",
-          "date": "2026-04-02T17:26:25Z",
-          "message": "fix(controller): fix TS2769 expiresIn type — use numeric seconds for jwt.sign (v",
-          "sha": "b95c3470"
+          "author": "Joao Lucas Lima Freire",
+          "date": "2026-04-20T13:19:20Z",
+          "message": "chore: bump version to 3.9.2 (pipeline smoke test) (#26)\n\nCo-authored-by: C13427",
+          "sha": "a0ec12dd"
         },
         {
-          "author": "github-actions",
-          "date": "2026-04-02T17:07:30Z",
-          "message": "fix(controller): generate outbound JWT for agent dispatch + bump to 3.8.1 (v3.8.",
-          "sha": "f4fdc8a2"
+          "author": "Joao Lucas Lima Freire",
+          "date": "2026-04-17T14:47:01Z",
+          "message": "feat(oas): support all automations + fix lint/lock (v3.9.1) (#25)\n\n* fix(lock): ",
+          "sha": "2ad1ae80"
         },
         {
-          "author": "github-actions",
-          "date": "2026-04-02T16:59:32Z",
-          "message": "fix(controller): generate outbound JWT for agent dispatch instead of forwarding ",
-          "sha": "17f3afb7"
+          "author": "Joao Lucas Lima Freire",
+          "date": "2026-04-17T14:31:33Z",
+          "message": "fix(lock): restore ci-info version to 3.9.0 (v3.9.1) (#24)\n\n* feat(oas): support",
+          "sha": "5ebb7b8b"
         },
         {
-          "author": "github-actions",
-          "date": "2026-04-02T16:15:34Z",
-          "message": "fix(controller): align unit test statusEndpoint with /api/ prefix (v3.8.0)",
-          "sha": "7046c28b"
+          "author": "aic-workflow-autoupdate[bot]",
+          "date": "2026-04-17T14:25:02Z",
+          "message": "Alteração automática de arquivo executada pela action aic-action-commit \n\nAtuali",
+          "sha": "fe27fa83"
         },
         {
-          "author": "github-actions",
-          "date": "2026-04-02T16:01:49Z",
-          "message": "fix(controller): fix cronjob callback routes — /agent/ to /api/ prefix + registe",
-          "sha": "79e06847"
+          "author": "Joao Lucas Lima Freire",
+          "date": "2026-04-17T14:24:32Z",
+          "message": "feat(oas): support all automations via POST /oas/sre-controller (v3.9.1) (#23)\n\n",
+          "sha": "09e85819"
         }
       ],
       "builds": [
+        {
+          "checks": [
+            {
+              "conclusion": "success",
+              "name": "CD (desenvolvimento) / autoDeploy",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "CI / Análise Motor Liberação",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "CI / checkmarx",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "CI / sonarQube",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "CI / sincronizacao",
+              "status": "completed"
+            }
+          ],
+          "sha": "a0ec12dd",
+          "total": 8
+        },
         {
           "checks": [
             {
@@ -822,7 +873,7 @@
             },
             {
               "conclusion": "success",
-              "name": "CI / xRay",
+              "name": "CI / checkmarx",
               "status": "completed"
             },
             {
@@ -831,111 +882,85 @@
               "status": "completed"
             }
           ],
-          "sha": "b95c3470",
+          "sha": "2ad1ae80",
           "total": 8
         },
         {
-          "checks": [
-            {
-              "conclusion": "skipped",
-              "name": "CD (desenvolvimento)",
-              "status": "completed"
-            },
-            {
-              "conclusion": "skipped",
-              "name": "CI / sonarQube",
-              "status": "completed"
-            },
-            {
-              "conclusion": "skipped",
-              "name": "CI / Análise Motor Liberação",
-              "status": "completed"
-            },
-            {
-              "conclusion": "skipped",
-              "name": "CI / checkmarx",
-              "status": "completed"
-            },
-            {
-              "conclusion": "skipped",
-              "name": "CI / xRay",
-              "status": "completed"
-            }
-          ],
-          "sha": "f4fdc8a2",
-          "total": 8
-        },
-        {
-          "checks": [
-            {
-              "conclusion": "skipped",
-              "name": "CD (desenvolvimento)",
-              "status": "completed"
-            },
-            {
-              "conclusion": "skipped",
-              "name": "CI / Análise Motor Liberação",
-              "status": "completed"
-            },
-            {
-              "conclusion": "skipped",
-              "name": "CI / checkmarx",
-              "status": "completed"
-            },
-            {
-              "conclusion": "skipped",
-              "name": "CI / xRay",
-              "status": "completed"
-            },
-            {
-              "conclusion": "skipped",
-              "name": "CI / sonarQube",
-              "status": "completed"
-            }
-          ],
-          "sha": "17f3afb7",
-          "total": 8
+          "checks": [],
+          "sha": "5ebb7b8b",
+          "total": 0
         }
       ],
-      "drift": false,
-      "driftDetail": null
+      "drift": true,
+      "driftDetail": "autopilot=3.8.3 real=3.9.2"
     },
     "agent": {
-      "sourceVersion": "2.3.3",
-      "capTag": "2.3.3",
+      "sourceVersion": "2.6.2",
+      "capTag": "2.6.1",
       "recentCommits": [
         {
-          "author": "github-actions",
-          "date": "2026-03-30T16:31:03Z",
-          "message": "fix(agent): fix body-parser strict mode in test (#930188)",
-          "sha": "9a482123"
+          "author": "Joao Antonio Simao Neto",
+          "date": "2026-04-20T20:48:15Z",
+          "message": "fix: Ajusta logs dos jobs e outros logs",
+          "sha": "d396b7ff"
         },
         {
-          "author": "github-actions",
-          "date": "2026-03-30T14:42:31Z",
-          "message": "fix(agent): move test to unit dir, correct import paths (#930188)",
-          "sha": "169879ad"
+          "author": "Joao Antonio Simao Neto",
+          "date": "2026-04-20T14:33:01Z",
+          "message": "fix: corrige formatAutoRegisterSettings e remove codigo morto do\n  copy_resource",
+          "sha": "c6c00c2e"
         },
         {
-          "author": "github-actions",
-          "date": "2026-03-30T14:30:33Z",
-          "message": "fix(agent): fix timer leak and test mock in cronjob-callback (#930188)",
-          "sha": "ad0bfca3"
+          "author": "Joao Antonio Simao Neto",
+          "date": "2026-04-20T14:24:09Z",
+          "message": "feat: libera actions remove e apply para copy_resources (v2.6.0)",
+          "sha": "523ac307"
         },
         {
-          "author": "github-actions",
-          "date": "2026-03-30T13:27:49Z",
-          "message": "fix(agent): correct test import paths for cronjob-callback (#930188)",
-          "sha": "e3834f99"
+          "author": "Joao Antonio Simao Neto",
+          "date": "2026-04-17T20:30:39Z",
+          "message": "chore: bump version 2.5.1",
+          "sha": "1956a74a"
         },
         {
-          "author": "github-actions",
-          "date": "2026-03-30T13:08:19Z",
-          "message": "feat(agent): implement cronjob callback endpoint (#930188)",
-          "sha": "e4fb515f"
+          "author": "Joao Antonio Simao Neto",
+          "date": "2026-04-17T18:47:03Z",
+          "message": "retira teste commit",
+          "sha": "63377c69"
         }
       ],
       "builds": [
+        {
+          "checks": [
+            {
+              "conclusion": "skipped",
+              "name": "CD (desenvolvimento)",
+              "status": "completed"
+            },
+            {
+              "conclusion": "skipped",
+              "name": "CI / Análise Motor Liberação",
+              "status": "completed"
+            },
+            {
+              "conclusion": "skipped",
+              "name": "CI / xRay",
+              "status": "completed"
+            },
+            {
+              "conclusion": "skipped",
+              "name": "CI / checkmarx",
+              "status": "completed"
+            },
+            {
+              "conclusion": "skipped",
+              "name": "CI / sonarQube",
+              "status": "completed"
+            }
+          ],
+          "sha": "d396b7ff",
+          "total": 8
+        },
         {
           "checks": [
             {
@@ -950,6 +975,11 @@
             },
             {
               "conclusion": "success",
+              "name": "CI / sonarQube",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
               "name": "CI / sincronizacao",
               "status": "completed"
             },
@@ -957,14 +987,9 @@
               "conclusion": "success",
               "name": "CI / checkmarx",
               "status": "completed"
-            },
-            {
-              "conclusion": "success",
-              "name": "CI / sonarQube",
-              "status": "completed"
             }
           ],
-          "sha": "9a482123",
+          "sha": "c6c00c2e",
           "total": 8
         },
         {
@@ -975,65 +1000,34 @@
               "status": "completed"
             },
             {
-              "conclusion": "skipped",
-              "name": "CI / sonarQube",
-              "status": "completed"
-            },
-            {
-              "conclusion": "skipped",
+              "conclusion": "cancelled",
               "name": "CI / Análise Motor Liberação",
               "status": "completed"
             },
             {
-              "conclusion": "skipped",
-              "name": "CI / checkmarx",
-              "status": "completed"
-            },
-            {
-              "conclusion": "skipped",
-              "name": "CI / xRay",
-              "status": "completed"
-            }
-          ],
-          "sha": "169879ad",
-          "total": 8
-        },
-        {
-          "checks": [
-            {
-              "conclusion": "skipped",
-              "name": "CD (desenvolvimento)",
-              "status": "completed"
-            },
-            {
-              "conclusion": "skipped",
-              "name": "CI / Análise Motor Liberação",
-              "status": "completed"
-            },
-            {
-              "conclusion": "skipped",
+              "conclusion": "cancelled",
               "name": "CI / sonarQube",
               "status": "completed"
             },
             {
-              "conclusion": "skipped",
+              "conclusion": "cancelled",
               "name": "CI / xRay",
               "status": "completed"
             },
             {
-              "conclusion": "skipped",
+              "conclusion": "cancelled",
               "name": "CI / checkmarx",
               "status": "completed"
             }
           ],
-          "sha": "ad0bfca3",
+          "sha": "523ac307",
           "total": 8
         }
       ],
       "drift": true,
-      "driftDetail": "autopilot=source-change real=2.3.3"
+      "driftDetail": "autopilot=2.3.6 real=2.6.2"
     },
-    "lastChecked": "2026-04-05T02:57:07Z"
+    "lastChecked": "2026-04-22T18:35:40Z"
   },
   "corporateActivity": {
     "description": "Real-time activity from corporate repos — branches, PRs, external commits by other devs",
@@ -1060,6 +1054,21 @@
           "sha": "85928cea"
         },
         {
+          "name": "bump/3.9.2",
+          "protected": false,
+          "sha": "dc984497"
+        },
+        {
+          "name": "chore/remove-oas-automations-routes",
+          "protected": false,
+          "sha": "336e3822"
+        },
+        {
+          "name": "chore/route-scope-matrix",
+          "protected": false,
+          "sha": "b8b581f6"
+        },
+        {
           "name": "controller-v1",
           "protected": false,
           "sha": "db1d27f3"
@@ -1075,6 +1084,11 @@
           "sha": "6e9c0b6b"
         },
         {
+          "name": "feat/k8s-manifests-relay",
+          "protected": false,
+          "sha": "24788bec"
+        },
+        {
           "name": "feature/oas-automations-routes",
           "protected": false,
           "sha": "48fb8be3"
@@ -1085,6 +1099,31 @@
           "sha": "a06e9c7e"
         },
         {
+          "name": "fix/body-limit-10mb",
+          "protected": false,
+          "sha": "fe8d461a"
+        },
+        {
+          "name": "fix/deprecate-agent-execute",
+          "protected": false,
+          "sha": "38b4113b"
+        },
+        {
+          "name": "fix/execute-forward-envs",
+          "protected": false,
+          "sha": "b108db19"
+        },
+        {
+          "name": "fix/execute-lookup-by-cluster",
+          "protected": false,
+          "sha": "fde8b797"
+        },
+        {
+          "name": "fix/oas-sre-all-automations",
+          "protected": false,
+          "sha": "a1562a5c"
+        },
+        {
           "name": "hotfix-2.3.4",
           "protected": false,
           "sha": "1f8f6543"
@@ -1093,14 +1132,9 @@
           "name": "jwt_escopes_feature",
           "protected": false,
           "sha": "3f0284b8"
-        },
-        {
-          "name": "main",
-          "protected": true,
-          "sha": "b95c3470"
         }
       ],
-      "branchCount": 12,
+      "branchCount": 20,
       "featureBranches": [
         {
           "name": "27-11-backup",
@@ -1123,6 +1157,21 @@
           "sha": "85928cea"
         },
         {
+          "name": "bump/3.9.2",
+          "protected": false,
+          "sha": "dc984497"
+        },
+        {
+          "name": "chore/remove-oas-automations-routes",
+          "protected": false,
+          "sha": "336e3822"
+        },
+        {
+          "name": "chore/route-scope-matrix",
+          "protected": false,
+          "sha": "b8b581f6"
+        },
+        {
           "name": "controller-v1",
           "protected": false,
           "sha": "db1d27f3"
@@ -1138,6 +1187,11 @@
           "sha": "6e9c0b6b"
         },
         {
+          "name": "feat/k8s-manifests-relay",
+          "protected": false,
+          "sha": "24788bec"
+        },
+        {
           "name": "feature/oas-automations-routes",
           "protected": false,
           "sha": "48fb8be3"
@@ -1146,6 +1200,31 @@
           "name": "feature/oas-sre-controller-techbb-origin-auth",
           "protected": false,
           "sha": "a06e9c7e"
+        },
+        {
+          "name": "fix/body-limit-10mb",
+          "protected": false,
+          "sha": "fe8d461a"
+        },
+        {
+          "name": "fix/deprecate-agent-execute",
+          "protected": false,
+          "sha": "38b4113b"
+        },
+        {
+          "name": "fix/execute-forward-envs",
+          "protected": false,
+          "sha": "b108db19"
+        },
+        {
+          "name": "fix/execute-lookup-by-cluster",
+          "protected": false,
+          "sha": "fde8b797"
+        },
+        {
+          "name": "fix/oas-sre-all-automations",
+          "protected": false,
+          "sha": "a1562a5c"
         },
         {
           "name": "hotfix-2.3.4",
@@ -1160,25 +1239,108 @@
       ],
       "openPRs": [],
       "openPRCount": 0,
-      "externalCommits": [],
-      "externalCommitCount": 0,
-      "hasExternalActivity": false
+      "externalCommits": [
+        {
+          "author": "Joao Lucas Lima Freire",
+          "date": "2026-04-20T13:19:20Z",
+          "message": "chore: bump version to 3.9.2 (pipeline smoke test) (#26)\n\nCo-authored-by: C13427",
+          "sha": "a0ec12dd"
+        },
+        {
+          "author": "Joao Lucas Lima Freire",
+          "date": "2026-04-17T14:47:01Z",
+          "message": "feat(oas): support all automations + fix lint/lock (v3.9.1) (#25)\n\n* fix(lock): ",
+          "sha": "2ad1ae80"
+        },
+        {
+          "author": "Joao Lucas Lima Freire",
+          "date": "2026-04-17T14:31:33Z",
+          "message": "fix(lock): restore ci-info version to 3.9.0 (v3.9.1) (#24)\n\n* feat(oas): support",
+          "sha": "5ebb7b8b"
+        },
+        {
+          "author": "aic-workflow-autoupdate[bot]",
+          "date": "2026-04-17T14:25:02Z",
+          "message": "Alteração automática de arquivo executada pela action aic-action-commit \n\nAtuali",
+          "sha": "fe27fa83"
+        },
+        {
+          "author": "Joao Lucas Lima Freire",
+          "date": "2026-04-17T14:24:32Z",
+          "message": "feat(oas): support all automations via POST /oas/sre-controller (v3.9.1) (#23)\n\n",
+          "sha": "09e85819"
+        }
+      ],
+      "externalCommitCount": 5,
+      "hasExternalActivity": true
     },
     "agent": {
       "branches": [
         {
+          "name": "feat/k8s-manifests",
+          "protected": false,
+          "sha": "cde655bd"
+        },
+        {
+          "name": "fix/swagger-k8s-manifests",
+          "protected": false,
+          "sha": "9239d4b3"
+        },
+        {
           "name": "main",
           "protected": true,
-          "sha": "9a482123"
+          "sha": "d396b7ff"
         }
       ],
-      "branchCount": 1,
-      "featureBranches": [],
+      "branchCount": 3,
+      "featureBranches": [
+        {
+          "name": "feat/k8s-manifests",
+          "protected": false,
+          "sha": "cde655bd"
+        },
+        {
+          "name": "fix/swagger-k8s-manifests",
+          "protected": false,
+          "sha": "9239d4b3"
+        }
+      ],
       "openPRs": [],
       "openPRCount": 0,
-      "externalCommits": [],
-      "externalCommitCount": 0,
-      "hasExternalActivity": false
+      "externalCommits": [
+        {
+          "author": "Joao Antonio Simao Neto",
+          "date": "2026-04-20T20:48:15Z",
+          "message": "fix: Ajusta logs dos jobs e outros logs",
+          "sha": "d396b7ff"
+        },
+        {
+          "author": "Joao Antonio Simao Neto",
+          "date": "2026-04-20T14:33:01Z",
+          "message": "fix: corrige formatAutoRegisterSettings e remove codigo morto do\n  copy_resource",
+          "sha": "c6c00c2e"
+        },
+        {
+          "author": "Joao Antonio Simao Neto",
+          "date": "2026-04-20T14:24:09Z",
+          "message": "feat: libera actions remove e apply para copy_resources (v2.6.0)",
+          "sha": "523ac307"
+        },
+        {
+          "author": "Joao Antonio Simao Neto",
+          "date": "2026-04-17T20:30:39Z",
+          "message": "chore: bump version 2.5.1",
+          "sha": "1956a74a"
+        },
+        {
+          "author": "Joao Antonio Simao Neto",
+          "date": "2026-04-17T18:47:03Z",
+          "message": "retira teste commit",
+          "sha": "63377c69"
+        }
+      ],
+      "externalCommitCount": 5,
+      "hasExternalActivity": true
     }
   },
   "improvements": {
