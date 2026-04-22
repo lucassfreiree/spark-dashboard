@@ -1,5 +1,5 @@
 {
-  "lastSync": "2026-04-22T22:15:24Z",
+  "lastSync": "2026-04-22T22:26:50Z",
   "syncSource": "autopilot/spark-sync-state.yml",
   "controller": {
     "version": "3.9.3",
@@ -86,10 +86,10 @@
       ]
     },
     "codex": {
-      "sessionCount": 10,
+      "sessionCount": 11,
       "lastSession": "none",
-      "lessonsCount": 11,
-      "lastUpdated": "2026-04-22T22:13:56Z",
+      "lessonsCount": 13,
+      "lastUpdated": "2026-04-22T22:30:00Z",
       "sessions": [
         {
           "date": null,
@@ -250,42 +250,122 @@
   "recentWorkflows": [
     {
       "conclusion": null,
+      "created": "2026-04-22T22:26:39Z",
+      "event": "push",
+      "head_branch": "main",
+      "name": "[Core] Builds Validation Gate • validate all workflows",
+      "run_number": 201,
+      "status": "in_progress",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24805890445"
+    },
+    {
+      "conclusion": null,
+      "created": "2026-04-22T22:26:39Z",
+      "event": "push",
+      "head_branch": "main",
+      "name": "[Infra] Sync Spark Dashboard Repo • push workflows + HTML to spark-dashboard",
+      "run_number": 4,
+      "status": "in_progress",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24805890440"
+    },
+    {
+      "conclusion": null,
+      "created": "2026-04-22T22:26:39Z",
+      "event": "push",
+      "head_branch": "main",
+      "name": "Security Scorecard",
+      "run_number": 33,
+      "status": "in_progress",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24805890437"
+    },
+    {
+      "conclusion": null,
+      "created": "2026-04-22T22:26:39Z",
+      "event": "push",
+      "head_branch": "main",
+      "name": "[Infra] Deploy Panel (GitHub Pages) • push • ws=n/a • ref=main",
+      "run_number": 108,
+      "status": "queued",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24805890432"
+    },
+    {
+      "conclusion": null,
+      "created": "2026-04-22T22:26:39Z",
+      "event": "push",
+      "head_branch": "main",
+      "name": "Feature Validation Sweep",
+      "run_number": 38,
+      "status": "in_progress",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24805890430"
+    },
+    {
+      "conclusion": null,
+      "created": "2026-04-22T22:26:39Z",
+      "event": "push",
+      "head_branch": "main",
+      "name": "[Infra] Spark Dashboard Sync • sync state to Spark dashboard",
+      "run_number": 306,
+      "status": "in_progress",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24805890425"
+    },
+    {
+      "conclusion": null,
+      "created": "2026-04-22T22:26:39Z",
+      "event": "push",
+      "head_branch": "main",
+      "name": "Auto-Fix on Push",
+      "run_number": 33,
+      "status": "in_progress",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24805890415"
+    },
+    {
+      "conclusion": null,
+      "created": "2026-04-22T22:26:38Z",
+      "event": "push",
+      "head_branch": "main",
+      "name": "Lint Workflows",
+      "run_number": 22,
+      "status": "in_progress",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24805890396"
+    },
+    {
+      "conclusion": "success",
       "created": "2026-04-22T22:15:09Z",
       "event": "push",
       "head_branch": "main",
       "name": "Auto-Fix on Push",
       "run_number": 32,
-      "status": "in_progress",
+      "status": "completed",
       "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24805471359"
     },
     {
-      "conclusion": null,
+      "conclusion": "success",
       "created": "2026-04-22T22:15:09Z",
       "event": "push",
       "head_branch": "main",
       "name": "Feature Validation Sweep",
       "run_number": 37,
-      "status": "in_progress",
+      "status": "completed",
       "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24805471346"
     },
     {
-      "conclusion": null,
+      "conclusion": "success",
       "created": "2026-04-22T22:15:09Z",
       "event": "push",
       "head_branch": "main",
       "name": "[Infra] Spark Dashboard Sync • sync state to Spark dashboard",
       "run_number": 305,
-      "status": "in_progress",
+      "status": "completed",
       "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24805471343"
     },
     {
-      "conclusion": null,
+      "conclusion": "failure",
       "created": "2026-04-22T22:15:09Z",
       "event": "push",
       "head_branch": "main",
       "name": "Security Scorecard",
       "run_number": 32,
-      "status": "in_progress",
+      "status": "completed",
       "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24805471337"
     },
     {
@@ -367,86 +447,6 @@
       "run_number": 74,
       "status": "completed",
       "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24803621014"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-04-22T21:22:34Z",
-      "event": "push",
-      "head_branch": "main",
-      "name": "Feature Validation Sweep",
-      "run_number": 36,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24803368962"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-04-22T21:22:34Z",
-      "event": "push",
-      "head_branch": "main",
-      "name": "Auto-Fix on Push",
-      "run_number": 31,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24803368958"
-    },
-    {
-      "conclusion": "failure",
-      "created": "2026-04-22T21:22:34Z",
-      "event": "push",
-      "head_branch": "main",
-      "name": "Security Scorecard",
-      "run_number": 31,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24803368930"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-04-22T21:22:34Z",
-      "event": "push",
-      "head_branch": "main",
-      "name": "[Infra] Spark Dashboard Sync • sync state to Spark dashboard",
-      "run_number": 303,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24803368920"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-04-22T21:22:34Z",
-      "event": "pull_request",
-      "head_branch": "codex/persist-source-ci-release-protocol",
-      "name": "[Infra] Cleanup: Stale Branches • pull_request • ws=n/a • ref=main",
-      "run_number": 453,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24803368818"
-    },
-    {
-      "conclusion": "skipped",
-      "created": "2026-04-22T21:22:34Z",
-      "event": "issue_comment",
-      "head_branch": "main",
-      "name": "Claude responding to @claude mention",
-      "run_number": 405,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24803368583"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-04-22T21:22:34Z",
-      "event": "pull_request_target",
-      "head_branch": "codex/persist-source-ci-release-protocol",
-      "name": "[Core] Post-Merge Monitor • PR #573 • codex/persist-source-ci-release-protocol",
-      "run_number": 286,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24803368567"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-04-22T21:22:24Z",
-      "event": "pull_request_target",
-      "head_branch": "codex/persist-source-ci-release-protocol",
-      "name": "PR Auto-Label",
-      "run_number": 34,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24803362151"
     }
   ],
   "openPRs": [],
@@ -473,9 +473,9 @@
     "state/workspaces/ws-default/audit/source-change-2026-04-02T13-26-58Z.json"
   ],
   "lessonsLearned": {
-    "total": 50,
+    "total": 52,
     "copilot": 39,
-    "codex": 11,
+    "codex": 13,
     "copilotLessons": [
       {
         "lesson": "NUNCA usar validateTrustedUrl dentro de fetch/postJson — quebra testes mock",
@@ -681,6 +681,16 @@
       },
       {
         "lesson": "A green workflow-npm is necessary but not sufficient. Keep monitoring until Análise Motor Liberação and any triggered CD desenvolvimento autoDeploy also conclude, then mark the source line as fully healthy.",
+        "fix": null,
+        "source": null
+      },
+      {
+        "lesson": "The corporate CI monitor must use a cascade: exact workflow name from workspace.json, then any workflow_run for the same SHA, then commit check-runs. This avoids false negatives when the configured name drifts from the actual surfaced run.",
+        "fix": null,
+        "source": null
+      },
+      {
+        "lesson": "When the deploy repo is already on the expected image tag, mark CAP as aligned and update release-state consistency after source success instead of demanding another commit to values.yaml.",
         "fix": null,
         "source": null
       }
@@ -1080,7 +1090,7 @@
       "drift": true,
       "driftDetail": "autopilot=2.3.6 real=2.6.2"
     },
-    "lastChecked": "2026-04-22T22:15:24Z"
+    "lastChecked": "2026-04-22T22:26:50Z"
   },
   "corporateActivity": {
     "description": "Real-time activity from corporate repos — branches, PRs, external commits by other devs",
