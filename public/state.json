@@ -1,13 +1,13 @@
 {
-  "lastSync": "2026-04-22T19:17:59Z",
+  "lastSync": "2026-04-22T19:34:49Z",
   "syncSource": "autopilot/spark-sync-state.yml",
   "controller": {
     "version": "3.9.3",
-    "status": "promoted-preexisting-ci-fail",
+    "status": "ci-failed-preexisting",
     "ciResult": "failure",
-    "promoted": true,
-    "lastSha": "d6beb7abbb8970f7b669a3cedfbebd7841ae6571",
-    "updatedAt": "2026-04-22T18:54:27Z",
+    "promoted": false,
+    "lastSha": "fff1e163cb6cdb6628f44e7b945439df2baffe53",
+    "updatedAt": "2026-04-22T19:22:16Z",
     "repo": "bbvinet/psc-sre-automacao-controller",
     "capRepo": "bbvinet/psc_releases_cap_sre-aut-controller",
     "stack": "Node 22, TypeScript, Express, Jest, SQLite, S3"
@@ -25,14 +25,14 @@
   },
   "pipeline": {
     "status": "success",
-    "lastRun": 107,
+    "lastRun": 108,
     "component": "controller",
     "version": "3.9.3",
     "promote": false,
     "workspace": "GETRONICS | ws-default | BBVINET_TOKEN",
     "changeType": "multi-file",
-    "commitMessage": "fix(controller): restore node 22 CI for sqlite runtime",
-    "changesCount": 5
+    "commitMessage": "fix(controller): sync package-lock for better-sqlite3 12.9.0",
+    "changesCount": 1
   },
   "agents": {
     "claude": {
@@ -106,8 +106,8 @@
   },
   "sessionLock": {
     "agentId": "none",
-    "expiresAt": "2026-04-22T18:54:38Z",
-    "acquiredAt": "2026-04-22T18:54:38Z",
+    "expiresAt": "2026-04-22T19:22:23Z",
+    "acquiredAt": "2026-04-22T19:22:23Z",
     "operation": "none"
   },
   "health": {
@@ -148,12 +148,12 @@
   "ciMonitor": {
     "workspaceId": "ws-default",
     "component": "controller",
-    "commitSha": "d6beb7abbb8970f7b669a3cedfbebd7841ae6571",
+    "commitSha": "fff1e163cb6cdb6628f44e7b945439df2baffe53",
     "version": "",
-    "monitoredAt": "2026-04-22T18:55:28Z",
+    "monitoredAt": "2026-04-22T19:22:42Z",
     "ciOutcome": "failure",
-    "monitorRunId": "24796738299",
-    "failedRunUrl": "https://github.com/bbvinet/psc-sre-automacao-controller/actions/runs/24796608114"
+    "monitorRunId": "24798019060",
+    "failedRunUrl": "https://github.com/bbvinet/psc-sre-automacao-controller/actions/runs/24797896468"
   },
   "pipelineStatus": {
     "updatedAt": "2026-04-05T02:53:59Z",
@@ -222,208 +222,209 @@
   ],
   "recentWorkflows": [
     {
-      "conclusion": null,
-      "created": "2026-04-22T19:17:45Z",
-      "event": "push",
-      "head_branch": "main",
-      "name": "Feature Validation Sweep",
-      "run_number": 25,
-      "status": "in_progress",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24797805082"
-    },
-    {
-      "conclusion": null,
-      "created": "2026-04-22T19:17:45Z",
-      "event": "push",
-      "head_branch": "main",
-      "name": "[Infra] Spark Dashboard Sync • sync state to Spark dashboard",
-      "run_number": 296,
-      "status": "in_progress",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24797805059"
-    },
-    {
-      "conclusion": null,
-      "created": "2026-04-22T19:17:45Z",
-      "event": "push",
-      "head_branch": "main",
-      "name": "Security Scorecard",
-      "run_number": 20,
-      "status": "in_progress",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24797805043"
-    },
-    {
-      "conclusion": null,
-      "created": "2026-04-22T19:17:45Z",
-      "event": "push",
-      "head_branch": "main",
-      "name": "Auto-Fix on Push",
-      "run_number": 20,
-      "status": "in_progress",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24797805021"
-    },
-    {
-      "conclusion": null,
-      "created": "2026-04-22T19:17:45Z",
-      "event": "push",
-      "head_branch": "main",
-      "name": "[Corp] Deploy: Apply Source Change • push • ws=n/a • ref=main",
-      "run_number": 106,
-      "status": "in_progress",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24797805019"
-    },
-    {
-      "conclusion": null,
-      "created": "2026-04-22T19:17:45Z",
-      "event": "pull_request",
-      "head_branch": "codex/fix-controller-ci-node22",
-      "name": "[Infra] Cleanup: Stale Branches • pull_request • ws=n/a • ref=main",
-      "run_number": 442,
-      "status": "in_progress",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24797804854"
-    },
-    {
-      "conclusion": null,
-      "created": "2026-04-22T19:17:45Z",
-      "event": "pull_request_target",
-      "head_branch": "codex/fix-controller-ci-node22",
-      "name": "[Core] Post-Merge Monitor • PR #556 • codex/fix-controller-ci-node22",
-      "run_number": 274,
-      "status": "in_progress",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24797804831"
-    },
-    {
-      "conclusion": null,
-      "created": "2026-04-22T19:17:35Z",
-      "event": "pull_request",
-      "head_branch": "codex/fix-controller-ci-node22",
-      "name": "[Agent] Quality Gate",
-      "run_number": 35,
-      "status": "in_progress",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24797796961"
-    },
-    {
-      "conclusion": null,
-      "created": "2026-04-22T19:17:35Z",
-      "event": "pull_request",
-      "head_branch": "codex/fix-controller-ci-node22",
-      "name": "[Core] Compliance Gate • auto",
-      "run_number": 44,
-      "status": "in_progress",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24797796935"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-04-22T19:17:35Z",
-      "event": "pull_request_target",
-      "head_branch": "codex/fix-controller-ci-node22",
-      "name": "[Core] Smart PR Manager • sweep open PRs",
-      "run_number": 448,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24797796930"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-04-22T19:17:35Z",
-      "event": "pull_request_target",
-      "head_branch": "codex/fix-controller-ci-node22",
-      "name": "PR Auto-Label",
-      "run_number": 22,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24797796923"
-    },
-    {
-      "conclusion": null,
-      "created": "2026-04-22T19:17:35Z",
-      "event": "pull_request_target",
-      "head_branch": "codex/fix-controller-ci-node22",
-      "name": "[Core] Autonomous Direct Merge • PR #556 • codex/fix-controller-ci-node22 → main",
-      "run_number": 342,
-      "status": "in_progress",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24797796919"
-    },
-    {
-      "conclusion": null,
-      "created": "2026-04-22T19:17:35Z",
-      "event": "pull_request",
-      "head_branch": "codex/fix-controller-ci-node22",
-      "name": "[Core] PR Auto-Review • PR #556",
-      "run_number": 114,
-      "status": "in_progress",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24797796882"
-    },
-    {
       "conclusion": "skipped",
-      "created": "2026-04-22T19:13:49Z",
+      "created": "2026-04-22T19:34:33Z",
       "event": "issue_comment",
       "head_branch": "main",
       "name": "Claude responding to @claude mention",
-      "run_number": 375,
+      "run_number": 379,
       "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24797625620"
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24798561351"
     },
     {
       "conclusion": "success",
-      "created": "2026-04-22T19:13:45Z",
-      "event": "pull_request_target",
-      "head_branch": "codex/fix-controller-ci-node22",
-      "name": "[Core] Post-Merge Monitor • PR #555 • codex/fix-controller-ci-node22",
-      "run_number": 273,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24797622621"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-04-22T19:13:45Z",
+      "created": "2026-04-22T19:34:29Z",
       "event": "pull_request",
-      "head_branch": "codex/fix-controller-ci-node22",
+      "head_branch": "codex/fix-controller-lockfile",
       "name": "[Infra] Cleanup: Stale Branches • pull_request • ws=n/a • ref=main",
-      "run_number": 441,
+      "run_number": 443,
       "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24797622581"
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24798557678"
     },
     {
-      "conclusion": "success",
-      "created": "2026-04-22T19:13:45Z",
+      "conclusion": null,
+      "created": "2026-04-22T19:34:29Z",
+      "event": "push",
+      "head_branch": "main",
+      "name": "[Infra] Spark Dashboard Sync • sync state to Spark dashboard",
+      "run_number": 297,
+      "status": "in_progress",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24798557644"
+    },
+    {
+      "conclusion": null,
+      "created": "2026-04-22T19:34:29Z",
       "event": "push",
       "head_branch": "main",
       "name": "Auto-Fix on Push",
-      "run_number": 19,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24797622497"
+      "run_number": 21,
+      "status": "in_progress",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24798557635"
     },
     {
       "conclusion": "failure",
-      "created": "2026-04-22T19:13:45Z",
+      "created": "2026-04-22T19:34:29Z",
       "event": "push",
       "head_branch": "main",
       "name": "Security Scorecard",
-      "run_number": 19,
+      "run_number": 21,
       "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24797622493"
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24798557630"
     },
     {
-      "conclusion": "failure",
-      "created": "2026-04-22T19:13:45Z",
+      "conclusion": null,
+      "created": "2026-04-22T19:34:29Z",
       "event": "push",
       "head_branch": "main",
-      "name": "[Infra] Clone Corporate Repos • push • ref=main",
-      "run_number": 2,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24797622483"
+      "name": "[Corp] Deploy: Apply Source Change • push • ws=n/a • ref=main",
+      "run_number": 107,
+      "status": "in_progress",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24798557621"
     },
     {
       "conclusion": "success",
-      "created": "2026-04-22T19:13:45Z",
+      "created": "2026-04-22T19:34:29Z",
       "event": "push",
       "head_branch": "main",
       "name": "Feature Validation Sweep",
-      "run_number": 24,
+      "run_number": 26,
       "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24797622475"
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24798557620"
+    },
+    {
+      "conclusion": null,
+      "created": "2026-04-22T19:34:28Z",
+      "event": "pull_request_target",
+      "head_branch": "codex/fix-controller-lockfile",
+      "name": "[Core] Post-Merge Monitor • PR #558 • codex/fix-controller-lockfile",
+      "run_number": 275,
+      "status": "in_progress",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24798557524"
+    },
+    {
+      "conclusion": null,
+      "created": "2026-04-22T19:34:21Z",
+      "event": "pull_request",
+      "head_branch": "codex/fix-controller-lockfile",
+      "name": "[Agent] Quality Gate",
+      "run_number": 36,
+      "status": "queued",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24798551308"
+    },
+    {
+      "conclusion": null,
+      "created": "2026-04-22T19:34:21Z",
+      "event": "pull_request",
+      "head_branch": "codex/fix-controller-lockfile",
+      "name": "[Core] Compliance Gate • auto",
+      "run_number": 45,
+      "status": "in_progress",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24798551300"
+    },
+    {
+      "conclusion": null,
+      "created": "2026-04-22T19:34:21Z",
+      "event": "pull_request_target",
+      "head_branch": "codex/fix-controller-lockfile",
+      "name": "[Core] Autonomous Direct Merge • PR #558 • codex/fix-controller-lockfile → main",
+      "run_number": 343,
+      "status": "in_progress",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24798551284"
+    },
+    {
+      "conclusion": "success",
+      "created": "2026-04-22T19:34:21Z",
+      "event": "pull_request_target",
+      "head_branch": "codex/fix-controller-lockfile",
+      "name": "[Core] Smart PR Manager • sweep open PRs",
+      "run_number": 449,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24798551279"
+    },
+    {
+      "conclusion": "success",
+      "created": "2026-04-22T19:34:21Z",
+      "event": "pull_request_target",
+      "head_branch": "codex/fix-controller-lockfile",
+      "name": "PR Auto-Label",
+      "run_number": 23,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24798551269"
+    },
+    {
+      "conclusion": "success",
+      "created": "2026-04-22T19:34:21Z",
+      "event": "pull_request",
+      "head_branch": "codex/fix-controller-lockfile",
+      "name": "[Core] PR Auto-Review • PR #558",
+      "run_number": 115,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24798551262"
+    },
+    {
+      "conclusion": "success",
+      "created": "2026-04-22T19:27:47Z",
+      "event": "workflow_dispatch",
+      "head_branch": "main",
+      "name": "[Corp] Fetch: Source Files • workflow_dispatch • ws=ws-default • ref=main",
+      "run_number": 35,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24798252492"
+    },
+    {
+      "conclusion": "success",
+      "created": "2026-04-22T19:27:06Z",
+      "event": "workflow_dispatch",
+      "head_branch": "main",
+      "name": "[Corp] Fetch: Source Files • workflow_dispatch • ws=ws-default • ref=main",
+      "run_number": 34,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24798227030"
+    },
+    {
+      "conclusion": "skipped",
+      "created": "2026-04-22T19:25:07Z",
+      "event": "issues",
+      "head_branch": "main",
+      "name": "[Core] Auto-Dispatch Task • Issue #557",
+      "run_number": 129,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24798136842"
+    },
+    {
+      "conclusion": "skipped",
+      "created": "2026-04-22T19:25:07Z",
+      "event": "issues",
+      "head_branch": "main",
+      "name": "Claude responding to @claude mention",
+      "run_number": 378,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24798136838"
+    },
+    {
+      "conclusion": "skipped",
+      "created": "2026-04-22T19:25:07Z",
+      "event": "issues",
+      "head_branch": "main",
+      "name": "[Core] Security Intake Dispatch • Issue #557",
+      "run_number": 55,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24798136835"
+    },
+    {
+      "conclusion": "success",
+      "created": "2026-04-22T19:23:08Z",
+      "event": "workflow_dispatch",
+      "head_branch": "main",
+      "name": "[Corp] Fix: CI Lint + Test Errors • workflow_dispatch • ws=ws-default • ref=main",
+      "run_number": 25,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24798045915"
     }
   ],
   "openPRs": [],
   "deployHistory": [
+    "state/workspaces/ws-default/audit/source-change-2026-04-22T19-22-24Z.json",
     "state/workspaces/ws-default/audit/source-change-2026-04-22T18-54-39Z.json",
     "state/workspaces/ws-default/audit/source-change-2026-04-22T18-39-57Z.json",
     "state/workspaces/ws-default/audit/source-change-2026-04-02T17-41-06Z.json",
@@ -442,8 +443,7 @@
     "state/workspaces/ws-default/audit/source-change-2026-04-02T12-45-55Z.json",
     "state/workspaces/ws-default/audit/source-change-2026-04-02T12-33-20Z.json",
     "state/workspaces/ws-default/audit/source-change-2026-04-02T12-06-06Z.json",
-    "state/workspaces/ws-default/audit/source-change-2026-04-02T11-49-04Z.json",
-    "state/workspaces/ws-default/audit/source-change-2026-04-01T20-50-59Z.json"
+    "state/workspaces/ws-default/audit/source-change-2026-04-02T11-49-04Z.json"
   ],
   "lessonsLearned": {
     "total": 45,
@@ -793,6 +793,12 @@
       "recentCommits": [
         {
           "author": "github-actions",
+          "date": "2026-04-22T19:19:46Z",
+          "message": "fix(controller): restore node 22 CI for sqlite runtime",
+          "sha": "fff1e163"
+        },
+        {
+          "author": "github-actions",
           "date": "2026-04-22T18:51:54Z",
           "message": "fix(controller): accept OAS functions and copy_resources contract (3.9.3)",
           "sha": "d6beb7ab"
@@ -814,15 +820,40 @@
           "date": "2026-04-17T14:47:01Z",
           "message": "feat(oas): support all automations + fix lint/lock (v3.9.1) (#25)\n\n* fix(lock): ",
           "sha": "2ad1ae80"
-        },
-        {
-          "author": "Joao Lucas Lima Freire",
-          "date": "2026-04-17T14:31:33Z",
-          "message": "fix(lock): restore ci-info version to 3.9.0 (v3.9.1) (#24)\n\n* feat(oas): support",
-          "sha": "5ebb7b8b"
         }
       ],
       "builds": [
+        {
+          "checks": [
+            {
+              "conclusion": "skipped",
+              "name": "CD (desenvolvimento)",
+              "status": "completed"
+            },
+            {
+              "conclusion": "skipped",
+              "name": "CI / Análise Motor Liberação",
+              "status": "completed"
+            },
+            {
+              "conclusion": "skipped",
+              "name": "CI / sonarQube",
+              "status": "completed"
+            },
+            {
+              "conclusion": "skipped",
+              "name": "CI / xRay",
+              "status": "completed"
+            },
+            {
+              "conclusion": "skipped",
+              "name": "CI / checkmarx",
+              "status": "completed"
+            }
+          ],
+          "sha": "fff1e163",
+          "total": 8
+        },
         {
           "checks": [
             {
@@ -884,41 +915,10 @@
           ],
           "sha": "cf65c809",
           "total": 8
-        },
-        {
-          "checks": [
-            {
-              "conclusion": "success",
-              "name": "CD (desenvolvimento) / autoDeploy",
-              "status": "completed"
-            },
-            {
-              "conclusion": "success",
-              "name": "CI / Análise Motor Liberação",
-              "status": "completed"
-            },
-            {
-              "conclusion": "success",
-              "name": "CI / checkmarx",
-              "status": "completed"
-            },
-            {
-              "conclusion": "success",
-              "name": "CI / sonarQube",
-              "status": "completed"
-            },
-            {
-              "conclusion": "success",
-              "name": "CI / sincronizacao",
-              "status": "completed"
-            }
-          ],
-          "sha": "a0ec12dd",
-          "total": 8
         }
       ],
-      "drift": false,
-      "driftDetail": null
+      "drift": true,
+      "driftDetail": "autopilot=source-change real=3.9.3"
     },
     "agent": {
       "sourceVersion": "2.6.2",
@@ -1053,7 +1053,7 @@
       "drift": true,
       "driftDetail": "autopilot=2.3.6 real=2.6.2"
     },
-    "lastChecked": "2026-04-22T19:17:59Z"
+    "lastChecked": "2026-04-22T19:34:49Z"
   },
   "corporateActivity": {
     "description": "Real-time activity from corporate repos — branches, PRs, external commits by other devs",
@@ -1277,15 +1277,9 @@
           "date": "2026-04-17T14:47:01Z",
           "message": "feat(oas): support all automations + fix lint/lock (v3.9.1) (#25)\n\n* fix(lock): ",
           "sha": "2ad1ae80"
-        },
-        {
-          "author": "Joao Lucas Lima Freire",
-          "date": "2026-04-17T14:31:33Z",
-          "message": "fix(lock): restore ci-info version to 3.9.0 (v3.9.1) (#24)\n\n* feat(oas): support",
-          "sha": "5ebb7b8b"
         }
       ],
-      "externalCommitCount": 3,
+      "externalCommitCount": 2,
       "hasExternalActivity": true
     },
     "agent": {
