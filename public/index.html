@@ -545,6 +545,11 @@
     document.getElementById('ciMonitorContent').innerHTML=ci.ciOutcome?`
       <div class="flex" style="gap:8px">${dot(statusColor(ci.ciOutcome))} <strong>Corporate CI:</strong> ${badge(ci.ciOutcome)}</div>
       ${ci.component?`<div style="font-size:12px;color:var(--muted);margin-top:6px">Component: ${esc(ci.component)} | SHA: <code>${esc((ci.commitSha||'').slice(0,8))}</code></div>`:''}
+      ${ci.monitorStrategy?`<div style="font-size:12px;color:var(--muted);margin-top:6px">Strategy: <code>${esc(ci.monitorStrategy)}</code></div>`:''}
+      ${ci.activeSignals?`<div style="font-size:12px;color:var(--muted);margin-top:6px">Active signals: ${esc(ci.activeSignals)}</div>`:''}
+      ${typeof ci.artifactVerified==='boolean'?`<div style="font-size:12px;color:var(--muted);margin-top:6px">Artifact verified: ${ci.artifactVerified?'yes':'no'}${ci.artifactEvidence?` | ${esc(ci.artifactEvidence)}`:''}</div>`:''}
+      ${typeof ci.capAligned==='boolean'?`<div style="font-size:12px;color:var(--muted);margin-top:6px">CAP aligned: ${ci.capAligned?'yes':'no'}${ci.capAlignmentEvidence?` | ${esc(ci.capAlignmentEvidence)}`:''}</div>`:''}
+      ${ci.matchedWorkflowRunUrl?`<div style="font-size:12px;color:var(--muted);margin-top:6px">Matched run: <a href="${esc(ci.matchedWorkflowRunUrl)}" target="_blank" rel="noopener noreferrer">${esc(ci.matchedWorkflowRunName||ci.matchedWorkflowRunUrl)}</a></div>`:''}
     `:'<div style="color:var(--muted);font-size:13px">No CI monitor data available</div>';
 
     // Version rules
