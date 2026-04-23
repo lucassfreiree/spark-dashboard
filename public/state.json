@@ -1,5 +1,5 @@
 {
-  "lastSync": "2026-04-23T11:19:48Z",
+  "lastSync": "2026-04-23T11:58:11Z",
   "syncSource": "autopilot/spark-sync-state.yml",
   "controller": {
     "version": "3.9.3",
@@ -177,10 +177,10 @@
     "failedRunUrl": ""
   },
   "pipelineStatus": {
-    "updatedAt": "2026-04-23T10:17:21Z",
+    "updatedAt": "2026-04-23T11:37:12Z",
     "workspaceId": "ws-default",
     "overallHealth": "ok",
-    "monitorRunId": "24829783264",
+    "monitorRunId": "24833021651",
     "triggerEvent": "schedule",
     "autoDispatched": "",
     "components": {
@@ -198,7 +198,7 @@
         "stage": "idle",
         "health": "ok",
         "actionTaken": "none",
-        "deployAge": "22452min"
+        "deployAge": "22532min"
       },
       "controller": {
         "version": "source-change",
@@ -214,7 +214,7 @@
         "stage": "idle",
         "health": "ok",
         "actionTaken": "none",
-        "deployAge": "849min"
+        "deployAge": "929min"
       }
     }
   },
@@ -250,12 +250,42 @@
   "recentWorkflows": [
     {
       "conclusion": null,
+      "created": "2026-04-23T11:57:58Z",
+      "event": "schedule",
+      "head_branch": "main",
+      "name": "[Infra] Spark Dashboard Sync • sync state to Spark dashboard",
+      "run_number": 316,
+      "status": "in_progress",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24833889282"
+    },
+    {
+      "conclusion": "success",
+      "created": "2026-04-23T11:44:37Z",
+      "event": "schedule",
+      "head_branch": "main",
+      "name": "[Core] Lock GC • schedule • ws=n/a • ref=main",
+      "run_number": 285,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24833329771"
+    },
+    {
+      "conclusion": "success",
+      "created": "2026-04-23T11:37:02Z",
+      "event": "schedule",
+      "head_branch": "main",
+      "name": "[Core] Deploy Pipeline Monitor • schedule • scheduled",
+      "run_number": 133,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24833021651"
+    },
+    {
+      "conclusion": "success",
       "created": "2026-04-23T11:19:33Z",
       "event": "schedule",
       "head_branch": "main",
       "name": "[Infra] Spark Dashboard Sync • sync state to Spark dashboard",
       "run_number": 315,
-      "status": "in_progress",
+      "status": "completed",
       "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24832306674"
     },
     {
@@ -417,36 +447,6 @@
       "run_number": 1,
       "status": "completed",
       "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24826212896"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-04-23T08:19:49Z",
-      "event": "schedule",
-      "head_branch": "main",
-      "name": "[Core] Deploy Pipeline Monitor • schedule • scheduled",
-      "run_number": 130,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24824764144"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-04-23T08:13:29Z",
-      "event": "schedule",
-      "head_branch": "main",
-      "name": "[Infra] Spark Dashboard Sync • sync state to Spark dashboard",
-      "run_number": 313,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24824497407"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-04-23T08:12:42Z",
-      "event": "schedule",
-      "head_branch": "main",
-      "name": "[Core] Smart PR Manager • sweep open PRs",
-      "run_number": 467,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24824464739"
     }
   ],
   "openPRs": [],
@@ -1090,7 +1090,7 @@
       "drift": true,
       "driftDetail": "autopilot=2.3.6 real=2.6.2"
     },
-    "lastChecked": "2026-04-23T11:19:48Z"
+    "lastChecked": "2026-04-23T11:58:11Z"
   },
   "corporateActivity": {
     "description": "Real-time activity from corporate repos — branches, PRs, external commits by other devs",
