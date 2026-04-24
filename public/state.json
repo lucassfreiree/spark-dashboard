@@ -1,5 +1,5 @@
 {
-  "lastSync": "2026-04-24T21:58:01Z",
+  "lastSync": "2026-04-24T22:23:30Z",
   "syncSource": "autopilot/spark-sync-state.yml",
   "controller": {
     "version": "3.9.6",
@@ -86,10 +86,10 @@
       ]
     },
     "codex": {
-      "sessionCount": 11,
+      "sessionCount": 12,
       "lastSession": "none",
-      "lessonsCount": 13,
-      "lastUpdated": "2026-04-22T22:30:00Z",
+      "lessonsCount": 14,
+      "lastUpdated": "2026-04-24T22:13:24Z",
       "sessions": [
         {
           "date": null,
@@ -263,13 +263,193 @@
   ],
   "recentWorkflows": [
     {
+      "conclusion": "success",
+      "created": "2026-04-24T22:23:13Z",
+      "event": "pull_request",
+      "head_branch": "codex/autonomous-completion-policy",
+      "name": "[Infra] Cleanup: Stale Branches • pull_request • ws=n/a • ref=main",
+      "run_number": 462,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24914543835"
+    },
+    {
       "conclusion": null,
+      "created": "2026-04-24T22:23:13Z",
+      "event": "push",
+      "head_branch": "main",
+      "name": "Lint Workflows",
+      "run_number": 32,
+      "status": "in_progress",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24914543832"
+    },
+    {
+      "conclusion": null,
+      "created": "2026-04-24T22:23:13Z",
+      "event": "push",
+      "head_branch": "main",
+      "name": "Auto-Fix on Push",
+      "run_number": 40,
+      "status": "in_progress",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24914543823"
+    },
+    {
+      "conclusion": null,
+      "created": "2026-04-24T22:23:13Z",
+      "event": "pull_request_target",
+      "head_branch": "codex/autonomous-completion-policy",
+      "name": "[Core] Post-Merge Monitor • PR #586 • codex/autonomous-completion-policy",
+      "run_number": 293,
+      "status": "in_progress",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24914543821"
+    },
+    {
+      "conclusion": null,
+      "created": "2026-04-24T22:23:13Z",
+      "event": "push",
+      "head_branch": "main",
+      "name": "[Core] Builds Validation Gate • validate all workflows",
+      "run_number": 212,
+      "status": "in_progress",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24914543819"
+    },
+    {
+      "conclusion": null,
+      "created": "2026-04-24T22:23:13Z",
+      "event": "push",
+      "head_branch": "main",
+      "name": "[Core] Deploy Auto-Learn • learn from auto",
+      "run_number": 7,
+      "status": "in_progress",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24914543817"
+    },
+    {
+      "conclusion": null,
+      "created": "2026-04-24T22:23:13Z",
+      "event": "push",
+      "head_branch": "main",
+      "name": "Feature Validation Sweep",
+      "run_number": 45,
+      "status": "in_progress",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24914543816"
+    },
+    {
+      "conclusion": null,
+      "created": "2026-04-24T22:23:13Z",
+      "event": "push",
+      "head_branch": "main",
+      "name": "[Infra] Spark Dashboard Sync • sync state to Spark dashboard",
+      "run_number": 352,
+      "status": "in_progress",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24914543815"
+    },
+    {
+      "conclusion": "failure",
+      "created": "2026-04-24T22:23:13Z",
+      "event": "push",
+      "head_branch": "main",
+      "name": "Security Scorecard",
+      "run_number": 40,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24914543814"
+    },
+    {
+      "conclusion": "skipped",
+      "created": "2026-04-24T22:19:52Z",
+      "event": "issue_comment",
+      "head_branch": "main",
+      "name": "Claude responding to @claude mention",
+      "run_number": 426,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24914435069"
+    },
+    {
+      "conclusion": "success",
+      "created": "2026-04-24T22:19:42Z",
+      "event": "pull_request",
+      "head_branch": "codex/autonomous-completion-policy",
+      "name": "Lint Workflows",
+      "run_number": 31,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24914429904"
+    },
+    {
+      "conclusion": "success",
+      "created": "2026-04-24T22:19:42Z",
+      "event": "pull_request",
+      "head_branch": "codex/autonomous-completion-policy",
+      "name": "[Core] PR Auto-Review • PR #586",
+      "run_number": 134,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24914429893"
+    },
+    {
+      "conclusion": "success",
+      "created": "2026-04-24T22:19:42Z",
+      "event": "pull_request",
+      "head_branch": "codex/autonomous-completion-policy",
+      "name": "[Core] Builds Validation Gate • validate all workflows",
+      "run_number": 211,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24914429889"
+    },
+    {
+      "conclusion": "success",
+      "created": "2026-04-24T22:19:42Z",
+      "event": "pull_request",
+      "head_branch": "codex/autonomous-completion-policy",
+      "name": "[Agent] Quality Gate",
+      "run_number": 55,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24914429885"
+    },
+    {
+      "conclusion": "success",
+      "created": "2026-04-24T22:19:42Z",
+      "event": "pull_request_target",
+      "head_branch": "codex/autonomous-completion-policy",
+      "name": "[Core] Autonomous Direct Merge • PR #586 • codex/autonomous-completion-policy → main",
+      "run_number": 363,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24914429871"
+    },
+    {
+      "conclusion": "success",
+      "created": "2026-04-24T22:19:42Z",
+      "event": "pull_request_target",
+      "head_branch": "codex/autonomous-completion-policy",
+      "name": "[Core] Smart PR Manager • sweep open PRs",
+      "run_number": 502,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24914429864"
+    },
+    {
+      "conclusion": "success",
+      "created": "2026-04-24T22:19:42Z",
+      "event": "pull_request_target",
+      "head_branch": "codex/autonomous-completion-policy",
+      "name": "PR Auto-Label",
+      "run_number": 43,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24914429862"
+    },
+    {
+      "conclusion": "success",
+      "created": "2026-04-24T22:03:52Z",
+      "event": "schedule",
+      "head_branch": "main",
+      "name": "[Core] Smart PR Manager • sweep open PRs",
+      "run_number": 501,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24913923543"
+    },
+    {
+      "conclusion": "success",
       "created": "2026-04-24T21:57:48Z",
       "event": "schedule",
       "head_branch": "main",
       "name": "[Infra] Spark Dashboard Sync • sync state to Spark dashboard",
       "run_number": 351,
-      "status": "in_progress",
+      "status": "completed",
       "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24913724860"
     },
     {
@@ -281,186 +461,6 @@
       "run_number": 37,
       "status": "completed",
       "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24913665695"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-04-24T21:55:48Z",
-      "event": "schedule",
-      "head_branch": "main",
-      "name": "[Core] Health Check • schedule • ws=n/a • ref=main",
-      "run_number": 254,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24913658449"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-04-24T21:51:10Z",
-      "event": "schedule",
-      "head_branch": "main",
-      "name": "[Core] Workflow Health Monitor • monitor all workflows",
-      "run_number": 135,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24913500400"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-04-24T21:49:51Z",
-      "event": "schedule",
-      "head_branch": "main",
-      "name": "[Core] Deploy Pipeline Monitor • schedule • scheduled",
-      "run_number": 157,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24913455070"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-04-24T21:47:25Z",
-      "event": "schedule",
-      "head_branch": "main",
-      "name": "[Core] Intelligent Orchestrator • brain — observe, decide, act, learn",
-      "run_number": 169,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24913375649"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-04-24T21:40:29Z",
-      "event": "push",
-      "head_branch": "main",
-      "name": "[Corp] Deploy: Apply Source Change • push • ws=n/a • ref=main",
-      "run_number": 116,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24913140317"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-04-24T21:40:29Z",
-      "event": "push",
-      "head_branch": "main",
-      "name": "[Core] Deploy Auto-Learn • learn from auto",
-      "run_number": 6,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24913140308"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-04-24T21:40:29Z",
-      "event": "push",
-      "head_branch": "main",
-      "name": "[Infra] Spark Dashboard Sync • sync state to Spark dashboard",
-      "run_number": 350,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24913140303"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-04-24T21:40:29Z",
-      "event": "push",
-      "head_branch": "main",
-      "name": "Lint Workflows",
-      "run_number": 30,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24913140302"
-    },
-    {
-      "conclusion": "failure",
-      "created": "2026-04-24T21:40:29Z",
-      "event": "push",
-      "head_branch": "main",
-      "name": "Security Scorecard",
-      "run_number": 39,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24913140300"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-04-24T21:40:29Z",
-      "event": "push",
-      "head_branch": "main",
-      "name": "Auto-Fix on Push",
-      "run_number": 39,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24913140298"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-04-24T21:40:29Z",
-      "event": "push",
-      "head_branch": "main",
-      "name": "[Core] Builds Validation Gate • validate all workflows",
-      "run_number": 210,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24913140297"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-04-24T21:40:29Z",
-      "event": "push",
-      "head_branch": "main",
-      "name": "Feature Validation Sweep",
-      "run_number": 44,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24913140295"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-04-24T21:40:29Z",
-      "event": "pull_request_target",
-      "head_branch": "codex/fix-auth-scope-response-contract",
-      "name": "[Core] Post-Merge Monitor • PR #585 • codex/fix-auth-scope-response-contract",
-      "run_number": 292,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24913140270"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-04-24T21:40:29Z",
-      "event": "pull_request",
-      "head_branch": "codex/fix-auth-scope-response-contract",
-      "name": "[Infra] Cleanup: Stale Branches • pull_request • ws=n/a • ref=main",
-      "run_number": 461,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24913140268"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-04-24T21:37:32Z",
-      "event": "schedule",
-      "head_branch": "main",
-      "name": "[Core] Lock GC • schedule • ws=n/a • ref=main",
-      "run_number": 311,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24913040303"
-    },
-    {
-      "conclusion": "skipped",
-      "created": "2026-04-24T21:37:06Z",
-      "event": "issue_comment",
-      "head_branch": "main",
-      "name": "Claude responding to @claude mention",
-      "run_number": 425,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24913026398"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-04-24T21:36:55Z",
-      "event": "pull_request_target",
-      "head_branch": "codex/fix-auth-scope-response-contract",
-      "name": "[Core] Smart PR Manager • sweep open PRs",
-      "run_number": 500,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24913019456"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-04-24T21:36:55Z",
-      "event": "pull_request",
-      "head_branch": "codex/fix-auth-scope-response-contract",
-      "name": "[Agent] Quality Gate",
-      "run_number": 54,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24913019445"
     }
   ],
   "openPRs": [],
@@ -487,9 +487,9 @@
     "state/workspaces/ws-default/audit/source-change-2026-04-02T14-54-01Z.json"
   ],
   "lessonsLearned": {
-    "total": 52,
+    "total": 53,
     "copilot": 39,
-    "codex": 13,
+    "codex": 14,
     "copilotLessons": [
       {
         "lesson": "NUNCA usar validateTrustedUrl dentro de fetch/postJson — quebra testes mock",
@@ -705,6 +705,11 @@
       },
       {
         "lesson": "When the deploy repo is already on the expected image tag, mark CAP as aligned and update release-state consistency after source success instead of demanding another commit to values.yaml.",
+        "fix": null,
+        "source": null
+      },
+      {
+        "lesson": "For source/deploy work, the definition of done is post-deploy evidence, not code change delivery: exact corporate SHA green, image published, CAP/deploy aligned, release-state and audit updated, monitor success, and learnings recorded.",
         "fix": null,
         "source": null
       }
@@ -1104,7 +1109,7 @@
       "drift": true,
       "driftDetail": "autopilot=2.3.6 real=2.6.2"
     },
-    "lastChecked": "2026-04-24T21:58:01Z"
+    "lastChecked": "2026-04-24T22:23:30Z"
   },
   "corporateActivity": {
     "description": "Real-time activity from corporate repos — branches, PRs, external commits by other devs",
