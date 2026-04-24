@@ -1,5 +1,5 @@
 {
-  "lastSync": "2026-04-24T20:54:41Z",
+  "lastSync": "2026-04-24T20:59:38Z",
   "syncSource": "autopilot/spark-sync-state.yml",
   "controller": {
     "version": "3.9.5",
@@ -121,8 +121,8 @@
   },
   "sessionLock": {
     "agentId": "none",
-    "expiresAt": "2026-04-24T20:31:46Z",
-    "acquiredAt": "2026-04-24T20:31:46Z",
+    "expiresAt": "2026-04-24T20:56:28Z",
+    "acquiredAt": "2026-04-24T20:56:28Z",
     "operation": "none"
   },
   "health": {
@@ -264,72 +264,82 @@
   "recentWorkflows": [
     {
       "conclusion": null,
+      "created": "2026-04-24T20:59:19Z",
+      "event": "schedule",
+      "head_branch": "main",
+      "name": "[Infra] Spark Dashboard Sync • sync state to Spark dashboard",
+      "run_number": 348,
+      "status": "in_progress",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24911602476"
+    },
+    {
+      "conclusion": "success",
       "created": "2026-04-24T20:54:28Z",
       "event": "push",
       "head_branch": "main",
       "name": "Lint Workflows",
       "run_number": 26,
-      "status": "in_progress",
+      "status": "completed",
       "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24911411574"
     },
     {
-      "conclusion": null,
+      "conclusion": "success",
       "created": "2026-04-24T20:54:28Z",
       "event": "push",
       "head_branch": "main",
       "name": "[Infra] Spark Dashboard Sync • sync state to Spark dashboard",
       "run_number": 347,
-      "status": "in_progress",
+      "status": "completed",
       "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24911411520"
     },
     {
-      "conclusion": null,
+      "conclusion": "success",
       "created": "2026-04-24T20:54:28Z",
       "event": "push",
       "head_branch": "main",
       "name": "Auto-Fix on Push",
       "run_number": 37,
-      "status": "in_progress",
+      "status": "completed",
       "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24911411497"
     },
     {
-      "conclusion": null,
+      "conclusion": "success",
       "created": "2026-04-24T20:54:27Z",
       "event": "push",
       "head_branch": "main",
       "name": "Feature Validation Sweep",
       "run_number": 42,
-      "status": "in_progress",
+      "status": "completed",
       "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24911411397"
     },
     {
-      "conclusion": null,
+      "conclusion": "failure",
       "created": "2026-04-24T20:54:27Z",
       "event": "push",
       "head_branch": "main",
       "name": "[Corp] Deploy: Apply Source Change • push • ws=n/a • ref=main",
       "run_number": 114,
-      "status": "in_progress",
+      "status": "completed",
       "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24911411395"
     },
     {
-      "conclusion": null,
+      "conclusion": "success",
       "created": "2026-04-24T20:54:27Z",
       "event": "push",
       "head_branch": "main",
       "name": "[Core] Deploy Auto-Learn • learn from auto",
       "run_number": 4,
-      "status": "in_progress",
+      "status": "completed",
       "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24911411388"
     },
     {
-      "conclusion": null,
+      "conclusion": "success",
       "created": "2026-04-24T20:54:27Z",
       "event": "push",
       "head_branch": "main",
       "name": "[Core] Builds Validation Gate • validate all workflows",
       "run_number": 206,
-      "status": "in_progress",
+      "status": "completed",
       "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24911411379"
     },
     {
@@ -343,23 +353,23 @@
       "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24911411373"
     },
     {
-      "conclusion": null,
+      "conclusion": "success",
       "created": "2026-04-24T20:54:27Z",
       "event": "pull_request",
       "head_branch": "codex/harden-autopilot-apply-validation",
       "name": "[Infra] Cleanup: Stale Branches • pull_request • ws=n/a • ref=main",
       "run_number": 459,
-      "status": "in_progress",
+      "status": "completed",
       "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24911410911"
     },
     {
-      "conclusion": null,
+      "conclusion": "success",
       "created": "2026-04-24T20:54:27Z",
       "event": "pull_request_target",
       "head_branch": "codex/harden-autopilot-apply-validation",
       "name": "[Core] Post-Merge Monitor • PR #581 • codex/harden-autopilot-apply-validation",
       "run_number": 290,
-      "status": "queued",
+      "status": "completed",
       "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24911410891"
     },
     {
@@ -451,20 +461,11 @@
       "run_number": 497,
       "status": "completed",
       "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24911267994"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-04-24T20:50:51Z",
-      "event": "pull_request_target",
-      "head_branch": "codex/harden-autopilot-apply-validation",
-      "name": "[Core] Autonomous Direct Merge • PR #581 • codex/harden-autopilot-apply-validation → main",
-      "run_number": 360,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24911267984"
     }
   ],
   "openPRs": [],
   "deployHistory": [
+    "state/workspaces/ws-default/audit/source-change-2026-04-24T20-56-29Z.json",
     "state/workspaces/ws-default/audit/source-change-2026-04-24T20-31-47Z.json",
     "state/workspaces/ws-default/audit/source-change-2026-04-23T17-07-45Z.json",
     "state/workspaces/ws-default/audit/source-change-2026-04-23T16-48-52Z.json",
@@ -483,8 +484,7 @@
     "state/workspaces/ws-default/audit/source-change-2026-04-02T15-33-13Z.json",
     "state/workspaces/ws-default/audit/source-change-2026-04-02T14-54-01Z.json",
     "state/workspaces/ws-default/audit/source-change-2026-04-02T14-44-08Z.json",
-    "state/workspaces/ws-default/audit/source-change-2026-04-02T14-37-22Z.json",
-    "state/workspaces/ws-default/audit/source-change-2026-04-02T14-28-25Z.json"
+    "state/workspaces/ws-default/audit/source-change-2026-04-02T14-37-22Z.json"
   ],
   "lessonsLearned": {
     "total": 52,
@@ -1104,7 +1104,7 @@
       "drift": true,
       "driftDetail": "autopilot=2.3.6 real=2.6.2"
     },
-    "lastChecked": "2026-04-24T20:54:41Z"
+    "lastChecked": "2026-04-24T20:59:38Z"
   },
   "corporateActivity": {
     "description": "Real-time activity from corporate repos — branches, PRs, external commits by other devs",
