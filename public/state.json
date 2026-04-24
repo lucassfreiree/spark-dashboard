@@ -1,5 +1,5 @@
 {
-  "lastSync": "2026-04-24T11:37:25Z",
+  "lastSync": "2026-04-24T11:55:12Z",
   "syncSource": "autopilot/spark-sync-state.yml",
   "controller": {
     "version": "3.9.5",
@@ -191,10 +191,10 @@
     "capAlignmentEvidence": "repo=bbvinet/psc_releases_cap_sre-aut-controller path=releases/openshift/hml/deploy/values.yaml tag=3.9.5"
   },
   "pipelineStatus": {
-    "updatedAt": "2026-04-24T10:16:30Z",
+    "updatedAt": "2026-04-24T11:38:47Z",
     "workspaceId": "ws-default",
     "overallHealth": "ok",
-    "monitorRunId": "24884387043",
+    "monitorRunId": "24887545558",
     "triggerEvent": "schedule",
     "autoDispatched": "",
     "components": {
@@ -212,7 +212,7 @@
         "stage": "idle",
         "health": "ok",
         "actionTaken": "none",
-        "deployAge": "23891min"
+        "deployAge": "23973min"
       },
       "controller": {
         "version": "3.9.5",
@@ -228,7 +228,7 @@
         "stage": "idle",
         "health": "ok",
         "actionTaken": "none",
-        "deployAge": "1028min"
+        "deployAge": "1110min"
       }
     }
   },
@@ -264,12 +264,42 @@
   "recentWorkflows": [
     {
       "conclusion": null,
+      "created": "2026-04-24T11:54:59Z",
+      "event": "schedule",
+      "head_branch": "main",
+      "name": "[Infra] Spark Dashboard Sync • sync state to Spark dashboard",
+      "run_number": 336,
+      "status": "in_progress",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24888170121"
+    },
+    {
+      "conclusion": "success",
+      "created": "2026-04-24T11:39:50Z",
+      "event": "schedule",
+      "head_branch": "main",
+      "name": "[Core] Intelligent Orchestrator • brain — observe, decide, act, learn",
+      "run_number": 160,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24887588049"
+    },
+    {
+      "conclusion": "success",
+      "created": "2026-04-24T11:38:42Z",
+      "event": "schedule",
+      "head_branch": "main",
+      "name": "[Core] Deploy Pipeline Monitor • schedule • scheduled",
+      "run_number": 148,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24887545558"
+    },
+    {
+      "conclusion": "success",
       "created": "2026-04-24T11:37:11Z",
       "event": "schedule",
       "head_branch": "main",
       "name": "[Infra] Spark Dashboard Sync • sync state to Spark dashboard",
       "run_number": 335,
-      "status": "in_progress",
+      "status": "completed",
       "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24887489967"
     },
     {
@@ -431,36 +461,6 @@
       "run_number": 146,
       "status": "completed",
       "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24880132830"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-04-24T08:20:25Z",
-      "event": "schedule",
-      "head_branch": "main",
-      "name": "[Core] Lock GC • schedule • ws=n/a • ref=main",
-      "run_number": 299,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24879716930"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-04-24T08:12:18Z",
-      "event": "schedule",
-      "head_branch": "main",
-      "name": "[Core] Token Auto-Optimize",
-      "run_number": 9,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24879394065"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-04-24T08:08:39Z",
-      "event": "schedule",
-      "head_branch": "main",
-      "name": "[Core] Workflow Health Monitor • monitor all workflows",
-      "run_number": 124,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24879252619"
     }
   ],
   "openPRs": [],
@@ -1104,7 +1104,7 @@
       "drift": true,
       "driftDetail": "autopilot=2.3.6 real=2.6.2"
     },
-    "lastChecked": "2026-04-24T11:37:25Z"
+    "lastChecked": "2026-04-24T11:55:12Z"
   },
   "corporateActivity": {
     "description": "Real-time activity from corporate repos — branches, PRs, external commits by other devs",
