@@ -1,5 +1,5 @@
 {
-  "lastSync": "2026-04-26T07:55:48Z",
+  "lastSync": "2026-04-26T09:09:20Z",
   "syncSource": "autopilot/spark-sync-state.yml",
   "controller": {
     "version": "3.9.7",
@@ -128,7 +128,7 @@
   "health": {
     "schemaVersion": 2,
     "workspaceId": "ws-default",
-    "checkedAt": "2026-04-26T07:18:11Z",
+    "checkedAt": "2026-04-26T08:20:52Z",
     "overall": "degraded",
     "checks": {
       "workspace": {
@@ -138,12 +138,12 @@
       "controllerRelease": {
         "status": "pass",
         "message": "Tag: 3.9.6",
-        "detail": "Age: 33h"
+        "detail": "Age: 34h"
       },
       "agentRelease": {
         "status": "pass",
         "message": "Tag: 2.3.6",
-        "detail": "Age: 443h"
+        "detail": "Age: 444h"
       },
       "stuckRuns": {
         "status": "pass",
@@ -158,7 +158,7 @@
         "message": "? commits ahead"
       }
     },
-    "summary": "degraded at 2026-04-26T07:18:11Z"
+    "summary": "degraded at 2026-04-26T08:20:52Z"
   },
   "ciMonitor": {
     "workspaceId": "ws-default",
@@ -191,10 +191,10 @@
     "capAlignmentEvidence": "repo=bbvinet/psc_releases_cap_sre-aut-controller path=releases/openshift/hml/deploy/values.yaml tag=3.9.6"
   },
   "pipelineStatus": {
-    "updatedAt": "2026-04-26T06:24:16Z",
+    "updatedAt": "2026-04-26T08:03:51Z",
     "workspaceId": "ws-default",
     "overallHealth": "ok",
-    "monitorRunId": "24950072601",
+    "monitorRunId": "24951803639",
     "triggerEvent": "schedule",
     "autoDispatched": "",
     "components": {
@@ -212,7 +212,7 @@
         "stage": "idle",
         "health": "ok",
         "actionTaken": "none",
-        "deployAge": "26539min"
+        "deployAge": "26638min"
       },
       "controller": {
         "version": "3.9.6",
@@ -228,7 +228,7 @@
         "stage": "idle",
         "health": "ok",
         "actionTaken": "none",
-        "deployAge": "1948min"
+        "deployAge": "2047min"
       }
     }
   },
@@ -264,12 +264,102 @@
   "recentWorkflows": [
     {
       "conclusion": null,
+      "created": "2026-04-26T09:09:03Z",
+      "event": "schedule",
+      "head_branch": "main",
+      "name": "[Infra] Spark Dashboard Sync • sync state to Spark dashboard",
+      "run_number": 386,
+      "status": "in_progress",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24952977545"
+    },
+    {
+      "conclusion": "success",
+      "created": "2026-04-26T08:59:43Z",
+      "event": "schedule",
+      "head_branch": "main",
+      "name": "[Core] Intelligent Orchestrator • brain — observe, decide, act, learn",
+      "run_number": 193,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24952802233"
+    },
+    {
+      "conclusion": "success",
+      "created": "2026-04-26T08:59:08Z",
+      "event": "schedule",
+      "head_branch": "main",
+      "name": "[Core] Workflow Health Monitor • monitor all workflows",
+      "run_number": 151,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24952791893"
+    },
+    {
+      "conclusion": "success",
+      "created": "2026-04-26T08:57:48Z",
+      "event": "workflow_dispatch",
+      "head_branch": "main",
+      "name": "[Core] Workflow Auto-Repair • auto-fix failing workflows",
+      "run_number": 71,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24952768826"
+    },
+    {
+      "conclusion": "success",
+      "created": "2026-04-26T08:57:39Z",
+      "event": "schedule",
+      "head_branch": "main",
+      "name": "[Core] Workflow Sentinel • meta-monitor — watches the watchers",
+      "run_number": 58,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24952765956"
+    },
+    {
+      "conclusion": "success",
+      "created": "2026-04-26T08:20:43Z",
+      "event": "schedule",
+      "head_branch": "main",
+      "name": "[Core] Health Check • schedule • ws=n/a • ref=main",
+      "run_number": 283,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24952101705"
+    },
+    {
+      "conclusion": "success",
+      "created": "2026-04-26T08:03:45Z",
+      "event": "schedule",
+      "head_branch": "main",
+      "name": "[Core] Deploy Pipeline Monitor • schedule • scheduled",
+      "run_number": 181,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24951803639"
+    },
+    {
+      "conclusion": "success",
+      "created": "2026-04-26T08:00:08Z",
+      "event": "schedule",
+      "head_branch": "main",
+      "name": "[Core] Lock GC • schedule • ws=n/a • ref=main",
+      "run_number": 343,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24951736732"
+    },
+    {
+      "conclusion": "success",
+      "created": "2026-04-26T07:56:00Z",
+      "event": "schedule",
+      "head_branch": "main",
+      "name": "[Core] Smart PR Manager • sweep open PRs",
+      "run_number": 531,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24951667307"
+    },
+    {
+      "conclusion": "success",
       "created": "2026-04-26T07:55:32Z",
       "event": "schedule",
       "head_branch": "main",
       "name": "[Infra] Spark Dashboard Sync • sync state to Spark dashboard",
       "run_number": 385,
-      "status": "in_progress",
+      "status": "completed",
       "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24951659263"
     },
     {
@@ -371,96 +461,6 @@
       "run_number": 94,
       "status": "completed",
       "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24950091550"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-04-26T06:24:09Z",
-      "event": "schedule",
-      "head_branch": "main",
-      "name": "[Core] Deploy Pipeline Monitor • schedule • scheduled",
-      "run_number": 180,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24950072601"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-04-26T06:17:14Z",
-      "event": "schedule",
-      "head_branch": "main",
-      "name": "[Core] Health Check • schedule • ws=n/a • ref=main",
-      "run_number": 281,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24949959774"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-04-26T06:12:54Z",
-      "event": "schedule",
-      "head_branch": "main",
-      "name": "[Core] Smart PR Manager • sweep open PRs",
-      "run_number": 530,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24949887028"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-04-26T06:11:13Z",
-      "event": "schedule",
-      "head_branch": "main",
-      "name": "[Infra] Spark Dashboard Sync • sync state to Spark dashboard",
-      "run_number": 383,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24949858181"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-04-26T06:05:59Z",
-      "event": "schedule",
-      "head_branch": "main",
-      "name": "[Core] Workflow Health Monitor • monitor all workflows",
-      "run_number": 150,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24949770680"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-04-26T06:05:02Z",
-      "event": "schedule",
-      "head_branch": "main",
-      "name": "[Core] Workflow Sentinel • meta-monitor — watches the watchers",
-      "run_number": 57,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24949754298"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-04-26T05:39:45Z",
-      "event": "schedule",
-      "head_branch": "main",
-      "name": "[Infra] Cleanup: Stale Branches • schedule • ws=n/a • ref=main",
-      "run_number": 466,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24949344017"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-04-26T05:38:30Z",
-      "event": "schedule",
-      "head_branch": "main",
-      "name": "[Core] Intelligent Orchestrator • brain — observe, decide, act, learn",
-      "run_number": 191,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24949325121"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-04-26T04:39:02Z",
-      "event": "schedule",
-      "head_branch": "main",
-      "name": "[Core] Lock GC • schedule • ws=n/a • ref=main",
-      "run_number": 341,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24948391305"
     }
   ],
   "openPRs": [],
@@ -1124,7 +1124,7 @@
       "drift": true,
       "driftDetail": "autopilot=2.3.6 real=2.6.2"
     },
-    "lastChecked": "2026-04-26T07:55:48Z"
+    "lastChecked": "2026-04-26T09:09:20Z"
   },
   "corporateActivity": {
     "description": "Real-time activity from corporate repos — branches, PRs, external commits by other devs",
