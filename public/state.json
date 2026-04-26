@@ -1,5 +1,5 @@
 {
-  "lastSync": "2026-04-26T17:52:12Z",
+  "lastSync": "2026-04-26T18:39:23Z",
   "syncSource": "autopilot/spark-sync-state.yml",
   "controller": {
     "version": "3.9.7",
@@ -128,7 +128,7 @@
   "health": {
     "schemaVersion": 2,
     "workspaceId": "ws-default",
-    "checkedAt": "2026-04-26T16:57:08Z",
+    "checkedAt": "2026-04-26T17:52:04Z",
     "overall": "degraded",
     "checks": {
       "workspace": {
@@ -143,7 +143,7 @@
       "agentRelease": {
         "status": "pass",
         "message": "Tag: 2.3.6",
-        "detail": "Age: 452h"
+        "detail": "Age: 453h"
       },
       "stuckRuns": {
         "status": "pass",
@@ -158,7 +158,7 @@
         "message": "? commits ahead"
       }
     },
-    "summary": "degraded at 2026-04-26T16:57:08Z"
+    "summary": "degraded at 2026-04-26T17:52:04Z"
   },
   "ciMonitor": {
     "workspaceId": "ws-default",
@@ -191,10 +191,10 @@
     "capAlignmentEvidence": "repo=bbvinet/psc_releases_cap_sre-aut-controller path=releases/openshift/hml/deploy/values.yaml tag=3.9.6"
   },
   "pipelineStatus": {
-    "updatedAt": "2026-04-26T17:10:42Z",
+    "updatedAt": "2026-04-26T18:06:59Z",
     "workspaceId": "ws-default",
     "overallHealth": "ok",
-    "monitorRunId": "24962315393",
+    "monitorRunId": "24963456681",
     "triggerEvent": "schedule",
     "autoDispatched": "",
     "components": {
@@ -212,7 +212,7 @@
         "stage": "idle",
         "health": "ok",
         "actionTaken": "none",
-        "deployAge": "27185min"
+        "deployAge": "27241min"
       },
       "controller": {
         "version": "3.9.6",
@@ -228,7 +228,7 @@
         "stage": "idle",
         "health": "ok",
         "actionTaken": "none",
-        "deployAge": "2594min"
+        "deployAge": "2650min"
       }
     }
   },
@@ -264,22 +264,92 @@
   "recentWorkflows": [
     {
       "conclusion": null,
+      "created": "2026-04-26T18:39:08Z",
+      "event": "workflow_dispatch",
+      "head_branch": "main",
+      "name": "[Core] Health Check • workflow_dispatch • ws=n/a • ref=main",
+      "run_number": 293,
+      "status": "in_progress",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24964103138"
+    },
+    {
+      "conclusion": null,
+      "created": "2026-04-26T18:39:07Z",
+      "event": "workflow_dispatch",
+      "head_branch": "main",
+      "name": "[Infra] Spark Dashboard Sync • sync state to Spark dashboard",
+      "run_number": 397,
+      "status": "in_progress",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24964102798"
+    },
+    {
+      "conclusion": "success",
+      "created": "2026-04-26T18:38:58Z",
+      "event": "schedule",
+      "head_branch": "main",
+      "name": "[Core] Emergency Watchdog • auto-detect + self-heal",
+      "run_number": 118,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24964100155"
+    },
+    {
+      "conclusion": "success",
+      "created": "2026-04-26T18:38:50Z",
+      "event": "schedule",
+      "head_branch": "main",
+      "name": "[Core] Lock GC • schedule • ws=n/a • ref=main",
+      "run_number": 355,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24964098091"
+    },
+    {
+      "conclusion": "success",
+      "created": "2026-04-26T18:06:52Z",
+      "event": "schedule",
+      "head_branch": "main",
+      "name": "[Core] Deploy Pipeline Monitor • schedule • scheduled",
+      "run_number": 190,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24963456681"
+    },
+    {
+      "conclusion": "success",
+      "created": "2026-04-26T17:56:07Z",
+      "event": "schedule",
+      "head_branch": "main",
+      "name": "[Core] Lock GC • schedule • ws=n/a • ref=main",
+      "run_number": 354,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24963236031"
+    },
+    {
+      "conclusion": "success",
+      "created": "2026-04-26T17:52:08Z",
+      "event": "schedule",
+      "head_branch": "main",
+      "name": "[Core] Smart PR Manager • sweep open PRs",
+      "run_number": 541,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24963157091"
+    },
+    {
+      "conclusion": "success",
       "created": "2026-04-26T17:51:57Z",
       "event": "schedule",
       "head_branch": "main",
       "name": "[Infra] Spark Dashboard Sync • sync state to Spark dashboard",
       "run_number": 396,
-      "status": "in_progress",
+      "status": "completed",
       "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24963153485"
     },
     {
-      "conclusion": null,
+      "conclusion": "success",
       "created": "2026-04-26T17:51:57Z",
       "event": "schedule",
       "head_branch": "main",
       "name": "[Core] Health Check • schedule • ws=n/a • ref=main",
       "run_number": 292,
-      "status": "in_progress",
+      "status": "completed",
       "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24963153479"
     },
     {
@@ -391,76 +461,6 @@
       "run_number": 188,
       "status": "completed",
       "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24961037517"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-04-26T16:02:43Z",
-      "event": "schedule",
-      "head_branch": "main",
-      "name": "[Core] Lock GC • schedule • ws=n/a • ref=main",
-      "run_number": 352,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24960935545"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-04-26T15:59:31Z",
-      "event": "schedule",
-      "head_branch": "main",
-      "name": "[Core] Smart PR Manager • sweep open PRs",
-      "run_number": 539,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24960867573"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-04-26T15:59:16Z",
-      "event": "schedule",
-      "head_branch": "main",
-      "name": "[Infra] Spark Dashboard Sync • sync state to Spark dashboard",
-      "run_number": 394,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24960862671"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-04-26T15:52:51Z",
-      "event": "schedule",
-      "head_branch": "main",
-      "name": "[Core] Health Check • schedule • ws=n/a • ref=main",
-      "run_number": 290,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24960728958"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-04-26T15:40:27Z",
-      "event": "schedule",
-      "head_branch": "main",
-      "name": "[Core] Intelligent Orchestrator • brain — observe, decide, act, learn",
-      "run_number": 198,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24960466441"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-04-26T15:26:47Z",
-      "event": "schedule",
-      "head_branch": "main",
-      "name": "[Core] Lock GC • schedule • ws=n/a • ref=main",
-      "run_number": 351,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24960182088"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-04-26T15:11:10Z",
-      "event": "schedule",
-      "head_branch": "main",
-      "name": "[Core] Smart PR Manager • sweep open PRs",
-      "run_number": 538,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24959862055"
     }
   ],
   "openPRs": [],
@@ -1124,7 +1124,7 @@
       "drift": true,
       "driftDetail": "autopilot=2.3.6 real=2.6.2"
     },
-    "lastChecked": "2026-04-26T17:52:12Z"
+    "lastChecked": "2026-04-26T18:39:23Z"
   },
   "corporateActivity": {
     "description": "Real-time activity from corporate repos — branches, PRs, external commits by other devs",
