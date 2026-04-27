@@ -1,8 +1,8 @@
 {
-  "lastSync": "2026-04-27T13:20:31Z",
+  "lastSync": "2026-04-27T14:34:02Z",
   "syncSource": "autopilot/spark-sync-state.yml",
   "controller": {
-    "version": "3.9.8",
+    "version": "3.9.10",
     "status": "promoted",
     "ciResult": "success",
     "promoted": true,
@@ -128,7 +128,7 @@
   "health": {
     "schemaVersion": 2,
     "workspaceId": "ws-default",
-    "checkedAt": "2026-04-27T11:54:51Z",
+    "checkedAt": "2026-04-27T14:22:22Z",
     "overall": "degraded",
     "checks": {
       "workspace": {
@@ -138,12 +138,12 @@
       "controllerRelease": {
         "status": "pass",
         "message": "Tag: 3.9.6",
-        "detail": "Age: 61h"
+        "detail": "Age: 64h"
       },
       "agentRelease": {
         "status": "pass",
         "message": "Tag: 2.3.6",
-        "detail": "Age: 471h"
+        "detail": "Age: 474h"
       },
       "stuckRuns": {
         "status": "pass",
@@ -158,7 +158,7 @@
         "message": "? commits ahead"
       }
     },
-    "summary": "degraded at 2026-04-27T11:54:51Z"
+    "summary": "degraded at 2026-04-27T14:22:22Z"
   },
   "ciMonitor": {
     "workspaceId": "ws-default",
@@ -191,10 +191,10 @@
     "capAlignmentEvidence": "repo=bbvinet/psc_releases_cap_sre-aut-controller path=releases/openshift/hml/deploy/values.yaml tag=3.9.6"
   },
   "pipelineStatus": {
-    "updatedAt": "2026-04-27T12:17:57Z",
+    "updatedAt": "2026-04-27T14:32:29Z",
     "workspaceId": "ws-default",
     "overallHealth": "ok",
-    "monitorRunId": "24994529655",
+    "monitorRunId": "25001155563",
     "triggerEvent": "schedule",
     "autoDispatched": "",
     "components": {
@@ -212,7 +212,7 @@
         "stage": "idle",
         "health": "ok",
         "actionTaken": "none",
-        "deployAge": "28332min"
+        "deployAge": "28467min"
       },
       "controller": {
         "version": "3.9.6",
@@ -228,7 +228,7 @@
         "stage": "idle",
         "health": "ok",
         "actionTaken": "none",
-        "deployAge": "3741min"
+        "deployAge": "3876min"
       }
     }
   },
@@ -239,7 +239,7 @@
       "status": "active",
       "stack": "Node/TypeScript (NestJS, Jest, ESLint)",
       "token": "BBVINET_TOKEN",
-      "controllerVersion": "3.9.8",
+      "controllerVersion": "3.9.10",
       "agentVersion": "2.6.2",
       "pipelineStatus": "success",
       "repos": [
@@ -264,22 +264,102 @@
   "recentWorkflows": [
     {
       "conclusion": null,
+      "created": "2026-04-27T14:33:48Z",
+      "event": "schedule",
+      "head_branch": "main",
+      "name": "[Infra] Spark Dashboard Sync • sync state to Spark dashboard",
+      "run_number": 412,
+      "status": "in_progress",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/25001230275"
+    },
+    {
+      "conclusion": "success",
+      "created": "2026-04-27T14:32:22Z",
+      "event": "schedule",
+      "head_branch": "main",
+      "name": "[Core] Deploy Pipeline Monitor • schedule • scheduled",
+      "run_number": 202,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/25001155563"
+    },
+    {
+      "conclusion": "success",
+      "created": "2026-04-27T14:22:09Z",
+      "event": "schedule",
+      "head_branch": "main",
+      "name": "[Core] Health Check • schedule • ws=n/a • ref=main",
+      "run_number": 307,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/25000620757"
+    },
+    {
+      "conclusion": "success",
+      "created": "2026-04-27T14:09:32Z",
+      "event": "schedule",
+      "head_branch": "main",
+      "name": "Ops: Workflow Observability Report • schedule • ws=n/a • ref=main",
+      "run_number": 31,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24999972808"
+    },
+    {
+      "conclusion": "success",
+      "created": "2026-04-27T13:59:43Z",
+      "event": "schedule",
+      "head_branch": "main",
+      "name": "[Core] Dashboard Auto-Improve • validate + improve dashboard",
+      "run_number": 12,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24999456430"
+    },
+    {
+      "conclusion": "success",
+      "created": "2026-04-27T13:46:20Z",
+      "event": "schedule",
+      "head_branch": "main",
+      "name": "[Core] Workflow Sentinel • meta-monitor — watches the watchers",
+      "run_number": 65,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24998763491"
+    },
+    {
+      "conclusion": "success",
+      "created": "2026-04-27T13:29:03Z",
+      "event": "schedule",
+      "head_branch": "main",
+      "name": "Ops: Check Active Alerts • schedule • ws=n/a • ref=main",
+      "run_number": 64,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24997893134"
+    },
+    {
+      "conclusion": "success",
+      "created": "2026-04-27T13:24:52Z",
+      "event": "schedule",
+      "head_branch": "main",
+      "name": "[Core] Backup: State Snapshot • schedule • ws=n/a • ref=main",
+      "run_number": 77,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24997688931"
+    },
+    {
+      "conclusion": "success",
       "created": "2026-04-27T13:20:12Z",
       "event": "workflow_dispatch",
       "head_branch": "main",
       "name": "[Core] Health Check • workflow_dispatch • ws=n/a • ref=main",
       "run_number": 306,
-      "status": "in_progress",
+      "status": "completed",
       "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24997460365"
     },
     {
-      "conclusion": null,
+      "conclusion": "success",
       "created": "2026-04-27T13:20:10Z",
       "event": "workflow_dispatch",
       "head_branch": "main",
       "name": "[Infra] Spark Dashboard Sync • sync state to Spark dashboard",
       "run_number": 411,
-      "status": "in_progress",
+      "status": "completed",
       "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24997458957"
     },
     {
@@ -381,86 +461,6 @@
       "run_number": 156,
       "status": "completed",
       "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24995022553"
-    },
-    {
-      "conclusion": "cancelled",
-      "created": "2026-04-27T12:28:50Z",
-      "event": "issues",
-      "head_branch": "main",
-      "name": "[Core] Auto-Dispatch Task • Issue #592",
-      "run_number": 155,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24995022531"
-    },
-    {
-      "conclusion": "cancelled",
-      "created": "2026-04-27T12:28:50Z",
-      "event": "issues",
-      "head_branch": "main",
-      "name": "[Core] Security Intake Dispatch • Issue #592",
-      "run_number": 82,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24995022524"
-    },
-    {
-      "conclusion": "skipped",
-      "created": "2026-04-27T12:28:50Z",
-      "event": "issues",
-      "head_branch": "main",
-      "name": "Claude responding to @claude mention",
-      "run_number": 442,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24995022480"
-    },
-    {
-      "conclusion": "skipped",
-      "created": "2026-04-27T12:28:50Z",
-      "event": "issues",
-      "head_branch": "main",
-      "name": "[Core] Security Intake Dispatch • Issue #592",
-      "run_number": 81,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24995022450"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-04-27T12:20:01Z",
-      "event": "schedule",
-      "head_branch": "main",
-      "name": "[Core] Intelligent Orchestrator • brain — observe, decide, act, learn",
-      "run_number": 211,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24994625323"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-04-27T12:19:18Z",
-      "event": "schedule",
-      "head_branch": "main",
-      "name": "[Core] Workflow Health Monitor • monitor all workflows",
-      "run_number": 163,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24994594759"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-04-27T12:19:07Z",
-      "event": "schedule",
-      "head_branch": "main",
-      "name": "[Infra] Spark Dashboard Sync • sync state to Spark dashboard",
-      "run_number": 410,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24994586509"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-04-27T12:17:51Z",
-      "event": "schedule",
-      "head_branch": "main",
-      "name": "[Core] Deploy Pipeline Monitor • schedule • scheduled",
-      "run_number": 201,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/24994529655"
     }
   ],
   "openPRs": [],
@@ -859,9 +859,21 @@
   "corporateReal": {
     "description": "REAL versions from corporate repos — source of truth. Other people may deploy independently.",
     "controller": {
-      "sourceVersion": "3.9.8",
-      "capTag": "3.9.8",
+      "sourceVersion": "3.9.10",
+      "capTag": "3.9.10",
       "recentCommits": [
+        {
+          "author": "Joao Lucas Lima Freire",
+          "date": "2026-04-27T13:59:22Z",
+          "message": "fix(security): apply explicit field sanitization at outbound callsites (#30)\n\nTw",
+          "sha": "ea113d6f"
+        },
+        {
+          "author": "Joao Lucas Lima Freire",
+          "date": "2026-04-27T13:28:09Z",
+          "message": "fix(security): cleanse outbound agent payloads and URLs to clear SAST findings (",
+          "sha": "3ce65c9b"
+        },
         {
           "author": "Joao Lucas Lima Freire",
           "date": "2026-04-27T12:52:03Z",
@@ -879,21 +891,71 @@
           "date": "2026-04-24T21:42:12Z",
           "message": "fix(controller): preserve api key scope error contract",
           "sha": "0807aee3"
-        },
-        {
-          "author": "github-actions",
-          "date": "2026-04-24T21:13:42Z",
-          "message": "fix(controller): apply lint-clean api key token flow",
-          "sha": "eec1f9d2"
-        },
-        {
-          "author": "github-actions",
-          "date": "2026-04-24T20:29:17Z",
-          "message": "fix(controller): restore scoped api key flow and agent JWT auth",
-          "sha": "8e2dc9a8"
         }
       ],
       "builds": [
+        {
+          "checks": [
+            {
+              "conclusion": "success",
+              "name": "CD (desenvolvimento) / autoDeploy",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "CI / Análise Motor Liberação",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "CI / sincronizacao",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "CI / checkmarx",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "CI / sonarQube",
+              "status": "completed"
+            }
+          ],
+          "sha": "ea113d6f",
+          "total": 8
+        },
+        {
+          "checks": [
+            {
+              "conclusion": "success",
+              "name": "CD (desenvolvimento) / autoDeploy",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "CI / Análise Motor Liberação",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "CI / sonarQube",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "CI / sincronizacao",
+              "status": "completed"
+            },
+            {
+              "conclusion": "success",
+              "name": "CI / xRay",
+              "status": "completed"
+            }
+          ],
+          "sha": "3ce65c9b",
+          "total": 8
+        },
         {
           "checks": [
             {
@@ -924,72 +986,10 @@
           ],
           "sha": "ca9a8970",
           "total": 8
-        },
-        {
-          "checks": [
-            {
-              "conclusion": "success",
-              "name": "CD (desenvolvimento) / autoDeploy",
-              "status": "completed"
-            },
-            {
-              "conclusion": "success",
-              "name": "CI / Análise Motor Liberação",
-              "status": "completed"
-            },
-            {
-              "conclusion": "success",
-              "name": "CI / sincronizacao",
-              "status": "completed"
-            },
-            {
-              "conclusion": "success",
-              "name": "CI / xRay",
-              "status": "completed"
-            },
-            {
-              "conclusion": "success",
-              "name": "CI / sonarQube",
-              "status": "completed"
-            }
-          ],
-          "sha": "294f52ee",
-          "total": 8
-        },
-        {
-          "checks": [
-            {
-              "conclusion": "success",
-              "name": "CD (desenvolvimento) / autoDeploy",
-              "status": "completed"
-            },
-            {
-              "conclusion": "success",
-              "name": "CI / Análise Motor Liberação",
-              "status": "completed"
-            },
-            {
-              "conclusion": "success",
-              "name": "CI / xRay",
-              "status": "completed"
-            },
-            {
-              "conclusion": "success",
-              "name": "CI / sincronizacao",
-              "status": "completed"
-            },
-            {
-              "conclusion": "success",
-              "name": "CI / checkmarx",
-              "status": "completed"
-            }
-          ],
-          "sha": "0807aee3",
-          "total": 8
         }
       ],
       "drift": true,
-      "driftDetail": "autopilot=3.9.6 real=3.9.8"
+      "driftDetail": "autopilot=3.9.6 real=3.9.10"
     },
     "agent": {
       "sourceVersion": "2.6.2",
@@ -1124,7 +1124,7 @@
       "drift": true,
       "driftDetail": "autopilot=2.3.6 real=2.6.2"
     },
-    "lastChecked": "2026-04-27T13:20:31Z"
+    "lastChecked": "2026-04-27T14:34:02Z"
   },
   "corporateActivity": {
     "description": "Real-time activity from corporate repos — branches, PRs, external commits by other devs",
@@ -1221,9 +1221,9 @@
           "sha": "a1562a5c"
         },
         {
-          "name": "fix/sast-cleansers-outbound-agent-calls",
+          "name": "fix/sast-deep-sanitize-no-callback",
           "protected": false,
-          "sha": "ce174679"
+          "sha": "b5cd91d8"
         },
         {
           "name": "hotfix-2.3.4",
@@ -1324,9 +1324,9 @@
           "sha": "a1562a5c"
         },
         {
-          "name": "fix/sast-cleansers-outbound-agent-calls",
+          "name": "fix/sast-deep-sanitize-no-callback",
           "protected": false,
-          "sha": "ce174679"
+          "sha": "b5cd91d8"
         },
         {
           "name": "hotfix-2.3.4",
@@ -1337,15 +1337,27 @@
       "openPRs": [
         {
           "author": "C1342799_BBrasil",
-          "branch": "fix/sast-cleansers-outbound-agent-calls",
-          "created": "2026-04-27T13:11:17Z",
+          "branch": "fix/sast-deep-sanitize-no-callback",
+          "created": "2026-04-27T14:23:55Z",
           "draft": false,
-          "number": 29,
-          "title": "fix(security): cleanse outbound agent payloads and URLs to clear SAST findings"
+          "number": 31,
+          "title": "fix(security): replace replacer-callback sanitizer with explicit deep recursion"
         }
       ],
       "openPRCount": 1,
       "externalCommits": [
+        {
+          "author": "Joao Lucas Lima Freire",
+          "date": "2026-04-27T13:59:22Z",
+          "message": "fix(security): apply explicit field sanitization at outbound callsites (#30)\n\nTw",
+          "sha": "ea113d6f"
+        },
+        {
+          "author": "Joao Lucas Lima Freire",
+          "date": "2026-04-27T13:28:09Z",
+          "message": "fix(security): cleanse outbound agent payloads and URLs to clear SAST findings (",
+          "sha": "3ce65c9b"
+        },
         {
           "author": "Joao Lucas Lima Freire",
           "date": "2026-04-27T12:52:03Z",
@@ -1359,7 +1371,7 @@
           "sha": "294f52ee"
         }
       ],
-      "externalCommitCount": 2,
+      "externalCommitCount": 4,
       "hasExternalActivity": true
     },
     "agent": {
