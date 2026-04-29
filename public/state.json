@@ -1,5 +1,5 @@
 {
-  "lastSync": "2026-04-29T14:36:56Z",
+  "lastSync": "2026-04-29T16:19:08Z",
   "syncSource": "autopilot/spark-sync-state.yml",
   "controller": {
     "version": "4.0.3",
@@ -264,12 +264,82 @@
   "recentWorkflows": [
     {
       "conclusion": null,
+      "created": "2026-04-29T16:18:44Z",
+      "event": "schedule",
+      "head_branch": "main",
+      "name": "[Infra] Spark Dashboard Sync • sync state to Spark dashboard",
+      "run_number": 446,
+      "status": "in_progress",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/25120554920"
+    },
+    {
+      "conclusion": "success",
+      "created": "2026-04-29T15:29:16Z",
+      "event": "schedule",
+      "head_branch": "main",
+      "name": "[Core] Smart PR Manager • sweep open PRs",
+      "run_number": 578,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/25118038630"
+    },
+    {
+      "conclusion": "success",
+      "created": "2026-04-29T15:00:43Z",
+      "event": "schedule",
+      "head_branch": "main",
+      "name": "[Core] Lock GC • schedule • ws=n/a • ref=main",
+      "run_number": 396,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/25116580511"
+    },
+    {
+      "conclusion": "success",
+      "created": "2026-04-29T14:39:43Z",
+      "event": "schedule",
+      "head_branch": "main",
+      "name": "[Corp] Drift Correction • schedule • ws=n/a • ref=main",
+      "run_number": 114,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/25115451927"
+    },
+    {
+      "conclusion": "failure",
+      "created": "2026-04-29T14:37:57Z",
+      "event": "workflow_dispatch",
+      "head_branch": "main",
+      "name": "[Agent] Autonomous Improve",
+      "run_number": 7,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/25115360701"
+    },
+    {
+      "conclusion": "success",
+      "created": "2026-04-29T14:37:26Z",
+      "event": "schedule",
+      "head_branch": "main",
+      "name": "[Core] Intelligent Orchestrator • brain — observe, decide, act, learn",
+      "run_number": 237,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/25115333358"
+    },
+    {
+      "conclusion": "success",
+      "created": "2026-04-29T14:37:03Z",
+      "event": "schedule",
+      "head_branch": "main",
+      "name": "[Core] Workflow Health Monitor • monitor all workflows",
+      "run_number": 188,
+      "status": "completed",
+      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/25115312682"
+    },
+    {
+      "conclusion": "success",
       "created": "2026-04-29T14:36:34Z",
       "event": "schedule",
       "head_branch": "main",
       "name": "[Infra] Spark Dashboard Sync • sync state to Spark dashboard",
       "run_number": 445,
-      "status": "in_progress",
+      "status": "completed",
       "url": "https://github.com/lucassfreiree/autopilot/actions/runs/25115287073"
     },
     {
@@ -391,76 +461,6 @@
       "run_number": 577,
       "status": "completed",
       "url": "https://github.com/lucassfreiree/autopilot/actions/runs/25110876850"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-04-29T12:52:43Z",
-      "event": "schedule",
-      "head_branch": "main",
-      "name": "[Core] Lock GC • schedule • ws=n/a • ref=main",
-      "run_number": 395,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/25109948390"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-04-29T12:17:38Z",
-      "event": "schedule",
-      "head_branch": "main",
-      "name": "[Core] Intelligent Orchestrator • brain — observe, decide, act, learn",
-      "run_number": 236,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/25108346557"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-04-29T12:16:31Z",
-      "event": "schedule",
-      "head_branch": "main",
-      "name": "[Core] Workflow Health Monitor • monitor all workflows",
-      "run_number": 187,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/25108297958"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-04-29T12:15:28Z",
-      "event": "schedule",
-      "head_branch": "main",
-      "name": "[Infra] Spark Dashboard Sync • sync state to Spark dashboard",
-      "run_number": 443,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/25108253498"
-    },
-    {
-      "conclusion": "skipped",
-      "created": "2026-04-29T12:12:16Z",
-      "event": "issue_comment",
-      "head_branch": "main",
-      "name": "Claude responding to @claude mention",
-      "run_number": 450,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/25108111733"
-    },
-    {
-      "conclusion": "success",
-      "created": "2026-04-29T12:12:14Z",
-      "event": "schedule",
-      "head_branch": "main",
-      "name": "[Core] Deploy Pipeline Monitor • schedule • scheduled",
-      "run_number": 226,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/25108110538"
-    },
-    {
-      "conclusion": "skipped",
-      "created": "2026-04-29T12:11:53Z",
-      "event": "issue_comment",
-      "head_branch": "main",
-      "name": "Claude responding to @claude mention",
-      "run_number": 449,
-      "status": "completed",
-      "url": "https://github.com/lucassfreiree/autopilot/actions/runs/25108095587"
     }
   ],
   "openPRs": [],
@@ -1124,7 +1124,7 @@
       "drift": true,
       "driftDetail": "autopilot=2.3.6 real=2.6.2"
     },
-    "lastChecked": "2026-04-29T14:36:56Z"
+    "lastChecked": "2026-04-29T16:19:08Z"
   },
   "corporateActivity": {
     "description": "Real-time activity from corporate repos — branches, PRs, external commits by other devs",
